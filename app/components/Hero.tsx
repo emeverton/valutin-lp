@@ -30,16 +30,18 @@ export default function Hero({ onCtaClick }: HeroProps) {
           {HERO_COPY.h1}
         </h1>
 
-        <button
-          onClick={onCtaClick}
-          className="inline-flex items-center px-8 py-3 rounded-full border border-white text-white font-poppins text-sm font-medium hover:bg-white hover:text-brand transition-all duration-300"
-        >
-          {HERO_COPY.cta}
-        </button>
-
-        <p className="mt-4 font-poppins text-xs text-white/60">
-          {HERO_COPY.urgency}
-        </p>
+        <div className="relative inline-flex">
+          <div
+            className="absolute inset-0 rounded-full bg-white/30 animate-ping"
+            style={{ animationDuration: "3s" }}
+          />
+          <button
+            onClick={onCtaClick}
+            className="relative inline-flex items-center bg-white text-brand font-poppins text-base font-semibold px-10 py-4 rounded-full hover:bg-white/95 hover:scale-105 transition-all duration-200 shadow-lg"
+          >
+            {HERO_COPY.cta}
+          </button>
+        </div>
       </div>
     </section>
   );

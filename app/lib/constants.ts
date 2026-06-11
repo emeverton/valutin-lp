@@ -1,6 +1,10 @@
 export const BRAND_NAME = "VALUTIN";
 export const GTM_ID = "GTM-5WWWR8FX";
 
+export const VIDEO_YOUTUBE_ID = "OIclPAGWXNo";
+export const VIDEO_LABEL = "NOSSA HISTÓRIA";
+export const VIDEO_TITLE = "Conheça a Valutin.";
+
 export const INSTAGRAM_URL = "https://www.instagram.com/valutin.infantil";
 export const WHATSAPP_URL = "https://wa.me/5511915702555";
 export const WHATSAPP_DISPLAY = "+55 11 91570-2555";

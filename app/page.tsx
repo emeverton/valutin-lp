@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Manifesto from "./components/Manifesto";
 import QualificationModal from "./components/QualificationModal";
+import Video from "./components/Video";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
       <main>
         <Hero onCtaClick={() => setModalOpen(true)} />
         <Manifesto />
+        <Video />
         <Consultoria onCtaClick={() => setModalOpen(true)} />
         <Diferenciais />
         <Galeria />

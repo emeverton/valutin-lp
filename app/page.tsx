@@ -26,7 +26,7 @@ export default function Home() {
         <Manifesto />
         <Video />
         <Consultoria onCtaClick={() => setModalOpen(true)} />
-        <Diferenciais />
+        <Diferenciais onOpenModal={() => setModalOpen(true)} />
         <Galeria />
         <Depoimentos />
         <div id="como-chegar">

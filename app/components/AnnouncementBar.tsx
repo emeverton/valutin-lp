@@ -4,9 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const MESSAGES = [
-  "Atendimento consultivo gratuito · Seg–Sáb 10h–19h",
-  "Vila Nova Conceição · São Paulo · Desde 1998",
-  "Peças exclusivas para bebês e crianças de 0 a 16 anos",
+  "Moda infantil que atravessa gerações · Desde 1998",
+  "Nova coleção disponível · Vila Nova Conceição",
+  "Atendimento consultivo gratuito · Agende sua visita",
 ];
 
 export default function AnnouncementBar() {

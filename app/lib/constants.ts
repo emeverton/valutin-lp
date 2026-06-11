@@ -99,7 +99,7 @@ export interface GalleryImage {
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80",
+    src: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&q=80",
     caption: "Bebê · Nova Coleção",
     alt: "Criança com roupa Valutin",
   },

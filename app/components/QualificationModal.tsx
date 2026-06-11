@@ -148,19 +148,9 @@ export default function QualificationModal({ isOpen, onClose }: ModalProps) {
             <button
               onClick={handleClose}
               aria-label="Fechar"
-              className="absolute top-4 right-4 text-gray-400 hover:text-ink transition-colors"
+              className="absolute top-6 right-8 font-poppins text-[11px] uppercase tracking-[0.2em] text-brand-light hover:text-brand transition-colors duration-200"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                className="w-5 h-5"
-              >
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
+              FECHAR
             </button>
 
             <div className="p-8">

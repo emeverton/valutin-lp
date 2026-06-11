@@ -6,7 +6,7 @@ export default function Manifesto() {
       <div className="max-w-2xl mx-auto text-center">
         <div className="w-16 h-px bg-brand mx-auto mb-12" />
 
-        <blockquote className="font-playfair text-[28px] italic text-ink leading-relaxed mb-10">
+        <blockquote className="font-playfair text-xl md:text-2xl lg:text-3xl italic text-ink leading-relaxed mb-10">
           &ldquo;{MANIFESTO_COPY.quote}&rdquo;
         </blockquote>
 

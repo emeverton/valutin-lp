@@ -21,7 +21,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
 
       <div className="absolute inset-0 bg-gradient-to-t from-brand/50 to-transparent" />
 
-      <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl">
+      <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
         <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/70 mb-6">
           {HERO_COPY.tag}
         </p>

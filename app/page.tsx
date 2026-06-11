@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AnnouncementBar from "./components/AnnouncementBar";
 import ComoChegar from "./components/ComoChegar";
 import Consultoria from "./components/Consultoria";
 import Depoimentos from "./components/Depoimentos";
@@ -18,7 +19,8 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <AnnouncementBar />
+      <Header onOpenModal={() => setModalOpen(true)} />
       <main>
         <Hero onCtaClick={() => setModalOpen(true)} />
         <Manifesto />
@@ -27,7 +29,9 @@ export default function Home() {
         <Diferenciais />
         <Galeria />
         <Depoimentos />
-        <ComoChegar />
+        <div id="como-chegar">
+          <ComoChegar />
+        </div>
       </main>
       <Footer />
       <QualificationModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

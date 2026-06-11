@@ -52,7 +52,7 @@ export interface ConsultoriaServiceItem {
 export const CONSULTORIA_COPY = {
   label: "Serviço exclusivo",
   title: "Uma consultora dedicada para encontrar o look perfeito.",
-  body: "Seja para um batizado, uma ocasião especial ou simplesmente para renovar o guarda-roupa do seu filho — nossa equipe está pronta para guiar você com atenção e cuidado, online ou na loja.",
+  body: "Seja para um batizado, uma ocasião especial ou simplesmente para renovar o guarda-roupa do seu filho, nossa equipe está pronta para guiar você com atenção e cuidado, online ou na loja.",
   cta: "Iniciar atendimento →",
 } as const;
 

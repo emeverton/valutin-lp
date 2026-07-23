@@ -28,8 +28,7 @@ export const COMO_CHEGAR_COPY = {
   online: "Ou prefere ser atendida online? Nossa equipe responde no WhatsApp.",
 } as const;
 
-export const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&q=80&fit=crop";
+export const HERO_IMAGE = "/hero.jpg";
 
 export const HERO_COPY = {
   tag: "Moda Infantil · Desde 1998 · Vila Nova Conceição",

@@ -12,10 +12,10 @@ export default function Hero({ onCtaClick }: HeroProps) {
     <section className="relative h-screen overflow-hidden">
       <Image
         src={HERO_IMAGE}
-        alt="Moda infantil Valutin — crianças com estilo"
+        alt="Menina com vestido Valutin — moda infantil"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-[center_22%]"
         unoptimized
       />
 

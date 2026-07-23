@@ -23,13 +23,14 @@ export default function Hero({ onCtaClick }: HeroProps) {
 
       <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
         <Image
-          src={LOGO_SRC}
+          src={`${LOGO_SRC}?v=3`}
           alt={BRAND_NAME}
-          width={480}
-          height={138}
+          width={640}
+          height={184}
           priority
           unoptimized
-          className="h-16 md:h-20 lg:h-24 w-auto max-w-[min(92vw,420px)] object-contain mb-5 md:mb-6 drop-shadow-[0_2px_14px_rgba(0,0,0,0.4)]"
+          sizes="(max-width: 768px) 340px, (max-width: 1024px) 480px, 520px"
+          className="!w-[min(90vw,340px)] md:!w-[480px] lg:!w-[540px] !h-auto object-contain mb-5 md:mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]"
         />
 
         <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 mb-5">

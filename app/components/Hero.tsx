@@ -36,11 +36,23 @@ export default function Hero({ onCtaClick }: HeroProps) {
         alt="Menina com vestido Valutin — moda infantil"
         fill
         priority
-        className="object-cover object-[58%_center]"
+        className="object-cover object-[58%_center] brightness-[0.92] contrast-[1.06] saturate-[0.9]"
         unoptimized
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-brand/40 via-transparent to-black/15" />
+      {/* Filtro elegante: véu da marca + leitura do texto + vinheta */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-brand/[0.22] mix-blend-multiply"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/15 to-brand/25"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_42%,rgba(26,26,26,0.38)_100%)]"
+      />
 
       <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
         <div className="mb-5 md:mb-6">

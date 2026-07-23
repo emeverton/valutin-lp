@@ -22,17 +22,19 @@ export default function Hero({ onCtaClick }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-brand/40 via-transparent to-black/15" />
 
       <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
-        <div className="inline-flex flex-col items-stretch w-max max-w-full mb-5 md:mb-6">
+        {/* Largura = subtítulo; logo w-full com altura proporcional (table-caption lock) */}
+        <div className="mb-5 md:mb-6 max-w-full inline-table">
           <Image
-            src={`${LOGO_SRC}?v=4`}
+            src={`${LOGO_SRC}?v=5`}
             alt={BRAND_NAME}
-            width={640}
-            height={184}
+            width={1024}
+            height={295}
             priority
             unoptimized
-            className="w-full h-auto object-contain drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]"
+            className="block w-full h-auto !max-w-none object-contain drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]"
+            style={{ width: "100%", height: "auto", display: "block" }}
           />
-          <p className="mt-3 font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 whitespace-nowrap">
+          <p className="table-caption caption-bottom mt-3 font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 whitespace-nowrap">
             {HERO_COPY.tag}
           </p>
         </div>

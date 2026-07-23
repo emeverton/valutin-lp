@@ -21,6 +21,14 @@ export const metadata: Metadata = {
   title: "Valutin · Moda Infantil Premium · Desde 1998",
   description:
     "Peças exclusivas para bebês e crianças de 0 a 16 anos. Vila Nova Conceição, São Paulo.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

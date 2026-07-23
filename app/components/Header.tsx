@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { BRAND_NAME, INSTAGRAM_URL } from "../lib/constants";
+import { BRAND_NAME, INSTAGRAM_URL, LOGO_SRC } from "../lib/constants";
 
 interface HeaderProps {
   onOpenModal: () => void;
@@ -16,6 +17,10 @@ export default function Header({ onOpenModal }: HeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function scrollToComoChegar() {
     document.getElementById("como-chegar")?.scrollIntoView({ behavior: "smooth" });
   }
@@ -28,8 +33,8 @@ export default function Header({ onOpenModal }: HeaderProps) {
           : "bg-white/90 backdrop-blur-md border-brand/5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 h-full grid grid-cols-3 items-center">
-        <div className="flex items-center gap-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 h-full grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="hidden md:flex items-center gap-8">
           <button className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand transition-colors duration-200">
             A MAISON VALUTIN
           </button>
@@ -40,14 +45,25 @@ export default function Header({ onOpenModal }: HeaderProps) {
             SERVIÇOS
           </button>
         </div>
+        <div className="md:hidden" />
 
-        <div className="flex justify-center">
-          <span className="font-playfair text-[20px] tracking-[0.25em] text-ink">
-            {BRAND_NAME}
-          </span>
-        </div>
+        <button
+          onClick={scrollToTop}
+          aria-label={BRAND_NAME}
+          className="flex justify-center items-center justify-self-center"
+        >
+          <Image
+            src={LOGO_SRC}
+            alt={BRAND_NAME}
+            width={180}
+            height={52}
+            priority
+            unoptimized
+            className="h-8 md:h-9 w-auto object-contain"
+          />
+        </button>
 
-        <div className="flex justify-end items-center gap-4">
+        <div className="flex justify-end items-center gap-3 md:gap-4">
           <a
             href={INSTAGRAM_URL}
             target="_blank"
@@ -75,7 +91,7 @@ export default function Header({ onOpenModal }: HeaderProps) {
 
           <button
             onClick={onOpenModal}
-            className="font-poppins text-[12px] border border-brand text-brand px-4 py-1.5 rounded-full hover:bg-brand hover:text-white transition-all duration-200"
+            className="font-poppins text-[12px] border border-brand text-brand px-3 md:px-4 py-1.5 rounded-full hover:bg-brand hover:text-white transition-all duration-200 whitespace-nowrap"
           >
             Falar com a equipe
           </button>

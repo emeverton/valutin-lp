@@ -1,4 +1,5 @@
 export const BRAND_NAME = "VALUTIN";
+export const LOGO_SRC = "/logo-valutin.png";
 export const GTM_ID = "GTM-5WWWR8FX";
 
 export const VIDEO_YOUTUBE_ID = "OIclPAGWXNo";

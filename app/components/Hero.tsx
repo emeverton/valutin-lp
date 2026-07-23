@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { HERO_COPY, HERO_IMAGE } from "../lib/constants";
+import { BRAND_NAME, HERO_COPY, HERO_IMAGE, LOGO_SRC } from "../lib/constants";
 
 interface HeroProps {
   onCtaClick: () => void;
@@ -19,10 +19,20 @@ export default function Hero({ onCtaClick }: HeroProps) {
         unoptimized
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-brand/35 via-transparent to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand/40 via-transparent to-black/15" />
 
       <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
-        <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/70 mb-6">
+        <Image
+          src={LOGO_SRC}
+          alt={BRAND_NAME}
+          width={320}
+          height={92}
+          priority
+          unoptimized
+          className="h-10 md:h-12 lg:h-14 w-auto object-contain mb-6 md:mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]"
+        />
+
+        <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 mb-5">
           {HERO_COPY.tag}
         </p>
 

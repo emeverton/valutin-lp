@@ -15,11 +15,11 @@ export default function Hero({ onCtaClick }: HeroProps) {
         alt="Menina com vestido Valutin — moda infantil"
         fill
         priority
-        className="object-cover object-[70%_center]"
+        className="object-cover object-[58%_center]"
         unoptimized
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-brand/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand/35 via-transparent to-black/10" />
 
       <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
         <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/70 mb-6">

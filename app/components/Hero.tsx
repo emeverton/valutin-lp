@@ -25,11 +25,11 @@ export default function Hero({ onCtaClick }: HeroProps) {
         <Image
           src={LOGO_SRC}
           alt={BRAND_NAME}
-          width={320}
-          height={92}
+          width={480}
+          height={138}
           priority
           unoptimized
-          className="h-10 md:h-12 lg:h-14 w-auto object-contain mb-6 md:mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]"
+          className="h-16 md:h-20 lg:h-24 w-auto max-w-[min(92vw,420px)] object-contain mb-5 md:mb-6 drop-shadow-[0_2px_14px_rgba(0,0,0,0.4)]"
         />
 
         <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 mb-5">

@@ -15,7 +15,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
         alt="Menina com vestido Valutin — moda infantil"
         fill
         priority
-        className="object-cover object-[center_22%]"
+        className="object-cover object-[70%_center]"
         unoptimized
       />
 

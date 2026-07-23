@@ -22,10 +22,10 @@ export default function Header({ onOpenModal }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-[40px] left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
+      className={`fixed top-[40px] left-0 right-0 z-50 h-[72px] transition-all duration-300 border-b ${
         scrolled
-          ? "bg-white/95 backdrop-blur-sm border-b border-brand/10"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-sm border-brand/10 shadow-sm"
+          : "bg-white/90 backdrop-blur-md border-brand/5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 h-full grid grid-cols-3 items-center">

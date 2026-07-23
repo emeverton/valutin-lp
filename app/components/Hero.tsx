@@ -22,20 +22,20 @@ export default function Hero({ onCtaClick }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-brand/40 via-transparent to-black/15" />
 
       <div className="absolute bottom-0 left-0 px-8 pb-20 md:px-16 md:pb-28 max-w-4xl pt-[112px]">
-        <Image
-          src={`${LOGO_SRC}?v=3`}
-          alt={BRAND_NAME}
-          width={640}
-          height={184}
-          priority
-          unoptimized
-          sizes="(max-width: 768px) 340px, (max-width: 1024px) 480px, 520px"
-          className="!w-[min(90vw,340px)] md:!w-[480px] lg:!w-[540px] !h-auto object-contain mb-5 md:mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]"
-        />
-
-        <p className="font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 mb-5">
-          {HERO_COPY.tag}
-        </p>
+        <div className="inline-flex flex-col items-stretch w-max max-w-full mb-5 md:mb-6">
+          <Image
+            src={`${LOGO_SRC}?v=4`}
+            alt={BRAND_NAME}
+            width={640}
+            height={184}
+            priority
+            unoptimized
+            className="w-full h-auto object-contain drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]"
+          />
+          <p className="mt-3 font-poppins text-[11px] uppercase tracking-[0.25em] text-white/75 whitespace-nowrap">
+            {HERO_COPY.tag}
+          </p>
+        </div>
 
         <h1 className="font-playfair text-3xl md:text-5xl lg:text-[64px] italic text-white max-w-2xl leading-tight mb-8">
           {HERO_COPY.h1}

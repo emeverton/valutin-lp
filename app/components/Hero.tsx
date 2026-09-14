@@ -6,9 +6,10 @@ import { BRAND_NAME, HERO_COPY, HERO_IMAGE, LOGO_SRC } from "../lib/constants";
 
 interface HeroProps {
   onCtaClick: () => void;
+  onCatalogClick: () => void;
 }
 
-export default function Hero({ onCtaClick }: HeroProps) {
+export default function Hero({ onCtaClick, onCatalogClick }: HeroProps) {
   const tagRef = useRef<HTMLParagraphElement>(null);
   const [logoWidth, setLogoWidth] = useState(0);
 
@@ -40,7 +41,6 @@ export default function Hero({ onCtaClick }: HeroProps) {
         unoptimized
       />
 
-      {/* Filtro elegante: véu da marca + leitura do texto + vinheta */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-brand/[0.22] mix-blend-multiply"
@@ -83,16 +83,25 @@ export default function Hero({ onCtaClick }: HeroProps) {
           {HERO_COPY.h1}
         </h1>
 
-        <div className="relative inline-flex">
-          <div
-            className="absolute inset-0 rounded-full bg-white/30 animate-ping"
-            style={{ animationDuration: "3s" }}
-          />
+        <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <div className="relative inline-flex">
+            <div
+              className="absolute inset-0 rounded-full bg-white/30 animate-ping"
+              style={{ animationDuration: "3s" }}
+            />
+            <button
+              onClick={onCtaClick}
+              className="relative inline-flex items-center bg-white text-brand font-poppins text-base font-semibold px-10 py-4 rounded-full hover:bg-white/95 hover:scale-105 transition-all duration-200 shadow-lg"
+            >
+              {HERO_COPY.cta}
+            </button>
+          </div>
+
           <button
-            onClick={onCtaClick}
-            className="relative inline-flex items-center bg-white text-brand font-poppins text-base font-semibold px-10 py-4 rounded-full hover:bg-white/95 hover:scale-105 transition-all duration-200 shadow-lg"
+            onClick={onCatalogClick}
+            className="inline-flex items-center rounded-full border border-white/65 bg-black/10 px-8 py-4 font-poppins text-[14px] font-medium text-white backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white hover:text-brand"
           >
-            {HERO_COPY.cta}
+            Ver catálogo
           </button>
         </div>
       </div>

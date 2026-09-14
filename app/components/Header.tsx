@@ -6,9 +6,10 @@ import { BRAND_NAME, INSTAGRAM_URL, LOGO_SRC } from "../lib/constants";
 
 interface HeaderProps {
   onOpenModal: () => void;
+  onCatalogClick: () => void;
 }
 
-export default function Header({ onOpenModal }: HeaderProps) {
+export default function Header({ onOpenModal, onCatalogClick }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,14 +36,17 @@ export default function Header({ onOpenModal }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 h-full grid grid-cols-[1fr_auto_1fr] items-center gap-4">
         <div className="hidden md:flex items-center gap-8">
-          <button className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand transition-colors duration-200">
-            A MAISON VALUTIN
+          <button
+            onClick={onCatalogClick}
+            className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand transition-colors duration-200"
+          >
+            CATÁLOGO
           </button>
           <button
             onClick={scrollToComoChegar}
             className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand transition-colors duration-200"
           >
-            SERVIÇOS
+            LOJA & SERVIÇOS
           </button>
         </div>
         <div className="md:hidden" />

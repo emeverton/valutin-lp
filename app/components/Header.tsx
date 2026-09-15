@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BRAND_NAME, INSTAGRAM_URL, LOGO_SRC } from "../lib/constants";
+import { buildAtendimentoHref } from "../lib/whatsapp/attr-merge";
 
 interface HeaderProps {
-  onOpenModal: () => void;
+  onOpenModal?: () => void;
+  fromCatalog?: boolean;
 }
 
-export default function Header({ onOpenModal }: HeaderProps) {
+export default function Header({ onOpenModal, fromCatalog = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,11 +20,13 @@ export default function Header({ onOpenModal }: HeaderProps) {
   }, []);
 
   function scrollToTop() {
+    if (fromCatalog) { window.location.href = "/"; return; }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function scrollToComoChegar() {
-    document.getElementById("como-chegar")?.scrollIntoView({ behavior: "smooth" });
+  function scrollToSection(id: string) {
+    if (fromCatalog) { window.location.href = `/#${id}`; return; }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
@@ -33,21 +37,28 @@ export default function Header({ onOpenModal }: HeaderProps) {
           : "bg-white/90 backdrop-blur-md border-brand/5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8 h-full grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-        <div className="hidden md:flex items-center gap-8">
-          <button className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand transition-colors duration-200">
+      <div className="max-w-7xl mx-auto px-3 md:px-8 h-full grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+        <div className="hidden lg:flex items-center gap-8">
+          <button
+            type="button"
+            onClick={() => scrollToSection("maison")}
+            className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand-strong transition-colors duration-200"
+          >
             A MAISON VALUTIN
           </button>
+          <a href="/catalogo" className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand-strong">Catálogo</a>
           <button
-            onClick={scrollToComoChegar}
-            className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand transition-colors duration-200"
+            type="button"
+            onClick={() => scrollToSection("consultoria")}
+            className="font-poppins text-[11px] uppercase tracking-[0.15em] text-ink/70 hover:text-brand-strong transition-colors duration-200"
           >
             SERVIÇOS
           </button>
         </div>
-        <div className="md:hidden" />
+        <a href="/catalogo" className="lg:hidden py-3 text-sm text-brand-strong">Catálogo</a>
 
         <button
+          type="button"
           onClick={scrollToTop}
           aria-label={BRAND_NAME}
           className="flex justify-center items-center justify-self-center"
@@ -58,18 +69,18 @@ export default function Header({ onOpenModal }: HeaderProps) {
             width={180}
             height={52}
             priority
-            unoptimized
-            className="h-8 md:h-9 w-auto object-contain"
+
+            className="h-6 md:h-9 w-auto object-contain"
           />
         </button>
 
-        <div className="flex justify-end items-center gap-3 md:gap-4">
+        <div className="flex justify-end items-center gap-3 md:gap-2">
           <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram Valutin"
-            className="text-ink/70 hover:text-brand transition-colors duration-200"
+            className="hidden lg:block text-ink/70 hover:text-brand-strong transition-colors duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,13 +98,14 @@ export default function Header({ onOpenModal }: HeaderProps) {
             </svg>
           </a>
 
-          <div className="w-px h-4 bg-ink/20" />
+          <div className="hidden lg:block w-px h-4 bg-ink/20" />
 
           <button
-            onClick={onOpenModal}
-            className="font-poppins text-[12px] border border-brand text-brand px-3 md:px-4 py-1.5 rounded-full hover:bg-brand hover:text-white transition-all duration-200 whitespace-nowrap"
+            type="button"
+            onClick={onOpenModal ?? (() => { window.location.href = buildAtendimentoHref({ extra: { src: "catalogo" } }); })}
+            className="font-poppins text-[12px] border border-brand text-brand-strong px-3 md:px-4 min-h-11 py-2 rounded-full hover:bg-brand-strong hover:text-white transition-all duration-200 whitespace-nowrap"
           >
-            Falar com a equipe
+            WhatsApp
           </button>
         </div>
       </div>

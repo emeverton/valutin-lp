@@ -1,296 +1,100 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
+import { RETAIL_ONLY_COPY, STEP1_OPTIONS, STEP2_OPTIONS, STEP3_OPTIONS } from "../lib/constants";
+import { isBlockedWholesale } from "../lib/whatsapp/classifier";
+import { trackFunnel, trackConfirmedLead } from "../lib/funnel";
+import { ATTR_KEYS } from "../lib/whatsapp/config";
+import { resolveBrowserIdsFromDocument } from "../lib/whatsapp/browser-ids";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import {
-  STEP1_OPTIONS,
-  STEP2_OPTIONS,
-  STEP3_OPTIONS,
-  WEBHOOK_URL,
-  WHATSAPP_URL,
-  buildWhatsAppMessage,
-} from "../lib/constants";
-import type { Step1Value, Step2Value, Step3Value, StepOption } from "../lib/constants";
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-interface FormData {
-  para_quem: Step1Value | "";
-  ocasiao: Step2Value | "";
-  investimento: Step3Value | "";
-  nome: string;
-  whatsapp: string;
-}
-
-const EMPTY_FORM: FormData = {
-  para_quem: "",
-  ocasiao: "",
-  investimento: "",
-  nome: "",
-  whatsapp: "",
-};
-
-function formatWhatsApp(value: string): string {
-  const digits = value.replace(/\D/g, "").slice(0, 11);
-  if (digits.length <= 2) return `(${digits}`;
-  if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-}
-
-function OptionCard<T extends string>({
-  option,
-  selected,
-  onClick,
-}: {
-  option: StepOption<T>;
-  selected: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 text-left font-poppins text-sm font-medium transition-all duration-200 ${
-        selected
-          ? "border-brand bg-brand/5 text-ink"
-          : "border-brand-light bg-white hover:border-brand text-ink"
-      }`}
-    >
-      <span className="text-2xl">{option.emoji}</span>
-      <span>{option.label}</span>
-    </button>
-  );
-}
-
-const SLIDE = {
-  initial: { opacity: 0, x: 20 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -20 },
-  transition: { duration: 0.22 },
-};
-
-export default function QualificationModal({ isOpen, onClose }: ModalProps) {
-  const [step, setStep] = useState(1);
-  const [form, setForm] = useState<FormData>(EMPTY_FORM);
-  const [loading, setLoading] = useState(false);
-
-  function reset() {
-    setStep(1);
-    setForm(EMPTY_FORM);
-    setLoading(false);
-  }
-
-  function handleClose() {
-    onClose();
-    setTimeout(reset, 400);
-  }
-
+export default function QualificationModal({isOpen,onClose,inline=false}:{isOpen:boolean;onClose:()=>void;inline?:boolean}) {
+  const [form,setForm]=useState({nome:"",whatsapp:"",para_quem:"",ocasiao:"",investimento:"",consumidorFinal:false});
+  const [loading,setLoading]=useState(false);
+  const [blockReason,setBlockReason]=useState("");
+  const intakeEventId=useRef("");
+  const submitting=useRef(false);
+  const formStarted=useRef(false);
+  const firstInput=useRef<HTMLInputElement>(null);
+  useEffect(()=>{if(!isOpen || inline)return;const prior=document.activeElement as HTMLElement;firstInput.current?.focus();const handler=(e:KeyboardEvent)=>{if(e.key==="Escape"&&!submitting.current)onClose();};window.addEventListener("keydown",handler);return()=>{window.removeEventListener("keydown",handler);prior?.focus();};},[isOpen,inline,onClose]);
   async function handleSubmit() {
+    if (submitting.current || !canSubmit) return;
+    const intent = [form.nome, form.para_quem, form.ocasiao, form.investimento].join(" ");
+    const hits = isBlockedWholesale(intent);
+    if (hits.length || !form.consumidorFinal) {
+      setBlockReason(RETAIL_ONLY_COPY.blocked);
+      return;
+    }
+    trackFunnel("vlt_form_submit");
     setLoading(true);
+    submitting.current = true;
+    if (!intakeEventId.current) intakeEventId.current = `vl_form_${crypto.randomUUID()}`;
     try {
-      await fetch(WEBHOOK_URL, {
+      const query = new URLSearchParams(window.location.search);
+      const attribution = Object.fromEntries(ATTR_KEYS.flatMap((key) => query.get(key) ? [[key, query.get(key)]] : []));
+      const browserIds = resolveBrowserIdsFromDocument(query.get("fbclid") || attribution.fbclid || undefined);
+      const res = await fetch("/api/atendimento/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...attribution,
+          ...browserIds,
+          event_id: intakeEventId.current,
           nome: form.nome,
           whatsapp: form.whatsapp,
           para_quem: form.para_quem,
           ocasiao: form.ocasiao,
           investimento: form.investimento,
-          origem: "LP",
+          origem: query.get("produto") ? "LP_CATALOGO" : "LP_FORM",
+          produto: query.get("produto") || undefined,
+          sku: query.get("sku") || undefined,
+          consumidor_final: true,
+          retail_confirmed: true,
         }),
       });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.ok !== true) throw new Error("intake_unavailable");
+      if (json.blocked || !json.retail_confirmed) {
+        setBlockReason(RETAIL_ONLY_COPY.blocked);
+        setLoading(false);
+        return;
+      }
+      if (json.event_id) await trackConfirmedLead(String(json.event_id));
     } catch {
-      // Best-effort — redirect to WhatsApp regardless
+      trackFunnel("vlt_form_error");
+      setBlockReason("Não foi possível confirmar seu atendimento. Tente novamente em instantes.");
+      setLoading(false);
+      return;
+    } finally {
+      submitting.current = false;
     }
-    const msg = encodeURIComponent(
-      buildWhatsAppMessage(form.nome, form.para_quem, form.ocasiao, form.investimento)
-    );
-    window.open(`${WHATSAPP_URL}?text=${msg}`, "_blank");
-    handleClose();
+    window.location.href = "/wa" + (window.location.search || "");
+
   }
 
   const canSubmit =
-    form.nome.trim().length >= 2 && form.whatsapp.replace(/\D/g, "").length >= 10;
+    form.nome.trim().length >= 2 &&
+    form.whatsapp.replace(/\D/g, "").length >= 10 &&
+    form.whatsapp.replace(/\D/g, "").length <= 15 &&
+    form.consumidorFinal &&
+    !isBlockedWholesale([form.nome, form.para_quem, form.ocasiao, form.investimento].join(" ")).length;
 
-  const progress = (step / 4) * 100;
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          key="overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 px-4"
-          onClick={(e) => e.target === e.currentTarget && handleClose()}
-        >
-          <motion.div
-            key="panel"
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.97 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden"
-          >
-            <div className="h-1 bg-gray-100">
-              <motion.div
-                className="h-full bg-brand"
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              />
-            </div>
-
-            <button
-              onClick={handleClose}
-              aria-label="Fechar"
-              className="absolute top-6 right-8 font-poppins text-[11px] uppercase tracking-[0.2em] text-brand-light hover:text-brand transition-colors duration-200"
-            >
-              FECHAR
-            </button>
-
-            <div className="p-8">
-              <p className="font-poppins text-xs text-gray-400 mb-3">Etapa {step} de 4</p>
-
-              <AnimatePresence mode="wait">
-                {step === 1 && (
-                  <motion.div key="s1" {...SLIDE}>
-                    <h2 className="font-playfair text-2xl text-ink mb-6">
-                      Para quem você está buscando?
-                    </h2>
-                    <div className="flex flex-col gap-3">
-                      {STEP1_OPTIONS.map((opt) => (
-                        <OptionCard
-                          key={opt.value}
-                          option={opt}
-                          selected={form.para_quem === opt.value}
-                          onClick={() => {
-                            setForm((f) => ({ ...f, para_quem: opt.value }));
-                            setTimeout(() => setStep(2), 280);
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-
-                {step === 2 && (
-                  <motion.div key="s2" {...SLIDE}>
-                    <h2 className="font-playfair text-2xl text-ink mb-6">Qual é a ocasião?</h2>
-                    <div className="flex flex-col gap-3">
-                      {STEP2_OPTIONS.map((opt) => (
-                        <OptionCard
-                          key={opt.value}
-                          option={opt}
-                          selected={form.ocasiao === opt.value}
-                          onClick={() => {
-                            setForm((f) => ({ ...f, ocasiao: opt.value }));
-                            setTimeout(() => setStep(3), 280);
-                          }}
-                        />
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => setStep(1)}
-                      className="mt-4 font-poppins text-xs text-gray-400 hover:text-ink transition-colors"
-                    >
-                      ← Voltar
-                    </button>
-                  </motion.div>
-                )}
-
-                {step === 3 && (
-                  <motion.div key="s3" {...SLIDE}>
-                    <h2 className="font-playfair text-2xl text-ink mb-6">
-                      Qual sua faixa de investimento?
-                    </h2>
-                    <div className="flex flex-col gap-3">
-                      {STEP3_OPTIONS.map((opt) => (
-                        <OptionCard
-                          key={opt.value}
-                          option={opt}
-                          selected={form.investimento === opt.value}
-                          onClick={() => {
-                            setForm((f) => ({ ...f, investimento: opt.value }));
-                            setTimeout(() => setStep(4), 280);
-                          }}
-                        />
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => setStep(2)}
-                      className="mt-4 font-poppins text-xs text-gray-400 hover:text-ink transition-colors"
-                    >
-                      ← Voltar
-                    </button>
-                  </motion.div>
-                )}
-
-                {step === 4 && (
-                  <motion.div key="s4" {...SLIDE}>
-                    <h2 className="font-playfair text-2xl text-ink mb-1">Quase lá!</h2>
-                    <p className="font-poppins text-sm text-gray-500 mb-6">
-                      Como podemos te chamar?
-                    </p>
-                    <div className="flex flex-col gap-4">
-                      <div>
-                        <label className="block font-poppins text-xs text-gray-500 mb-1">
-                          Nome
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Seu nome"
-                          value={form.nome}
-                          onChange={(e) =>
-                            setForm((f) => ({ ...f, nome: e.target.value }))
-                          }
-                          className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 font-poppins text-sm focus:border-brand focus:outline-none transition-colors"
-                        />
-                      </div>
-                      <div>
-                        <label className="block font-poppins text-xs text-gray-500 mb-1">
-                          WhatsApp
-                        </label>
-                        <input
-                          type="tel"
-                          placeholder="(11) 99999-9999"
-                          value={form.whatsapp}
-                          onChange={(e) =>
-                            setForm((f) => ({
-                              ...f,
-                              whatsapp: formatWhatsApp(e.target.value),
-                            }))
-                          }
-                          className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 font-poppins text-sm focus:border-brand focus:outline-none transition-colors"
-                        />
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={handleSubmit}
-                      disabled={!canSubmit || loading}
-                      className="mt-6 w-full flex items-center justify-center py-4 rounded-full bg-brand text-white font-poppins text-[15px] font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90 active:scale-95 transition-all duration-200"
-                    >
-                      {loading ? "Enviando..." : "Falar com a equipe →"}
-                    </button>
-
-                    <button
-                      onClick={() => setStep(3)}
-                      className="mt-3 w-full text-center font-poppins text-xs text-gray-400 hover:text-ink transition-colors"
-                    >
-                      ← Voltar
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+  if(!isOpen)return null;
+  const fields=<form onFocusCapture={()=>{if(!formStarted.current){formStarted.current=true;trackFunnel("vlt_form_start");}}} onSubmit={(e)=>{e.preventDefault();void handleSubmit();}} className="space-y-5">
+    <div className="grid gap-4 sm:grid-cols-2">
+      <div><label htmlFor="contact-name" className="mb-2 block text-sm">Seu nome</label><input ref={firstInput} id="contact-name" name="name" autoComplete="name" required minLength={2} maxLength={100} value={form.nome} onChange={e=>{setBlockReason("");setForm({...form,nome:e.target.value});}} className="w-full rounded-xl border border-ink/25 bg-white px-4 py-3 focus:outline-brand" /></div>
+      <div><label htmlFor="contact-phone" className="mb-2 block text-sm">WhatsApp com DDD</label><input id="contact-phone" name="tel" type="tel" inputMode="tel" autoComplete="tel" required aria-describedby="phone-help" placeholder="(11) 99999-9999" maxLength={20} value={form.whatsapp} onChange={e=>setForm({...form,whatsapp:e.target.value.replace(/[^0-9+() -]/g,"")})} className="w-full rounded-xl border border-ink/25 bg-white px-4 py-3 focus:outline-brand" /><p id="phone-help" className="mt-2 text-xs text-ink/65">Inclua o DDD. Exemplo: (11) 99999-9999.</p></div>
+    </div>
+    <details className="rounded-xl border border-brand/25 p-4">
+      <summary className="cursor-pointer text-sm text-ink/80">Quer adiantar suas preferências? <span className="text-ink/65">Opcional</span></summary>
+      <div className="mt-4 grid gap-4">
+        {([{key:"para_quem",label:"Para quem você está buscando?",options:STEP1_OPTIONS},{key:"ocasiao",label:"Qual é a ocasião?",options:STEP2_OPTIONS},{key:"investimento",label:"Faixa de investimento",options:STEP3_OPTIONS}] as const).map(field=><div key={field.key}><label htmlFor={field.key} className="mb-1 block text-xs">{field.label}</label><select id={field.key} value={form[field.key]} onChange={e=>setForm({...form,[field.key]:e.target.value})} className="w-full rounded-lg border border-ink/20 bg-white p-3 text-sm"><option value="">Prefiro conversar com a equipe</option>{field.options.map(o=><option key={o.value} value={o.value}>{o.label}</option>)}</select></div>)}
+      </div>
+    </details>
+    <label className="flex items-start gap-3 text-xs leading-relaxed"><input type="checkbox" required checked={form.consumidorFinal} onChange={e=>{setBlockReason("");setForm({...form,consumidorFinal:e.target.checked});}} className="mt-1 h-4 w-4 shrink-0 accent-[#526c87]"/><span>Busco peças para uso próprio, da minha família ou para presentear. Não procuro atacado ou revenda.</span></label>
+    <p className="text-xs leading-relaxed text-ink/65">Usaremos seu nome e telefone para organizar e dar continuidade ao atendimento solicitado pelo WhatsApp.</p>
+    {blockReason&&<p role="alert" className="text-sm text-red-700">{blockReason}</p>}
+    <button type="submit" disabled={!canSubmit||loading} className="w-full rounded-full bg-[#526c87] px-5 py-4 text-sm font-medium text-white transition hover:bg-[#40566e] disabled:opacity-45">{loading?"Preparando seu atendimento…":"Continuar para o WhatsApp →"}</button>
+    <p className="text-center text-xs text-ink/65">Seg–Sex, 10h às 19h · Sábado, 10h às 17h</p>
+  </form>;
+  if(inline)return fields;
+  return <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4"><section role="dialog" aria-modal="true" aria-label="Atendimento Valutin" className="max-h-[90svh] w-full max-w-xl overflow-y-auto rounded-2xl bg-white p-6"><button onClick={onClose} disabled={loading} className="mb-4 block ml-auto text-sm">Fechar</button>{fields}</section></div>;
 }

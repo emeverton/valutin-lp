@@ -6,16 +6,32 @@ export const VIDEO_YOUTUBE_ID = "OIclPAGWXNo";
 export const VIDEO_LABEL = "NOSSA HISTÓRIA";
 export const VIDEO_TITLE = "Conheça a Valutin.";
 
-export const INSTAGRAM_URL = "https://www.instagram.com/valutin.infantil";
-export const WHATSAPP_URL = "https://wa.me/5511915702555";
-export const WHATSAPP_DISPLAY = "+55 11 91570-2555";
-export const WEBHOOK_URL = "https://n8n.ehos.com.br/webhook/valutin-lead";
+export const INSTAGRAM_URL = "https://www.instagram.com/valutinoficial";
+export const WHATSAPP_URL = "/atendimento";
+export const WHATSAPP_DISPLAY = "+55 11 99753-4668";
+export const WEBHOOK_URL = "https://webhook.ehos.com.br/webhook/valutin-leads";
+
+export const RETAIL_ONLY_COPY = {
+  notice: "Atendimento exclusivo para o consumidor final. Não trabalhamos com atacado ou revenda.",
+  checkbox: "Confirmo que busco atendimento de varejo para consumo final. A Valutin não realiza vendas no atacado ou para revenda.",
+  blocked: "A Valutin trabalha exclusivamente com varejo para o consumidor final. Não realizamos vendas por atacado, revenda, representação ou fornecimento para lojistas. Agradecemos o interesse.",
+  gateQuestion: "Seu atendimento é para compra de peças para uso próprio ou da sua família?",
+  yes: "SIM, SOU CONSUMIDOR FINAL",
+  no: "NÃO, BUSCO ATACADO OU REVENDA",
+  back: "Voltar ao site",
+} as const;
 
 export const MAPS_DIR_URL =
   "https://www.google.com/maps/dir//R.+Jo%C3%A3o+Louren%C3%A7o,+323+-+Vila+Nova+Concei%C3%A7%C3%A3o,+S%C3%A3o+Paulo+-+SP,+04508-030";
 
+export const WAZE_URL =
+  "https://www.waze.com/ul?ll=-23.5965%2C-46.6736&navigate=yes&zoom=17";
+
+export const UBER_URL =
+  "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Blatitude%5D=-23.5965&dropoff%5Blongitude%5D=-46.6736&dropoff%5Bnickname%5D=Valutin&dropoff%5Bformatted_address%5D=Rua%20Jo%C3%A3o%20Louren%C3%A7o%2C%20323%20%E2%80%94%20Vila%20Nova%20Concei%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%2FSP";
+
 export const MAPS_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.1!2d-46.6736!3d-23.5965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce577bcde48fc7%3A0x1!2sR.+Jo%C3%A3o+Louren%C3%A7o%2C+323+-+Vila+Nova+Concei%C3%A7%C3%A3o%2C+S%C3%A3o+Paulo+-+SP%2C+04508-030!5e0!3m2!1spt-BR!2sbr!4v1";
+  "https://maps.google.com/maps?q=Rua+Joao+Lourenco+323+Vila+Nova+Conceicao+Sao+Paulo&output=embed";
 
 export const ADDRESS = {
   street: "Rua João Lourenço, 323",
@@ -33,9 +49,10 @@ export const HERO_IMAGE = "/hero.jpg";
 
 export const HERO_COPY = {
   tag: "Moda Infantil · Desde 1998 · Vila Nova Conceição",
-  h1: "Vestir a infância com leveza e sofisticação.",
-  cta: "Atendimento consultivo gratuito",
-  urgency: "Nossa equipe responde em até 2 horas · Seg–Sáb 10h–19h",
+  h1: "Moda infantil premium em Vila Nova Conceição.",
+  cta: "Falar pelo WhatsApp",
+  ctaSecondary: "Como chegar à loja",
+  urgency: "Atendimento pessoal · Seg–Sáb 10h–19h",
 } as const;
 
 export const MANIFESTO_COPY = {
@@ -53,7 +70,7 @@ export const CONSULTORIA_COPY = {
   label: "Serviço exclusivo",
   title: "Uma consultora dedicada para encontrar o look perfeito.",
   body: "Seja para um batizado, uma ocasião especial ou simplesmente para renovar o guarda-roupa do seu filho, nossa equipe está pronta para guiar você com atenção e cuidado, online ou na loja.",
-  cta: "Iniciar atendimento →",
+  cta: "Falar pelo WhatsApp →",
 } as const;
 
 export const CONSULTORIA_ITEMS: ConsultoriaServiceItem[] = [
@@ -62,8 +79,7 @@ export const CONSULTORIA_ITEMS: ConsultoriaServiceItem[] = [
   { title: "Para ocasiões especiais", body: "batizados, festas, primeira comunhão" },
 ];
 
-export const CONSULTORIA_IMAGE =
-  "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&q=80";
+export const CONSULTORIA_IMAGE = "/curadoria-valutin.jpg";
 
 export const DEPOIMENTOS_TITLE = "O que as famílias dizem";
 
@@ -87,7 +103,7 @@ export const DIFERENCIAIS: Diferencial[] = [
   {
     number: "03",
     title: "Desde 1998",
-    body: "25 anos vestindo a infância paulistana com sofisticação, cuidado e muito amor.",
+    body: "Uma história vestindo a infância paulistana com sofisticação, cuidado e muito amor.",
   },
 ];
 
@@ -99,25 +115,25 @@ export interface GalleryImage {
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&q=80",
-    caption: "Bebê · Nova Coleção",
-    alt: "Criança com roupa Valutin",
+    src: "/hero-looks-desktop.jpg",
+    caption: "Valutin · Nova coleção",
+    alt: "Looks infantis Valutin em composição editorial",
   },
   {
-    src: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&q=80",
-    caption: "Dia a Dia · Infantil",
-    alt: "Moda infantil do dia a dia",
+    src: "/galeria-look-azul.jpg",
+    caption: "Delicadeza · Infantil",
+    alt: "Look infantil azul e branco Valutin",
   },
   {
-    src: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&q=80",
-    caption: "Ocasiões Especiais",
-    alt: "Roupa para ocasiões especiais",
+    src: "/galeria-bordado-mao.jpg",
+    caption: "Detalhes · Feitos à mão",
+    alt: "Bordado floral feito à mão em peça infantil Valutin",
   },
 ];
 
 export const GALERIA_HEADER = {
   label: "Coleção Atual",
-  title: "Peças que contam histórias.",
+  title: "Uma elegância que pertence à infância.",
 } as const;
 
 export interface Review {

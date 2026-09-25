@@ -43,15 +43,65 @@ export default function QualificationModal({isOpen,onClose,inline=false}:{isOpen
           para_quem: form.para_quem,
           ocasiao: form.ocasiao,
           investimento: form.investimento,
+          src: query.get("src")?.slice(0, 80) || undefined,
           origem: query.get("produto") ? "LP_CATALOGO" : "LP_FORM",
+          observacao: query.get("src") === "produto_consulta" && query.get("peca") ? `Consulta de peça: ${query.get("peca")?.slice(0, 160)}${query.get("tamanho") ? `; tamanho: ${query.get("tamanho")?.slice(0, 30)}` : ""}` : undefined,
           produto: query.get("produto") || undefined,
           sku: query.get("sku") || undefined,
+          referencia: query.get("referencia") || undefined,
+          tamanho: query.get("tamanho") || undefined,
           consumidor_final: true,
           retail_confirmed: true,
+          // Consent SoT: shared key with CookieBanner. No fake timestamp when undecided.
+          ...(() => {
+            try {
+              const raw = window.localStorage.getItem("valutin-cookie-consent");
+              if (!raw) return { cookie_consent: null };
+              if (raw === "true" || raw === "false") {
+                const granted = raw === "true";
+                // Banner copy = personalize + analytics only; ad_user_data stays UNKNOWN on accept.
+                return {
+                  cookie_consent: granted,
+                  ad_user_data_consent: granted ? "UNKNOWN" : "DENIED",
+                  ad_personalization_consent: granted ? "GRANTED" : "DENIED",
+                  analytics_consent: granted ? "GRANTED" : "DENIED",
+                  consent_source: "lp_cookie",
+                  consent_version: "valutin-cookie-consent-v1",
+                  consent_timestamp: new Date().toISOString(),
+                };
+              }
+              const parsed = JSON.parse(raw) as Record<string, string>;
+              const ad = String(parsed.ad_user_data || parsed.ad_user_data_consent || "UNKNOWN").toUpperCase();
+              const pers = String(parsed.ad_personalization || parsed.ad_personalization_consent || "UNKNOWN").toUpperCase();
+              const an = String(parsed.analytics || parsed.analytics_consent || "UNKNOWN").toUpperCase();
+              const decided = [ad, pers, an].some((v) => v === "GRANTED" || v === "DENIED");
+              return {
+                cookie_consent: decided ? (ad === "GRANTED" || pers === "GRANTED" || an === "GRANTED") : null,
+                ad_user_data_consent: ad,
+                ad_personalization_consent: pers,
+                analytics_consent: an,
+                consent_source: decided ? String(parsed.source || "lp_cookie") : undefined,
+                consent_version: decided ? String(parsed.version || "valutin-cookie-consent-v1") : undefined,
+                consent_timestamp: decided ? String(parsed.ts || parsed.timestamp || new Date().toISOString()) : undefined,
+              };
+            } catch {
+              return { cookie_consent: null };
+            }
+          })(),
         }),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.ok !== true) throw new Error("intake_unavailable");
+      if (!res.ok || json.ok !== true) {
+        const stockMessages: Record<string, string> = {
+          catalog_sku_required: "Selecione uma variante com disponibilidade confirmada antes de reservar.",
+          catalog_sku_unmapped: "Esta variante ainda não está vinculada ao estoque online.",
+          catalog_stock_unavailable: "Esta variante não está mais disponível no estoque.",
+          catalog_stock_not_configured: "A disponibilidade online está sendo atualizada. Tente novamente em instantes.",
+          catalog_stock_check_unavailable: "Não foi possível confirmar o estoque agora. Tente novamente em instantes.",
+        };
+        if (stockMessages[String(json.error || "")]) { setBlockReason(stockMessages[String(json.error)]); setLoading(false); return; }
+        throw new Error("intake_unavailable");
+      }
       if (json.blocked || !json.retail_confirmed) {
         setBlockReason(RETAIL_ONLY_COPY.blocked);
         setLoading(false);

@@ -1,0 +1,715 @@
+[
+  {
+    "title": "Camiseta Algodão",
+    "handle": "camiseta-algodao",
+    "category": "crianca",
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta 100% algodão. De 12 meses a 12 anos.",
+    "price": 179,
+    "sizes": [
+      "12M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "colorTitle": "Estampa",
+    "colors": [
+      "Veleiro",
+      "Motocross",
+      "Carro vintage",
+      "Fuscas",
+      "Aviao aquarela",
+      "Esportes"
+    ],
+    "images": [
+      "/catalog/camiseta-veleiro-01.jpeg",
+      "/catalog/camiseta-veleiro-02.jpeg",
+      "/catalog/camiseta-motocross-01.jpeg",
+      "/catalog/camiseta-motocross-02.jpeg",
+      "/catalog/camiseta-carro-01.jpeg",
+      "/catalog/camiseta-carro-02.jpeg",
+      "/catalog/camiseta-fuscas-01.jpeg",
+      "/catalog/camiseta-aviao-01.jpeg",
+      "/catalog/camiseta-esportes-01.jpeg",
+      "/catalog/camiseta-veleiro-01-extra.jpeg",
+      "/catalog/camiseta-motocross-02-extra.jpeg",
+      "/catalog/camiseta-motocross-01-extra.jpeg",
+      "/catalog/camiseta-veleiro-02-extra.jpeg",
+      "/catalog/camiseta-carro-02-extra.jpeg",
+      "/catalog/camiseta-fuscas-01-extra.jpeg",
+      "/catalog/camiseta-aviao-01-extra.jpeg",
+      "/catalog/camiseta-carro-01-extra.jpeg"
+    ],
+    "imageLabels": [
+      "Veleiro · foto 1",
+      "Veleiro · foto 2",
+      "Motocross · foto 1",
+      "Motocross · foto 2",
+      "Carro vintage · foto 1",
+      "Carro vintage · foto 2",
+      "Fuscas",
+      "Avião aquarela",
+      "Esportes",
+      "Veleiro · foto extra",
+      "Motocross · foto extra",
+      "Motocross · detalhe extra",
+      "Veleiro · detalhe extra",
+      "Carro vintage · foto extra",
+      "Fuscas · foto extra",
+      "Avião aquarela · foto extra",
+      "Carro vintage · detalhe extra"
+    ],
+    "displayImages": [
+      "/catalog/camiseta-veleiro-01.jpeg",
+      "/catalog/camiseta-veleiro-02.jpeg",
+      "/catalog/camiseta-motocross-01.jpeg",
+      "/catalog/camiseta-motocross-02.jpeg",
+      "/catalog/camiseta-carro-01.jpeg",
+      "/catalog/camiseta-carro-02.jpeg",
+      "/catalog/camiseta-fuscas-01.jpeg",
+      "/catalog/camiseta-aviao-01.jpeg",
+      "/catalog/camiseta-esportes-01.jpeg",
+      "/catalog/camiseta-veleiro-01-extra.jpeg",
+      "/catalog/camiseta-motocross-02-extra.jpeg",
+      "/catalog/camiseta-motocross-01-extra.jpeg",
+      "/catalog/camiseta-veleiro-02-extra.jpeg",
+      "/catalog/camiseta-carro-02-extra.jpeg",
+      "/catalog/camiseta-fuscas-01-extra.jpeg",
+      "/catalog/camiseta-aviao-01-extra.jpeg",
+      "/catalog/camiseta-carro-01-extra.jpeg"
+    ]
+  },
+  {
+    "title": "Conjunto Laise",
+    "handle": "conjunto-laise",
+    "category": "crianca",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto em tecido laise 100% algodão. De 2 a 12 anos.",
+    "price": 499,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "colors": [
+      "Rosa",
+      "Laranja"
+    ],
+    "images": [
+      "/catalog/conjunto-laise-rosa.jpeg",
+      "/catalog/conjunto-laise-laranja.jpeg"
+    ],
+    "imageLabels": [
+      "Rosa",
+      "Laranja"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-laise-rosa.jpeg",
+      "/catalog/conjunto-laise-laranja.jpeg"
+    ]
+  },
+  {
+    "title": "Vestido Percal Tricolor",
+    "handle": "vestido-percal-tricolor",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido em percal 100% algodão. De 4 a 12 anos.",
+    "price": 418,
+    "sizes": [
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/vestido-percal-01.jpeg",
+      "/catalog/vestido-percal-02.jpeg"
+    ],
+    "imageLabels": [
+      "Tricolor · foto 1",
+      "Tricolor · foto 2"
+    ],
+    "displayImages": [
+      "/catalog/vestido-percal-01.jpeg",
+      "/catalog/vestido-percal-02.jpeg"
+    ]
+  },
+  {
+    "title": "Vestido de Laise",
+    "handle": "vestido-de-laise",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de laise. De 2 a 12 anos.",
+    "price": 468,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "colors": [
+      "Rosa",
+      "Azul"
+    ],
+    "images": [
+      "/catalog/vestido-laise-rosa-frente.jpeg",
+      "/catalog/vestido-laise-rosa-costas.jpeg",
+      "/catalog/vestido-laise-azul-frente.jpeg",
+      "/catalog/vestido-laise-azul-costas.jpeg"
+    ],
+    "imageLabels": [
+      "Rosa · frente",
+      "Rosa · costas",
+      "Azul · frente",
+      "Azul · costas"
+    ],
+    "displayImages": [
+      "/catalog/vestido-laise-rosa-frente.jpeg",
+      "/catalog/vestido-laise-rosa-costas.jpeg",
+      "/catalog/vestido-laise-azul-frente.jpeg",
+      "/catalog/vestido-laise-azul-costas.jpeg"
+    ]
+  },
+  {
+    "title": "Vestido Listrado Algodão",
+    "handle": "vestido-listrado-algodao",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido listrado 100% algodão, estampado exclusivo. De 2 a 10 anos.",
+    "price": 438,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "colorTitle": "Estampa",
+    "colors": [
+      "Listrado rosa",
+      "Floral"
+    ],
+    "images": [
+      "/catalog/vestido-listrado-frente.jpeg",
+      "/catalog/vestido-listrado-costas.jpeg",
+      "/catalog/vestido-floral-campo.jpeg"
+    ],
+    "imageLabels": [
+      "Listrado rosa · frente",
+      "Listrado rosa · costas",
+      "Floral"
+    ],
+    "displayImages": [
+      "/catalog/vestido-listrado-frente.jpeg",
+      "/catalog/vestido-listrado-costas.jpeg",
+      "/catalog/vestido-floral-campo.jpeg"
+    ]
+  },
+  {
+    "title": "Saia Algodão",
+    "handle": "saia-algodao",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Saia 100% algodão. De 4 a 12 anos.",
+    "price": 258,
+    "sizes": [
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "colors": [
+      "Branca",
+      "Azul",
+      "Floral"
+    ],
+    "images": [
+      "/catalog/saia-laise-branca.jpeg",
+      "/catalog/saia-babados-azul.jpeg",
+      "/catalog/saia-floral.jpeg"
+    ],
+    "imageLabels": [
+      "Branca",
+      "Azul",
+      "Floral"
+    ],
+    "displayImages": [
+      "/catalog/saia-laise-branca.jpeg",
+      "/catalog/saia-babados-azul.jpeg",
+      "/catalog/saia-floral.jpeg"
+    ]
+  },
+  {
+    "title": "Macacão Tricoline",
+    "handle": "macacao-tricoline",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão tricoline 100% algodão. De 6 meses a 2 anos.",
+    "price": 299,
+    "sizes": [
+      "6M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "colors": [
+      "Listra vermelha",
+      "Listra sage",
+      "Ursos"
+    ],
+    "images": [
+      "/catalog/macacao-tricoline-vermelho.jpeg",
+      "/catalog/macacao-tricoline-sage.jpeg",
+      "/catalog/macacao-tricoline-ursos.jpeg"
+    ],
+    "imageLabels": [
+      "Listra vermelha",
+      "Listra sage",
+      "Ursos"
+    ],
+    "displayImages": [
+      "/catalog/macacao-tricoline-vermelho.jpeg",
+      "/catalog/macacao-tricoline-sage.jpeg",
+      "/catalog/macacao-tricoline-ursos.jpeg"
+    ]
+  },
+  {
+    "title": "Macacão Fustão",
+    "handle": "macacao-fustao",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão em fustão 100% algodão. De 6 meses a 2 anos.",
+    "price": 368,
+    "sizes": [
+      "6M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "colors": [
+      "Floral rosa",
+      "Azul"
+    ],
+    "images": [
+      "/catalog/macacao-fustao-floral.jpeg",
+      "/catalog/macacao-fustao-azul.jpeg"
+    ],
+    "imageLabels": [
+      "Floral rosa",
+      "Azul"
+    ],
+    "displayImages": [
+      "/catalog/macacao-fustao-floral.jpeg",
+      "/catalog/macacao-fustao-azul.jpeg"
+    ]
+  },
+  {
+    "title": "Conjunto Body e Shorts",
+    "handle": "conjunto-body-shorts",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto de body em malha 100% algodão e shorts em tricoline 100% algodão.",
+    "price": 268,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "colors": [
+      "Xadrez azul",
+      "Xadrez rosa",
+      "Floral"
+    ],
+    "images": [
+      "/catalog/conjunto-body-xadrez-azul.jpeg",
+      "/catalog/conjunto-body-xadrez-rosa.jpeg",
+      "/catalog/conjunto-body-floral.jpeg"
+    ],
+    "imageLabels": [
+      "Xadrez azul",
+      "Xadrez rosa",
+      "Floral"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-body-xadrez-azul.jpeg",
+      "/catalog/conjunto-body-xadrez-rosa.jpeg",
+      "/catalog/conjunto-body-floral.jpeg"
+    ]
+  },
+  {
+    "title": "Vestido Listrado Preto",
+    "handle": "vestido-listrado-preto",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido listrado infantil. Valor e tamanhos sob consulta.",
+    "reference": "PV26/27GE001CT",
+    "price": null,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/vestido-listrado-preto.jpeg"],
+    "imageLabels": ["Listrado preto"],
+    "displayImages": ["/catalog-novidades/vestido-listrado-preto.jpeg"]
+  },
+  {
+    "title": "Bloomer Fustão",
+    "handle": "bloomer-fustao",
+    "category": "bebe",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Bloomer em fustão.",
+    "reference": "PV26/27KDS003BB",
+    "price": 389,
+    "sizes": ["6M", "9M", "12M"],
+    "images": ["/catalog-novidades/bloomer-fustao-01.jpeg", "/catalog-novidades/bloomer-fustao-02.jpeg"],
+    "imageLabels": ["Frente", "Detalhe"],
+    "displayImages": ["/catalog-novidades/bloomer-fustao-01.jpeg", "/catalog-novidades/bloomer-fustao-02.jpeg"]
+  },
+  {
+    "title": "Vestido Xadrez",
+    "handle": "vestido-xadrez",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido infantil disponível em xadrez azul e rosa.",
+    "reference": "PV26/27GE008CT",
+    "price": 398,
+    "sizes": ["6M", "9M", "12M", "18M", "2A", "4A", "6A", "8A"],
+    "images": ["/catalog-novidades/vestido-xadrez-azul-01.jpeg", "/catalog-novidades/vestido-xadrez-azul-02.jpeg", "/catalog-novidades/vestido-xadrez-rosa.jpeg"],
+    "imageLabels": ["Xadrez azul", "Xadrez azul · detalhe", "Xadrez rosa"],
+    "displayImages": ["/catalog-novidades/vestido-xadrez-azul-01.jpeg", "/catalog-novidades/vestido-xadrez-azul-02.jpeg", "/catalog-novidades/vestido-xadrez-rosa.jpeg"]
+  },
+  {
+    "title": "Cardigan Bordado à Mão",
+    "handle": "cardigan-bordado-mao",
+    "category": "bebe",
+    "catalogCategory": "tricos-e-casacos",
+    "description": "Cardigan em linha com bordado à mão.",
+    "reference": null,
+    "price": 338,
+    "sizes": ["6M", "12M", "18M", "2A"],
+    "images": ["/catalog-novidades/cardigan-bordado-01.jpeg", "/catalog-novidades/cardigan-bordado-02.jpeg", "/catalog-novidades/cardigan-bordado-03.jpeg", "/catalog-novidades/cardigan-bordado-04.jpeg"],
+    "imageLabels": ["Frente", "Botões", "Bordado", "Visão completa"],
+    "displayImages": ["/catalog-novidades/cardigan-bordado-01.jpeg", "/catalog-novidades/cardigan-bordado-02.jpeg", "/catalog-novidades/cardigan-bordado-03.jpeg", "/catalog-novidades/cardigan-bordado-04.jpeg"]
+  },
+  {
+    "title": "Jardineira Ursos",
+    "handle": "jardineira-ursos",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Jardineira infantil estampada.",
+    "reference": "PV26/27GE010BB",
+    "price": 368,
+    "sizes": ["6M", "9M", "12M", "18M"],
+    "images": ["/catalog-novidades/jardineira-ursos.jpeg"],
+    "imageLabels": ["Ursos"],
+    "displayImages": ["/catalog-novidades/jardineira-ursos.jpeg"]
+  },
+  {
+    "title": "Vestido Algodão Rosa",
+    "handle": "vestido-algodao-rosa",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido 100% algodão.",
+    "reference": "PV26/27KDS001CT",
+    "price": 429,
+    "sizes": ["6M", "12M", "18M", "2A", "4A", "6A"],
+    "images": ["/catalog-novidades/vestido-algodao-rosa.jpeg"],
+    "imageLabels": ["Rosa"],
+    "displayImages": ["/catalog-novidades/vestido-algodao-rosa.jpeg"]
+  },
+  {
+    "title": "Bermuda de Linho",
+    "handle": "bermuda-linho",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Bermuda de linho.",
+    "reference": "PV26/27ANGE005CT",
+    "price": 318,
+    "sizes": ["18M", "1A", "2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog-novidades/bermuda-linho-verde.jpeg", "/catalog-novidades/bermuda-linho-azul-marinho.jpeg", "/catalog-novidades/bermuda-linho-caqui.jpeg"],
+    "imageLabels": ["Verde", "Azul-marinho", "Caqui"],
+    "displayImages": ["/catalog-novidades/bermuda-linho-verde.jpeg", "/catalog-novidades/bermuda-linho-azul-marinho.jpeg", "/catalog-novidades/bermuda-linho-caqui.jpeg"]
+  },
+  {
+    "title": "Camisa de Linho",
+    "handle": "camisa-linho",
+    "category": "crianca",
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camisa de linho infantil.",
+    "reference": null,
+    "price": 368,
+    "sizes": ["4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog-novidades/camisa-linho.jpeg"],
+    "imageLabels": ["Linho"],
+    "displayImages": ["/catalog-novidades/camisa-linho.jpeg"]
+  },
+  {
+    "title": "Bermuda Moletom",
+    "handle": "bermuda-moletom",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Bermuda de moletom infantil.",
+    "reference": "PV25/25RO001CT",
+    "price": 248,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/bermuda-moletom.jpeg"],
+    "imageLabels": ["Cinza"],
+    "displayImages": ["/catalog-novidades/bermuda-moletom.jpeg"]
+  },
+  {
+    "title": "Body de Linho",
+    "handle": "body-linho",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body de linho infantil.",
+    "reference": "VLT ANGE003BB",
+    "price": 288,
+    "sizes": ["6M", "12M", "18M", "2A"],
+    "images": ["/catalog-novidades/body-linho.jpeg"],
+    "imageLabels": ["Linho"],
+    "displayImages": ["/catalog-novidades/body-linho.jpeg"]
+  },
+  {
+    "title": "Shorts de Algodão",
+    "handle": "shorts-algodao",
+    "category": "bebe",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de algodão.",
+    "reference": "PV26/27GE006BB",
+    "price": 189,
+    "sizes": ["6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog-novidades/shorts-algodao-azul.jpeg", "/catalog-novidades/shorts-algodao-rosa.jpeg"],
+    "imageLabels": ["Azul", "Rosa"],
+    "displayImages": ["/catalog-novidades/shorts-algodao-azul.jpeg", "/catalog-novidades/shorts-algodao-rosa.jpeg"]
+  },
+  {
+    "title": "Vestido de Laise",
+    "handle": "vestido-laise-novidades",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de laise.",
+    "reference": "PV26/27ANGE003CT",
+    "price": 418,
+    "sizes": ["4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog-novidades/vestido-laise-branco.jpeg", "/catalog-novidades/vestido-laise-amarelo.jpeg"],
+    "imageLabels": ["Branco", "Amarelo"],
+    "displayImages": ["/catalog-novidades/vestido-laise-branco.jpeg", "/catalog-novidades/vestido-laise-amarelo.jpeg"]
+  },
+  {
+    "title": "Vestido Algodão Bordado",
+    "handle": "vestido-algodao-bordado",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de algodão com bordado.",
+    "reference": "PV/27KDS002CT",
+    "price": 429,
+    "sizes": ["6M", "12M", "18M", "2A", "4A", "6A"],
+    "images": ["/catalog-novidades/vestido-bordado-01.jpeg", "/catalog-novidades/vestido-bordado-02.jpeg"],
+    "imageLabels": ["Frente", "Detalhe"],
+    "displayImages": ["/catalog-novidades/vestido-bordado-01.jpeg", "/catalog-novidades/vestido-bordado-02.jpeg"]
+  },
+  {
+    "title": "Vestido de Linho",
+    "handle": "vestido-linho-batizado",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Vestido de linho para batizado.",
+    "reference": "VLT NAD009BB",
+    "price": 528,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/vestido-linho-batizado.jpeg"],
+    "imageLabels": ["Linho"],
+    "displayImages": ["/catalog-novidades/vestido-linho-batizado.jpeg"]
+  },
+  {
+    "title": "Mandrião Masculino",
+    "handle": "mandriao-masculino",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Mandrião masculino para batizado.",
+    "reference": "VLT AMI003BB",
+    "price": 1979,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/mandriao-masculino.jpeg"],
+    "imageLabels": ["Masculino"],
+    "displayImages": ["/catalog-novidades/mandriao-masculino.jpeg"]
+  },
+  {
+    "title": "Mandrião Feminino",
+    "handle": "mandriao-feminino",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Mandrião feminino para batizado.",
+    "reference": "VLT AMI007BB",
+    "price": 2290,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/mandriao-feminino-01.jpeg", "/catalog-novidades/mandriao-feminino-02.jpeg"],
+    "imageLabels": ["Frente", "Detalhe"],
+    "displayImages": ["/catalog-novidades/mandriao-feminino-01.jpeg", "/catalog-novidades/mandriao-feminino-02.jpeg"]
+  },
+  {
+    "title": "Jardineira Curta",
+    "handle": "jardineira-curta",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Jardineira curta para batizado.",
+    "reference": "VLT ANGE002BB",
+    "price": 628,
+    "sizes": ["6M", "12M", "18M", "2A"],
+    "images": ["/catalog-novidades/jardineira-curta-branca.jpeg", "/catalog-novidades/jardineira-curta-off-white.jpeg"],
+    "imageLabels": ["Branca", "Off-white"],
+    "displayImages": ["/catalog-novidades/jardineira-curta-branca.jpeg", "/catalog-novidades/jardineira-curta-off-white.jpeg"]
+  },
+  {
+    "title": "Jardineira Longa de Linho",
+    "handle": "jardineira-longa-linho",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Jardineira longa de linho.",
+    "reference": "VLT RO099BB",
+    "price": 458,
+    "sizes": ["6M", "12M", "18M", "2A"],
+    "images": ["/catalog-novidades/jardineira-longa-linho.jpeg"],
+    "imageLabels": ["Linho"],
+    "displayImages": ["/catalog-novidades/jardineira-longa-linho.jpeg"]
+  },
+  {
+    "title": "Jardineira de Algodão e Camisa de Linho",
+    "handle": "jardineira-algodao-linho",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Jardineira de algodão com camisa de linho.",
+    "reference": "BÁSICO24 RO021BB",
+    "price": 388,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/jardineira-algodao-linho.jpeg"],
+    "imageLabels": ["Conjunto"],
+    "displayImages": ["/catalog-novidades/jardineira-algodao-linho.jpeg"]
+  },
+  {
+    "title": "Vestido de Renda",
+    "handle": "vestido-renda",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Vestido de renda para batizado.",
+    "reference": "VLT RO034CT",
+    "price": 628,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/vestido-renda.jpeg"],
+    "imageLabels": ["Renda"],
+    "displayImages": ["/catalog-novidades/vestido-renda.jpeg"]
+  },
+  {
+    "title": "Vestido de Batizado",
+    "handle": "vestido-batizado-ks038",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Vestido de batizado.",
+    "reference": "BÁSICO24 KS038BB",
+    "price": 499,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/vestido-batizado-ks038.jpeg"],
+    "imageLabels": ["Branco"],
+    "displayImages": ["/catalog-novidades/vestido-batizado-ks038.jpeg"]
+  },
+  {
+    "title": "Vestido de Batizado Off-white",
+    "handle": "vestido-batizado-xim005",
+    "category": "batizado",
+    "catalogCategory": "batizado-e-cerimonia",
+    "description": "Vestido de batizado off-white.",
+    "reference": "BÁSICO24 XIM005BB",
+    "price": 359,
+    "sizes": ["Sob consulta"],
+    "images": ["/catalog-novidades/vestido-batizado-xim005.jpeg"],
+    "imageLabels": ["Off-white"],
+    "displayImages": ["/catalog-novidades/vestido-batizado-xim005.jpeg"]
+  },
+  {
+    "title": "Toalha de Batizado",
+    "handle": "toalha-batizado",
+    "category": "presentes",
+    "catalogCategory": "presentes-e-lembrancas",
+    "description": "Toalha de batizado.",
+    "reference": null,
+    "price": 139,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/toalha-batizado.jpeg"],
+    "imageLabels": ["Bordada"],
+    "displayImages": ["/catalog-novidades/toalha-batizado.jpeg"]
+  },
+  {
+    "title": "Vela de Batizado",
+    "handle": "vela-batizado",
+    "category": "presentes",
+    "catalogCategory": "presentes-e-lembrancas",
+    "description": "Vela de batizado.",
+    "reference": "VLT OP001AC",
+    "price": 209,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/vela-batizado.jpeg"],
+    "imageLabels": ["Vela"],
+    "displayImages": ["/catalog-novidades/vela-batizado.jpeg"]
+  },
+  {
+    "title": "Canudo para Certificado de Batismo",
+    "handle": "canudo-certificado-batismo",
+    "category": "presentes",
+    "catalogCategory": "presentes-e-lembrancas",
+    "description": "Canudo para guardar certificado de batismo. Preço e referência sob consulta.",
+    "reference": null,
+    "price": null,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/canudo-batizado.jpeg"],
+    "imageLabels": ["Canudo"],
+    "displayImages": ["/catalog-novidades/canudo-batizado.jpeg"]
+  },
+  {
+    "title": "Boneco Artesanal",
+    "handle": "boneco-artesanal",
+    "category": "presentes",
+    "catalogCategory": "presentes-e-lembrancas",
+    "description": "Boneco feito à mão.",
+    "reference": "VLT MT002AC",
+    "price": 294,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/boneco-artesanal-rosa.jpeg", "/catalog-novidades/boneco-artesanal-verde.jpeg", "/catalog-novidades/boneco-artesanal-azul.jpeg"],
+    "imageLabels": ["Rosa", "Verde", "Azul"],
+    "displayImages": ["/catalog-novidades/boneco-artesanal-rosa.jpeg", "/catalog-novidades/boneco-artesanal-verde.jpeg", "/catalog-novidades/boneco-artesanal-azul.jpeg"]
+  },
+  {
+    "title": "Boneco BEM",
+    "handle": "boneco-bem",
+    "category": "presentes",
+    "catalogCategory": "presentes-e-lembrancas",
+    "description": "Boneco decorativo infantil.",
+    "reference": "VLT BEM002AC",
+    "price": 169,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/boneco-bem.jpeg"],
+    "imageLabels": ["Boneco"],
+    "displayImages": ["/catalog-novidades/boneco-bem.jpeg"]
+  },
+  {
+    "title": "Coleção de Bonecos",
+    "handle": "colecao-bonecos",
+    "category": "presentes",
+    "catalogCategory": "presentes-e-lembrancas",
+    "description": "Coleção de bonecos artesanais. Preço e referência sob consulta.",
+    "reference": null,
+    "price": null,
+    "sizes": ["Único"],
+    "images": ["/catalog-novidades/colecao-bonecos.jpeg"],
+    "imageLabels": ["Coleção"],
+    "displayImages": ["/catalog-novidades/colecao-bonecos.jpeg"]
+  }
+]

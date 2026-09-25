@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
-import Script from "next/script";
-import { GTM_ID } from "./lib/constants";
 import "./globals.css";
+import { CookieBanner } from "./components/CookieBanner";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,9 +17,34 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Valutin · Moda Infantil Premium · Desde 1998",
+  metadataBase: new URL("https://www.valutin.com.br"),
+  title: "Valutin · Moda infantil premium em Vila Nova Conceição",
   description:
-    "Peças exclusivas para bebês e crianças de 0 a 16 anos. Vila Nova Conceição, São Paulo.",
+    "Curadoria, qualidade e atendimento pessoal. Loja em Vila Nova Conceição — explore o catálogo e fale com nossa equipe pelo WhatsApp.",
+  alternates: { canonical: "https://www.valutin.com.br/" },
+  openGraph: {
+    title: "Valutin · Moda infantil premium em Vila Nova Conceição",
+    description:
+      "Curadoria, qualidade e atendimento pessoal. Loja em Vila Nova Conceição.",
+    url: "https://www.valutin.com.br/",
+    siteName: "Valutin",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "/campaign-spring-summer-2026/collection-flatlay-desktop.jpg",
+        width: 3840,
+        height: 2160,
+        alt: "Looks infantis Valutin para menina e menino",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Valutin · Moda infantil premium em Vila Nova Conceição",
+    description: "Curadoria personalizada e atendimento pessoal desde 1998.",
+    images: ["/campaign-spring-summer-2026/collection-flatlay-desktop.jpg"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -36,29 +60,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${poppins.variable}`}>
-      <head>
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`,
-          }}
-        />
-      </head>
-      <body className="font-poppins antialiased bg-white text-ink">
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            className="hidden invisible"
-          />
-        </noscript>
-        {children}
+      <body className="font-poppins antialiased bg-white text-ink">{children}
+        <CookieBanner />
+        <p className="veltrus-seal" id="vt-craft" data-owner="veltrus" data-vt-k="a125543b8c3291fa9cce462601bd4694"><a href="https://www.veltrus.com.br/" target="_blank" rel="noopener noreferrer">Criado por <strong>Veltrus</strong></a></p>
+        <script dangerouslySetInnerHTML={{ __html: "(function(){var n=document.getElementById('vt-craft');var a=n&&n.querySelector('a');var t=n&&String(n.textContent||'').replace(/\\s+/g,' ').trim();var ok=!!(n&&a&&t==='Criado por Veltrus'&&/veltrus\\.com\\.br/i.test(a.href));document.documentElement.setAttribute('data-vt',ok?'ok':'lock');})();" }} />
+        <script src="/vt-boot.js" defer></script>
       </body>
     </html>
   );

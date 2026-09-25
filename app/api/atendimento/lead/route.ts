@@ -12,6 +12,7 @@ import { getRouteStore } from "../../../lib/whatsapp/store";
 import { parseAttrCookie } from "../../../lib/whatsapp/routing";
 import { mergeAttrFirstTouch } from "../../../lib/whatsapp/attr-merge";
 import { resolveBrowserIds } from "../../../lib/whatsapp/browser-ids";
+import { CatalogSaleError, requireCatalogSaleEligibility } from "../../../lib/catalog/sale-eligibility";
 
 export const dynamic = "force-dynamic";
 
@@ -83,6 +84,22 @@ export async function POST(req: NextRequest) {
   const phone = String(body.phone || body.telefone || body.whatsapp || "").replace(/\D/g, "");
   if (phone.length < 10 || phone.length > 15) return NextResponse.json({ ok: false, error: "invalid_phone" }, { status: 400 });
 
+  const produto = String(body.produto || body.product || "").trim().slice(0, 200);
+  const sku = String(body.sku || "").trim().slice(0, 120);
+  const tamanho = String(body.tamanho || body.size || "").trim().slice(0, 40);
+  const origem = String(body.origem || (produto ? "LP_CATALOGO" : "LP_FORM")).trim().slice(0, 40);
+  let catalogSale: Awaited<ReturnType<typeof requireCatalogSaleEligibility>> | null = null;
+  if (origem === "LP_CATALOGO") {
+    if (!produto || !sku) return NextResponse.json({ ok: false, error: "catalog_sku_required" }, { status: 409 });
+    try {
+      catalogSale = await requireCatalogSaleEligibility({ productHandle: produto, sku, size: tamanho || null });
+    } catch (error) {
+      const code = error instanceof CatalogSaleError ? error.code : "catalog_stock_check_unavailable";
+      const status = code === "catalog_stock_not_configured" || code === "catalog_stock_check_unavailable" ? 503 : 409;
+      return NextResponse.json({ ok: false, error: code }, { status, headers: { "Cache-Control": "no-store" } });
+    }
+  }
+
   const sticky = req.cookies.get(COOKIE_ASSIGNMENT)?.value;
   const visitorHash = createHash("sha256").update(`${retailSecret()}|${eventId}`).digest("hex");
   const assignment = await getRouteStore().assign({
@@ -120,10 +137,46 @@ export async function POST(req: NextRequest) {
   if (fbc) attr = mergeAttrFirstTouch(attr, { fbc, _fbc: fbc });
   if (gaClientId) attr = mergeAttrFirstTouch(attr, { ga_client_id: gaClientId, client_id: gaClientId });
 
-  const produto = String(body.produto || body.product || "").trim().slice(0, 200);
-  const sku = String(body.sku || "").trim().slice(0, 120);
-  const origem = String(body.origem || (produto ? "LP_CATALOGO" : "LP_FORM")).trim().slice(0, 40);
-
+  // Consent SoT: independent purposes. Never invent GRANTED/timestamp without a real decision.
+  // Legacy boolean cookie banner text covers personalization + analytics only — not ad_user_data.
+  const cookieConsent = body.cookie_consent;
+  const norm = (v: unknown) => {
+    const s = String(v || "").trim().toUpperCase();
+    if (["GRANTED", "CONSENT_GRANTED", "TRUE", "YES", "1"].includes(s)) return "GRANTED";
+    if (["DENIED", "CONSENT_DENIED", "FALSE", "NO", "0"].includes(s)) return "DENIED";
+    if (s === "UNKNOWN" || s === "") return "UNKNOWN";
+    return "UNKNOWN";
+  };
+  let adUser = norm(body.ad_user_data_consent);
+  let adPers = norm(body.ad_personalization_consent);
+  let analytics = norm(body.analytics_consent);
+  const explicit =
+    String(body.ad_user_data_consent || "").trim() !== "" ||
+    String(body.ad_personalization_consent || "").trim() !== "" ||
+    String(body.analytics_consent || "").trim() !== "";
+  if (!explicit) {
+    if (cookieConsent === true) {
+      adUser = "UNKNOWN";
+      adPers = "GRANTED";
+      analytics = "GRANTED";
+    } else if (cookieConsent === false) {
+      adUser = "DENIED";
+      adPers = "DENIED";
+      analytics = "DENIED";
+    } else {
+      adUser = "UNKNOWN";
+      adPers = "UNKNOWN";
+      analytics = "UNKNOWN";
+    }
+  }
+  const hasDecision = [adUser, adPers, analytics].some((v) => v === "GRANTED" || v === "DENIED");
+  const consentTimestamp = hasDecision
+    ? String(body.consent_timestamp || new Date().toISOString())
+    : "";
+  const consentSource = hasDecision ? String(body.consent_source || "lp_cookie") : "";
+  const consentVersion = hasDecision
+    ? String(body.consent_version || "valutin-cookie-consent-v1")
+    : "";
   const payload = Object.assign({}, body, {
     ...attr,
     fbp,
@@ -138,6 +191,24 @@ export async function POST(req: NextRequest) {
     origem,
     produto: produto || undefined,
     sku: sku || undefined,
+    tamanho: tamanho || undefined,
+    ...(catalogSale ? {
+      catalog_sale_eligible: true,
+      catalog_product_handle: catalogSale.productHandle,
+      catalog_product_title: catalogSale.productTitle,
+      catalog_reference: catalogSale.reference || undefined,
+      catalog_sku: catalogSale.sku,
+      catalog_size: catalogSale.size || undefined,
+      catalog_price: catalogSale.price ?? undefined,
+      linx_stock_quantity: catalogSale.quantity,
+      linx_stock_checked_at: catalogSale.checkedAt,
+    } : {}),
+    ad_user_data_consent: adUser,
+    ad_personalization_consent: adPers,
+    analytics_consent: analytics,
+    consent_timestamp: consentTimestamp || undefined,
+    consent_source: consentSource || undefined,
+    consent_version: consentVersion || undefined,
   });
   // Never forward placeholder revenue.
   if (Number(payload.lead_value) === 426 || Number(payload.value) === 426) {

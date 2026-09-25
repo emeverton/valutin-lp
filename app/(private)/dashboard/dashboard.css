@@ -1,0 +1,101 @@
+/* Valutin Performance — editorial atelier surface */
+
+.dash-paper {
+  min-height: 100vh;
+  background-color: rgb(var(--color-cream));
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgb(var(--color-brand) / 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 0%, rgb(var(--color-brand-light) / 0.18), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgb(var(--color-brand) / 0.06), transparent 60%);
+}
+
+.dash-surface {
+  background: rgb(var(--dash-surface) / 0.72);
+  border: 1px solid rgb(var(--dash-rule) / 0.35);
+}
+
+.dash-rule {
+  border-color: rgb(var(--dash-rule) / 0.4);
+}
+
+.dash-masthead {
+  background: rgb(var(--color-cream) / 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(var(--dash-rule) / 0.35);
+}
+
+.dash-segment {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid rgb(var(--dash-rule) / 0.4);
+  background: rgb(var(--dash-surface) / 0.55);
+}
+
+.dash-segment button {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(var(--color-ink) / 0.5);
+  transition: color 0.15s, background 0.15s;
+}
+
+.dash-segment button[data-active="true"] {
+  background: rgb(var(--color-ink));
+  color: rgb(var(--color-cream));
+}
+
+.dash-segment button[data-active="brand"] {
+  background: rgb(var(--color-brand));
+  color: #fff;
+}
+
+.dash-segment button:hover:not([data-active="true"]):not([data-active="brand"]) {
+  color: rgb(var(--color-ink));
+}
+
+.dash-nav-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.dash-nav-group-label {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(var(--color-ink) / 0.35);
+}
+
+.dash-subtab {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.65rem 0;
+  margin-right: 1.25rem;
+  border-bottom: 2px solid transparent;
+  color: rgb(var(--color-ink) / 0.4);
+  white-space: nowrap;
+}
+
+.dash-subtab[data-active="true"] {
+  border-bottom-color: rgb(var(--color-ink));
+  color: rgb(var(--color-ink));
+}
+
+.dash-subtab:hover {
+  color: rgb(var(--color-ink) / 0.75);
+}
+
+.dash-noise::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

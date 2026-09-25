@@ -1,4 +1,11 @@
 export const BRAND_NAME = "VALUTIN";
+export const LEGAL_ENTITY = {
+  name: "Valutin Comércio de Roupas Infanto Juvenil Ltda",
+  cnpj: "09.011.292/0001-32",
+  stateRegistration: "149.779.847.110",
+  email: "contato@valutin.com.br",
+  postalCode: "04508-030",
+} as const;
 export const LOGO_SRC = "/logo-valutin.png";
 export const GTM_ID = "GTM-5WWWR8FX";
 
@@ -45,7 +52,7 @@ export const COMO_CHEGAR_COPY = {
   online: "Ou prefere ser atendida online? Nossa equipe responde no WhatsApp.",
 } as const;
 
-export const HERO_IMAGE = "/hero.jpg";
+export const HERO_IMAGE = "/campaign-spring-summer-2026/orange-look-desktop.jpg";
 
 export const HERO_COPY = {
   tag: "Moda Infantil · Desde 1998 · Vila Nova Conceição",
@@ -79,7 +86,7 @@ export const CONSULTORIA_ITEMS: ConsultoriaServiceItem[] = [
   { title: "Para ocasiões especiais", body: "batizados, festas, primeira comunhão" },
 ];
 
-export const CONSULTORIA_IMAGE = "/curadoria-valutin.jpg";
+export const CONSULTORIA_IMAGE = "/campaign-spring-summer-2026/consultation-pink-laise.jpg";
 
 export const DEPOIMENTOS_TITLE = "O que as famílias dizem";
 
@@ -115,17 +122,17 @@ export interface GalleryImage {
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    src: "/hero-looks-desktop.jpg",
+    src: "/campaign-spring-summer-2026/collection-flatlay-desktop.jpg",
     caption: "Valutin · Nova coleção",
     alt: "Looks infantis Valutin em composição editorial",
   },
   {
-    src: "/galeria-look-azul.jpg",
+    src: "/campaign-spring-summer-2026/blue-dress-editorial.jpg",
     caption: "Delicadeza · Infantil",
     alt: "Look infantil azul e branco Valutin",
   },
   {
-    src: "/galeria-bordado-mao.jpg",
+    src: "/campaign-spring-summer-2026/embroidered-detail.jpg",
     caption: "Detalhes · Feitos à mão",
     alt: "Bordado floral feito à mão em peça infantil Valutin",
   },

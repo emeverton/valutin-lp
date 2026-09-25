@@ -1,56 +1,32 @@
-import { BRAND_NAME, INSTAGRAM_URL, WHATSAPP_URL } from "../lib/constants";
+import Image from "next/image";
+import { BRAND_NAME, INSTAGRAM_URL, LEGAL_ENTITY } from "../lib/constants";
+import WhatsAppCta from "./WhatsAppCta";
+
+const serviceItems = [
+  ["Atendimento pessoal", "Uma curadoria próxima para cada escolha."],
+  ["Reserva de peças", "Confirmamos a variante com estoque em tempo real."],
+  ["Retirada ou entrega", "Combine com a equipe a melhor forma de receber."],
+  ["Presentes Valutin", "Peças escolhidas para marcar momentos especiais."],
+];
 
 export default function Footer() {
-  return (
-    <footer className="bg-ink text-white py-10 px-6">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        <p className="font-playfair tracking-[0.3em] text-sm text-center sm:text-left">
-          {BRAND_NAME} · Moda Infantil Premium · Desde 1998
-        </p>
-
-        <div className="flex items-center gap-5">
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram Valutin"
-            className="text-brand hover:opacity-70 transition-opacity"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp Valutin"
-            className="text-brand hover:opacity-70 transition-opacity"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.522 5.843L.057 23.143a.75.75 0 0 0 .928.908l5.406-1.435A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.715 9.715 0 0 1-4.96-1.36l-.356-.213-3.707.984.993-3.617-.232-.373A9.714 9.714 0 0 1 2.25 12C2.25 6.61 6.61 2.25 12 2.25S21.75 6.61 21.75 12 17.39 21.75 12 21.75z" />
-            </svg>
-          </a>
-        </div>
+  return <footer>
+    <section className="border-y border-ink/15 bg-[#f4f0e9] px-5 py-7 sm:px-8 lg:px-10">
+      <div className="mx-auto grid max-w-[1440px] gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        {serviceItems.map(([title, description], index) => <div key={title} className={"px-2 text-center lg:px-7 " + (index ? "lg:border-l lg:border-ink/15" : "")}><p className="font-playfair text-xl">{title}</p><p className="mx-auto mt-2 max-w-[210px] font-poppins text-xs leading-relaxed text-ink/65">{description}</p></div>)}
       </div>
-    </footer>
-  );
+    </section>
+    <section className="bg-ink px-5 py-14 text-white sm:px-8 lg:px-10 lg:py-16">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="grid gap-11 border-b border-white/15 pb-12 lg:grid-cols-[1.25fr_.75fr_.75fr_.9fr] lg:gap-8">
+          <div><Image src="/logo-valutin.png" alt="Valutin" width={1024} height={295} sizes="250px" className="h-auto w-[220px] brightness-0 invert" /><p className="mt-6 max-w-sm font-poppins text-sm leading-relaxed text-white/70">Moda infantil premium em Vila Nova Conceição. Uma curadoria de peças para os primeiros dias e as grandes memórias.</p></div>
+          <div><p className="font-poppins text-[10px] uppercase tracking-[0.16em] text-white/55">Atendimento</p><ul className="mt-5 space-y-3 font-poppins text-sm text-white/85"><li><a className="hover:text-white hover:underline" href="/atendimento">Falar com a Valutin</a></li><li><a className="hover:text-white hover:underline" href="/como-comprar">Como comprar</a></li><li><a className="hover:text-white hover:underline" href="/entregas-e-retirada">Entregas e retirada</a></li><li><a className="hover:text-white hover:underline" href="/trocas-e-devolucoes">Trocas e devoluções</a></li></ul></div>
+          <div><p className="font-poppins text-[10px] uppercase tracking-[0.16em] text-white/55">A coleção</p><ul className="mt-5 space-y-3 font-poppins text-sm text-white/85"><li><a className="hover:text-white hover:underline" href="/catalogo/categoria/bebe">Bebês</a></li><li><a className="hover:text-white hover:underline" href="/catalogo/categoria/crianca">Crianças</a></li><li><a className="hover:text-white hover:underline" href="/catalogo/categoria/presentes">Presentes</a></li></ul></div>
+          <div><p className="font-poppins text-[10px] uppercase tracking-[0.16em] text-white/55">A Maison</p><p className="mt-5 font-poppins text-sm leading-relaxed text-white/75">Conheça a Valutin e acompanhe os looks e novidades da nossa curadoria.</p><a href="/sobre-a-valutin" className="mt-5 block font-poppins text-sm text-white/85 hover:text-white hover:underline">Sobre a Valutin</a><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex border-b border-white pb-1 font-poppins text-xs uppercase tracking-[0.13em] hover:text-white/75">Instagram Valutin</a></div>
+        </div>
+        <div className="flex flex-col items-center justify-between gap-5 pt-7 sm:flex-row"><p className="font-poppins text-[9px] uppercase tracking-[0.14em] text-white/55">{BRAND_NAME} · Moda Infantil Premium · Desde 1998</p><div className="flex flex-wrap items-center justify-center gap-5"><a href="/politica-de-privacidade" className="font-poppins text-xs text-white/80 transition hover:text-white">Privacidade</a><a href="/politica-de-cookies" className="font-poppins text-xs text-white/80 transition hover:text-white">Cookies</a><a href="/politica-de-cookies#preferencias" className="font-poppins text-xs text-white/80 transition hover:text-white">Preferências de Cookies</a><a href="/termos-de-uso" className="font-poppins text-xs text-white/80 transition hover:text-white">Termos de uso</a><WhatsAppCta src="footer" className="font-poppins text-xs text-white/80 transition hover:text-white">WhatsApp</WhatsAppCta></div></div>
+        <p className="mt-6 font-poppins text-[11px] leading-relaxed text-white/55">{LEGAL_ENTITY.name} · CNPJ {LEGAL_ENTITY.cnpj} · IE {LEGAL_ENTITY.stateRegistration} · Rua João Lourenço, 323, Vila Nova Conceição, São Paulo/SP, CEP {LEGAL_ENTITY.postalCode} · <a href={`mailto:${LEGAL_ENTITY.email}`} className="underline underline-offset-2 hover:text-white">{LEGAL_ENTITY.email}</a></p>
+      </div>
+    </section>
+  </footer>;
 }

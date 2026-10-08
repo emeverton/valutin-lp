@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { catalogProducts } from "../lib/catalog-individual";
+import { useCatalogProducts } from "./CatalogMediaProvider";
 import { catalogImageClass } from "../lib/catalog-image";
 import { productHref } from "../lib/catalog-navigation";
 
@@ -28,9 +30,8 @@ const shelves = {
   },
 } as const;
 
-const productsByHandle = new Map(catalogProducts.map((product) => [product.handle, product]));
-
 export default function SpringSummerProductShelf({ shelf }: { shelf: keyof typeof shelves }) {
+  const productsByHandle = new Map(useCatalogProducts().map((product) => [product.handle, product]));
   const { eyebrow, title, handles } = shelves[shelf];
   const products = handles.map((handle) => {
     const product = productsByHandle.get(handle);

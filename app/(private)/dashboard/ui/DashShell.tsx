@@ -122,7 +122,7 @@ export function DashShell({
   }
 
   return (
-    <div className="dash-paper dash-noise relative">
+    <div className="dash-paper relative">
       <div className="relative z-[1]">
         <header className="dash-masthead sticky top-0 z-30">
           <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-4 px-6 py-5">
@@ -139,7 +139,7 @@ export function DashShell({
               <div className="hidden sm:block">
                 <p className="font-playfair text-xl leading-none text-ink">Performance</p>
                 <p className="mt-1.5 text-[10px] uppercase tracking-[0.22em] text-ink/40">
-                  Painel executivo · Maison
+                  Painel executivo · Valutin
                 </p>
               </div>
             </div>

@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import { catalogProducts } from "../lib/catalog-individual";
+import { useCatalogProducts } from "./CatalogMediaProvider";
 import { catalogImageClass } from "../lib/catalog-image";
 import { productHref } from "../lib/catalog-navigation";
 import SpringSummerProductShelf from "./SpringSummerProductShelf";
+import { DEFAULT_CONTENT, type PageContent } from "../lib/editor/content";
 
 const signatureSelection = [
   { handle: "vestido-algodao-bordado", caption: "O bordado" },
@@ -11,11 +14,6 @@ const signatureSelection = [
   { handle: "macacao-tricoline-listra-sage", caption: "As listras" },
 ] as const;
 
-const signaturePieces = signatureSelection.flatMap(({ handle, caption }) => {
-  const product = catalogProducts.find((item) => item.handle === handle);
-  return product ? [{ product, caption }] : [];
-});
-
 function EditorialHeading({ id, title, href }: { id: string; title: string; href: string }) {
   return <div className="pb-10 text-center sm:pb-12">
     <h2 id={id} className="font-playfair text-4xl text-[#5c719b] sm:text-5xl">{title}</h2>
@@ -23,7 +21,12 @@ function EditorialHeading({ id, title, href }: { id: string; title: string; href
   </div>;
 }
 
-export default function SpringSummerEditorial() {
+export default function SpringSummerEditorial({ content = DEFAULT_CONTENT }: { content?: PageContent }) {
+  const catalogProducts = useCatalogProducts();
+  const signaturePieces = signatureSelection.flatMap(({ handle, caption }) => {
+    const product = catalogProducts.find((item) => item.handle === handle);
+    return product ? [{ product, caption }] : [];
+  });
   return <div className="bg-white">
     <section aria-labelledby="spring-signatures-title" className="mx-auto max-w-[1440px] px-4 pb-20 sm:px-7 sm:pb-24 lg:px-10">
       <EditorialHeading id="spring-signatures-title" title="Detalhes que ficam" href="/catalogo/categoria/vestidos" />
@@ -52,12 +55,12 @@ export default function SpringSummerEditorial() {
     <SpringSummerProductShelf shelf="detalhes" />
 
     <section aria-labelledby="spring-blue-title" className="mx-auto max-w-[1440px] px-4 pb-24 sm:px-7 sm:pb-28 lg:px-10">
-      <EditorialHeading id="spring-blue-title" title="O azul da estação" href="/catalogo/categoria/crianca" />
-      <a href="/catalogo/categoria/crianca" className="group relative block overflow-hidden bg-[#dce9f3]">
+      <EditorialHeading id="spring-blue-title" title={content.blueTitle} href={content.blueCtaHref} />
+      <a href={content.blueCtaHref} className="group relative block overflow-hidden bg-[#dce9f3]">
         <div className="relative aspect-[4/5] w-full sm:aspect-[1.7/1] lg:aspect-[2.35/1]">
-          <Image src="/campaign-spring-summer-2026/blue-dress-editorial.jpg" alt="Vestido azul de laise em editorial Primavera–Verão Valutin" fill sizes="(max-width: 1440px) 100vw, 1440px" className="object-cover object-[60%_center] transition duration-700 group-hover:scale-[1.02] sm:object-center" />
+          <Image src={content.blueImage} alt={content.blueAlt} fill unoptimized sizes="(max-width: 1440px) 100vw, 1440px" className="object-cover object-[60%_center] transition duration-700 group-hover:scale-[1.02] sm:object-center" />
         </div>
-        <span className="absolute bottom-5 left-5 bg-white/95 px-5 py-3 font-poppins text-[11px] uppercase tracking-[0.13em] text-[#213448] sm:bottom-10 sm:left-10">Descubra os looks leves →</span>
+        <span className="absolute bottom-5 left-5 bg-white/95 px-5 py-3 font-poppins text-[11px] uppercase tracking-[0.13em] text-[#213448] sm:bottom-10 sm:left-10">{content.blueCta} →</span>
       </a>
     </section>
   </div>;

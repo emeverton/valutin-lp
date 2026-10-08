@@ -225,7 +225,7 @@ function GeralTab({
       <motion.section variants={fadeUp}>
         <SectionHead eyebrow="Visão executiva" title="Dashboard geral" />
         <p className="max-w-xl text-sm leading-relaxed text-ink/55">
-          Scorecard H2 e eficiência do período — leitura C-level da maison Valutin.
+          Scorecard H2 e eficiência do período — leitura executiva da Valutin.
         </p>
       </motion.section>
 

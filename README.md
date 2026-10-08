@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Valutin — catálogo e editor
 
-## Getting Started
+Este repositório contém o código do catálogo e do editor da Valutin. O site publicado é um catálogo de **venda assistida**, não um checkout online. Alterações feitas pelo painel ficam em rascunho até a publicação no próprio editor.
 
-First, run the development server:
+## Atualizar produtos sem programar
+
+Abra [o editor publicado](https://www.valutin.com.br/editor/login) e entre com a senha recebida por um canal privado. Não coloque a senha em prompts, commits ou mensagens. No painel:
+
+- **Fotos do catálogo:** capa, galeria e descrições das imagens das peças existentes.
+- **Produtos e estoque:** nome, descrição, preço e estoque manual por tamanho das peças existentes.
+- **Cadastrar peça:** produto novo com categoria, coleção, tamanhos, preço e fotos.
+- **Banners:** conteúdo editorial da coleção.
+
+Salve o rascunho, confira a prévia e só então publique. Depois, verifique a categoria e a página do produto no domínio público. Estoque manual não tem baixa automática nem sincronização garantida com Linx; confirme a disponibilidade com a equipe. Produtos novos não entram automaticamente nos feeds de anúncios sem mapeamento de SKU apropriado.
+
+## Desenvolver localmente com Codex
 
 ```bash
+git clone --branch codex/client-catalog-handoff https://github.com/emeverton/valutin-lp.git
+cd valutin-lp
+npm ci
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3001`. Preencha `.env.local` somente com os valores necessários, fornecidos em canal seguro pela pessoa responsável pela infraestrutura. Sem as integrações privadas, partes do editor, estoque e atendimento não funcionarão localmente. Nunca publique `.env.local` nem copie credenciais de produção para o Codex.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Antes de propor código, leia os arquivos afetados, preserve a estrutura visual aprovada e rode:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm test
+npm run build
+git diff --check
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Faça mudanças em uma branch própria e envie para revisão. **Não publique nem altere a configuração de produção sem autorização explícita.** O projeto de produção está na Vercel; um `git push` não prova que o domínio foi atualizado.

@@ -5,12 +5,11 @@ import Catalog from "../../../components/Catalog";
 import Footer from "../../../components/Footer";
 import GtmSnippet from "../../../components/GtmSnippet";
 import Header from "../../../components/Header";
-import { catalogProducts } from "../../../lib/catalog-individual";
-import { categoryLabel, isCatalogCategory, productCategories } from "../../../lib/catalog-navigation";
+import { getCatalogProducts } from "../../../lib/editor/catalog-store";
+import { categoryLabel, isCatalogCategory } from "../../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
-
-export function generateStaticParams() { return [...productCategories, ...[{ slug: "bebe" }, { slug: "crianca" }, { slug: "batizado" }, { slug: "presentes" }]].map((category) => ({ category: category.slug })); }
+export const dynamic = "force-dynamic";
 
 export function generateMetadata({ params }: { params: { category: string } }): Metadata {
   if (!isCatalogCategory(params.category)) return {};
@@ -25,11 +24,11 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   };
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default async function CategoryPage({ params }: { params: { category: string } }) {
   if (!isCatalogCategory(params.category)) notFound();
   const label = categoryLabel(params.category);
   const url = `${siteUrl}/catalogo/categoria/${params.category}`;
-  const categoryProducts = catalogProducts.filter((product) => product.category === params.category || product.catalogCategory === params.category);
+  const categoryProducts = (await getCatalogProducts()).filter((product) => product.category === params.category || product.catalogCategory === params.category);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { DASH_COOKIE, verifySession } from "./app/lib/dashboard/auth";
+import { EDITOR_COOKIE, verifyEditorSession } from "./app/lib/editor/auth";
 import { ATTR_KEYS, COOKIE_ATTR, COOKIE_MAX_AGE } from "./app/lib/whatsapp/config";
 import { mergeAttrFirstTouch } from "./app/lib/whatsapp/attr-merge";
 
@@ -92,6 +93,21 @@ export async function middleware(req: NextRequest) {
 
   const isDashApi = pathname.startsWith("/api/dashboard");
   const isDashPage = pathname.startsWith("/dashboard");
+  const isEditorApi = pathname.startsWith("/api/editor");
+  const isEditorPage = pathname === "/editor" || pathname.startsWith("/editor/");
+  if (pathname === "/editor/login" || pathname === "/api/editor/login" || pathname === "/api/editor/media") {
+    return withAttribution(req, NextResponse.next());
+  }
+  if (isEditorApi || isEditorPage) {
+    if (await verifyEditorSession(req.cookies.get(EDITOR_COOKIE)?.value)) {
+      return NextResponse.next();
+    }
+    if (isEditorApi) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+    const editorLogin = req.nextUrl.clone();
+    editorLogin.pathname = "/editor/login";
+    editorLogin.search = "";
+    return NextResponse.redirect(editorLogin);
+  }
   const isLogin = pathname === "/login";
   const isAuthApi =
     pathname.startsWith("/api/auth/login") || pathname.startsWith("/api/auth/logout");

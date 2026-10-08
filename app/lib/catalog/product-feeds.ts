@@ -1,5 +1,6 @@
 import products from "../catalog.json";
 import { catalogProducts } from "../catalog-individual";
+import { getCatalogProducts } from "../editor/catalog-store";
 import { getLinxSkusForReference, getLinxStock, hasLinxStockConfig } from "../linx/stock";
 import { catalogFeedId } from "./feed-id";
 
@@ -15,6 +16,7 @@ type CatalogProduct = {
   displayImages: string[];
   linxSku?: string;
   linxSkus?: Record<string, string>;
+  stock?: Record<string, number> | null;
 };
 
 export type FeedItem = {
@@ -90,20 +92,33 @@ async function concurrently<T, R>(items: T[], limit: number, mapper: (item: T) =
 }
 
 export async function buildProductFeed(): Promise<FeedItem[]> {
-  if (!hasLinxStockConfig()) throw new ProductFeedUnavailableError("linx_not_configured");
   const origin = publicOrigin();
+  const published = await getCatalogProducts();
+  const publishedByHandle = new Map(published.map((product) => [product.handle, product]));
   const routableHandles = new Set(catalogProducts.map((product) => product.handle));
   const candidateProducts = (products as CatalogProduct[]).flatMap((product) => {
-    const price = product.price;
+    const current = (publishedByHandle.get(product.handle) as CatalogProduct | undefined) ?? product;
+    const price = current.price;
     // A family split into individual color/print pages has no PDP at its source
     // handle. Do not advertise that URL (or assume a Linx SKU belongs to a color).
-    if (!routableHandles.has(product.handle) || typeof price !== "number" || !Number.isFinite(price) || price <= 0 || !product.displayImages[0]) return [];
-    return [{ product, price }];
+    if (!routableHandles.has(product.handle) || typeof price !== "number" || !Number.isFinite(price) || price <= 0 || !current.displayImages[0]) return [];
+    return [{ product: current, price }];
   });
-  const candidates = (await concurrently(candidateProducts, 4, async ({ product, price }) => (await variants(product)).map((variant) => ({ product, variant, price })))).flat();
+  const linxConfigured = hasLinxStockConfig();
+  const candidates = (await concurrently(candidateProducts, 4, async ({ product, price }) => {
+    if (product.stock !== null && product.stock !== undefined) {
+      // Manual stock may enter a feed only with an explicit size-to-SKU map.
+      // A family/reference SKU cannot prove which color and size it represents.
+      return configuredVariants(product).filter((variant) => variant.size && product.stock?.[variant.size] !== undefined).map((variant) => ({ product, variant, price }));
+    }
+    return linxConfigured ? (await variants(product)).map((variant) => ({ product, variant, price })) : [];
+  })).flat();
+  if (!candidates.length && !linxConfigured) throw new ProductFeedUnavailableError("linx_not_configured");
   const rows = await concurrently(candidates, 4, async ({ product, variant, price }) => {
-    const stock = await getLinxStock({ sku: variant.sku });
-    const available = stock.status === "available" && stock.quantity > 0;
+    const manualQuantity = product.stock && variant.size ? product.stock[variant.size] : undefined;
+    const stock = manualQuantity === undefined ? await getLinxStock({ sku: variant.sku }) : null;
+    const quantity = manualQuantity ?? (stock?.status === "available" ? stock.quantity : 0);
+    const available = quantity > 0;
     const isVariant = Boolean(variant.size || product.reference);
     return {
       id: catalogFeedId(variant.sku),
@@ -114,7 +129,7 @@ export async function buildProductFeed(): Promise<FeedItem[]> {
       imageLink: imageUrl(origin, product.displayImages[0]),
       additionalImageLinks: product.displayImages.slice(1, 11).map((image) => imageUrl(origin, image)),
       availability: available ? "in_stock" as const : "out_of_stock" as const,
-      inventory: available ? stock.quantity : 0,
+      inventory: available ? quantity : 0,
       price,
       sku: variant.sku,
       ...(variant.size ? { size: variant.size } : {}),
@@ -134,7 +149,7 @@ function tag(name: string, value: string | number | undefined): string {
 }
 
 function envelope(channel: "Meta Catalog" | "Google Shopping", items: string[]): string {
-  return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:g="http://base.google.com/ns/1.0"><channel><title>Valutin ${channel}</title><link>https://www.valutin.com.br/catalogo</link><description>Catálogo Valutin sincronizado com disponibilidade Linx.</description>${items.join("")}</channel></rss>`;
+  return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:g="http://base.google.com/ns/1.0"><channel><title>Valutin ${channel}</title><link>https://www.valutin.com.br/catalogo</link><description>Catálogo Valutin com disponibilidade por peça elegível.</description>${items.join("")}</channel></rss>`;
 }
 
 export function googleShoppingXml(items: FeedItem[]): string {

@@ -4,15 +4,19 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BRAND_NAME, INSTAGRAM_URL, LOGO_SRC } from "../lib/constants";
 import { catalogImageClass } from "../lib/catalog-image";
-import { catalogProducts } from "../lib/catalog-individual";
+import { useCatalogProducts } from "./CatalogMediaProvider";
 import { megaMenuSections } from "../lib/mega-menu";
 import { buildAtendimentoHref } from "../lib/whatsapp/attr-merge";
 
 interface HeaderProps { onOpenModal?: () => void; fromCatalog?: boolean; }
 
-const productByHandle = new Map(catalogProducts.map((product) => [product.handle, product]));
+// Keep the seasonal landing page reachable through the logo and collection links,
+// without repeating it as a department in the primary navigation.
+const departmentSections = megaMenuSections.filter((section) => section.key !== "primavera-verao");
+const storeHref = "/catalogo/primavera-verao#visite-a-loja";
 
 export default function Header({ onOpenModal, fromCatalog = false }: HeaderProps) {
+  const productByHandle = new Map(useCatalogProducts().map((product) => [product.handle, product]));
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -38,7 +42,7 @@ export default function Header({ onOpenModal, fromCatalog = false }: HeaderProps
     {current && <button type="button" aria-label="Fechar menu de navegação" onClick={closeMenu} className="fixed inset-x-0 bottom-0 top-[142px] z-[65] hidden bg-[#17233b]/25 lg:block" />}
     <header className={`fixed left-0 right-0 top-[32px] z-[70] border-b transition ${scrolled || current || mobileOpen ? "border-ink/10 bg-white shadow-sm" : "border-white/40 bg-white/95 backdrop-blur"}`} onMouseLeave={closeMenu}>
       <div className="mx-auto grid h-[68px] max-w-[1440px] grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-7 lg:px-10">
-        <div className="hidden items-center gap-5 lg:flex"><a href="/sobre-a-valutin" onFocus={closeMenu} className="font-poppins text-[10px] uppercase tracking-[0.12em] text-ink/75 transition hover:text-brand-strong">A Maison</a><button type="button" onFocus={closeMenu} onClick={openService} className="font-poppins text-[10px] uppercase tracking-[0.12em] text-ink/75 transition hover:text-brand-strong">Atendimento</button></div>
+        <div className="hidden items-center gap-5 lg:flex"><a href={storeHref} onFocus={closeMenu} className="font-poppins text-[10px] uppercase tracking-[0.12em] text-ink/75 transition hover:text-brand-strong">Loja Valutin</a><button type="button" onFocus={closeMenu} onClick={openService} className="font-poppins text-[10px] uppercase tracking-[0.12em] text-ink/75 transition hover:text-brand-strong">Atendimento</button></div>
         <button type="button" onClick={() => { setMobileOpen(!mobileOpen); closeMenu(); }} aria-expanded={mobileOpen} aria-controls="mobile-navigation" aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"} className="inline-flex h-11 items-center font-poppins text-[11px] uppercase tracking-[0.14em] text-ink lg:hidden">{mobileOpen ? "Fechar" : "Menu"}</button>
         <a href="/" onFocus={closeMenu} aria-label={`Página inicial ${BRAND_NAME}`} className="justify-self-center"><Image src={LOGO_SRC} alt={BRAND_NAME} width={180} height={52} priority className="h-9 w-auto object-contain md:h-11" /></a>
         <div className="flex items-center justify-end gap-3 sm:gap-5">
@@ -49,7 +53,7 @@ export default function Header({ onOpenModal, fromCatalog = false }: HeaderProps
       </div>
 
       <nav className="hidden h-[42px] items-center justify-center gap-7 border-t border-ink/10 lg:flex" aria-label="Navegação principal">
-        {megaMenuSections.map((section) => <button key={section.key} type="button" onMouseEnter={() => setMenu(section.key)} onFocus={() => setMenu(section.key)} onClick={() => setMenu(section.key)} aria-expanded={menu === section.key} aria-controls="mega-navigation" className={`relative h-full whitespace-nowrap px-1 font-poppins text-[12px] font-medium transition hover:text-brand-strong ${menu === section.key ? "text-brand-strong after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-brand-strong" : "text-[#213448]"}`}>{section.label}</button>)}
+        {departmentSections.map((section) => <button key={section.key} type="button" onMouseEnter={() => setMenu(section.key)} onFocus={() => setMenu(section.key)} onClick={() => setMenu(section.key)} aria-expanded={menu === section.key} aria-controls="mega-navigation" className={`relative h-full whitespace-nowrap px-1 font-poppins text-[12px] font-medium transition hover:text-brand-strong ${menu === section.key ? "text-brand-strong after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-brand-strong" : "text-[#213448]"}`}>{section.label}</button>)}
       </nav>
 
       {current && <div id="mega-navigation" className="hidden max-h-[calc(100dvh-142px)] overflow-y-auto border-t border-ink/10 bg-white shadow-[0_25px_40px_#17233b1a] lg:block" onMouseEnter={() => setMenu(current.key)}>
@@ -66,7 +70,7 @@ export default function Header({ onOpenModal, fromCatalog = false }: HeaderProps
         </div>}
       </div>}
 
-      {mobileOpen && <div id="mobile-navigation" className="max-h-[calc(100dvh-100px)] overflow-y-auto border-t border-ink/10 bg-white px-5 pb-8 pt-3 lg:hidden"><nav aria-label="Menu de departamentos"><a href="/catalogo/primavera-verao" onClick={() => setMobileOpen(false)} className="block border-b border-ink/10 py-4 font-playfair text-xl text-brand-strong">Primavera–Verão 2026/27</a>{megaMenuSections.slice(1).map((section) => <details key={section.key} className="border-b border-ink/10"><summary className="cursor-pointer py-4 font-poppins text-sm text-[#213448]">{section.label}</summary><div className="pb-5 pl-3"><a href={section.href} onClick={() => setMobileOpen(false)} className="mb-3 block font-poppins text-xs font-medium text-brand-strong underline underline-offset-4">Ver toda a seleção</a>{section.columns.slice(0, 2).flatMap((column) => column.links).map((link) => <a key={`${link.href}-${link.label}`} href={link.href} onClick={() => setMobileOpen(false)} className="block py-2 font-poppins text-xs text-ink/70">{link.label}</a>)}</div></details>)}</nav></div>}
+      {mobileOpen && <div id="mobile-navigation" className="max-h-[calc(100dvh-100px)] overflow-y-auto border-t border-ink/10 bg-white px-5 pb-8 pt-3 lg:hidden"><nav aria-label="Menu de departamentos"><a href={storeHref} onClick={() => setMobileOpen(false)} className="block border-b border-ink/10 py-4 font-playfair text-xl text-brand-strong">Loja Valutin</a>{departmentSections.map((section) => <details key={section.key} className="border-b border-ink/10"><summary className="cursor-pointer py-4 font-poppins text-sm text-[#213448]">{section.label}</summary><div className="pb-5 pl-3"><a href={section.href} onClick={() => setMobileOpen(false)} className="mb-3 block font-poppins text-xs font-medium text-brand-strong underline underline-offset-4">Ver toda a seleção</a>{section.columns.slice(0, 2).flatMap((column) => column.links).map((link) => <a key={`${link.href}-${link.label}`} href={link.href} onClick={() => setMobileOpen(false)} className="block py-2 font-poppins text-xs text-ink/70">{link.label}</a>)}</div></details>)}</nav></div>}
     </header>
   </>;
 }

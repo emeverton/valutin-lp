@@ -17,6 +17,22 @@ type LinxConfig = {
   deposito?: string;
 };
 
+type LinxFailureCode = "request_timeout" | "request_failed" | "http_error" | "empty_response" | "linx_response_error";
+
+class LinxStockError extends Error {
+  constructor(readonly code: LinxFailureCode, readonly method: string, readonly httpStatus?: number) {
+    super(code);
+    this.name = "LinxStockError";
+  }
+}
+
+/** Safe for server logs: never includes the endpoint, credentials, XML or customer data. */
+export function linxStockDiagnostic(error: unknown): { code: string; method?: string; httpStatus?: number } {
+  return error instanceof LinxStockError
+    ? { code: error.code, method: error.method, ...(error.httpStatus ? { httpStatus: error.httpStatus } : {}) }
+    : { code: error instanceof Error && error.message === "linx_not_configured" ? "linx_not_configured" : "unexpected_error" };
+}
+
 function env(name: string): string { return String(process.env[name] || "").trim(); }
 
 function getConfig(): LinxConfig | null {
@@ -108,15 +124,22 @@ function requestXml(config: LinxConfig, method: string, parameters: Record<strin
 }
 
 async function callLinx(config: LinxConfig, method: string, parameters: Record<string, string>): Promise<string> {
-  const response = await fetch(config.endpoint, {
-    method: "POST",
-    headers: { "Content-Type": "application/xml; charset=utf-8", Accept: "application/xml, text/xml" },
-    body: requestXml(config, method, parameters),
-    cache: "no-store",
-    signal: AbortSignal.timeout(8_000),
-  });
+  let response: Response;
+  try {
+    response = await fetch(config.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/xml; charset=utf-8", Accept: "application/xml, text/xml" },
+      body: requestXml(config, method, parameters),
+      cache: "no-store",
+      signal: AbortSignal.timeout(8_000),
+    });
+  } catch (error) {
+    throw new LinxStockError(error instanceof Error && error.name === "TimeoutError" ? "request_timeout" : "request_failed", method);
+  }
   const body = await response.text();
-  if (!response.ok || !body.trim() || linxResponseFailed(body)) throw new Error("linx_upstream_unavailable");
+  if (!response.ok) throw new LinxStockError("http_error", method, response.status);
+  if (!body.trim()) throw new LinxStockError("empty_response", method);
+  if (linxResponseFailed(body)) throw new LinxStockError("linx_response_error", method);
   return body;
 }
 

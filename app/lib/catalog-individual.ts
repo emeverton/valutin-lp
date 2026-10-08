@@ -1,7 +1,8 @@
 import sourceProducts from "./catalog.json";
 
 type SourceProduct = (typeof sourceProducts)[number];
-export type CatalogItem = SourceProduct & { sourceHandle?: string };
+type EditablePiece<T> = T extends unknown ? Omit<T, "price"> & { price: number | null; stock?: Record<string, number> | null; collection?: "primavera-verao" | "geral"; sourceHandle?: string; linxSku?: string; linxSkus?: Record<string, string> } : never;
+export type CatalogItem = EditablePiece<SourceProduct>;
 type Piece = { suffix: string; title: string; imageIndices: number[] };
 
 // Each distinct color/print gets its own catalog card. Photos listed together

@@ -12,7 +12,7 @@ test('public href builder does not load signing code and preserves product conte
 });
 test('middleware handles malformed encoding and encoded wholesale without crashing',async()=>{
  const {NextRequest,NextResponse}=require('next/server');
- const {middleware}=compile('../middleware.ts',{'next/server':{NextRequest,NextResponse},'./app/lib/dashboard/auth':{DASH_COOKIE:'session',verifySession:async()=>false},'./app/lib/whatsapp/config':{ATTR_KEYS:[],COOKIE_ATTR:'attr',COOKIE_MAX_AGE:60},'./app/lib/whatsapp/attr-merge':{mergeAttrFirstTouch:(a,b)=>({...a,...b})}});
+ const {middleware}=compile('../middleware.ts',{'next/server':{NextRequest,NextResponse},'./app/lib/dashboard/auth':{DASH_COOKIE:'session',verifySession:async()=>false},'./app/lib/editor/auth':{EDITOR_COOKIE:'editor',verifyEditorSession:async()=>false},'./app/lib/whatsapp/config':{ATTR_KEYS:[],COOKIE_ATTR:'attr',COOKIE_MAX_AGE:60},'./app/lib/whatsapp/attr-merge':{mergeAttrFirstTouch:(a,b)=>({...a,...b})}});
  for(const query of ['?text=%E0%A4%A','?text=grade+fechada','?text=%61tacado']) {
   const response=await middleware(new NextRequest(`https://example.test/wa${query}`));
   assert.equal(response.status,302);assert.ok(response.headers.get('location').includes('/atendimento'));

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import { CookieBanner } from "./components/CookieBanner";
+import { getPublishedContent } from "./lib/editor/store";
+import type { CSSProperties } from "react";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -55,11 +57,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const content = await getPublishedContent();
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${poppins.variable}`}>
+    <html lang="pt-BR" className={`${playfair.variable} ${poppins.variable}`} style={{ "--color-brand-strong": content.themeAccent } as CSSProperties}>
       <body className="font-poppins antialiased bg-white text-ink">{children}
         <CookieBanner />
         <p className="veltrus-seal" id="vt-craft" data-owner="veltrus" data-vt-k="a125543b8c3291fa9cce462601bd4694"><a href="https://www.veltrus.com.br/" target="_blank" rel="noopener noreferrer">Criado por <strong>Veltrus</strong></a></p>

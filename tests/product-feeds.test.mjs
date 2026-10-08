@@ -9,7 +9,7 @@ const ts = require('typescript');
 const source = readFileSync(new URL('../app/lib/catalog/product-feeds.ts', import.meta.url), 'utf8');
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
 
-function fixture({ configured = true, stock = { status: 'available', quantity: 3 }, catalog: catalogOverride, individualHandles, referenceSkus = ['12345'] } = {}) {
+function fixture({ configured = true, stock = { status: 'available', quantity: 3 }, catalog: catalogOverride, publishedPhotos = {}, publishedEdits = {}, individualHandles, referenceSkus = ['12345'] } = {}) {
   const exports = {};
   const catalog = catalogOverride || [{
     title: 'Vestido QA', handle: 'vestido-qa', category: 'crianca', catalogCategory: 'vestidos',
@@ -19,6 +19,7 @@ function fixture({ configured = true, stock = { status: 'available', quantity: 3
   const modules = {
     '../catalog.json': { __esModule: true, default: catalog },
     '../catalog-individual': { catalogProducts: (individualHandles || catalog.map((product) => product.handle)).map((handle) => ({ handle })) },
+    '../editor/catalog-store': { getCatalogProducts: async () => catalog.map((product) => ({ ...product, ...(publishedPhotos[product.handle] ? { displayImages: publishedPhotos[product.handle] } : {}), ...publishedEdits[product.handle] })) },
     '../linx/stock': { hasLinxStockConfig: () => configured, getLinxStock: async () => ({ ...stock, skuCount: 1, scope: 'sku' }), getLinxSkusForReference: async () => referenceSkus },
     './feed-id': { catalogFeedId: (sku) => `vlt_${sku}` },
   };
@@ -61,4 +62,41 @@ test('feed excludes a family handle whose products only have individual PDPs', a
   const feed = fixture({ catalog, individualHandles: ['vestido-cores-rosa', 'vestido-cores-azul', 'body-individual'] });
   const items = await feed.buildProductFeed();
   assert.deepEqual(items.map((item) => item.link), ['https://www.valutin.com.br/catalogo/body-individual?sku=45678']);
+});
+
+test('feed uses the published catalog photo for the matching product without changing SKU or price', async () => {
+  const catalog = [{
+    title: 'Vestido QA', handle: 'vestido-qa', category: 'crianca', catalogCategory: 'vestidos',
+    description: 'Algodão.', price: 199.9, sizes: ['4A'], displayImages: ['/catalog/original.webp'], linxSkus: { '4A': '12345' },
+  }];
+  const feed = fixture({ catalog, publishedPhotos: { 'vestido-qa': ['/api/editor/media?path=catalogo/123e4567-e89b-12d3-a456-426614174000.jpg'] } });
+  const items = await feed.buildProductFeed();
+  assert.equal(items[0].imageLink, 'https://www.valutin.com.br/api/editor/media?path=catalogo/123e4567-e89b-12d3-a456-426614174000.jpg');
+  assert.equal(items[0].id, 'vlt_12345');
+  assert.equal(items[0].price, 199.9);
+});
+
+test('feed uses published editorial price and copy for an eligible SKU', async () => {
+  const feed = fixture({ publishedEdits: { 'vestido-qa': { title: 'Vestido edição nova', description: 'Algodão e laise.', price: 219.9 } } });
+  const [item] = await feed.buildProductFeed();
+  assert.equal(item.id, 'vlt_12345');
+  assert.equal(item.title, 'Vestido edição nova — 4A');
+  assert.equal(item.description, 'Algodão e laise.');
+  assert.equal(item.price, 219.9);
+});
+
+test('manual stock feeds only exact size-to-SKU mappings and works without Linx', async () => {
+  const feed = fixture({ configured: false, publishedEdits: { 'vestido-qa': { stock: { '4A': 0 } } } });
+  const [item] = await feed.buildProductFeed();
+  assert.equal(item.id, 'vlt_12345');
+  assert.equal(item.availability, 'out_of_stock');
+  assert.equal(item.inventory, 0);
+});
+
+test('manual stock without an exact size mapping is never advertised as Linx stock', async () => {
+  const feed = fixture({ configured: true, catalog: [{
+    title: 'Vestido QA', handle: 'vestido-qa', category: 'crianca', description: 'Algodão.', price: 199,
+    sizes: ['4A', '6A'], displayImages: ['/catalog/vestido.webp'], linxSku: '12345', stock: { '4A': 3 },
+  }] });
+  await assert.rejects(() => feed.buildProductFeed(), (error) => error.code === 'no_eligible_products');
 });

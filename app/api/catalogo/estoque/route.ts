@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getLinxStock, hasLinxStockConfig, isLinxSkuForReference } from "../../../lib/linx/stock";
+import { getLinxStock, hasLinxStockConfig, isLinxSkuForReference, linxStockDiagnostic } from "../../../lib/linx/stock";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +26,8 @@ export async function GET(request: NextRequest) {
     if (sku && reference && !(await isLinxSkuForReference({ sku, reference }))) return NextResponse.json({ ok: false, error: "sku_reference_mismatch" }, { status: 404, headers: { "Cache-Control": "no-store" } });
     const stock = await getLinxStock({ sku: sku || undefined, reference: sku ? undefined : reference });
     return NextResponse.json({ ok: true, configured: true, ...stock }, { headers: { "Cache-Control": "no-store" } });
-  } catch {
+  } catch (error) {
+    console.error(JSON.stringify({ level: "error", event: "linx_stock_unavailable", route: "/api/catalogo/estoque", ...linxStockDiagnostic(error) }));
     return NextResponse.json({ ok: false, error: "stock_unavailable" }, { status: 503, headers: { "Cache-Control": "no-store" } });
   }
 }

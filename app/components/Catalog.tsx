@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { catalogProducts as products } from "../lib/catalog-individual";
+import { useCatalogProducts } from "./CatalogMediaProvider";
 import { categoryHref, productCategories, productHref } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 import { springSummerSourceHandles } from "../lib/seasonal";
@@ -29,6 +29,7 @@ type Category = string;
 type Sort = "catalogo" | "preco-menor" | "preco-maior";
 
 export default function Catalog({ initialCategory = "todos", heading = "A coleção", collection }: { initialCategory?: Category; heading?: string; collection?: "primavera-verao" }) {
+  const products = useCatalogProducts();
   const [category, setCategory] = useState<Category>(initialCategory);
   const [search, setSearch] = useState("");
   const [size, setSize] = useState("");
@@ -45,12 +46,12 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
   }, [initialCategory]);
 
   const sizes = useMemo(() => Array.from(new Set(products
-    .filter((product) => (collection !== "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle)) && (category === "todos" || product.category === category || product.catalogCategory === category))
-    .flatMap((product) => product.sizes))), [category, collection]);
+    .filter((product) => (collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle)) && (category === "todos" || product.category === category || product.catalogCategory === category))
+    .flatMap((product) => product.sizes))), [category, collection, products]);
   const visible = useMemo(() => {
     const term = search.trim().toLocaleLowerCase("pt-BR");
     const filtered = products.filter((product) => {
-      const collectionMatch = collection !== "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle);
+      const collectionMatch = collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle);
       const categoryMatch = category === "todos" || product.category === category || product.catalogCategory === category;
       const sizeMatch = !size || product.sizes.includes(size);
       const reference = "reference" in product ? product.reference ?? "" : "";
@@ -62,7 +63,7 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
       return [...filtered].sort((a, b) => (featuredRank.get(a.handle) ?? Infinity) - (featuredRank.get(b.handle) ?? Infinity));
     }
     return filtered;
-  }, [category, collection, search, size, sort]);
+  }, [category, collection, products, search, size, sort]);
   function chooseCategory(next: Category) {
     setCategory(next);
     setSize("");

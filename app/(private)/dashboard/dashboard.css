@@ -1,27 +1,25 @@
-/* Valutin Performance — editorial atelier surface */
+/* Valutin Performance — visual alinhado ao editor, sem alterar o storefront. */
 
 .dash-paper {
+  --color-cream: 248 247 245;
+  --color-brand: 82 108 135;
+  --dash-surface: 255 255 255;
   min-height: 100vh;
-  background-color: rgb(var(--color-cream));
-  background-image:
-    radial-gradient(ellipse 80% 50% at 10% -10%, rgb(var(--color-brand) / 0.12), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 90% 0%, rgb(var(--color-brand-light) / 0.18), transparent 50%),
-    radial-gradient(ellipse 50% 30% at 50% 100%, rgb(var(--color-brand) / 0.06), transparent 60%);
+  background: #f8f7f5;
 }
 
 .dash-surface {
-  background: rgb(var(--dash-surface) / 0.72);
-  border: 1px solid rgb(var(--dash-rule) / 0.35);
+  background: #fff;
+  border: 1px solid rgb(var(--color-ink) / 0.1);
 }
 
 .dash-rule {
-  border-color: rgb(var(--dash-rule) / 0.4);
+  border-color: rgb(var(--color-ink) / 0.1);
 }
 
 .dash-masthead {
-  background: rgb(var(--color-cream) / 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgb(var(--dash-rule) / 0.35);
+  background: #fff;
+  border-bottom: 1px solid rgb(var(--color-ink) / 0.1);
 }
 
 .dash-segment {
@@ -29,8 +27,8 @@
   flex-wrap: wrap;
   gap: 2px;
   padding: 2px;
-  border: 1px solid rgb(var(--dash-rule) / 0.4);
-  background: rgb(var(--dash-surface) / 0.55);
+  border: 1px solid rgb(var(--color-ink) / 0.12);
+  background: #fff;
 }
 
 .dash-segment button {
@@ -43,12 +41,12 @@
 }
 
 .dash-segment button[data-active="true"] {
-  background: rgb(var(--color-ink));
-  color: rgb(var(--color-cream));
+  background: #526c87;
+  color: #fff;
 }
 
 .dash-segment button[data-active="brand"] {
-  background: rgb(var(--color-brand));
+  background: #526c87;
   color: #fff;
 }
 
@@ -82,20 +80,19 @@
 }
 
 .dash-subtab[data-active="true"] {
-  border-bottom-color: rgb(var(--color-ink));
-  color: rgb(var(--color-ink));
+  border-bottom-color: #526c87;
+  color: #526c87;
 }
 
 .dash-subtab:hover {
   color: rgb(var(--color-ink) / 0.75);
 }
 
-.dash-noise::before {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+.dash-paper button.bg-ink {
+  background-color: #526c87;
+  color: #fff;
+}
+
+.dash-paper button.bg-ink:hover {
+  background-color: #415873;
 }

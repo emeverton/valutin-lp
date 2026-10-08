@@ -38,44 +38,46 @@ function LoginForm() {
   }
 
   return (
-    <main className="dash-paper dash-noise relative flex min-h-screen items-center justify-center px-6 py-16">
-      <div className="relative z-[1] w-full max-w-md">
-        <div className="mb-12 text-center">
-          <Image
-            src={LOGO_SRC}
-            alt="Valutin"
-            width={180}
-            height={54}
-            className="mx-auto h-12 w-auto object-contain"
-            priority
-          />
-          <h1 className="mt-10 font-playfair text-4xl tracking-tight text-ink">Performance</h1>
-          <div className="mx-auto mt-4 h-px w-12 bg-brand" />
-          <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-ink/45">
-            Acesso restrito · painel executivo
-          </p>
-        </div>
+    <main className="dash-paper flex min-h-screen items-center justify-center px-5 py-14 font-poppins text-ink">
+      <div className="dash-surface w-full max-w-md p-8 shadow-sm sm:p-10">
+        <Image
+          src={LOGO_SRC}
+          alt="Valutin"
+          width={160}
+          height={50}
+          className="h-11 w-auto object-contain"
+          priority
+        />
+        <p className="mt-10 text-[11px] uppercase tracking-[0.18em] text-brand-strong">
+          Acesso da equipe
+        </p>
+        <h1 className="mt-3 font-playfair text-4xl text-ink">Painel de performance</h1>
+        <p className="mt-4 text-sm leading-relaxed text-ink/65">
+          Acompanhe os resultados da Valutin. O editor de produtos utiliza outro acesso.
+        </p>
 
-        <form onSubmit={onSubmit} className="dash-surface px-8 py-9">
-          <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50" htmlFor="password">
-            Senha
+        <form onSubmit={onSubmit} className="mt-8 space-y-5">
+          <label className="block text-xs font-medium" htmlFor="password">
+            Senha do painel
           </label>
           <input
             id="password"
             type="password"
+            autoComplete="current-password"
+            required
             autoFocus
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-3 w-full border-b border-ink/20 bg-transparent py-3 text-base outline-none focus:border-brand"
+            className="min-h-12 w-full border border-ink/25 bg-white px-4 outline-none focus:border-brand-strong"
             placeholder="••••••••"
           />
-          {error ? <p className="mt-4 text-sm text-red-700">{error}</p> : null}
+          {error ? <p role="alert" className="text-sm text-red-700">{error}</p> : null}
           <button
             type="submit"
             disabled={loading || !password}
-            className="mt-8 w-full bg-ink px-4 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-cream transition hover:bg-brand disabled:opacity-40"
+            className="min-h-12 w-full bg-brand-strong px-5 text-sm text-white transition hover:bg-[#415873] disabled:opacity-50"
           >
-            {loading ? "Entrando…" : "Entrar"}
+            {loading ? "Entrando…" : "Entrar no painel"}
           </button>
         </form>
       </div>

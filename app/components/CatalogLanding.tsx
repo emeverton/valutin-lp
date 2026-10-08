@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { catalogProducts } from "../lib/catalog-individual";
+import { getCatalogProducts } from "../lib/editor/catalog-store";
+import type { CatalogItem } from "../lib/catalog-individual";
 import { categoryHref, departments, productCategories } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 
@@ -22,12 +23,13 @@ const categoryImages: Record<string, string> = {
   "presentes-e-lembrancas": "boneco-artesanal-rosa",
 };
 
-function imageFor(slug: string, preferredHandle: string, department: boolean) {
+function imageFor(catalogProducts: CatalogItem[], slug: string, preferredHandle: string, department: boolean) {
   return catalogProducts.find((product) => product.handle === preferredHandle)
     ?? catalogProducts.find((product) => department ? product.category === slug : product.catalogCategory === slug);
 }
 
-export default function CatalogLanding() {
+export default async function CatalogLanding() {
+  const catalogProducts = await getCatalogProducts();
   return <div className="bg-white pb-24">
     <div className="mx-auto max-w-[1440px] px-4 pt-9 sm:px-7 sm:pt-12 lg:px-10">
       <div className="flex flex-col gap-8 border-b border-ink/15 pb-9 lg:flex-row lg:items-end lg:justify-between">
@@ -50,7 +52,7 @@ export default function CatalogLanding() {
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {departments.map((department, index) => {
-            const product = imageFor(department.slug, departmentImages[department.slug], true);
+            const product = imageFor(catalogProducts, department.slug, departmentImages[department.slug], true);
             const count = catalogProducts.filter((item) => item.category === department.slug).length;
             return <Link key={department.slug} href={categoryHref(department.slug)} className="group block min-w-0 border border-ink/10 bg-white transition hover:border-ink/25 hover:shadow-[0_12px_30px_rgba(32,31,28,.08)]">
               <div className="catalog-product-surface relative aspect-[4/4.5] overflow-hidden bg-[#f6f5f3]">{product && <Image src={product.displayImages[0]} alt={`Peça da categoria ${department.label}: ${product.title}`} fill priority={index < 4} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw" className={`${catalogImageClass(product.displayImages[0])} transition-transform duration-500 group-hover:scale-[1.04]`} />}</div>
@@ -64,7 +66,7 @@ export default function CatalogLanding() {
         <div className="mb-6"><p className="font-poppins text-[10px] uppercase tracking-[0.2em] text-brand-strong">Encontre pelo tipo de peça</p><h2 id="types-title" className="mt-2 font-playfair text-3xl text-ink sm:text-4xl">Explore a coleção</h2></div>
         <div className="grid grid-cols-2 gap-x-3 gap-y-7 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4">
           {productCategories.map((category) => {
-            const product = imageFor(category.slug, categoryImages[category.slug], false);
+            const product = imageFor(catalogProducts, category.slug, categoryImages[category.slug], false);
             const count = catalogProducts.filter((item) => item.catalogCategory === category.slug).length;
             return <Link key={category.slug} href={categoryHref(category.slug)} className="group block min-w-0">
               <div className="catalog-product-surface relative aspect-[4/4.2] overflow-hidden border border-ink/10 bg-[#f6f5f3] transition group-hover:border-ink/25">{product && <Image src={product.displayImages[0]} alt={`Peça da categoria ${category.label}: ${product.title}`} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className={`${catalogImageClass(product.displayImages[0])} transition-transform duration-500 group-hover:scale-[1.04]`} />}</div>

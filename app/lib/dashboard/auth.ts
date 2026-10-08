@@ -2,9 +2,9 @@ export const DASH_COOKIE = "vl_dash";
 const MAX_AGE_SEC = 60 * 60 * 24 * 14;
 
 function secret(): string {
-  const value = process.env.DASHBOARD_SECRET || process.env.DASHBOARD_PASSWORD;
-  if (!value) throw new Error("Dashboard authentication is not configured");
-  return value;
+  const password = process.env.DASHBOARD_PASSWORD;
+  if (!password) throw new Error("Dashboard authentication is not configured");
+  return `${process.env.DASHBOARD_SECRET || password}:${password}`;
 }
 
 function toHex(buffer: ArrayBuffer): string {

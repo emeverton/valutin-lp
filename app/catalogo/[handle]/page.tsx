@@ -5,14 +5,14 @@ import Footer from "../../components/Footer";
 import GtmSnippet from "../../components/GtmSnippet";
 import Header from "../../components/Header";
 import ProductDetail from "../../components/ProductDetail";
-import { catalogProducts as products } from "../../lib/catalog-individual";
+import { getCatalogProducts } from "../../lib/editor/catalog-store";
 import { categoryHref, categoryLabel } from "../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
+export const dynamic = "force-dynamic";
 
-export function generateStaticParams() { return products.map((product) => ({ handle: product.handle })); }
-export function generateMetadata({ params }: { params: { handle: string } }): Metadata {
-  const product = products.find((item) => item.handle === params.handle);
+export async function generateMetadata({ params }: { params: { handle: string } }): Promise<Metadata> {
+  const product = (await getCatalogProducts()).find((item) => item.handle === params.handle);
   if (!product) return {};
   const title = `${product.title} | Valutin`;
   const url = `/catalogo/${product.handle}`;
@@ -25,8 +25,8 @@ export function generateMetadata({ params }: { params: { handle: string } }): Me
     twitter: { card: "summary_large_image", title, description: product.description, images: [image.url] },
   };
 }
-export default function ProductPage({ params }: { params: { handle: string } }) {
-  const product = products.find((item) => item.handle === params.handle);
+export default async function ProductPage({ params }: { params: { handle: string } }) {
+  const product = (await getCatalogProducts()).find((item) => item.handle === params.handle);
   if (!product) notFound();
   const url = `${siteUrl}/catalogo/${product.handle}`;
   const breadcrumbItems = [

@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: "rgb(var(--color-brand) / <alpha-value>)",
-        "brand-strong": "#526c87",
+        "brand-strong": "var(--color-brand-strong)",
         "brand-light": "rgb(var(--color-brand-light) / <alpha-value>)",
         cream: "rgb(var(--color-cream) / <alpha-value>)",
         ink: "rgb(var(--color-ink) / <alpha-value>)",

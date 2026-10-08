@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return <InfoPage
-    eyebrow="A Maison Valutin"
+    eyebrow="Conheça a Valutin"
     title="Nossa história"
     intro="Desde 1998, a Valutin acompanha a infância com peças escolhidas para os dias comuns e para as ocasiões que ficam na memória."
   >
     <div className="relative aspect-[4/3] overflow-hidden bg-[#eee9e2] sm:aspect-[16/9]">
-      <Image src="/campaign-spring-summer-2026/collection-flatlay-desktop.jpg" alt="Seleção de roupas infantis da coleção Valutin" fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+      <Image src="/fachada-valutin-20260929.jpeg" alt="Fachada da loja Valutin, com vitrines e toldos claros" fill sizes="(max-width: 768px) 100vw, 768px" className="object-contain" />
     </div>
     <section>
       <h2>Uma curadoria próxima de cada família</h2>

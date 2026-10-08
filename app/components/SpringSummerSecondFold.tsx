@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { catalogProducts } from "../lib/catalog-individual";
+import { useCatalogProducts } from "./CatalogMediaProvider";
 import { catalogImageClass } from "../lib/catalog-image";
 import { productHref } from "../lib/catalog-navigation";
+import { DEFAULT_CONTENT, type PageContent } from "../lib/editor/content";
 
 const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 
@@ -17,12 +18,12 @@ const lookSelection = [
   { handle: "vestido-algodao-rosa", label: "Um dia especial" },
 ] as const;
 
-const looks = lookSelection.flatMap(({ handle, label }) => {
-  const product = catalogProducts.find((item) => item.handle === handle);
-  return product ? [{ product, label }] : [];
-});
-
-export default function SpringSummerSecondFold() {
+export default function SpringSummerSecondFold({ content = DEFAULT_CONTENT }: { content?: PageContent }) {
+  const catalogProducts = useCatalogProducts();
+  const looks = lookSelection.flatMap(({ handle, label }) => {
+    const product = catalogProducts.find((item) => item.handle === handle);
+    return product ? [{ product, label }] : [];
+  });
   const trackRef = useRef<HTMLDivElement>(null);
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState(true);
@@ -60,10 +61,10 @@ export default function SpringSummerSecondFold() {
     </section>
 
     <section aria-labelledby="spring-outings-title" className="mx-auto max-w-[1440px] px-4 pb-20 sm:px-7 sm:pb-24 lg:px-10">
-      <div className="pb-10 text-center"><h2 id="spring-outings-title" className="font-playfair text-4xl text-[#5c719b] sm:text-5xl">Passeios ao sol</h2><a href="/catalogo/categoria/crianca" className="mt-4 inline-block border-b border-[#213448] pb-1 font-poppins text-sm text-[#213448] transition hover:border-brand-strong hover:text-brand-strong">Descobrir</a></div>
-      <a href="/catalogo/categoria/crianca" className="group relative block aspect-[1.25/1] overflow-hidden bg-[#ebe5db] sm:aspect-[1.8/1] lg:aspect-[2.5/1]">
-        <Image src="/campaign-spring-summer-2026/collection-flatlay-desktop.jpg" alt="Conjuntos de laise e macaquinho branco da coleção Primavera–Verão" fill sizes="(max-width: 1440px) 100vw, 1440px" className="object-cover object-center transition duration-700 group-hover:scale-[1.02]" />
-        <span className="absolute bottom-6 left-6 bg-white/95 px-5 py-3 font-poppins text-[11px] uppercase tracking-[0.13em] text-[#213448] sm:bottom-10 sm:left-10">Uma estação para descobrir →</span>
+      <div className="pb-10 text-center"><h2 id="spring-outings-title" className="font-playfair text-4xl text-[#5c719b] sm:text-5xl">{content.outingsTitle}</h2><a href={content.outingsCtaHref} className="mt-4 inline-block border-b border-[#213448] pb-1 font-poppins text-sm text-[#213448] transition hover:border-brand-strong hover:text-brand-strong">Descobrir</a></div>
+      <a href={content.outingsCtaHref} className="group relative block aspect-[1.25/1] overflow-hidden bg-[#ebe5db] sm:aspect-[1.8/1] lg:aspect-[2.5/1]">
+        <Image src={content.outingsImage} alt={content.outingsAlt} fill unoptimized sizes="(max-width: 1440px) 100vw, 1440px" className="object-cover object-center transition duration-700 group-hover:scale-[1.02]" />
+        <span className="absolute bottom-6 left-6 bg-white/95 px-5 py-3 font-poppins text-[11px] uppercase tracking-[0.13em] text-[#213448] sm:bottom-10 sm:left-10">{content.outingsCta} →</span>
       </a>
     </section>
   </div>;

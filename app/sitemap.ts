@@ -1,8 +1,10 @@
 import type { MetadataRoute } from 'next';
-import { catalogProducts as products } from './lib/catalog-individual';
+import { getCatalogProducts } from './lib/editor/catalog-store';
 import { categoryHref, departments, productCategories } from './lib/catalog-navigation';
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = 'force-dynamic';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = 'https://www.valutin.com.br';
+  const products = await getCatalogProducts();
   return [
     { url:`${origin}/`, changeFrequency:'weekly', priority:1 },
     { url:`${origin}/catalogo`, changeFrequency:'weekly', priority:0.9 },

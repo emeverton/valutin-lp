@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { ADDRESS, MAPS_DIR_URL, UBER_URL, WAZE_URL } from "../lib/constants";
 import WhatsAppCta from "./WhatsAppCta";
+import type { PageContent } from "../lib/editor/content";
 
 const routes = [
   { label: "Google Maps", href: MAPS_DIR_URL },
@@ -28,13 +30,15 @@ const reviews = [
 
 const GOOGLE_PROFILE_URL = "https://www.google.com/maps?cid=1949999187998996603";
 
-export default function SpringSummerStoreVisit() {
+export default function SpringSummerStoreVisit({ content }: { content: PageContent }) {
   return (
     <section id="visite-a-loja" aria-labelledby="store-visit-heading" className="scroll-mt-36 bg-[#faf9f7] px-4 py-16 sm:px-7 sm:py-24 lg:px-10">
       <div className="mx-auto grid max-w-[1440px] overflow-hidden border border-brand/20 bg-white lg:grid-cols-12">
         <div className="p-7 sm:p-10 lg:col-span-5 lg:p-14">
           <p className="font-poppins text-[11px] uppercase tracking-[0.2em] text-brand-strong">Venha nos visitar</p>
           <h2 id="store-visit-heading" className="mt-6 font-playfair text-[42px] italic leading-none text-ink sm:text-[52px]">Nossa Loja</h2>
+
+          <Image src={content.facadeImage} alt={content.facadeAlt} width={1320} height={1446} unoptimized sizes="(max-width: 1023px) 100vw, 480px" className="mt-7 h-auto w-full" />
 
           <address className="mt-8 not-italic font-poppins text-sm leading-relaxed text-ink/75">
             <p>{ADDRESS.street}</p>

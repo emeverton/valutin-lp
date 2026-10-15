@@ -77,7 +77,7 @@ export const megaMenuSections: MegaMenuSection[] = [
     columns: [
       { title: "Comprar por categoria", links: [
         { ...category("pijamas", "Pijamas"), children: [category("pijamas-meninas", "Meninas"), category("pijamas-meninos", "Meninos")] },
-        category("vestidos", "Vestidos"),
+        category("vestidos-crianca", "Vestidos"),
         category("camisetas-e-camisas", "Camisetas e camisas"),
         category("saias-shorts-e-bermudas", "Saias, shorts e bermudas"),
         category("bodys-e-conjuntos", "Conjuntos"),

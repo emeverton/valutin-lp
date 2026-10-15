@@ -1,6 +1,6 @@
 export const departments = [
   { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["vestidos-bebe", "bodys-e-conjuntos", "macacoes-e-jardineiras", "tricos-e-casacos"] },
-  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["vestidos", "camisetas-e-camisas", "saias-shorts-e-bermudas", "pijamas"] },
+  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["vestidos-crianca", "camisetas-e-camisas", "saias-shorts-e-bermudas", "pijamas"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },
   { slug: "presentes", label: "Presentes", title: "Para guardar na memória", links: ["presentes-e-lembrancas"] },
 ] as const;
@@ -18,6 +18,7 @@ export const productCategories = [
 
 export const departmentCategories = [
   { slug: "vestidos-bebe", label: "Vestidos", title: "Vestidos para bebês", department: "bebe", catalogCategory: "vestidos" },
+  { slug: "vestidos-crianca", label: "Vestidos", title: "Vestidos para crianças", department: "crianca", catalogCategory: "vestidos" },
   { slug: "pijamas", label: "Pijamas", title: "Pijamas", department: "crianca", catalogCategory: "pijamas" },
 ] as const;
 

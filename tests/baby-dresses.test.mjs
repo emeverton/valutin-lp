@@ -31,7 +31,7 @@ test('baby navigation and product breadcrumbs lead to the scoped category', () =
   assert.equal(navigation.isCatalogCategory('vestidos-bebe'), true);
   assert.equal(navigation.categoryLabel('vestidos-bebe'), 'Vestidos para bebês');
   assert.equal(navigation.categoryHref('vestidos', 'bebe'), '/catalogo/categoria/vestidos-bebe');
-  assert.equal(navigation.categoryHref('vestidos', 'crianca'), '/catalogo/categoria/vestidos');
+  assert.equal(navigation.categoryHref('vestidos', 'crianca'), '/catalogo/categoria/vestidos-crianca');
   assert.ok(navigation.departments.find(department => department.slug === 'bebe').links.includes('vestidos-bebe'));
   const menus = {};
   vm.runInNewContext(ts.transpileModule(read('app/lib/mega-menu.ts'), {
@@ -42,4 +42,16 @@ test('baby navigation and product breadcrumbs lead to the scoped category', () =
   } });
   assert.ok(menus.megaMenuSections.find(section => section.key === 'bebe').columns.flatMap(column => column.links)
     .some(link => link.label === 'Vestidos' && link.href === '/catalogo/categoria/vestidos-bebe'));
+});
+
+test('children dress navigation excludes every baby dress, including the cream dress', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const cream = products.find(product => product.handle === 'vestido-bordado-creme');
+  assert.equal(navigation.matchesCatalogCategory(cream, 'vestidos-crianca'), false);
+  assert.equal(navigation.matchesCatalogCategory(cream, 'crianca'), false);
+  assert.equal(navigation.matchesCatalogCategory(cream, 'vestidos-bebe'), true);
+  const selected = products.filter(product => navigation.matchesCatalogCategory(product, 'vestidos-crianca'));
+  assert.ok(selected.length > 0);
+  assert.ok(selected.every(product => product.category === 'crianca' && product.catalogCategory === 'vestidos'));
+  assert.equal(navigation.matchesCatalogCategory(cream, 'vestidos'), true);
 });

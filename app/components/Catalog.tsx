@@ -35,11 +35,13 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
   const [size, setSize] = useState("");
   const [sort, setSort] = useState<Sort>("catalogo");
   const babyDepartment = initialCategory === "bebe" || departmentCategories.some((item) => item.slug === initialCategory && item.department === "bebe");
+  const childrenDepartment = initialCategory === "crianca" || departmentCategories.some((item) => item.slug === initialCategory && item.department === "crianca");
   const pajamasCategory = initialCategory === "pijamas" || catalogSubcategories.some((item) => item.slug === initialCategory && item.parent === "pijamas");
   const emptyPajamasCategory = pajamasCategory && !products.some((product) => matchesCatalogCategory(product, category));
   const navigationCategories: readonly (readonly [string, string])[] = babyDepartment
     ? [["bebe", "Todas as peças para bebês"], ...departmentCategories.filter((item) => item.department === "bebe").map((item) => [item.slug, item.label] as const)]
     : pajamasCategory ? [["pijamas", "Todos os pijamas"], ...catalogSubcategories.filter((item) => item.parent === "pijamas").map((item) => [item.slug, item.label] as const)]
+    : childrenDepartment ? categories.map(([id, label]) => [id === "todos" ? "crianca" : id === "vestidos" ? "vestidos-crianca" : id, id === "todos" ? "Todas as peças infantis" : label] as const)
     : categories;
 
   useEffect(() => {

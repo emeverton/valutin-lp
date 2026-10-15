@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useCatalogProducts } from "./CatalogMediaProvider";
-import { categoryHref, productCategories, productHref } from "../lib/catalog-navigation";
+import { categoryHref, departmentCategories, matchesCatalogCategory, productCategories, productHref } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 import { springSummerSourceHandles } from "../lib/seasonal";
 import SpringSummerSecondFold from "./SpringSummerSecondFold";
@@ -34,6 +34,10 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
   const [search, setSearch] = useState("");
   const [size, setSize] = useState("");
   const [sort, setSort] = useState<Sort>("catalogo");
+  const babyDepartment = initialCategory === "bebe" || departmentCategories.some((item) => item.slug === initialCategory && item.department === "bebe");
+  const navigationCategories: readonly (readonly [string, string])[] = babyDepartment
+    ? [["bebe", "Todas as peças para bebês"], ...departmentCategories.filter((item) => item.department === "bebe").map((item) => [item.slug, item.label] as const)]
+    : categories;
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -46,13 +50,13 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
   }, [initialCategory]);
 
   const sizes = useMemo(() => Array.from(new Set(products
-    .filter((product) => (collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle)) && (category === "todos" || product.category === category || product.catalogCategory === category))
+    .filter((product) => (collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle)) && matchesCatalogCategory(product, category))
     .flatMap((product) => product.sizes))), [category, collection, products]);
   const visible = useMemo(() => {
     const term = search.trim().toLocaleLowerCase("pt-BR");
     const filtered = products.filter((product) => {
       const collectionMatch = collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle);
-      const categoryMatch = category === "todos" || product.category === category || product.catalogCategory === category;
+      const categoryMatch = matchesCatalogCategory(product, category);
       const sizeMatch = !size || product.sizes.includes(size);
       const reference = "reference" in product ? product.reference ?? "" : "";
       return collectionMatch && categoryMatch && sizeMatch && (!term || `${product.title} ${product.description} ${reference}`.toLocaleLowerCase("pt-BR").includes(term));
@@ -86,7 +90,7 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
         {initialCategory === "todos" && <a href="/catalogo/primavera-verao" className="shrink-0 self-start border-b border-brand-strong pb-1 font-poppins text-xs text-brand-strong transition hover:text-ink sm:self-end">Conheça a Primavera–Verão →</a>}
       </div>}
       {collection === "primavera-verao" && <div className="mb-7 max-w-2xl"><p className="font-poppins text-sm leading-relaxed text-ink/65">Uma seleção de algodão, linho, laise e peças leves para os dias de sol. Consulte tamanhos e disponibilidade com a nossa equipe.</p><a href="/catalogo" className="mt-3 inline-block font-poppins text-xs text-brand-strong underline underline-offset-4">Ver catálogo completo</a></div>}
-      <nav className="border-y border-ink/15 py-4" aria-label="Categorias do catálogo"><div className="-mx-4 flex overflow-x-auto px-4 sm:mx-0 sm:px-0">{categories.filter(([id]) => collection !== "primavera-verao" || springSummerCategories.has(id)).map(([id, label]) => {
+      <nav className="border-y border-ink/15 py-4" aria-label="Categorias do catálogo"><div className="-mx-4 flex overflow-x-auto px-4 sm:mx-0 sm:px-0">{navigationCategories.filter(([id]) => collection !== "primavera-verao" || springSummerCategories.has(id)).map(([id, label]) => {
         const className = `shrink-0 border-b-2 px-4 pb-2 pt-1 font-poppins text-[10px] uppercase tracking-[0.15em] ${category === id ? "border-brand-strong text-brand-strong" : "border-transparent text-ink/65 hover:text-ink"}`;
         return collection === "primavera-verao" ? <button key={id} type="button" onClick={() => chooseCategory(id)} aria-current={category === id ? "page" : undefined} className={className}>{label}</button> : <a key={id} href={id === "todos" ? "/catalogo/todos" : categoryHref(id)} aria-current={category === id ? "page" : undefined} className={className}>{label}</a>;
       })}</div></nav>

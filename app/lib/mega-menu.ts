@@ -49,6 +49,7 @@ export const megaMenuSections: MegaMenuSection[] = [
     eyebrow: "Dos primeiros dias às descobertas", title: "O universo bebê",
     columns: [
       { title: "Comprar por categoria", links: [
+        category("vestidos-bebe", "Vestidos"),
         category("bodys-e-conjuntos", "Bodys e conjuntos"),
         category("macacoes-e-jardineiras", "Macacões e jardineiras"),
         category("saias-shorts-e-bermudas", "Bloomers e shorts"),

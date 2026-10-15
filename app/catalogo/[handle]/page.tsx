@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: { params: { handle: string
     { name: "Início", url: `${siteUrl}/` },
     { name: "Catálogo", url: `${siteUrl}/catalogo` },
     { name: categoryLabel(product.category), url: `${siteUrl}${categoryHref(product.category)}` },
-    { name: categoryLabel(product.catalogCategory), url: `${siteUrl}${categoryHref(product.catalogCategory)}` },
+    { name: categoryLabel(product.catalogCategory), url: `${siteUrl}${categoryHref(product.catalogCategory, product.category)}` },
     { name: product.title, url },
   ];
   const structuredData = {

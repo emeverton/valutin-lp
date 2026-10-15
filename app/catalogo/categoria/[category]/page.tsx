@@ -6,7 +6,7 @@ import Footer from "../../../components/Footer";
 import GtmSnippet from "../../../components/GtmSnippet";
 import Header from "../../../components/Header";
 import { getCatalogProducts } from "../../../lib/editor/catalog-store";
-import { categoryLabel, isCatalogCategory } from "../../../lib/catalog-navigation";
+import { categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
 export const dynamic = "force-dynamic";
@@ -28,7 +28,7 @@ export default async function CategoryPage({ params }: { params: { category: str
   if (!isCatalogCategory(params.category)) notFound();
   const label = categoryLabel(params.category);
   const url = `${siteUrl}/catalogo/categoria/${params.category}`;
-  const categoryProducts = (await getCatalogProducts()).filter((product) => product.category === params.category || product.catalogCategory === params.category);
+  const categoryProducts = (await getCatalogProducts()).filter((product) => matchesCatalogCategory(product, params.category));
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [

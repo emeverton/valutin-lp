@@ -1,5 +1,5 @@
 export const departments = [
-  { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["bodys-e-conjuntos", "macacoes-e-jardineiras", "tricos-e-casacos"] },
+  { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["vestidos-bebe", "bodys-e-conjuntos", "macacoes-e-jardineiras", "tricos-e-casacos"] },
   { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["vestidos", "camisetas-e-camisas", "saias-shorts-e-bermudas"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },
   { slug: "presentes", label: "Presentes", title: "Para guardar na memória", links: ["presentes-e-lembrancas"] },
@@ -16,8 +16,18 @@ export const productCategories = [
   { slug: "presentes-e-lembrancas", label: "Presentes e lembranças" },
 ] as const;
 
-export const categoryLabel = (slug: string) => productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
-export const isCatalogCategory = (slug: string) => productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
+export const departmentCategories = [
+  { slug: "vestidos-bebe", label: "Vestidos", title: "Vestidos para bebês", department: "bebe", catalogCategory: "vestidos" },
+] as const;
 
-export const categoryHref = (slug: string) => `/catalogo/categoria/${slug}`;
+export const categoryLabel = (slug: string) => departmentCategories.find((category) => category.slug === slug)?.title ?? productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
+export const isCatalogCategory = (slug: string) => departmentCategories.some((category) => category.slug === slug) || productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
+
+export function matchesCatalogCategory(product: { category: string; catalogCategory: string }, slug: string) {
+  const scoped = departmentCategories.find((category) => category.slug === slug);
+  if (scoped) return product.category === scoped.department && product.catalogCategory === scoped.catalogCategory;
+  return slug === "todos" || product.category === slug || product.catalogCategory === slug;
+}
+
+export const categoryHref = (slug: string, department?: string) => `/catalogo/categoria/${departmentCategories.find((category) => category.catalogCategory === slug && category.department === department)?.slug ?? slug}`;
 export const productHref = (handle: string) => `/catalogo/${handle}`;

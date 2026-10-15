@@ -30,12 +30,13 @@ export const catalogSubcategories = [
 export const categoryLabel = (slug: string) => catalogSubcategories.find((category) => category.slug === slug)?.title ?? departmentCategories.find((category) => category.slug === slug)?.title ?? productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
 export const isCatalogCategory = (slug: string) => catalogSubcategories.some((category) => category.slug === slug) || departmentCategories.some((category) => category.slug === slug) || productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
 
-export function matchesCatalogCategory(product: { category: string; catalogCategory: string }, slug: string) {
+export function matchesCatalogCategory(product: { category: string; catalogCategory: string; additionalDepartments?: readonly string[] }, slug: string) {
+  const inDepartment = (department: string) => product.category === department || product.additionalDepartments?.includes(department) === true;
   const subcategory = catalogSubcategories.find((category) => category.slug === slug);
-  if (subcategory) return product.category === subcategory.department && product.catalogCategory === subcategory.slug;
+  if (subcategory) return inDepartment(subcategory.department) && product.catalogCategory === subcategory.slug;
   const scoped = departmentCategories.find((category) => category.slug === slug);
-  if (scoped) return product.category === scoped.department && (product.catalogCategory === scoped.catalogCategory || catalogSubcategories.some((category) => category.parent === slug && category.slug === product.catalogCategory));
-  return slug === "todos" || product.category === slug || product.catalogCategory === slug;
+  if (scoped) return inDepartment(scoped.department) && (product.catalogCategory === scoped.catalogCategory || catalogSubcategories.some((category) => category.parent === slug && category.slug === product.catalogCategory));
+  return slug === "todos" || inDepartment(slug) || product.catalogCategory === slug;
 }
 
 export const categoryHref = (slug: string, department?: string) => `/catalogo/categoria/${departmentCategories.find((category) => category.catalogCategory === slug && category.department === department)?.slug ?? slug}`;

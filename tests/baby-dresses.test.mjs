@@ -16,15 +16,25 @@ test('baby dress category includes every baby dress and excludes other departmen
   const products = JSON.parse(read('app/lib/catalog.json'));
   const dresses = products.filter(product => navigation.matchesCatalogCategory(product, 'vestidos-bebe'));
   assert.deepEqual(dresses.map(product => product.handle).sort(), [
-    'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-rosa',
+    'vestido-algodao-bordado', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-rosa',
   ]);
   for (const product of products) {
-    assert.equal(navigation.matchesCatalogCategory(product, 'vestidos-bebe'), product.category === 'bebe' && product.catalogCategory === 'vestidos');
+    assert.equal(navigation.matchesCatalogCategory(product, 'vestidos-bebe'), (product.category === 'bebe' || product.additionalDepartments?.includes('bebe') === true) && product.catalogCategory === 'vestidos');
     assert.equal(navigation.matchesCatalogCategory(product, 'vestidos'), product.catalogCategory === 'vestidos');
   }
   assert.equal(navigation.matchesCatalogCategory({ category: 'bebe', catalogCategory: 'vestidos' }, 'vestidos-bebe'), true);
   assert.equal(navigation.matchesCatalogCategory({ category: 'crianca', catalogCategory: 'vestidos' }, 'vestidos-bebe'), false);
   assert.equal(navigation.matchesCatalogCategory({ category: 'bebe', catalogCategory: 'bodys-e-conjuntos' }, 'vestidos-bebe'), false);
+});
+
+test('embroidered cotton dress belongs to both departments without duplicating its product', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const dress = products.find(product => product.handle === 'vestido-algodao-bordado');
+  for (const slug of ['bebe', 'vestidos-bebe', 'crianca', 'vestidos-crianca']) assert.equal(navigation.matchesCatalogCategory(dress, slug), true, slug);
+  assert.equal(products.filter(product => product.handle === dress.handle).length, 1);
+  assert.equal(dress.price, 429);
+  assert.equal(dress.reference, 'PV/27KDS002CT');
+  assert.equal(dress.images.length, 2);
 });
 
 test('baby navigation and product breadcrumbs lead to the scoped category', () => {

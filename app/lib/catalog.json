@@ -1206,6 +1206,7 @@
     "title": "Vestido Bordado — Verde",
     "handle": "vestido-bordado-verde",
     "category": "crianca",
+    "additionalDepartments": ["bebe"],
     "catalogCategory": "vestidos",
     "description": "Vestido Bordado — Verde. Preço, tamanhos e disponibilidade sob consulta com nossa equipe.",
     "reference": null,

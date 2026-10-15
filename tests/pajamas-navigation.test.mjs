@@ -48,9 +48,9 @@ test('children menu contains pajamas with separate girls and boys destinations',
 
 test('VLT MAR025CT is published in boys pajamas with the supplied price and sizes', () => {
   const products = JSON.parse(read('app/lib/catalog.json'));
-  const piece = products.find(product => product.reference === 'VLT MAR025CT');
+  const piece = products.find(product => product.handle === 'pijama-menino-carrinho-azul');
   assert.ok(piece);
-  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 1);
+  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 2);
   assert.equal(piece.price, 248);
   assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
   for (const slug of ['pijamas-meninos', 'pijamas', 'crianca', 'todos']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
@@ -58,4 +58,17 @@ test('VLT MAR025CT is published in boys pajamas with the supplied price and size
   assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg']);
   assert.equal(piece.linxSku, undefined);
   assert.equal(piece.stock, undefined);
+});
+
+test('sailor bear pajamas use the same supplied commercial data and their own photo', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const piece = products.find(product => product.handle === 'pijama-menino-urso-marinheiro-azul-marinho');
+  assert.ok(piece);
+  assert.equal(piece.reference, 'VLT MAR025CT');
+  assert.equal(piece.price, 248);
+  assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct.jpg']);
+  assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninos'), true);
+  assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas'), true);
+  assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninas'), false);
 });

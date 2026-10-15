@@ -1319,5 +1319,18 @@
     "images": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct.jpg"],
     "imageLabels": ["Camiseta com cachorrinho e calça azul-marinho"],
     "displayImages": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct.jpg"]
+  },
+  {
+    "title": "Pijama Elefantinho — Azul",
+    "handle": "pijama-menino-elefantinho-azul",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta de manga curta com bordado de elefantinho e calça azul. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR025CT",
+    "price": 248,
+    "sizes": ["10A", "12A", "14A"],
+    "images": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg"],
+    "imageLabels": ["Camiseta com bordado de elefantinho e calça azul"],
+    "displayImages": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg"]
   }
 ]

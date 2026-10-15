@@ -1306,5 +1306,18 @@
     "images": ["/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct.jpg"],
     "imageLabels": ["Camiseta com urso marinheiro e calça azul-marinho"],
     "displayImages": ["/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct.jpg"]
+  },
+  {
+    "title": "Pijama Cachorrinho — Azul Marinho",
+    "handle": "pijama-menino-cachorrinho-azul-marinho",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta de manga curta com aplicação de cachorrinho e calça azul-marinho. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR025CT",
+    "price": 248,
+    "sizes": ["18M", "2A", "4A", "6A", "8A"],
+    "images": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct.jpg"],
+    "imageLabels": ["Camiseta com cachorrinho e calça azul-marinho"],
+    "displayImages": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct.jpg"]
   }
 ]

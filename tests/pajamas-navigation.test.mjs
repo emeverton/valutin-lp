@@ -50,7 +50,7 @@ test('VLT MAR025CT is published in boys pajamas with the supplied price and size
   const products = JSON.parse(read('app/lib/catalog.json'));
   const piece = products.find(product => product.handle === 'pijama-menino-carrinho-azul');
   assert.ok(piece);
-  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 2);
+  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 3);
   assert.equal(piece.price, 248);
   assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
   for (const slug of ['pijamas-meninos', 'pijamas', 'crianca', 'todos']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
@@ -58,6 +58,19 @@ test('VLT MAR025CT is published in boys pajamas with the supplied price and size
   assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg']);
   assert.equal(piece.linxSku, undefined);
   assert.equal(piece.stock, undefined);
+});
+
+test('all three supplied pajama prints share the commercial data but have distinct photos', () => {
+  const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR025CT');
+  assert.equal(products.length, 3);
+  assert.equal(new Set(products.map(product => product.displayImages[0])).size, 3);
+  for (const product of products) {
+    assert.equal(product.price, 248);
+    assert.deepEqual(product.sizes, ['18M', '2A', '4A', '6A', '8A']);
+    assert.equal(navigation.matchesCatalogCategory(product, 'pijamas-meninos'), true);
+    assert.equal(navigation.matchesCatalogCategory(product, 'pijamas'), true);
+    assert.equal(navigation.matchesCatalogCategory(product, 'pijamas-meninas'), false);
+  }
 });
 
 test('sailor bear pajamas use the same supplied commercial data and their own photo', () => {

@@ -6,7 +6,7 @@ import Footer from "../../../components/Footer";
 import GtmSnippet from "../../../components/GtmSnippet";
 import Header from "../../../components/Header";
 import { getCatalogProducts } from "../../../lib/editor/catalog-store";
-import { categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
+import { catalogSubcategories, categoryHref, categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
 export const dynamic = "force-dynamic";
@@ -29,6 +29,8 @@ export default async function CategoryPage({ params }: { params: { category: str
   const label = categoryLabel(params.category);
   const url = `${siteUrl}/catalogo/categoria/${params.category}`;
   const categoryProducts = (await getCatalogProducts()).filter((product) => matchesCatalogCategory(product, params.category));
+  const subcategory = catalogSubcategories.find((item) => item.slug === params.category);
+  const ancestors = subcategory ? [subcategory.department, subcategory.parent] : params.category === "pijamas" ? ["crianca"] : [];
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -36,7 +38,8 @@ export default async function CategoryPage({ params }: { params: { category: str
       { "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`, itemListElement: [
         { "@type": "ListItem", position: 1, name: "Início", item: `${siteUrl}/` },
         { "@type": "ListItem", position: 2, name: "Catálogo", item: `${siteUrl}/catalogo` },
-        { "@type": "ListItem", position: 3, name: label, item: url },
+        ...ancestors.map((slug, index) => ({ "@type": "ListItem", position: index + 3, name: categoryLabel(slug), item: `${siteUrl}${categoryHref(slug)}` })),
+        { "@type": "ListItem", position: ancestors.length + 3, name: label, item: url },
       ] },
       { "@type": "ItemList", "@id": `${url}#products`, numberOfItems: categoryProducts.length, itemListElement: categoryProducts.map((product, index) => ({
         "@type": "ListItem", position: index + 1, name: product.title, url: `${siteUrl}/catalogo/${product.handle}`,

@@ -1,6 +1,6 @@
 export const departments = [
   { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["vestidos-bebe", "bodys-e-conjuntos", "macacoes-e-jardineiras", "tricos-e-casacos"] },
-  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["vestidos", "camisetas-e-camisas", "saias-shorts-e-bermudas"] },
+  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["vestidos", "camisetas-e-camisas", "saias-shorts-e-bermudas", "pijamas"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },
   { slug: "presentes", label: "Presentes", title: "Para guardar na memória", links: ["presentes-e-lembrancas"] },
 ] as const;
@@ -18,14 +18,22 @@ export const productCategories = [
 
 export const departmentCategories = [
   { slug: "vestidos-bebe", label: "Vestidos", title: "Vestidos para bebês", department: "bebe", catalogCategory: "vestidos" },
+  { slug: "pijamas", label: "Pijamas", title: "Pijamas", department: "crianca", catalogCategory: "pijamas" },
 ] as const;
 
-export const categoryLabel = (slug: string) => departmentCategories.find((category) => category.slug === slug)?.title ?? productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
-export const isCatalogCategory = (slug: string) => departmentCategories.some((category) => category.slug === slug) || productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
+export const catalogSubcategories = [
+  { slug: "pijamas-meninas", label: "Meninas", title: "Pijamas para meninas", parent: "pijamas", department: "crianca" },
+  { slug: "pijamas-meninos", label: "Meninos", title: "Pijamas para meninos", parent: "pijamas", department: "crianca" },
+] as const;
+
+export const categoryLabel = (slug: string) => catalogSubcategories.find((category) => category.slug === slug)?.title ?? departmentCategories.find((category) => category.slug === slug)?.title ?? productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
+export const isCatalogCategory = (slug: string) => catalogSubcategories.some((category) => category.slug === slug) || departmentCategories.some((category) => category.slug === slug) || productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
 
 export function matchesCatalogCategory(product: { category: string; catalogCategory: string }, slug: string) {
+  const subcategory = catalogSubcategories.find((category) => category.slug === slug);
+  if (subcategory) return product.category === subcategory.department && product.catalogCategory === subcategory.slug;
   const scoped = departmentCategories.find((category) => category.slug === slug);
-  if (scoped) return product.category === scoped.department && product.catalogCategory === scoped.catalogCategory;
+  if (scoped) return product.category === scoped.department && (product.catalogCategory === scoped.catalogCategory || catalogSubcategories.some((category) => category.parent === slug && category.slug === product.catalogCategory));
   return slug === "todos" || product.category === slug || product.catalogCategory === slug;
 }
 

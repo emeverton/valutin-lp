@@ -13,6 +13,7 @@ vm.runInNewContext(ts.transpileModule(source, { compilerOptions: { module: ts.Mo
   exports,
   require: (name) => name === '../catalog-individual' ? { catalogProducts: [{ handle: 'peca-existente' }] } : name === '../catalog-navigation' ? {
     departments: [{ slug: 'crianca' }], productCategories: [{ slug: 'vestidos' }],
+    departmentCategories: [{ slug: 'pijamas', catalogCategory: 'pijamas' }], catalogSubcategories: [{ slug: 'pijamas-meninas' }, { slug: 'pijamas-meninos' }],
   } : name === '../catalog.json' ? { __esModule: true, default: [{ handle: 'familia-antiga' }] } : undefined,
   Object, Map, Set, Array, Error, Number, Math,
 });
@@ -44,4 +45,11 @@ test('rejects duplicate and reserved handles, external photos, fake stock and un
   assert.throws(() => exports.validateNewProducts([piece({ images: ['https://example.com/a.jpg'] })]));
   assert.throws(() => exports.validateNewProducts([piece({ stock: { '8A': 2 } })]));
   assert.throws(() => exports.validateNewProducts([piece({ linxSku: '123' })]));
+});
+
+test('accepts girls and boys pajamas for children with their exact subcategory', () => {
+  for (const catalogCategory of ['pijamas', 'pijamas-meninas', 'pijamas-meninos']) {
+    const [item] = exports.validateNewProducts([piece({ catalogCategory })]);
+    assert.equal(exports.asCatalogItem(item).catalogCategory, catalogCategory);
+  }
 });

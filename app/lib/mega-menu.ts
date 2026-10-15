@@ -1,6 +1,6 @@
 import { categoryHref, productHref } from "./catalog-navigation";
 
-type MenuLink = { label: string; href: string };
+type MenuLink = { label: string; href: string; children?: MenuLink[] };
 type MenuColumn = { title: string; links: MenuLink[] };
 type MenuPromo = { handle: string; label: string };
 
@@ -76,6 +76,7 @@ export const megaMenuSections: MegaMenuSection[] = [
     eyebrow: "Peças para viver a infância", title: "Para meninas e meninos",
     columns: [
       { title: "Comprar por categoria", links: [
+        { ...category("pijamas", "Pijamas"), children: [category("pijamas-meninas", "Meninas"), category("pijamas-meninos", "Meninos")] },
         category("vestidos", "Vestidos"),
         category("camisetas-e-camisas", "Camisetas e camisas"),
         category("saias-shorts-e-bermudas", "Saias, shorts e bermudas"),

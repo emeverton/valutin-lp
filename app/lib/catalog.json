@@ -1280,5 +1280,18 @@
       "/catalog-outubro/00000488-PHOTO-2026-09-29-18-45-29.jpg",
       "/catalog-outubro/00000489-PHOTO-2026-09-29-18-45-34.jpg"
     ]
+  },
+  {
+    "title": "Pijama Carrinho — Azul",
+    "handle": "pijama-menino-carrinho-azul",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta de manga curta com aplicação de carrinho e calça azul. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR025CT",
+    "price": 248,
+    "sizes": ["18M", "2A", "4A", "6A", "8A"],
+    "images": ["/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg"],
+    "imageLabels": ["Camiseta com carrinho e calça azul"],
+    "displayImages": ["/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg"]
   }
 ]

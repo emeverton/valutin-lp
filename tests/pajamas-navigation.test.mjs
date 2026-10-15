@@ -45,3 +45,17 @@ test('children menu contains pajamas with separate girls and boys destinations',
   assert.equal(navigation.categoryLabel('pijamas-meninas'), 'Pijamas para meninas');
   assert.equal(navigation.categoryLabel('pijamas-meninos'), 'Pijamas para meninos');
 });
+
+test('VLT MAR025CT is published in boys pajamas with the supplied price and sizes', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const piece = products.find(product => product.reference === 'VLT MAR025CT');
+  assert.ok(piece);
+  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 1);
+  assert.equal(piece.price, 248);
+  assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
+  for (const slug of ['pijamas-meninos', 'pijamas', 'crianca', 'todos']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
+  for (const slug of ['pijamas-meninas', 'bebe', 'vestidos-crianca']) assert.equal(navigation.matchesCatalogCategory(piece, slug), false, slug);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg']);
+  assert.equal(piece.linxSku, undefined);
+  assert.equal(piece.stock, undefined);
+});

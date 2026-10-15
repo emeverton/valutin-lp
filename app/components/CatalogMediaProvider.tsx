@@ -2,8 +2,9 @@
 
 import { createContext, useContext, type ReactNode } from "react";
 import { catalogProducts, type CatalogItem } from "../lib/catalog-individual";
+import { applyOffwhitePhotos } from "../lib/catalog-offwhite";
 
-const Context = createContext<CatalogItem[]>(catalogProducts);
+const Context = createContext<CatalogItem[]>(applyOffwhitePhotos(catalogProducts));
 
 export function CatalogMediaProvider({ products, children }: { products: CatalogItem[]; children: ReactNode }) {
   return <Context.Provider value={products}>{children}</Context.Provider>;

@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { catalogProducts } from "../catalog-individual";
+import { applyOffwhitePhotos } from "../catalog-offwhite";
 import { applyCatalogMedia, validateCatalogMedia, type CatalogMedia } from "./catalog-media";
 import { applyProductEdits } from "./catalog-products";
 import { getPublishedProductEdits } from "./product-store";
@@ -38,7 +39,7 @@ export const getPublishedCatalogMedia = cache(async (): Promise<CatalogMedia> =>
 
 export const getCatalogProducts = cache(async () => {
   const [media, edits, added] = await Promise.all([getPublishedCatalogMedia(), getPublishedProductEdits(), getPublishedNewProducts()]);
-  return [...applyProductEdits(applyCatalogMedia(catalogProducts, media), edits), ...added.map(asCatalogItem)];
+  return applyOffwhitePhotos([...applyProductEdits(applyCatalogMedia(catalogProducts, media), edits), ...added.map(asCatalogItem)]);
 });
 
 export async function saveCatalogDraft(content: unknown, version: number): Promise<CatalogRow> {

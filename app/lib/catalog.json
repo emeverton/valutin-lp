@@ -1282,6 +1282,32 @@
     ]
   },
   {
+    "title": "Vestido Bebê Bordado — Azul",
+    "handle": "vestido-bebe-bordado-azul-kds005ct",
+    "category": "bebe",
+    "catalogCategory": "vestidos",
+    "description": "Vestido azul com bordado floral, gola arredondada e mangas curtas com acabamento rosa. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27KDS005CT",
+    "price": 429,
+    "sizes": ["6M", "9M", "12M", "18M", "2A", "4A", "6A"],
+    "images": ["/catalog/vestido-bebe-azul-pv26-27kds005ct.png"],
+    "imageLabels": ["Vestido azul com bordado floral e acabamento rosa"],
+    "displayImages": ["/catalog/vestido-bebe-azul-pv26-27kds005ct.png"]
+  },
+  {
+    "title": "Vestido Bebê Listrado — Laranja",
+    "handle": "vestido-bebe-listrado-laranja-ange007bb",
+    "category": "bebe",
+    "catalogCategory": "vestidos",
+    "description": "Vestido listrado laranja e branco com bordado floral na gola, mangas curtas, botões e laço nas costas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27ANGE007BB",
+    "price": 378,
+    "sizes": ["6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog/vestido-bebe-listrado-laranja-ange007bb-frente.png", "/catalog/vestido-bebe-listrado-laranja-ange007bb-costas.png"],
+    "imageLabels": ["Frente", "Costas com laço"],
+    "displayImages": ["/catalog/vestido-bebe-listrado-laranja-ange007bb-frente.png", "/catalog/vestido-bebe-listrado-laranja-ange007bb-costas.png"]
+  },
+  {
     "title": "Pijama Carrinho — Azul",
     "handle": "pijama-menino-carrinho-azul",
     "category": "crianca",

@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { describe, it } from "node:test";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 function rg(pattern, fixed = false) {
   const result = spawnSync("rg", ["-n", ...(fixed ? ["--fixed-strings"] : []), "--glob", "!node_modules/**", "--glob", "!.next/**", "--glob", "!pnpm-lock.yaml", "--glob", "!tests/**", "--", pattern, "."], { cwd: ROOT, encoding: "utf8" });

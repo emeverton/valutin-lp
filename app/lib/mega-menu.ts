@@ -1,4 +1,4 @@
-import { categoryHref, productHref } from "./catalog-navigation";
+import { babyCategories, babySections, categoryHref, productHref } from "./catalog-navigation";
 
 type MenuLink = { label: string; href: string; children?: MenuLink[] };
 type MenuColumn = { title: string; links: MenuLink[] };
@@ -48,23 +48,11 @@ export const megaMenuSections: MegaMenuSection[] = [
     key: "bebe", label: "Bebês", href: categoryHref("bebe"),
     eyebrow: "Dos primeiros dias às descobertas", title: "O universo bebê",
     columns: [
-      { title: "Comprar por categoria", links: [
-        category("vestidos-bebe", "Vestidos"),
-        category("bodys-e-conjuntos", "Bodys e conjuntos"),
-        category("macacoes-e-jardineiras", "Macacões e jardineiras"),
-        category("saias-shorts-e-bermudas", "Bloomers e shorts"),
-        category("tricos-e-casacos", "Tricôs e casacos"),
-      ] },
-      { title: "Descobrir", links: [
-        category("bebe", "Todas as peças para bebês"),
-        category("presentes", "Presentes para bebês"),
-        category("batizado", "Batizado e cerimônia"),
-      ] },
-      { title: "Peças em destaque", links: [
-        product("macacao-tricoline-listra-sage", "Macacão de tricoline"),
-        product("conjunto-body-shorts-xadrez-azul", "Body e shorts xadrez"),
-        product("jardineira-ursos", "Jardineira de ursinhos"),
-      ] },
+      ...babySections.map((section) => ({ title: section.label, links: [
+        category(section.slug, `Ver ${section.label.toLowerCase()}`),
+        ...babyCategories.filter((item) => item.parent === section.slug).map((item) => category(item.slug, item.label)),
+      ] })),
+      { title: "Descobrir", links: [category("bebe", "Universo bebê"), category("presentes", "Presentes para bebês"), category("batizado", "Batizado e cerimônia")] },
     ],
     promos: [
       { handle: "macacao-tricoline-listra-sage", label: "Macacões para a estação" },

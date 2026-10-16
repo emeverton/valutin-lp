@@ -8,7 +8,7 @@ import { trackCatalogItemView, trackFunnel, trackProductDetailView } from "../li
 import { COOKIE_CONSENT_EVENT } from "../lib/cookie-consent";
 import { appendAttrFromSearch } from "../lib/whatsapp/attr-merge";
 import { useCatalogProducts } from "./CatalogMediaProvider";
-import { categoryHref, categoryLabel } from "../lib/catalog-navigation";
+import { babyClassification, categoryHref, matchesCatalogCategory, productCategoryTrail } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 
 const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
@@ -20,7 +20,7 @@ type Product = {
 };
 type StockState = { configured: boolean; status?: "available" | "out_of_stock" | "not_found"; scope?: "sku" | "reference"; checkedSku?: string } | null;
 
-export default function ProductDetail({ product }: { product: Product }) {
+export default function ProductDetail({ product, categoryTrail = productCategoryTrail(product) }: { product: Product; categoryTrail?: { slug: string; label: string }[] }) {
   const products = useCatalogProducts();
   const [image, setImage] = useState(0);
   const [size, setSize] = useState("");
@@ -97,11 +97,13 @@ export default function ProductDetail({ product }: { product: Product }) {
           : stockForSelection?.configured === false ? "Disponibilidade online em atualização. Consulte a equipe." : "Tamanho e disponibilidade serão confirmados pela equipe.";
   const eligibleToReserve = !manualStock && stockForSelection?.configured === true && stockForSelection.status === "available" && stockForSelection.scope === "sku" && stockForSelection.checkedSku === sku;
   const variants = product.sourceHandle ? products.filter((item) => item.sourceHandle === product.sourceHandle) : [];
-  const recommendations = products.filter((item) => item.handle !== product.handle && item.catalogCategory === product.catalogCategory && (!product.sourceHandle || item.sourceHandle !== product.sourceHandle)).slice(0, 3);
+  const lastCategory = categoryTrail[categoryTrail.length - 1];
+  const babyProduct = babyClassification(product);
+  const recommendations = products.filter((item) => item.handle !== product.handle && (babyProduct ? matchesCatalogCategory(item, lastCategory.slug) : item.catalogCategory === product.catalogCategory) && (!product.sourceHandle || item.sourceHandle !== product.sourceHandle)).slice(0, 3);
 
   return <section className="mx-auto max-w-[1440px] px-4 pb-20 pt-8 sm:px-7 lg:px-10">
     <nav aria-label="Navegação estrutural" className="mb-6 font-poppins text-xs text-ink/60">
-      <a href="/" className="hover:text-brand-strong">Início</a><span className="px-2">/</span><a href="/catalogo" className="hover:text-brand-strong">Catálogo</a><span className="px-2">/</span><a href={categoryHref(product.category)} className="hover:text-brand-strong">{categoryLabel(product.category)}</a><span className="px-2">/</span><a href={categoryHref(product.catalogCategory, product.category)} className="hover:text-brand-strong">{categoryLabel(product.catalogCategory)}</a><span className="px-2">/</span><span>{product.title}</span>
+      <a href="/" className="hover:text-brand-strong">Início</a><span className="px-2">/</span><a href="/catalogo" className="hover:text-brand-strong">Catálogo</a>{categoryTrail.map((item) => <span key={item.slug}><span className="px-2">/</span><a href={categoryHref(item.slug)} className="hover:text-brand-strong">{item.label}</a></span>)}<span className="px-2">/</span><span>{product.title}</span>
     </nav>
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(340px,.8fr)] lg:gap-14">
       <div className="grid min-w-0 items-start gap-3 sm:grid-cols-[82px_minmax(0,1fr)]">
@@ -139,6 +141,6 @@ export default function ProductDetail({ product }: { product: Product }) {
         </div>
       </div>
     </div>
-    {recommendations.length > 0 && <section className="mt-20 border-t border-ink/15 pt-12"><div className="flex items-end justify-between gap-4"><div><p className="font-poppins text-[10px] uppercase tracking-[0.17em] text-brand-strong">A descobrir</p><h2 className="mt-3 font-playfair text-3xl sm:text-4xl">Você também pode gostar</h2></div><Link href={categoryHref(product.catalogCategory, product.category)} className="shrink-0 font-poppins text-xs underline underline-offset-4">Ver {categoryLabel(product.catalogCategory).toLowerCase()}</Link></div><div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">{recommendations.map((item) => <article key={item.handle} className="group"><Link href={`/catalogo/${item.handle}`} className="catalog-product-surface relative block aspect-[3/4] overflow-hidden border border-ink/10 p-3"><Image src={item.displayImages[0]} alt={item.title} fill sizes="(max-width: 640px) 50vw, 33vw" className={catalogImageClass(item.displayImages[0])} /></Link><Link href={`/catalogo/${item.handle}`} className="mt-4 block font-poppins text-xs font-medium hover:text-brand-strong">{item.title}</Link><p className="mt-1 font-poppins text-sm text-ink/70">{item.price === null ? "Preço sob consulta" : money.format(item.price)}</p></article>)}</div></section>}
+    {recommendations.length > 0 && <section className="mt-20 border-t border-ink/15 pt-12"><div className="flex items-end justify-between gap-4"><div><p className="font-poppins text-[10px] uppercase tracking-[0.17em] text-brand-strong">A descobrir</p><h2 className="mt-3 font-playfair text-3xl sm:text-4xl">Você também pode gostar</h2></div><Link href={categoryHref(lastCategory.slug)} className="shrink-0 font-poppins text-xs underline underline-offset-4">Ver {lastCategory.label.toLowerCase()}</Link></div><div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">{recommendations.map((item) => <article key={item.handle} className="group"><Link href={`/catalogo/${item.handle}`} className="catalog-product-surface relative block aspect-[3/4] overflow-hidden border border-ink/10 p-3"><Image src={item.displayImages[0]} alt={item.title} fill sizes="(max-width: 640px) 50vw, 33vw" className={catalogImageClass(item.displayImages[0])} /></Link><Link href={`/catalogo/${item.handle}`} className="mt-4 block font-poppins text-xs font-medium hover:text-brand-strong">{item.title}</Link><p className="mt-1 font-poppins text-sm text-ink/70">{item.price === null ? "Preço sob consulta" : money.format(item.price)}</p></article>)}</div></section>}
   </section>;
 }

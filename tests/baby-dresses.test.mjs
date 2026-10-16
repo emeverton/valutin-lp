@@ -42,7 +42,7 @@ test('baby navigation and product breadcrumbs lead to the scoped category', () =
   assert.equal(navigation.categoryLabel('vestidos-bebe'), 'Vestidos para bebês');
   assert.equal(navigation.categoryHref('vestidos', 'bebe'), '/catalogo/categoria/vestidos-bebe');
   assert.equal(navigation.categoryHref('vestidos', 'crianca'), '/catalogo/categoria/vestidos-crianca');
-  assert.ok(navigation.departments.find(department => department.slug === 'bebe').links.includes('vestidos-bebe'));
+  assert.ok(navigation.departments.find(department => department.slug === 'bebe').links.includes('bebe-meninas'));
   const menus = {};
   vm.runInNewContext(ts.transpileModule(read('app/lib/mega-menu.ts'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
@@ -51,7 +51,7 @@ test('baby navigation and product breadcrumbs lead to the scoped category', () =
     return navigation;
   } });
   assert.ok(menus.megaMenuSections.find(section => section.key === 'bebe').columns.flatMap(column => column.links)
-    .some(link => link.label === 'Vestidos' && link.href === '/catalogo/categoria/vestidos-bebe'));
+    .some(link => link.label === 'Vestido' && link.href === '/catalogo/categoria/bebe-meninas-vestido'));
 });
 
 test('children dress navigation excludes every baby dress, including the cream dress', () => {

@@ -43,7 +43,7 @@ const piecesByProduct: Record<string, Piece[]> = {
   ],
   "macacao-fustao": [
     { suffix: "floral-rosa", title: "Macacão Fustão — Floral Rosa", imageIndices: [0] },
-    { suffix: "azul", title: "Macacão Fustão — Azul", imageIndices: [1] },
+    { suffix: "azul", title: "Jardineira Fustão — Azul", imageIndices: [1] },
   ],
   "conjunto-body-shorts": [
     { suffix: "xadrez-azul", title: "Conjunto Body e Shorts — Xadrez Azul", imageIndices: [0] },

@@ -6,7 +6,7 @@ import GtmSnippet from "../../components/GtmSnippet";
 import Header from "../../components/Header";
 import ProductDetail from "../../components/ProductDetail";
 import { getCatalogProducts } from "../../lib/editor/catalog-store";
-import { categoryHref, categoryLabel } from "../../lib/catalog-navigation";
+import { categoryHref, productCategoryTrail } from "../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
 export const dynamic = "force-dynamic";
@@ -25,15 +25,15 @@ export async function generateMetadata({ params }: { params: { handle: string } 
     twitter: { card: "summary_large_image", title, description: product.description, images: [image.url] },
   };
 }
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function ProductPage({ params, searchParams }: { params: { handle: string }; searchParams?: { categoria?: string } }) {
   const product = (await getCatalogProducts()).find((item) => item.handle === params.handle);
   if (!product) notFound();
   const url = `${siteUrl}/catalogo/${product.handle}`;
+  const categoryTrail = productCategoryTrail(product, searchParams?.categoria);
   const breadcrumbItems = [
     { name: "Início", url: `${siteUrl}/` },
     { name: "Catálogo", url: `${siteUrl}/catalogo` },
-    { name: categoryLabel(product.category), url: `${siteUrl}${categoryHref(product.category)}` },
-    { name: categoryLabel(product.catalogCategory), url: `${siteUrl}${categoryHref(product.catalogCategory, product.category)}` },
+    ...categoryTrail.map((item) => ({ name: item.label, url: `${siteUrl}${categoryHref(item.slug)}` })),
     { name: product.title, url },
   ];
   const structuredData = {
@@ -57,6 +57,6 @@ export default async function ProductPage({ params }: { params: { handle: string
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-    <a href="#main-content" className="skip-link">Pular para o conteúdo</a><GtmSnippet/><AnnouncementBar/><Header/><main id="main-content" tabIndex={-1} className="pt-[142px]"><ProductDetail product={product}/></main><Footer/>
+    <a href="#main-content" className="skip-link">Pular para o conteúdo</a><GtmSnippet/><AnnouncementBar/><Header/><main id="main-content" tabIndex={-1} className="pt-[142px]"><ProductDetail product={product} categoryTrail={categoryTrail}/></main><Footer/>
   </>;
 }

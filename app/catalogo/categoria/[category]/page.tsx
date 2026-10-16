@@ -2,12 +2,12 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import AnnouncementBar from "../../../components/AnnouncementBar";
 import Catalog from "../../../components/Catalog";
-import BabyDepartment from "../../../components/BabyDepartment";
+import DepartmentSelection from "../../../components/DepartmentSelection";
 import Footer from "../../../components/Footer";
 import GtmSnippet from "../../../components/GtmSnippet";
 import Header from "../../../components/Header";
 import { getCatalogProducts } from "../../../lib/editor/catalog-store";
-import { babyCategories, babySections, categoryAncestors, categoryHref, categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
+import { babyCategories, babySections, childrenCategories, childrenSections, selectionSections, categoryAncestors, categoryHref, categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
 export const dynamic = "force-dynamic";
@@ -31,9 +31,12 @@ export default async function CategoryPage({ params }: { params: { category: str
   const url = `${siteUrl}/catalogo/categoria/${params.category}`;
   const categoryProducts = (await getCatalogProducts()).filter((product) => matchesCatalogCategory(product, params.category));
   const ancestors = categoryAncestors(params.category);
-  const babyLanding = params.category === "bebe" || babySections.some((item) => item.slug === params.category);
-  const categoryLinks = params.category === "bebe" ? babySections : babyCategories.filter((item) => item.parent === params.category);
-  const listing = babyLanding ? categoryLinks.map((item) => ({ name: item.label, url: `${siteUrl}${categoryHref(item.slug)}` })) : categoryProducts.map((product) => ({ name: product.title, url: `${siteUrl}/catalogo/${product.handle}` }));
+  const selectionLanding = params.category === "bebe" || params.category === "crianca" || selectionSections.some((item) => item.slug === params.category);
+  const selectionDepartment = params.category === "crianca" || params.category.startsWith("crianca-") ? "crianca" : "bebe";
+  const sections = selectionDepartment === "bebe" ? babySections : childrenSections;
+  const categories = selectionDepartment === "bebe" ? babyCategories : childrenCategories;
+  const categoryLinks = params.category === selectionDepartment ? sections : categories.filter((item) => item.parent === params.category);
+  const listing = selectionLanding ? categoryLinks.map((item) => ({ name: item.label, url: `${siteUrl}${categoryHref(item.slug)}` })) : categoryProducts.map((product) => ({ name: product.title, url: `${siteUrl}/catalogo/${product.handle}` }));
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -49,5 +52,5 @@ export default async function CategoryPage({ params }: { params: { category: str
       })) },
     ],
   };
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><a href="#main-content" className="skip-link">Pular para o conteúdo</a><GtmSnippet/><AnnouncementBar/><Header fromCatalog={!babyLanding}/><main id="main-content" tabIndex={-1} className="pt-[142px]">{babyLanding ? <BabyDepartment section={params.category}/> : <Catalog initialCategory={params.category} heading={label} />}</main><Footer/></>;
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><a href="#main-content" className="skip-link">Pular para o conteúdo</a><GtmSnippet/><AnnouncementBar/><Header fromCatalog={!selectionLanding}/><main id="main-content" tabIndex={-1} className="pt-[142px]">{selectionLanding ? <DepartmentSelection section={params.category} department={selectionDepartment}/> : <Catalog initialCategory={params.category} heading={label} />}</main><Footer/></>;
 }

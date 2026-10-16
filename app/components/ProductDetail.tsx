@@ -8,7 +8,7 @@ import { trackCatalogItemView, trackFunnel, trackProductDetailView } from "../li
 import { COOKIE_CONSENT_EVENT } from "../lib/cookie-consent";
 import { appendAttrFromSearch } from "../lib/whatsapp/attr-merge";
 import { useCatalogProducts } from "./CatalogMediaProvider";
-import { babyClassification, categoryHref, matchesCatalogCategory, productCategoryTrail } from "../lib/catalog-navigation";
+import { babyClassification, childrenClassification, categoryHref, matchesCatalogCategory, productCategoryTrail } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 
 const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
@@ -98,8 +98,8 @@ export default function ProductDetail({ product, categoryTrail = productCategory
   const eligibleToReserve = !manualStock && stockForSelection?.configured === true && stockForSelection.status === "available" && stockForSelection.scope === "sku" && stockForSelection.checkedSku === sku;
   const variants = product.sourceHandle ? products.filter((item) => item.sourceHandle === product.sourceHandle) : [];
   const lastCategory = categoryTrail[categoryTrail.length - 1];
-  const babyProduct = babyClassification(product);
-  const recommendations = products.filter((item) => item.handle !== product.handle && (babyProduct ? matchesCatalogCategory(item, lastCategory.slug) : item.catalogCategory === product.catalogCategory) && (!product.sourceHandle || item.sourceHandle !== product.sourceHandle)).slice(0, 3);
+  const organizedProduct = babyClassification(product) || childrenClassification(product);
+  const recommendations = products.filter((item) => item.handle !== product.handle && (organizedProduct ? matchesCatalogCategory(item, lastCategory.slug) : item.catalogCategory === product.catalogCategory) && (!product.sourceHandle || item.sourceHandle !== product.sourceHandle)).slice(0, 3);
 
   return <section className="mx-auto max-w-[1440px] px-4 pb-20 pt-8 sm:px-7 lg:px-10">
     <nav aria-label="Navegação estrutural" className="mb-6 font-poppins text-xs text-ink/60">

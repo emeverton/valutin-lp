@@ -31,16 +31,14 @@ test('pajamas combine girls and boys only within the children department', () =>
   assert.deepEqual(handles('crianca'), ['girl', 'boy', 'general', 'dress']);
 });
 
-test('children menu contains pajamas with separate girls and boys destinations', () => {
+test('children selections each contain their own pajamas destination', () => {
   const menus = compile('app/lib/mega-menu.ts', { './catalog-navigation': navigation });
   const children = menus.megaMenuSections.find(section => section.key === 'crianca');
-  const pajamas = children.columns.flatMap(column => column.links).find(link => link.label === 'Pijamas');
-  assert.equal(pajamas.href, '/catalogo/categoria/pijamas');
-  assert.equal(pajamas.children.length, 2);
-  assert.equal(pajamas.children[0].label, 'Meninas');
-  assert.equal(pajamas.children[0].href, '/catalogo/categoria/pijamas-meninas');
-  assert.equal(pajamas.children[1].label, 'Meninos');
-  assert.equal(pajamas.children[1].href, '/catalogo/categoria/pijamas-meninos');
+  for (const [title, slug] of [['Meninos', 'crianca-meninos-pijama'], ['Meninas', 'crianca-meninas-pijama']]) {
+    const column = children.columns.find(column => column.title === title);
+    assert.equal(column.links.find(link => link.label === 'Pijama').href, `/catalogo/categoria/${slug}`);
+    assert.equal(navigation.isCatalogCategory(slug), true);
+  }
   for (const slug of ['pijamas', 'pijamas-meninas', 'pijamas-meninos']) assert.equal(navigation.isCatalogCategory(slug), true);
   assert.equal(navigation.categoryLabel('pijamas-meninas'), 'Pijamas para meninas');
   assert.equal(navigation.categoryLabel('pijamas-meninos'), 'Pijamas para meninos');

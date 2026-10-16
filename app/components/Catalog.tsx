@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useCatalogProducts } from "./CatalogMediaProvider";
-import { babyCategories, babySections, catalogSubcategories, categoryHref, departmentCategories, matchesCatalogCategory, productCategories, productHref } from "../lib/catalog-navigation";
+import { selectionCategories, selectionSections, catalogSubcategories, categoryHref, departmentCategories, matchesCatalogCategory, productCategories, productHref } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 import { springSummerSourceHandles } from "../lib/seasonal";
 import SpringSummerSecondFold from "./SpringSummerSecondFold";
@@ -34,14 +34,14 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
   const [search, setSearch] = useState("");
   const [size, setSize] = useState("");
   const [sort, setSort] = useState<Sort>("catalogo");
-  const babyCategory = babyCategories.find((item) => item.slug === initialCategory);
-  const babySection = babySections.find((item) => item.slug === babyCategory?.parent);
-  const babyDepartment = !!babyCategory || initialCategory === "bebe" || departmentCategories.some((item) => item.slug === initialCategory && item.department === "bebe");
+  const selectionCategory = selectionCategories.find((item) => item.slug === initialCategory);
+  const selectionSection = selectionSections.find((item) => item.slug === selectionCategory?.parent);
+  const babyDepartment = initialCategory === "bebe" || departmentCategories.some((item) => item.slug === initialCategory && item.department === "bebe");
   const childrenDepartment = initialCategory === "crianca" || departmentCategories.some((item) => item.slug === initialCategory && item.department === "crianca");
   const pajamasCategory = initialCategory === "pijamas" || catalogSubcategories.some((item) => item.slug === initialCategory && item.parent === "pijamas");
   const emptyPajamasCategory = pajamasCategory && !products.some((product) => matchesCatalogCategory(product, category));
-  const navigationCategories: readonly (readonly [string, string])[] = babyCategory
-    ? [[babyCategory.parent, `Todas as categorias de ${babySection!.label.toLowerCase()}`], ...babyCategories.filter((item) => item.parent === babyCategory.parent).map((item) => [item.slug, item.label] as const)]
+  const navigationCategories: readonly (readonly [string, string])[] = selectionCategory
+    ? [[selectionCategory.parent, `Todas as categorias de ${selectionSection!.label.toLowerCase()}`], ...selectionCategories.filter((item) => item.parent === selectionCategory.parent).map((item) => [item.slug, item.label] as const)]
     : babyDepartment
     ? [["bebe", "Todas as peças para bebês"], ...departmentCategories.filter((item) => item.department === "bebe").map((item) => [item.slug, item.label] as const)]
     : pajamasCategory ? [["pijamas", "Todos os pijamas"], ...catalogSubcategories.filter((item) => item.parent === "pijamas").map((item) => [item.slug, item.label] as const)]
@@ -82,7 +82,7 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
     setSize("");
   }
   const sizeFilterButtons = () => sizes.map((item) => <button key={item} type="button" onClick={() => setSize(size === item ? "" : item)} aria-pressed={size === item} className={`min-h-10 border px-3 font-poppins text-xs transition ${size === item ? "border-brand-strong bg-brand-strong text-white" : "border-ink/20 text-ink hover:border-ink"}`}>{item}</button>);
-  const detailHref = (handle: string) => `${productHref(handle)}${babyCategory ? `?categoria=${babyCategory.slug}` : ""}`;
+  const detailHref = (handle: string) => `${productHref(handle)}${selectionCategory ? `?categoria=${selectionCategory.slug}` : ""}`;
 
   return <section id="colecao" aria-label="Peças do catálogo" className="bg-white">
     {collection === "primavera-verao" && initialCategory === "todos" && <div className="relative h-[clamp(560px,72vh,720px)] w-full overflow-hidden bg-[#24402d]">
@@ -95,9 +95,9 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
     {collection === "primavera-verao" && <SpringSummerProductShelf shelf="passeios" />}
     {collection === "primavera-verao" && <SpringSummerEditorial />}
     <div className={`mx-auto max-w-[1440px] px-4 pb-24 sm:px-7 lg:px-10 ${collection === "primavera-verao" ? "pt-7" : "pt-9 sm:pt-12"}`}>
-      {babyCategory && <nav aria-label="Navegação de bebê" className="mb-6 flex flex-wrap items-center gap-2 font-poppins text-xs text-ink/60"><a href={categoryHref("bebe")} className="hover:text-brand-strong">Bebê</a><span>/</span><a href={categoryHref(babyCategory.parent)} className="hover:text-brand-strong">{babySection!.label}</a><span>/</span><span>{babyCategory.label}</span></nav>}
+      {selectionCategory && <nav aria-label="Navegação por seleção" className="mb-6 flex flex-wrap items-center gap-2 font-poppins text-xs text-ink/60"><a href={categoryHref(selectionCategory.slug.startsWith("crianca-") ? "crianca" : "bebe")} className="hover:text-brand-strong">{selectionCategory.slug.startsWith("crianca-") ? "Criança" : "Bebê"}</a><span>/</span><a href={categoryHref(selectionCategory.parent)} className="hover:text-brand-strong">{selectionSection!.label}</a><span>/</span><span>{selectionCategory.label}</span></nav>}
       {collection !== "primavera-verao" && <div className="mb-5 flex flex-col justify-between gap-5 pb-5 sm:mb-6 sm:flex-row sm:items-end">
-        <div><a href={babyCategory ? categoryHref(babyCategory.parent) : pajamasCategory ? categoryHref(initialCategory === "pijamas" ? "crianca" : "pijamas") : "/catalogo"} className="font-poppins text-xs text-brand-strong underline underline-offset-4">{babyCategory ? `← Voltar a ${babySection!.label}` : pajamasCategory ? (initialCategory === "pijamas" ? "← Voltar a Crianças" : "← Voltar a Pijamas") : "← Voltar às categorias"}</a><p className="mt-5 font-poppins text-[11px] uppercase tracking-[0.18em] text-brand-strong">Valutin · Boutique infantil</p><h1 className="mt-3 font-playfair text-4xl text-ink sm:text-5xl">{heading}</h1><p className="mt-3 max-w-xl font-poppins text-sm leading-relaxed text-ink/65">{initialCategory === "todos" ? "Encontre cada peça da nossa coleção, em todas as cores e estampas. Explore os modelos e consulte a disponibilidade do seu tamanho." : "Explore os modelos desta categoria e consulte a disponibilidade do seu tamanho."}</p></div>
+        <div><a href={selectionCategory ? categoryHref(selectionCategory.parent) : pajamasCategory ? categoryHref(initialCategory === "pijamas" ? "crianca" : "pijamas") : "/catalogo"} className="font-poppins text-xs text-brand-strong underline underline-offset-4">{selectionCategory ? `← Voltar a ${selectionSection!.label}` : pajamasCategory ? (initialCategory === "pijamas" ? "← Voltar a Crianças" : "← Voltar a Pijamas") : "← Voltar às categorias"}</a><p className="mt-5 font-poppins text-[11px] uppercase tracking-[0.18em] text-brand-strong">Valutin · Boutique infantil</p><h1 className="mt-3 font-playfair text-4xl text-ink sm:text-5xl">{heading}</h1><p className="mt-3 max-w-xl font-poppins text-sm leading-relaxed text-ink/65">{initialCategory === "todos" ? "Encontre cada peça da nossa coleção, em todas as cores e estampas. Explore os modelos e consulte a disponibilidade do seu tamanho." : "Explore os modelos desta categoria e consulte a disponibilidade do seu tamanho."}</p></div>
         {initialCategory === "todos" && <a href="/catalogo/primavera-verao" className="shrink-0 self-start border-b border-brand-strong pb-1 font-poppins text-xs text-brand-strong transition hover:text-ink sm:self-end">Conheça a Primavera–Verão →</a>}
       </div>}
       {collection === "primavera-verao" && <div className="mb-7 max-w-2xl"><p className="font-poppins text-sm leading-relaxed text-ink/65">Uma seleção de algodão, linho, laise e peças leves para os dias de sol. Consulte tamanhos e disponibilidade com a nossa equipe.</p><a href="/catalogo" className="mt-3 inline-block font-poppins text-xs text-brand-strong underline underline-offset-4">Ver catálogo completo</a></div>}

@@ -1,6 +1,6 @@
 export const departments = [
   { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["bebe-meninos", "bebe-meninas"] },
-  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["vestidos-crianca", "camisetas-e-camisas", "saias-shorts-e-bermudas", "pijamas"] },
+  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["crianca-meninos", "crianca-meninas"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },
   { slug: "presentes", label: "Presentes", title: "Para guardar na memória", links: ["presentes-e-lembrancas"] },
 ] as const;
@@ -91,14 +91,65 @@ export function babyClassification(product: CategoryProduct): BabyAssignment | u
   return babyAssignments[product.handle ?? ""] ?? babyAssignments[product.sourceHandle ?? ""];
 }
 
-export const categoryLabel = (slug: string) => babySections.find((item) => item.slug === slug)?.title ?? babyCategories.find((item) => item.slug === slug)?.title ?? catalogSubcategories.find((category) => category.slug === slug)?.title ?? departmentCategories.find((category) => category.slug === slug)?.title ?? productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
-export const isCatalogCategory = (slug: string) => babySections.some((item) => item.slug === slug) || babyCategories.some((item) => item.slug === slug) || catalogSubcategories.some((category) => category.slug === slug) || departmentCategories.some((category) => category.slug === slug) || productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
+export const childrenSections = [
+  { slug: "crianca-meninos", label: "Meninos", title: "Criança · Meninos", audience: "meninos", imageHandle: "camiseta-algodao-veleiro-01" },
+  { slug: "crianca-meninas", label: "Meninas", title: "Criança · Meninas", audience: "meninas", imageHandle: "vestido-de-laise-rosa" },
+] as const;
+
+const childrenTypes = [
+  { type: "camisetas", label: "Camisetas", audiences: ["meninos", "meninas"] },
+  { type: "camisa-batas", label: "Camisa/Batas", audiences: ["meninos", "meninas"] },
+  { type: "shorts", label: "Shorts/Bermudas", audiences: ["meninos", "meninas"] },
+  { type: "conjuntos", label: "Conjuntos", audiences: ["meninos", "meninas"] },
+  { type: "saia", label: "Saia", audiences: ["meninas"] },
+  { type: "calcas", label: "Calças", audiences: ["meninos", "meninas"] },
+  { type: "vestido", label: "Vestido", audiences: ["meninas"] },
+  { type: "cardigan", label: "Cardigan", audiences: ["meninos", "meninas"] },
+  { type: "pijama", label: "Pijama", audiences: ["meninos", "meninas"] },
+] as const;
+type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
+const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "camiseta-algodao": { type: "camisetas", audiences: ["meninos", "meninas"] },
+  "camiseta-skate": { type: "camisetas", audiences: ["meninos", "meninas"] },
+  "camisa-linho": { type: "camisa-batas", audiences: ["meninos", "meninas"] },
+  "regata-floral-babados": { type: "camisa-batas", audiences: ["meninas"] },
+  "regata-branca-babados": { type: "camisa-batas", audiences: ["meninas"] },
+  "bermuda-linho": { type: "shorts", audiences: ["meninos", "meninas"] },
+  "bermuda-moletom": { type: "shorts", audiences: ["meninos", "meninas"] },
+  "conjunto-laise": { type: "conjuntos", audiences: ["meninas"] },
+  "saia-algodao": { type: "saia", audiences: ["meninas"] },
+  "cardigan-bordado-analu": { type: "cardigan", audiences: ["meninas"] },
+};
+
+export const childrenCategories = childrenSections.flatMap((section) => childrenTypes
+  .filter((item) => (item.audiences as readonly string[]).includes(section.audience))
+  .map((item) => {
+    const label = item.type === "shorts" && section.audience === "meninas" ? "Shorts/Shorts-saia" : item.label;
+    return { slug: `${section.slug}-${item.type}`, label, title: `${label} · ${section.label}`, parent: section.slug, audience: section.audience, type: item.type };
+  }));
+
+export function childrenClassification(product: CategoryProduct): ChildrenAssignment | undefined {
+  if (product.category !== "crianca" && !product.additionalDepartments?.includes("crianca")) return undefined;
+  const assigned = childrenAssignments[product.handle ?? ""] ?? childrenAssignments[product.sourceHandle ?? ""];
+  if (assigned) return assigned;
+  if (product.catalogCategory === "vestidos") return { type: "vestido", audiences: ["meninas"] };
+  if (product.catalogCategory === "pijamas-meninos") return { type: "pijama", audiences: ["meninos"] };
+  if (product.catalogCategory === "pijamas-meninas") return { type: "pijama", audiences: ["meninas"] };
+  if (product.catalogCategory === "pijamas") return { type: "pijama", audiences: ["meninos", "meninas"] };
+  return undefined;
+}
+
+export const selectionSections = [...babySections, ...childrenSections];
+export const selectionCategories = [...babyCategories, ...childrenCategories];
+
+export const categoryLabel = (slug: string) => selectionSections.find((item) => item.slug === slug)?.title ?? selectionCategories.find((item) => item.slug === slug)?.title ?? catalogSubcategories.find((category) => category.slug === slug)?.title ?? departmentCategories.find((category) => category.slug === slug)?.title ?? productCategories.find((category) => category.slug === slug)?.label ?? departments.find((department) => department.slug === slug)?.label ?? "A coleção";
+export const isCatalogCategory = (slug: string) => selectionSections.some((item) => item.slug === slug) || selectionCategories.some((item) => item.slug === slug) || catalogSubcategories.some((category) => category.slug === slug) || departmentCategories.some((category) => category.slug === slug) || productCategories.some((category) => category.slug === slug) || departments.some((department) => department.slug === slug);
 
 export function matchesCatalogCategory(product: CategoryProduct, slug: string) {
-  const babyCategory = babyCategories.find((item) => item.slug === slug);
-  const babySection = babySections.find((item) => item.slug === slug);
+  const babyCategory = selectionCategories.find((item) => item.slug === slug);
+  const babySection = selectionSections.find((item) => item.slug === slug);
   if (babyCategory || babySection) {
-    const assignment = babyClassification(product);
+    const assignment = slug.startsWith("crianca-") ? childrenClassification(product) : babyClassification(product);
     const audience = babyCategory?.audience ?? babySection!.audience;
     return !!assignment && assignment.audiences.includes(audience) && (!babyCategory || assignment.type === babyCategory.type);
   }
@@ -114,21 +165,25 @@ export const categoryHref = (slug: string, department?: string) => `/catalogo/ca
 export const productHref = (handle: string) => `/catalogo/${handle}`;
 
 export function categoryAncestors(slug: string): string[] {
-  const babyCategory = babyCategories.find((item) => item.slug === slug);
-  if (babyCategory) return ["bebe", babyCategory.parent];
-  if (babySections.some((item) => item.slug === slug)) return ["bebe"];
+  const selected = selectionCategories.find((item) => item.slug === slug);
+  const department = slug.startsWith("crianca-") ? "crianca" : "bebe";
+  if (selected) return [department, selected.parent];
+  if (selectionSections.some((item) => item.slug === slug)) return [department];
   const subcategory = catalogSubcategories.find((item) => item.slug === slug);
   return subcategory ? [subcategory.department, subcategory.parent] : slug === "pijamas" ? ["crianca"] : [];
 }
 
 export function productCategoryTrail(product: CategoryProduct, requestedCategory?: string): { slug: string; label: string }[] {
+  const requested = selectionCategories.find((item) => item.slug === requestedCategory && matchesCatalogCategory(product, item.slug));
+  const childrenAssignment = childrenClassification(product);
   const assignment = babyClassification(product);
-  if (assignment) {
-    const requested = babyCategories.find((item) => item.slug === requestedCategory && matchesCatalogCategory(product, item.slug));
-    const selected = requested ?? babyCategories.find((item) => item.type === assignment.type && item.audience === assignment.audiences[0]);
+  if (assignment || childrenAssignment) {
+    const selected = requested ?? (product.category === "crianca" && childrenAssignment
+      ? childrenCategories.find((item) => item.type === childrenAssignment.type && item.audience === childrenAssignment.audiences[0])
+      : assignment ? babyCategories.find((item) => item.type === assignment.type && item.audience === assignment.audiences[0]) : undefined);
     if (selected) return [
-      { slug: "bebe", label: "Bebês" },
-      { slug: selected.parent, label: babySections.find((item) => item.slug === selected.parent)!.label },
+      { slug: selected.slug.startsWith("crianca-") ? "crianca" : "bebe", label: selected.slug.startsWith("crianca-") ? "Crianças" : "Bebês" },
+      { slug: selected.parent, label: selectionSections.find((item) => item.slug === selected.parent)!.label },
       { slug: selected.slug, label: selected.label },
     ];
   }

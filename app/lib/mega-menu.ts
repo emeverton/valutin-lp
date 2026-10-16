@@ -1,4 +1,4 @@
-import { babyCategories, babySections, categoryHref, productHref } from "./catalog-navigation";
+import { babyCategories, babySections, childrenCategories, childrenSections, categoryHref, productHref } from "./catalog-navigation";
 
 type MenuLink = { label: string; href: string; children?: MenuLink[] };
 type MenuColumn = { title: string; links: MenuLink[] };
@@ -63,22 +63,14 @@ export const megaMenuSections: MegaMenuSection[] = [
     key: "crianca", label: "Crianças", href: categoryHref("crianca"),
     eyebrow: "Peças para viver a infância", title: "Para meninas e meninos",
     columns: [
-      { title: "Comprar por categoria", links: [
-        { ...category("pijamas", "Pijamas"), children: [category("pijamas-meninas", "Meninas"), category("pijamas-meninos", "Meninos")] },
-        category("vestidos-crianca", "Vestidos"),
-        category("camisetas-e-camisas", "Camisetas e camisas"),
-        category("saias-shorts-e-bermudas", "Saias, shorts e bermudas"),
-        category("bodys-e-conjuntos", "Conjuntos"),
-      ] },
+      ...childrenSections.map((section) => ({ title: section.label, links: [
+        category(section.slug, `Ver ${section.label.toLowerCase()}`),
+        ...childrenCategories.filter((item) => item.parent === section.slug).map((item) => category(item.slug, item.label)),
+      ] })),
       { title: "Descobrir", links: [
         category("crianca", "Todas as peças infantis"),
         { label: "Primavera–Verão", href: "/catalogo/primavera-verao" },
         category("batizado", "Ocasiões especiais"),
-      ] },
-      { title: "Peças em destaque", links: [
-        product("vestido-de-laise-rosa", "Vestido de laise rosa"),
-        product("camiseta-algodao-veleiro-01", "Camiseta de veleiro"),
-        product("bermuda-linho-verde", "Bermuda de linho"),
       ] },
     ],
     promos: [

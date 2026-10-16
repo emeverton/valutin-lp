@@ -97,7 +97,7 @@ export const childrenSections = [
 ] as const;
 
 const childrenTypes = [
-  { type: "camisetas", label: "Camisetas", audiences: ["meninos", "meninas"] },
+  { type: "camisetas", label: "Camisetas", audiences: ["meninos"] },
   { type: "camisa-batas", label: "Camisa/Batas", audiences: ["meninos", "meninas"] },
   { type: "shorts", label: "Shorts/Bermudas", audiences: ["meninos", "meninas"] },
   { type: "conjuntos", label: "Conjuntos", audiences: ["meninos", "meninas"] },
@@ -109,8 +109,8 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
-  "camiseta-algodao": { type: "camisetas", audiences: ["meninos", "meninas"] },
-  "camiseta-skate": { type: "camisetas", audiences: ["meninos", "meninas"] },
+  "camiseta-algodao": { type: "camisetas", audiences: ["meninos"] },
+  "camiseta-skate": { type: "camisetas", audiences: ["meninos"] },
   "camisa-linho": { type: "camisa-batas", audiences: ["meninos", "meninas"] },
   "regata-floral-babados": { type: "camisa-batas", audiences: ["meninas"] },
   "regata-branca-babados": { type: "camisa-batas", audiences: ["meninas"] },

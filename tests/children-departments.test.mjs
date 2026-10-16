@@ -21,7 +21,7 @@ test('children open boys and girls with the requested separate categories', () =
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'crianca').links), ['crianca-meninos', 'crianca-meninas']);
   for (const [section, labels] of [
     ['crianca-meninos', ['Camisetas', 'Camisa/Batas', 'Shorts/Bermudas', 'Conjuntos', 'Calças', 'Cardigan', 'Pijama']],
-    ['crianca-meninas', ['Camisetas', 'Camisa/Batas', 'Shorts/Shorts-saia', 'Conjuntos', 'Saia', 'Calças', 'Vestido', 'Cardigan', 'Pijama']],
+    ['crianca-meninas', ['Camisa/Batas', 'Shorts/Shorts-saia', 'Conjuntos', 'Saia', 'Calças', 'Vestido', 'Cardigan', 'Pijama']],
   ]) assert.deepEqual(plain(nav.childrenCategories.filter(item => item.parent === section).map(item => item.label)), labels);
   const menu = compile('app/lib/mega-menu.ts', { './catalog-navigation': nav }).megaMenuSections.find(item => item.key === 'crianca');
   assert.deepEqual(plain(menu.columns.slice(0, 2).map(item => item.title)), ['Meninos', 'Meninas']);
@@ -46,6 +46,13 @@ test('all current children pieces are classified without changing commercial dat
 });
 
 test('T-shirts, shirts, shorts and skirts no longer share the same results', () => {
+  const shirts = products.filter(product => nav.childrenClassification(product)?.type === 'camisetas');
+  assert.equal(shirts.length, 10);
+  for (const shirt of shirts) {
+    assert.equal(nav.matchesCatalogCategory(shirt, 'crianca-meninos-camisetas'), true, shirt.handle);
+    assert.equal(nav.matchesCatalogCategory(shirt, 'crianca-meninas'), false, shirt.handle);
+  }
+  assert.equal(nav.isCatalogCategory('crianca-meninas-camisetas'), false);
   for (const [handle, included, excluded] of [
     ['camiseta-algodao-veleiro-01', 'crianca-meninos-camisetas', 'crianca-meninos-camisa-batas'],
     ['camisa-linho', 'crianca-meninos-camisa-batas', 'crianca-meninos-camisetas'],

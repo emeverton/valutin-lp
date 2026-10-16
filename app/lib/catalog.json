@@ -1308,6 +1308,19 @@
     "displayImages": ["/catalog/vestido-bebe-listrado-laranja-ange007bb-frente.png", "/catalog/vestido-bebe-listrado-laranja-ange007bb-costas.png"]
   },
   {
+    "title": "Cardigan Linha — Azul",
+    "handle": "cardigan-linha-azul-vlt-ver027ct",
+    "category": "bebe",
+    "catalogCategory": "cardigans",
+    "description": "Cardigan em linha azul com trama de tranças, mangas longas e fechamento por botões. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT VER027CT",
+    "price": 239,
+    "sizes": ["6M", "9M", "12M", "2A", "4A", "6A"],
+    "images": ["/catalog/cardigan-linha-azul-vlt-ver027ct.png"],
+    "imageLabels": ["Cardigan em linha azul com tranças e botões"],
+    "displayImages": ["/catalog/cardigan-linha-azul-vlt-ver027ct.png"]
+  },
+  {
     "title": "Pijama Carrinho — Azul",
     "handle": "pijama-menino-carrinho-azul",
     "category": "crianca",

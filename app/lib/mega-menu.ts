@@ -54,6 +54,7 @@ export const megaMenuSections: MegaMenuSection[] = [
         category("macacoes-e-jardineiras", "Macacões e jardineiras"),
         category("saias-shorts-e-bermudas", "Bloomers e shorts"),
         category("tricos-e-casacos", "Tricôs e casacos"),
+        category("cardigans", "Cardigans"),
       ] },
       { title: "Descobrir", links: [
         category("bebe", "Todas as peças para bebês"),

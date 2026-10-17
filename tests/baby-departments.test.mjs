@@ -67,7 +67,7 @@ test('body, outfit, romper and dungaree results remain separate regardless of th
     ['body-linho', 'bebe-meninos-body', 'bebe-meninos-conjunto'],
     ['conjunto-body-shorts-xadrez-azul', 'bebe-meninas-conjunto', 'bebe-meninas-body'],
     ['macacao-fustao-azul', 'bebe-meninas-jardineira', 'bebe-meninas-macacao'],
-    ['macacao-fustao-floral-rosa', 'bebe-meninas-macacao', 'bebe-meninas-jardineira'],
+    ['macacao-fustao-floral-rosa', 'bebe-meninas-jardineira', 'bebe-meninas-macacao'],
     ['shorts-algodao-rosa', 'bebe-meninos-shorts-e-bermuda', 'bebe-meninas-bloomer'],
     ['bloomer-fustao', 'bebe-meninas-bloomer', 'bebe-meninos-shorts-e-bermuda'],
     ['macacao-curto-azul-bordado', 'bebe-meninas-bloomer', 'bebe-meninas-jardineira'],

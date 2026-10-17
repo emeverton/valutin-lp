@@ -53,6 +53,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 const babyAssignments: Record<string, BabyAssignment> = {
   "macacao-tricoline": { type: "macacao", audiences: ["meninos"] },
   "macacao-fustao": { type: "macacao", audiences: ["meninas"] },
+  "macacao-fustao-floral-rosa": { type: "jardineira", audiences: ["meninas"] },
   "macacao-fustao-azul": { type: "jardineira", audiences: ["meninas"] },
   "conjunto-body-shorts": { type: "conjunto", audiences: ["meninas"] },
   "bloomer-fustao": { type: "bloomer", audiences: ["meninas"] },

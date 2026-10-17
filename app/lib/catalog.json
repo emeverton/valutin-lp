@@ -1646,5 +1646,150 @@
     "displayImages": [
       "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp"
     ]
+  },
+  {
+    "title": "Pijama Coração — Rosé",
+    "handle": "pijama-menina-coracao-rose",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninas",
+    "description": "Pijama com camiseta de manga curta com aplicação de coração com flores e calça rosé. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR026CT",
+    "price": 248,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-menina-coracao-rose-vlt-mar026ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta com aplicação de coração com flores e calça rosé"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-menina-coracao-rose-vlt-mar026ct.webp"
+    ]
+  },
+  {
+    "title": "Pijama Cachorrinho — Rosa",
+    "handle": "pijama-menina-cachorrinho-rosa",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninas",
+    "description": "Pijama com camiseta de manga curta com aplicação de cachorrinho e calça rosa. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR026CT",
+    "price": 248,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-menina-cachorrinho-rosa-vlt-mar026ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta com aplicação de cachorrinho e calça rosa"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-menina-cachorrinho-rosa-vlt-mar026ct.webp"
+    ]
+  },
+  {
+    "title": "Pijama Flores — Rosa",
+    "handle": "pijama-menina-flores-rosa",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninas",
+    "description": "Pijama com camiseta de manga curta com aplicação de vaso com flores e calça rosa. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR026CT",
+    "price": 248,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-menina-flores-rosa-vlt-mar026ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta com aplicação de vaso com flores e calça rosa"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-menina-flores-rosa-vlt-mar026ct.webp"
+    ]
+  },
+  {
+    "title": "Pijama Borboleta — Rosa",
+    "handle": "pijama-menina-borboleta-rosa",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninas",
+    "description": "Pijama com camiseta de manga curta com bordado de borboleta e flor e calça rosa. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR026CT",
+    "price": 248,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-menina-borboleta-rosa-vlt-mar026ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta com bordado de borboleta e flor e calça rosa"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-menina-borboleta-rosa-vlt-mar026ct.webp"
+    ]
+  },
+  {
+    "title": "Pijama Boneca — Azul Marinho",
+    "handle": "pijama-menina-boneca-azul-marinho",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninas",
+    "description": "Pijama com camiseta de manga curta com aplicação de boneca e calça azul-marinho. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR026CT",
+    "price": 248,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta com aplicação de boneca e calça azul-marinho"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct.webp"
+    ]
   }
 ]

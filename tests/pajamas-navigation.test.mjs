@@ -100,6 +100,21 @@ test('green elephant pajamas match the other pajamas and only offer 10A, 12A and
   assert.equal(piece.linxSku, undefined);
 });
 
+test('VLT MAR026CT has five distinct girls pajamas with the supplied price and all nine sizes', () => {
+  const pieces = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR026CT');
+  assert.equal(pieces.length, 5);
+  assert.equal(new Set(pieces.flatMap(product => product.images)).size, 5);
+  for (const piece of pieces) {
+    assert.equal(piece.price, 248);
+    assert.deepEqual(piece.sizes, ['12M', '18M', '2A', '4A', '6A', '8A', '10A', '12A', '14A']);
+    for (const slug of ['crianca-meninas-pijama', 'pijamas-meninas', 'pijamas', 'crianca']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
+    for (const slug of ['crianca-meninos', 'pijamas-meninos', 'bebe']) assert.equal(navigation.matchesCatalogCategory(piece, slug), false, slug);
+    assert.deepEqual(piece.images, piece.displayImages);
+    assert.equal(piece.stock, undefined);
+    assert.equal(piece.linxSku, undefined);
+  }
+});
+
 test('sailor bear pajamas use the same supplied commercial data and their own photo', () => {
   const products = JSON.parse(read('app/lib/catalog.json'));
   const piece = products.find(product => product.handle === 'pijama-menino-urso-marinheiro-azul-marinho');

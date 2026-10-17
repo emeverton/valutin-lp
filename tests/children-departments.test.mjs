@@ -83,7 +83,7 @@ test('unisex and shared baby/children products preserve the selected breadcrumb 
 });
 
 test('pants and empty categories remain empty rather than borrowing other garment types', () => {
-  for (const slug of ['crianca-meninos-calcas', 'crianca-meninas-calcas', 'crianca-meninos-cardigan', 'crianca-meninos-conjuntos', 'crianca-meninas-pijama']) {
+  for (const slug of ['crianca-meninos-calcas', 'crianca-meninas-calcas', 'crianca-meninos-cardigan', 'crianca-meninos-conjuntos']) {
     assert.equal(nav.isCatalogCategory(slug), true);
     assert.equal(products.filter(product => nav.matchesCatalogCategory(product, slug)).length, 0, slug);
   }

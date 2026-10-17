@@ -48,7 +48,7 @@ test('VLT MAR025CT is published in boys pajamas with the supplied price and size
   const products = JSON.parse(read('app/lib/catalog.json'));
   const piece = products.find(product => product.handle === 'pijama-menino-carrinho-azul');
   assert.ok(piece);
-  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 4);
+  assert.equal(products.filter(product => product.reference === 'VLT MAR025CT').length, 5);
   assert.equal(piece.price, 248);
   assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
   for (const slug of ['pijamas-meninos', 'pijamas', 'crianca', 'todos']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
@@ -59,7 +59,7 @@ test('VLT MAR025CT is published in boys pajamas with the supplied price and size
 });
 
 test('all three supplied pajama prints share the commercial data but have distinct photos', () => {
-  const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR025CT' && product.handle !== 'pijama-menino-elefantinho-azul');
+  const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR025CT' && !product.handle.startsWith('pijama-menino-elefantinho-'));
   assert.equal(products.length, 3);
   assert.equal(new Set(products.map(product => product.displayImages[0])).size, 3);
   for (const product of products) {
@@ -82,6 +82,22 @@ test('elephant pajamas have only the requested 10A, 12A and 14A sizes', () => {
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas'), true);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninas'), false);
   assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg']);
+});
+
+test('green elephant pajamas match the other pajamas and only offer 10A, 12A and 14A for boys', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const piece = products.find(product => product.handle === 'pijama-menino-elefantinho-verde');
+  const blue = products.find(product => product.handle === 'pijama-menino-elefantinho-azul');
+  assert.ok(piece);
+  assert.equal(piece.reference, blue.reference);
+  assert.equal(piece.price, 248);
+  assert.deepEqual(piece.sizes, ['10A', '12A', '14A']);
+  for (const slug of ['crianca-meninos-pijama', 'pijamas-meninos', 'crianca']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
+  for (const slug of ['crianca-meninas', 'bebe', 'pijamas-meninas']) assert.equal(navigation.matchesCatalogCategory(piece, slug), false, slug);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp']);
+  assert.notDeepEqual(piece.images, blue.images);
+  assert.equal(piece.stock, undefined);
+  assert.equal(piece.linxSku, undefined);
 });
 
 test('sailor bear pajamas use the same supplied commercial data and their own photo', () => {

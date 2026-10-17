@@ -1623,5 +1623,28 @@
     "displayImages": [
       "/catalog/macacao-pima-passarinhos-vlt-pf004bb.webp"
     ]
+  },
+  {
+    "title": "Pijama Elefantinho — Verde",
+    "handle": "pijama-menino-elefantinho-verde",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta de manga curta com bordado de elefantinho e calça verde. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR025CT",
+    "price": 248,
+    "sizes": [
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta com bordado de elefantinho e calça verde"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp"
+    ]
   }
 ]

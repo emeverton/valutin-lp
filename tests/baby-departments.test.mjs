@@ -53,7 +53,7 @@ test('every existing baby color and print is assigned to a garment and at least 
 
 test('unisex items appear in both selections without adding or changing product records', () => {
   const snapshot = JSON.stringify(products);
-  for (const handle of ['conjunto-camisa-shorts-verde', 'conjunto-camisa-shorts-azul', 'jardineira-ursos']) {
+  for (const handle of ['macacao-bordado-azul', 'macacao-bordado-ourico', 'macacao-pima-passarinhos-vlt-pf004bb']) {
     const product = products.find(item => item.handle === handle);
     assert.ok(product, handle);
     for (const section of nav.babySections) assert.equal(nav.matchesCatalogCategory(product, section.slug), true, handle);
@@ -70,6 +70,8 @@ test('body, outfit, romper and dungaree results remain separate regardless of th
     ['macacao-fustao-floral-rosa', 'bebe-meninas-macacao', 'bebe-meninas-jardineira'],
     ['shorts-algodao-rosa', 'bebe-meninos-shorts-e-bermuda', 'bebe-meninas-bloomer'],
     ['bloomer-fustao', 'bebe-meninas-bloomer', 'bebe-meninos-shorts-e-bermuda'],
+    ['macacao-curto-azul-bordado', 'bebe-meninas-bloomer', 'bebe-meninas-jardineira'],
+    ['macacao-curto-azul-bordado', 'bebe-meninas-bloomer', 'bebe-meninas-macacao'],
   ]) {
     const product = products.find(item => item.handle === handle);
     assert.ok(product, handle);
@@ -90,6 +92,8 @@ test('girls dresses and decorative cardigans do not leak into boys categories ba
 test('requested baby pieces appear only in their assigned selection', () => {
   for (const [handles, audience, type] of [
     [['body-linho'], 'meninos', 'body'],
+    [['conjunto-camisa-shorts-verde', 'conjunto-camisa-shorts-azul'], 'meninos', 'conjunto'],
+    [['jardineira-ursos'], 'meninos', 'jardineira'],
     [['macacao-tricoline-listra-vermelha', 'macacao-tricoline-listra-sage', 'macacao-tricoline-ursos'], 'meninos', 'macacao'],
     [['macacao-bordado-elefante', 'macacao-bordado-coelho'], 'meninas', 'macacao'],
   ]) {

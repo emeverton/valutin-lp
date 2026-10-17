@@ -58,7 +58,10 @@ test('T-shirts, shirts, shorts and skirts no longer share the same results', () 
     ['camisa-linho', 'crianca-meninos-camisa-batas', 'crianca-meninos-camisetas'],
     ['regata-floral-babados', 'crianca-meninas-camisa-batas', 'crianca-meninas-camisetas'],
     ['saia-algodao-azul', 'crianca-meninas-saia', 'crianca-meninas-shorts'],
-    ['bermuda-linho-verde', 'crianca-meninas-shorts', 'crianca-meninas-saia'],
+    ['bermuda-linho-verde', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
+    ['bermuda-linho-azul-marinho', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
+    ['bermuda-linho-caqui', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
+    ['bermuda-moletom', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
     ['conjunto-laise-rosa', 'crianca-meninas-conjuntos', 'crianca-meninas-vestido'],
     ['cardigan-bordado-analu', 'crianca-meninas-cardigan', 'crianca-meninos-cardigan'],
   ]) {
@@ -69,13 +72,14 @@ test('T-shirts, shirts, shorts and skirts no longer share the same results', () 
   }
 });
 
-test('unisex and shared baby/children products preserve the selected breadcrumb context', () => {
+test('boys shirt and shared baby/children products preserve the correct breadcrumb context', () => {
   const shirt = products.find(item => item.handle === 'camisa-linho');
-  for (const audience of ['meninos', 'meninas']) {
-    const category = `crianca-${audience}-camisa-batas`;
-    assert.equal(nav.matchesCatalogCategory(shirt, category), true);
-    assert.equal(nav.productCategoryTrail(shirt, category).at(-1).slug, category);
-  }
+  const category = 'crianca-meninos-camisa-batas';
+  assert.equal(nav.matchesCatalogCategory(shirt, category), true);
+  assert.equal(nav.productCategoryTrail(shirt, category).at(-1).slug, category);
+  assert.equal(nav.matchesCatalogCategory(shirt, 'crianca-meninas'), false);
+  assert.equal(nav.matchesCatalogCategory(shirt, 'crianca-meninas-camisa-batas'), false);
+  assert.equal(nav.productCategoryTrail(shirt, 'crianca-meninas-camisa-batas').at(-1).slug, 'crianca-meninos-camisa-batas');
   const dress = products.find(item => item.handle === 'vestido-algodao-bordado');
   assert.equal(nav.productCategoryTrail(dress, 'bebe-meninas-vestido')[0].slug, 'bebe');
   assert.equal(nav.productCategoryTrail(dress, 'crianca-meninas-vestido')[0].slug, 'crianca');

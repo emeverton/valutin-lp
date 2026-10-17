@@ -1791,5 +1791,30 @@
     "displayImages": [
       "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct.webp"
     ]
+  },
+  {
+    "title": "Body Manga Curta com Gola — Branco",
+    "handle": "body-menina-branco-manga-curta-vlt-mar060bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body branco de manga curta com gola arredondada e acabamento delicado, abertura nas costas e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR060BB",
+    "price": 108,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M"
+    ],
+    "images": [
+      "/catalog/body-menina-branco-manga-curta-vlt-mar060bb.webp"
+    ],
+    "imageLabels": [
+      "Body branco de manga curta com gola arredondada e acabamento delicado"
+    ],
+    "displayImages": [
+      "/catalog/body-menina-branco-manga-curta-vlt-mar060bb.webp"
+    ]
   }
 ]

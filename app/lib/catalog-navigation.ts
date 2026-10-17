@@ -60,6 +60,7 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "cardigan-bordado-mao": { type: "cardigans", audiences: ["meninas"] },
   "jardineira-ursos": { type: "jardineira", audiences: ["meninos"] },
   "body-linho": { type: "body", audiences: ["meninos"] },
+  "body-menina-branco-manga-curta-vlt-mar060bb": { type: "body", audiences: ["meninas"] },
   "body-gola-floral-verde-vlt-mar120bb": { type: "body", audiences: ["meninas"] },
   "body-gola-floral-azul-vlt-mar120bb": { type: "body", audiences: ["meninas"] },
   "body-gola-floral-azul-e-rosa-vlt-mar120bb": { type: "body", audiences: ["meninas"] },

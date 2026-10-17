@@ -118,7 +118,7 @@ test('product breadcrumbs reject unrelated query context', () => {
 });
 
 test('VLT MAR060BB has two separate boys body cards with the supplied price and photos', () => {
-  const bodies = products.filter(product => product.reference === 'VLT MAR060BB');
+  const bodies = products.filter(product => product.reference === 'VLT MAR060BB' && nav.matchesCatalogCategory(product, 'bebe-meninos'));
   assert.equal(bodies.length, 2);
   assert.equal(new Set(bodies.flatMap(product => product.images)).size, 2);
   for (const product of bodies) {
@@ -179,4 +179,18 @@ test('VLT PF004BB appears once in the catalog and in both baby romper selections
   assert.equal(nav.matchesCatalogCategory(product, 'crianca'), false);
   assert.equal(product.stock, undefined);
   assert.equal(product.linxSku, undefined);
+});
+
+test('girls white short sleeve body VLT MAR060BB has only the five confirmed month sizes', () => {
+  const body = products.find(product => product.handle === 'body-menina-branco-manga-curta-vlt-mar060bb');
+  assert.ok(body);
+  assert.equal(body.reference, 'VLT MAR060BB');
+  assert.equal(body.price, 108);
+  assert.deepEqual(plain(body.sizes), ['3M', '6M', '9M', '12M', '18M']);
+  assert.equal(nav.matchesCatalogCategory(body, 'bebe-meninas-body'), true);
+  assert.equal(nav.matchesCatalogCategory(body, 'bebe-meninos'), false);
+  assert.equal(nav.matchesCatalogCategory(body, 'bebe-meninas-conjunto'), false);
+  assert.equal(nav.productCategoryTrail(body).at(-1).slug, 'bebe-meninas-body');
+  assert.deepEqual(plain(body.images), ['/catalog/body-menina-branco-manga-curta-vlt-mar060bb.webp']);
+  assert.equal(body.stock, undefined);
 });

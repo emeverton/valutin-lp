@@ -160,3 +160,19 @@ test('VLT MAR120BB has five distinct prints only in girls bodies with the suppli
     assert.deepEqual(plain(product.images), plain(product.displayImages));
   }
 });
+
+test('VLT PF004BB appears once in the catalog and in both baby romper selections', () => {
+  const pieces = products.filter(product => product.reference === 'VLT PF004BB');
+  assert.equal(pieces.length, 1);
+  const product = pieces[0];
+  assert.equal(product.price, 338);
+  for (const audience of ['meninos', 'meninas']) {
+    const slug = `bebe-${audience}-macacao`;
+    assert.equal(nav.matchesCatalogCategory(product, slug), true);
+    assert.equal(nav.productCategoryTrail(product, slug).at(-1).slug, slug);
+    assert.equal(nav.matchesCatalogCategory(product, `bebe-${audience}-jardineira`), false);
+  }
+  assert.equal(nav.matchesCatalogCategory(product, 'crianca'), false);
+  assert.equal(product.stock, undefined);
+  assert.equal(product.linxSku, undefined);
+});

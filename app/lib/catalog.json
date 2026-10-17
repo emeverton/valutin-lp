@@ -1602,5 +1602,26 @@
     "displayImages": [
       "/catalog/body-gola-borboletas-azuis-vlt-mar120bb.webp"
     ]
+  },
+  {
+    "title": "Macacão de Pima — Bordado Exclusivo de Passarinhos",
+    "handle": "macacao-pima-passarinhos-vlt-pf004bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de pima branco com bordado exclusivo de passarinhos sobre um galho, mangas longas, pés fechados e fechamento por zíper. Consulte os tamanhos e a disponibilidade com nossa equipe.",
+    "reference": "VLT PF004BB",
+    "price": 338,
+    "sizes": [
+      "Sob consulta"
+    ],
+    "images": [
+      "/catalog/macacao-pima-passarinhos-vlt-pf004bb.webp"
+    ],
+    "imageLabels": [
+      "Macacão de pima branco com detalhe do bordado exclusivo de passarinhos"
+    ],
+    "displayImages": [
+      "/catalog/macacao-pima-passarinhos-vlt-pf004bb.webp"
+    ]
   }
 ]

@@ -1397,5 +1397,80 @@
     "images": ["/catalog/body-gola-offwhite-vlt-mar060bb.webp"],
     "imageLabels": ["Body off-white com gola arredondada"],
     "displayImages": ["/catalog/body-gola-offwhite-vlt-mar060bb.webp"]
+  },
+  {
+    "title": "Jardineira Cargo — Listras Bege",
+    "handle": "jardineira-cargo-listras-bege-pv26-27ge009bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Jardineira cargo com listras bege e brancas, alças com botões, bolsos laterais e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE009BB",
+    "price": 228,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/jardineira-cargo-listras-bege-pv26-27ge009bb.webp"
+    ],
+    "imageLabels": [
+      "Jardineira cargo com listras bege e brancas"
+    ],
+    "displayImages": [
+      "/catalog/jardineira-cargo-listras-bege-pv26-27ge009bb.webp"
+    ]
+  },
+  {
+    "title": "Jardineira Cargo — Listras Azuis",
+    "handle": "jardineira-cargo-listras-azuis-pv26-27ge009bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Jardineira cargo com listras azuis e brancas, alças com botões, bolsos laterais e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE009BB",
+    "price": 228,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/jardineira-cargo-listras-azuis-pv26-27ge009bb.webp"
+    ],
+    "imageLabels": [
+      "Jardineira cargo com listras azuis e brancas"
+    ],
+    "displayImages": [
+      "/catalog/jardineira-cargo-listras-azuis-pv26-27ge009bb.webp"
+    ]
+  },
+  {
+    "title": "Jardineira Cargo — Azul Espinha de Peixe",
+    "handle": "jardineira-cargo-azul-espinha-de-peixe-pv26-27ge009bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Jardineira cargo com padronagem azul em espinha de peixe, alças com botões, bolsos laterais e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE009BB",
+    "price": 228,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/jardineira-cargo-azul-espinha-de-peixe-pv26-27ge009bb.webp"
+    ],
+    "imageLabels": [
+      "Jardineira cargo com padronagem azul em espinha de peixe"
+    ],
+    "displayImages": [
+      "/catalog/jardineira-cargo-azul-espinha-de-peixe-pv26-27ge009bb.webp"
+    ]
   }
 ]

@@ -129,3 +129,18 @@ test('VLT MAR060BB has two separate boys body cards with the supplied price and 
     assert.equal(nav.productCategoryTrail(product).at(-1).slug, 'bebe-meninos-body');
   }
 });
+
+test('PV26/27GE009BB has three distinct cargo dungarees only in boys dungarees', () => {
+  const pieces = products.filter(product => product.reference === 'PV26/27GE009BB');
+  assert.equal(pieces.length, 3);
+  assert.equal(new Set(pieces.flatMap(product => product.images)).size, 3);
+  for (const product of pieces) {
+    assert.equal(product.price, 228);
+    assert.deepEqual(plain(product.sizes), ['6M', '9M', '12M', '18M', '2A']);
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninos-jardineira'), true);
+    for (const slug of ['bebe-meninas', 'bebe-meninos-macacao', 'crianca']) assert.equal(nav.matchesCatalogCategory(product, slug), false, slug);
+    assert.equal(nav.productCategoryTrail(product).at(-1).slug, 'bebe-meninos-jardineira');
+    assert.equal(product.stock, undefined);
+    assert.equal(product.linxSku, undefined);
+  }
+});

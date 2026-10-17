@@ -144,3 +144,19 @@ test('PV26/27GE009BB has three distinct cargo dungarees only in boys dungarees',
     assert.equal(product.linxSku, undefined);
   }
 });
+
+test('VLT MAR120BB has five distinct prints only in girls bodies with the supplied price and sizes', () => {
+  const pieces = products.filter(product => product.reference === 'VLT MAR120BB');
+  assert.equal(pieces.length, 5);
+  assert.equal(new Set(pieces.flatMap(product => product.images)).size, 5);
+  for (const product of pieces) {
+    assert.equal(product.price, 128);
+    assert.deepEqual(plain(product.sizes), ['3M', '6M', '9M', '12M', '18M', '2A']);
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninas-body'), true);
+    for (const slug of ['bebe-meninos', 'bebe-meninas-conjunto', 'crianca']) assert.equal(nav.matchesCatalogCategory(product, slug), false, slug);
+    assert.equal(nav.productCategoryTrail(product).at(-1).slug, 'bebe-meninas-body');
+    assert.equal(product.stock, undefined);
+    assert.equal(product.linxSku, undefined);
+    assert.deepEqual(plain(product.images), plain(product.displayImages));
+  }
+});

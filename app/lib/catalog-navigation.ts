@@ -59,6 +59,8 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "cardigan-bordado-mao": { type: "cardigans", audiences: ["meninas"] },
   "jardineira-ursos": { type: "jardineira", audiences: ["meninos", "meninas"] },
   "body-linho": { type: "body", audiences: ["meninos"] },
+  "body-polo-branco-vlt-mar060bb": { type: "body", audiences: ["meninos"] },
+  "body-gola-offwhite-vlt-mar060bb": { type: "body", audiences: ["meninos"] },
   "shorts-algodao": { type: "shorts-e-bermuda", audiences: ["meninos"] },
   "vestido-algodao-bordado": { type: "vestido", audiences: ["meninas"] },
   "conjunto-camisa-shorts-verde": { type: "conjunto", audiences: ["meninos", "meninas"] },

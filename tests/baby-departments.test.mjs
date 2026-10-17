@@ -112,3 +112,20 @@ test('product breadcrumbs reject unrelated query context', () => {
   assert.equal(nav.productCategoryTrail(body, 'bebe-meninas-vestido').at(-1).slug, 'bebe-meninos-body');
   assert.deepEqual(plain(nav.categoryAncestors('bebe-meninas-vestido')), ['bebe', 'bebe-meninas']);
 });
+
+test('VLT MAR060BB has two separate boys body cards with the supplied price and photos', () => {
+  const bodies = products.filter(product => product.reference === 'VLT MAR060BB');
+  assert.equal(bodies.length, 2);
+  assert.equal(new Set(bodies.flatMap(product => product.images)).size, 2);
+  for (const product of bodies) {
+    assert.equal(product.price, 108);
+    assert.deepEqual(plain(product.sizes), ['3M', '6M', '9M', '12M', '18M', '2A']);
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninos-body'), true);
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninas'), false);
+    assert.equal(nav.matchesCatalogCategory(product, 'crianca'), false);
+    assert.equal(product.stock, undefined);
+    assert.equal(product.linxSku, undefined);
+    assert.deepEqual(plain(product.images), plain(product.displayImages));
+    assert.equal(nav.productCategoryTrail(product).at(-1).slug, 'bebe-meninos-body');
+  }
+});

@@ -1371,5 +1371,31 @@
     "images": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg"],
     "imageLabels": ["Camiseta com bordado de elefantinho e calça azul"],
     "displayImages": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg"]
+  },
+  {
+    "title": "Body Polo — Branco",
+    "handle": "body-polo-branco-vlt-mar060bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body branco com gola polo, mangas curtas, três botões na frente e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR060BB",
+    "price": 108,
+    "sizes": ["3M", "6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog/body-polo-branco-vlt-mar060bb.webp"],
+    "imageLabels": ["Body branco com gola polo e botões na frente"],
+    "displayImages": ["/catalog/body-polo-branco-vlt-mar060bb.webp"]
+  },
+  {
+    "title": "Body com Gola — Off-white",
+    "handle": "body-gola-offwhite-vlt-mar060bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body off-white com gola arredondada, mangas curtas, abertura nas costas e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR060BB",
+    "price": 108,
+    "sizes": ["3M", "6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog/body-gola-offwhite-vlt-mar060bb.webp"],
+    "imageLabels": ["Body off-white com gola arredondada"],
+    "displayImages": ["/catalog/body-gola-offwhite-vlt-mar060bb.webp"]
   }
 ]

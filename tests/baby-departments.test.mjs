@@ -53,7 +53,7 @@ test('every existing baby color and print is assigned to a garment and at least 
 
 test('unisex items appear in both selections without adding or changing product records', () => {
   const snapshot = JSON.stringify(products);
-  for (const handle of ['body-linho', 'macacao-tricoline-listra-sage', 'jardineira-ursos']) {
+  for (const handle of ['conjunto-camisa-shorts-verde', 'conjunto-camisa-shorts-azul', 'jardineira-ursos']) {
     const product = products.find(item => item.handle === handle);
     assert.ok(product, handle);
     for (const section of nav.babySections) assert.equal(nav.matchesCatalogCategory(product, section.slug), true, handle);
@@ -64,7 +64,7 @@ test('unisex items appear in both selections without adding or changing product 
 
 test('body, outfit, romper and dungaree results remain separate regardless of the old combined category', () => {
   for (const [handle, category, excluded] of [
-    ['body-linho', 'bebe-meninas-body', 'bebe-meninas-conjunto'],
+    ['body-linho', 'bebe-meninos-body', 'bebe-meninos-conjunto'],
     ['conjunto-body-shorts-xadrez-azul', 'bebe-meninas-conjunto', 'bebe-meninas-body'],
     ['macacao-fustao-azul', 'bebe-meninas-jardineira', 'bebe-meninas-macacao'],
     ['macacao-fustao-floral-rosa', 'bebe-meninas-macacao', 'bebe-meninas-jardineira'],
@@ -87,9 +87,27 @@ test('girls dresses and decorative cardigans do not leak into boys categories ba
   assert.equal(nav.matchesCatalogCategory(products.find(item => item.handle === 'cardigan-bebe-carrinho'), 'bebe-meninos-cardigans'), true);
 });
 
-test('product breadcrumbs preserve the selected unisex section and reject unrelated query context', () => {
+test('requested baby pieces appear only in their assigned selection', () => {
+  for (const [handles, audience, type] of [
+    [['body-linho'], 'meninos', 'body'],
+    [['macacao-tricoline-listra-vermelha', 'macacao-tricoline-listra-sage', 'macacao-tricoline-ursos'], 'meninos', 'macacao'],
+    [['macacao-bordado-elefante', 'macacao-bordado-coelho'], 'meninas', 'macacao'],
+  ]) {
+    for (const handle of handles) {
+      const product = products.find(item => item.handle === handle);
+      assert.ok(product, handle);
+      const other = audience === 'meninos' ? 'meninas' : 'meninos';
+      assert.equal(nav.matchesCatalogCategory(product, `bebe-${audience}`), true, handle);
+      assert.equal(nav.matchesCatalogCategory(product, `bebe-${audience}-${type}`), true, handle);
+      assert.equal(nav.matchesCatalogCategory(product, `bebe-${other}`), false, handle);
+      assert.equal(nav.matchesCatalogCategory(product, `bebe-${other}-${type}`), false, handle);
+    }
+  }
+});
+
+test('product breadcrumbs reject unrelated query context', () => {
   const body = products.find(item => item.handle === 'body-linho');
-  assert.deepEqual(plain(nav.productCategoryTrail(body, 'bebe-meninas-body').map(item => item.slug)), ['bebe', 'bebe-meninas', 'bebe-meninas-body']);
+  assert.deepEqual(plain(nav.productCategoryTrail(body, 'bebe-meninas-body').map(item => item.slug)), ['bebe', 'bebe-meninos', 'bebe-meninos-body']);
   assert.deepEqual(plain(nav.productCategoryTrail(body, 'bebe-meninos-body').map(item => item.slug)), ['bebe', 'bebe-meninos', 'bebe-meninos-body']);
   assert.equal(nav.productCategoryTrail(body, 'bebe-meninas-vestido').at(-1).slug, 'bebe-meninos-body');
   assert.deepEqual(plain(nav.categoryAncestors('bebe-meninas-vestido')), ['bebe', 'bebe-meninas']);

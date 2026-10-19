@@ -1816,5 +1816,44 @@
     "displayImages": [
       "/catalog/body-menina-branco-manga-curta-vlt-mar060bb.webp"
     ]
+  },
+  {
+    "title": "Macacão Algodão Egípcio — Coral com Flores",
+    "handle": "macacao-algodao-egipcio-coral-flores",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de algodão egípcio coral, com mangas longas, pezinhos e aplicação de vaso com flores no peito. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR107BB",
+    "price": 188,
+    "sizes": ["RN", "3M", "6M", "9M", "12M", "18M"],
+    "images": ["/catalog/macacao-algodao-egipcio-coral-flores.png"],
+    "imageLabels": ["Macacão coral de algodão egípcio com mangas longas, pezinhos e vaso com flores no peito"],
+    "displayImages": ["/catalog/macacao-algodao-egipcio-coral-flores.png"]
+  },
+  {
+    "title": "Calça Básica Feminina — Verde",
+    "handle": "calca-basica-feminina-verde-vlt-ange008ct",
+    "category": "crianca",
+    "catalogCategory": "calcas",
+    "description": "Calça básica feminina verde, com cós elástico, laço na cintura e bolsos laterais. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT ANGE008CT",
+    "price": 269,
+    "sizes": ["12M", "18M", "2A", "4A", "6A", "8A", "10A", "12A", "14A", "16A"],
+    "images": ["/catalog/calca-basica-feminina-verde-vlt-ange008ct.png"],
+    "imageLabels": ["Calça básica feminina verde com laço na cintura e bolsos laterais"],
+    "displayImages": ["/catalog/calca-basica-feminina-verde-vlt-ange008ct.png"]
+  },
+  {
+    "title": "Calça Básica Feminina — Rosa",
+    "handle": "calca-basica-feminina-rosa-vlt-ange008ct",
+    "category": "crianca",
+    "catalogCategory": "calcas",
+    "description": "Calça básica feminina rosa, com cós elástico, laço na cintura e bolsos laterais. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT ANGE008CT",
+    "price": 269,
+    "sizes": ["12M", "18M", "2A", "4A", "6A", "8A", "10A", "12A", "14A", "16A"],
+    "images": ["/catalog/calca-basica-feminina-rosa-vlt-ange008ct.png"],
+    "imageLabels": ["Calça básica feminina rosa com laço na cintura e bolsos laterais"],
+    "displayImages": ["/catalog/calca-basica-feminina-rosa-vlt-ange008ct.png"]
   }
 ]

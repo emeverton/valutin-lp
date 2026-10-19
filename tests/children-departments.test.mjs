@@ -86,8 +86,8 @@ test('boys shirt and shared baby/children products preserve the correct breadcru
   assert.deepEqual(plain(nav.categoryAncestors('crianca-meninos-calcas')), ['crianca', 'crianca-meninos']);
 });
 
-test('pants and empty categories remain empty rather than borrowing other garment types', () => {
-  for (const slug of ['crianca-meninos-calcas', 'crianca-meninas-calcas', 'crianca-meninos-cardigan', 'crianca-meninos-conjuntos']) {
+test('empty categories remain empty rather than borrowing other garment types', () => {
+  for (const slug of ['crianca-meninos-calcas', 'crianca-meninos-cardigan', 'crianca-meninos-conjuntos']) {
     assert.equal(nav.isCatalogCategory(slug), true);
     assert.equal(products.filter(product => nav.matchesCatalogCategory(product, slug)).length, 0, slug);
   }

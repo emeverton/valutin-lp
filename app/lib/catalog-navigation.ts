@@ -52,6 +52,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "vestido-listrado-laranja-pv26-27ange008ct": { type: "vestido", audiences: ["meninas"] },
   "macacao-algodao-egipcio-coral-flores": { type: "macacao", audiences: ["meninas"] },
   "macacao-tricoline": { type: "macacao", audiences: ["meninos"] },
   "macacao-fustao": { type: "macacao", audiences: ["meninas"] },
@@ -112,7 +113,7 @@ export const childrenSections = [
 ] as const;
 
 const childrenTypes = [
-  { type: "camisetas", label: "Camisetas", audiences: ["meninos"] },
+  { type: "camisetas", label: "Camisetas", audiences: ["meninos", "meninas"] },
   { type: "camisa-batas", label: "Camisa/Batas", audiences: ["meninos", "meninas"] },
   { type: "shorts", label: "Shorts/Bermudas", audiences: ["meninos", "meninas"] },
   { type: "conjuntos", label: "Conjuntos", audiences: ["meninos", "meninas"] },
@@ -124,6 +125,8 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "camiseta-brilho-paris-azul-vlt-mar077ct": { type: "camisetas", audiences: ["meninas"] },
+  "camiseta-brilho-musical-verde-vlt-mar077ct": { type: "camisetas", audiences: ["meninas"] },
   "calca-basica-feminina-verde-vlt-ange008ct": { type: "calcas", audiences: ["meninas"] },
   "calca-basica-feminina-rosa-vlt-ange008ct": { type: "calcas", audiences: ["meninas"] },
   "camiseta-algodao": { type: "camisetas", audiences: ["meninos"] },

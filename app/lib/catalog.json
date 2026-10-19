@@ -1826,9 +1826,9 @@
     "reference": "VLT MAR107BB",
     "price": 188,
     "sizes": ["RN", "3M", "6M", "9M", "12M", "18M"],
-    "images": ["/catalog/macacao-algodao-egipcio-coral-flores.png"],
+    "images": ["/catalog/macacao-algodao-egipcio-coral-flores.webp"],
     "imageLabels": ["Macacão coral de algodão egípcio com mangas longas, pezinhos e vaso com flores no peito"],
-    "displayImages": ["/catalog/macacao-algodao-egipcio-coral-flores.png"]
+    "displayImages": ["/catalog/macacao-algodao-egipcio-coral-flores.webp"]
   },
   {
     "title": "Calça Básica Feminina — Verde",
@@ -1839,9 +1839,9 @@
     "reference": "VLT ANGE008CT",
     "price": 269,
     "sizes": ["12M", "18M", "2A", "4A", "6A", "8A", "10A", "12A", "14A", "16A"],
-    "images": ["/catalog/calca-basica-feminina-verde-vlt-ange008ct.png"],
+    "images": ["/catalog/calca-basica-feminina-verde-vlt-ange008ct.webp"],
     "imageLabels": ["Calça básica feminina verde com laço na cintura e bolsos laterais"],
-    "displayImages": ["/catalog/calca-basica-feminina-verde-vlt-ange008ct.png"]
+    "displayImages": ["/catalog/calca-basica-feminina-verde-vlt-ange008ct.webp"]
   },
   {
     "title": "Calça Básica Feminina — Rosa",
@@ -1852,8 +1852,48 @@
     "reference": "VLT ANGE008CT",
     "price": 269,
     "sizes": ["12M", "18M", "2A", "4A", "6A", "8A", "10A", "12A", "14A", "16A"],
-    "images": ["/catalog/calca-basica-feminina-rosa-vlt-ange008ct.png"],
+    "images": ["/catalog/calca-basica-feminina-rosa-vlt-ange008ct.webp"],
     "imageLabels": ["Calça básica feminina rosa com laço na cintura e bolsos laterais"],
-    "displayImages": ["/catalog/calca-basica-feminina-rosa-vlt-ange008ct.png"]
+    "displayImages": ["/catalog/calca-basica-feminina-rosa-vlt-ange008ct.webp"]
+  },
+  {
+    "title": "Camiseta com Brilho — Paris Azul",
+    "handle": "camiseta-brilho-paris-azul-vlt-mar077ct",
+    "category": "crianca",
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta azul de manga curta com aplicação de brilho formando Paris e a Torre Eiffel. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR077CT",
+    "price": 184,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/camiseta-brilho-paris-azul-vlt-mar077ct.webp"],
+    "imageLabels": ["Camiseta azul com aplicação de brilho Paris e Torre Eiffel"],
+    "displayImages": ["/catalog/camiseta-brilho-paris-azul-vlt-mar077ct.webp"]
+  },
+  {
+    "title": "Camiseta com Brilho — Musical Verde",
+    "handle": "camiseta-brilho-musical-verde-vlt-mar077ct",
+    "category": "crianca",
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta verde de manga curta com aplicação de brilho em desenho de pauta e notas musicais. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR077CT",
+    "price": 184,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/camiseta-brilho-musical-verde-vlt-mar077ct.webp"],
+    "imageLabels": ["Camiseta verde com aplicação de brilho em pauta e notas musicais"],
+    "displayImages": ["/catalog/camiseta-brilho-musical-verde-vlt-mar077ct.webp"]
+  },
+  {
+    "title": "Vestido Listrado com Laço — Laranja",
+    "handle": "vestido-listrado-laranja-pv26-27ange008ct",
+    "category": "crianca",
+    "additionalDepartments": ["bebe"],
+    "catalogCategory": "vestidos",
+    "description": "Vestido listrado laranja e branco com babados nas mangas, saia franzida, decote com babado e laço nas costas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27ANGE008CT",
+    "price": 388,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/vestido-listrado-laranja-pv26-27ange008ct-frente.webp", "/catalog/vestido-listrado-laranja-pv26-27ange008ct-costas.webp"],
+    "imageLabels": ["Frente", "Costas com decote em V, babados e laço"],
+    "displayImages": ["/catalog/vestido-listrado-laranja-pv26-27ange008ct-frente.webp", "/catalog/vestido-listrado-laranja-pv26-27ange008ct-costas.webp"]
   }
 ]

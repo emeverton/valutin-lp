@@ -16,7 +16,7 @@ test('baby dress category includes every baby dress and excludes other departmen
   const products = JSON.parse(read('app/lib/catalog.json'));
   const dresses = products.filter(product => navigation.matchesCatalogCategory(product, 'vestidos-bebe'));
   assert.deepEqual(dresses.map(product => product.handle).sort(), [
-    'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-rosa', 'vestido-bordado-verde',
+    'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-rosa', 'vestido-bordado-verde', 'vestido-listrado-laranja-pv26-27ange008ct',
   ]);
   for (const product of products) {
     assert.equal(navigation.matchesCatalogCategory(product, 'vestidos-bebe'), (product.category === 'bebe' || product.additionalDepartments?.includes('bebe') === true) && product.catalogCategory === 'vestidos');

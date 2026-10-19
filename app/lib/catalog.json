@@ -1895,5 +1895,18 @@
     "images": ["/catalog/vestido-listrado-laranja-pv26-27ange008ct-frente.webp", "/catalog/vestido-listrado-laranja-pv26-27ange008ct-costas.webp"],
     "imageLabels": ["Frente", "Costas com decote em V, babados e laço"],
     "displayImages": ["/catalog/vestido-listrado-laranja-pv26-27ange008ct-frente.webp", "/catalog/vestido-listrado-laranja-pv26-27ange008ct-costas.webp"]
+  },
+  {
+    "title": "Vestido de Malha — Estampa Exclusiva Floral",
+    "handle": "vestido-malha-estampa-exclusiva-vlt-geni012ct",
+    "category": "bebe",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de malha com estampa exclusiva floral colorida, decote arredondado, babados nas mangas e saia franzida. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT GENI012CT",
+    "price": 369,
+    "sizes": ["2A"],
+    "images": ["/catalog/vestido-malha-estampa-exclusiva-vlt-geni012ct.webp"],
+    "imageLabels": ["Vestido de malha com estampa floral colorida e babados nas mangas"],
+    "displayImages": ["/catalog/vestido-malha-estampa-exclusiva-vlt-geni012ct.webp"]
   }
 ]

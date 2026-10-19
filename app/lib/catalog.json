@@ -1908,5 +1908,31 @@
     "images": ["/catalog/vestido-malha-estampa-exclusiva-vlt-geni012ct.webp"],
     "imageLabels": ["Vestido de malha com estampa floral colorida e babados nas mangas"],
     "displayImages": ["/catalog/vestido-malha-estampa-exclusiva-vlt-geni012ct.webp"]
+  },
+  {
+    "title": "Shorts de Fustão — Rosa",
+    "handle": "shorts-fustao-rosa-pv26-27ange004ct",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de fustão rosa, com bolsos, botões claros e barra dobrada. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27ANGE004CT",
+    "price": 279,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/shorts-fustao-rosa-pv26-27ange004ct.webp"],
+    "imageLabels": ["Shorts de fustão rosa com bolsos, botões claros e barra dobrada"],
+    "displayImages": ["/catalog/shorts-fustao-rosa-pv26-27ange004ct.webp"]
+  },
+  {
+    "title": "Shorts de Fustão — Branco",
+    "handle": "shorts-fustao-branco-pv26-27ange004ct",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de fustão branco, com bolsos, botões claros e barra dobrada. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27ANGE004CT",
+    "price": 279,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/shorts-fustao-branco-pv26-27ange004ct.webp"],
+    "imageLabels": ["Shorts de fustão branco com bolsos, botões claros e barra dobrada"],
+    "displayImages": ["/catalog/shorts-fustao-branco-pv26-27ange004ct.webp"]
   }
 ]

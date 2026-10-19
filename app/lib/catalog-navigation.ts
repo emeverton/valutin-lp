@@ -126,6 +126,8 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "shorts-fustao-rosa-pv26-27ange004ct": { type: "shorts", audiences: ["meninas"] },
+  "shorts-fustao-branco-pv26-27ange004ct": { type: "shorts", audiences: ["meninas"] },
   "camiseta-brilho-paris-azul-vlt-mar077ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-brilho-musical-verde-vlt-mar077ct": { type: "camisetas", audiences: ["meninas"] },
   "calca-basica-feminina-verde-vlt-ange008ct": { type: "calcas", audiences: ["meninas"] },

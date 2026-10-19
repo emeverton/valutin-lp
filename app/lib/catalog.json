@@ -1934,5 +1934,155 @@
     "images": ["/catalog/shorts-fustao-branco-pv26-27ange004ct.webp"],
     "imageLabels": ["Shorts de fustão branco com bolsos, botões claros e barra dobrada"],
     "displayImages": ["/catalog/shorts-fustao-branco-pv26-27ange004ct.webp"]
+  },
+  {
+    "title": "Conjunto Camiseta e Shorts Básico — Futebol",
+    "handle": "conjunto-camiseta-shorts-basico-futebol-hayooqct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto básico com camiseta branca com desenho de jogador e shorts com estampa de futebol. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "HAYOOQCT",
+    "price": 328,
+    "sizes": [
+      "1A",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/conjunto-camiseta-shorts-basico-futebol-hayooqct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta branca com desenho de jogador e shorts com estampa de futebol"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-camiseta-shorts-basico-futebol-hayooqct.webp"
+    ]
+  },
+  {
+    "title": "Conjunto Camiseta e Shorts Básico — Barcos",
+    "handle": "conjunto-camiseta-shorts-basico-barcos-hayooqct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto básico com camiseta branca com desenho de barco e shorts com estampa de barcos coloridos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "HAYOOQCT",
+    "price": 328,
+    "sizes": [
+      "1A",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/conjunto-camiseta-shorts-basico-barcos-hayooqct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta branca com desenho de barco e shorts com estampa de barcos coloridos"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-camiseta-shorts-basico-barcos-hayooqct.webp"
+    ]
+  },
+  {
+    "title": "Conjunto Camiseta e Shorts Básico — Dinossauros",
+    "handle": "conjunto-camiseta-shorts-basico-dinossauros-hayooqct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto básico com camiseta branca com desenho de dinossauro e shorts com estampa de dinossauros coloridos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "HAYOOQCT",
+    "price": 328,
+    "sizes": [
+      "1A",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/conjunto-camiseta-shorts-basico-dinossauros-hayooqct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta branca com desenho de dinossauro e shorts com estampa de dinossauros coloridos"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-camiseta-shorts-basico-dinossauros-hayooqct.webp"
+    ]
+  },
+  {
+    "title": "Conjunto Camiseta e Shorts Básico — Safári",
+    "handle": "conjunto-camiseta-shorts-basico-safari-hayooqct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto básico com camiseta off-white com desenho de elefante e shorts com estampa de animais de safári. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "HAYOOQCT",
+    "price": 328,
+    "sizes": [
+      "1A",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/conjunto-camiseta-shorts-basico-safari-hayooqct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com desenho de elefante e shorts com estampa de animais de safári"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-camiseta-shorts-basico-safari-hayooqct.webp"
+    ]
+  },
+  {
+    "title": "Conjunto Camiseta e Shorts Básico — Coqueiros",
+    "handle": "conjunto-camiseta-shorts-basico-coqueiros-hayooqct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto básico com camiseta off-white com desenho de coqueiro e shorts bege com estampa de coqueiros. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "HAYOOQCT",
+    "price": 328,
+    "sizes": [
+      "1A",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/conjunto-camiseta-shorts-basico-coqueiros-hayooqct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com desenho de coqueiro e shorts bege com estampa de coqueiros"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-camiseta-shorts-basico-coqueiros-hayooqct.webp"
+    ]
   }
 ]

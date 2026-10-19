@@ -87,7 +87,7 @@ test('boys shirt and shared baby/children products preserve the correct breadcru
 });
 
 test('empty categories remain empty rather than borrowing other garment types', () => {
-  for (const slug of ['crianca-meninos-calcas', 'crianca-meninos-cardigan', 'crianca-meninos-conjuntos']) {
+  for (const slug of ['crianca-meninos-calcas', 'crianca-meninos-cardigan']) {
     assert.equal(nav.isCatalogCategory(slug), true);
     assert.equal(products.filter(product => nav.matchesCatalogCategory(product, slug)).length, 0, slug);
   }

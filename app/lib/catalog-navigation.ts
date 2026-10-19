@@ -52,6 +52,11 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "conjunto-camiseta-shorts-basico-futebol-hayooqct": { type: "conjunto", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-barcos-hayooqct": { type: "conjunto", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-dinossauros-hayooqct": { type: "conjunto", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-safari-hayooqct": { type: "conjunto", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-coqueiros-hayooqct": { type: "conjunto", audiences: ["meninos"] },
   "vestido-malha-estampa-exclusiva-vlt-geni012ct": { type: "vestido", audiences: ["meninas"] },
   "vestido-listrado-laranja-pv26-27ange008ct": { type: "vestido", audiences: ["meninas"] },
   "macacao-algodao-egipcio-coral-flores": { type: "macacao", audiences: ["meninas"] },
@@ -126,6 +131,11 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "conjunto-camiseta-shorts-basico-futebol-hayooqct": { type: "conjuntos", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-barcos-hayooqct": { type: "conjuntos", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-dinossauros-hayooqct": { type: "conjuntos", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-safari-hayooqct": { type: "conjuntos", audiences: ["meninos"] },
+  "conjunto-camiseta-shorts-basico-coqueiros-hayooqct": { type: "conjuntos", audiences: ["meninos"] },
   "shorts-fustao-rosa-pv26-27ange004ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fustao-branco-pv26-27ange004ct": { type: "shorts", audiences: ["meninas"] },
   "camiseta-brilho-paris-azul-vlt-mar077ct": { type: "camisetas", audiences: ["meninas"] },

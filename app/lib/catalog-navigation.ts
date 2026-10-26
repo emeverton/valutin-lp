@@ -52,6 +52,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "vestido-tricoline-estampa-exclusiva-rosas-azuis": { type: "vestido", audiences: ["meninas"] },
   "macacao-suedine-ovelhinhas-azul-vlt-dbela002bb": { type: "macacao", audiences: ["meninos"] },
   "macacao-suedine-ursinho-azul-vlt-dbela002bb": { type: "macacao", audiences: ["meninos"] },
   "macacao-suedine-polo-azul-vlt-dbela002bb": { type: "macacao", audiences: ["meninos"] },
@@ -232,4 +233,12 @@ export function productCategoryTrail(product: CategoryProduct, requestedCategory
     ];
   }
   return [{ slug: product.category, label: categoryLabel(product.category) }, { slug: departmentCategories.find((item) => item.catalogCategory === product.catalogCategory && item.department === product.category)?.slug ?? product.catalogCategory, label: categoryLabel(product.catalogCategory) }];
+}
+
+// Keep one product while limiting the sizes offered in a department's listing and detail page.
+export function productForCategory<T extends CategoryProduct & { sizes: string[]; sizesByDepartment?: Record<string, string[]> }>(product: T, slug?: string): T {
+  const department = slug === "bebe" || slug?.startsWith("bebe-") || departmentCategories.some((item) => item.slug === slug && item.department === "bebe")
+    ? "bebe" : slug === "crianca" || slug?.startsWith("crianca-") || departmentCategories.some((item) => item.slug === slug && item.department === "crianca") ? "crianca" : undefined;
+  const scopedSizes = department && slug && matchesCatalogCategory(product, slug) ? product.sizesByDepartment?.[department] : undefined;
+  return scopedSizes ? { ...product, sizes: product.sizes.filter((size) => scopedSizes.includes(size)) } : product;
 }

@@ -2348,5 +2348,41 @@
     "displayImages": [
       "/catalog/macacao-suedine-barquinhos-azul-vlt-dbela002bb.webp"
     ]
+  },
+  {
+    "title": "Vestido de Tricoline — Estampa Exclusiva Rosas Azuis",
+    "handle": "vestido-tricoline-estampa-exclusiva-rosas-azuis",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido de tricoline com estampa exclusiva de rosas e borboletas azuis, babados nas mangas, saia franzida e laço nas costas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": null,
+    "price": 428,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-tricoline-estampa-exclusiva-rosas-azuis-frente.webp",
+      "/catalog/vestido-tricoline-estampa-exclusiva-rosas-azuis-costas.webp"
+    ],
+    "imageLabels": [
+      "Frente — rosas e borboletas azuis",
+      "Costas — babados e laço"
+    ],
+    "displayImages": [
+      "/catalog/vestido-tricoline-estampa-exclusiva-rosas-azuis-frente.webp",
+      "/catalog/vestido-tricoline-estampa-exclusiva-rosas-azuis-costas.webp"
+    ]
   }
 ]

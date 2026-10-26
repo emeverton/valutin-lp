@@ -16,7 +16,7 @@ test('baby dress category includes every baby dress and excludes other departmen
   const products = JSON.parse(read('app/lib/catalog.json'));
   const dresses = products.filter(product => navigation.matchesCatalogCategory(product, 'vestidos-bebe'));
   assert.deepEqual(dresses.map(product => product.handle).sort(), [
-    'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-rosa', 'vestido-bordado-verde', 'vestido-listrado-laranja-pv26-27ange008ct', 'vestido-malha-estampa-exclusiva-vlt-geni012ct',
+    'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-rosa', 'vestido-bordado-verde', 'vestido-listrado-laranja-pv26-27ange008ct', 'vestido-malha-estampa-exclusiva-vlt-geni012ct', 'vestido-tricoline-estampa-exclusiva-rosas-azuis',
   ]);
   for (const product of products) {
     assert.equal(navigation.matchesCatalogCategory(product, 'vestidos-bebe'), (product.category === 'bebe' || product.additionalDepartments?.includes('bebe') === true) && product.catalogCategory === 'vestidos');
@@ -64,4 +64,23 @@ test('children dress navigation excludes every baby dress, including the cream d
   assert.ok(selected.length > 0);
   assert.ok(selected.every(product => product.category === 'crianca' && product.catalogCategory === 'vestidos'));
   assert.equal(navigation.matchesCatalogCategory(cream, 'vestidos'), true);
+});
+
+
+test('exclusive blue rose dress has one record, baby size 2A, and full child range', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const dress = products.find(p => p.handle === 'vestido-tricoline-estampa-exclusiva-rosas-azuis');
+  assert.equal(products.filter(p => p.handle === dress.handle).length, 1);
+  assert.equal(dress.price, 428);
+  for (const slug of ['bebe-meninas-vestido', 'vestidos-bebe', 'bebe']) {
+    assert.equal(navigation.matchesCatalogCategory(dress, slug), true);
+    assert.deepEqual(Array.from(navigation.productForCategory(dress, slug).sizes), ['2A']);
+  }
+  for (const slug of ['crianca-meninas-vestido', 'vestidos-crianca', undefined]) {
+    assert.deepEqual(Array.from(navigation.productForCategory(dress, slug).sizes), ['2A','4A','6A','8A','10A']);
+  }
+  assert.equal(navigation.matchesCatalogCategory(dress, 'bebe-meninos'), false);
+  assert.equal(navigation.matchesCatalogCategory(dress, 'crianca-meninos'), false);
+  assert.deepEqual(dress.sizes, ['2A','4A','6A','8A','10A']);
+  assert.equal(dress.images.length, 2);
 });

@@ -6,7 +6,7 @@ import GtmSnippet from "../../components/GtmSnippet";
 import Header from "../../components/Header";
 import ProductDetail from "../../components/ProductDetail";
 import { getCatalogProducts } from "../../lib/editor/catalog-store";
-import { categoryHref, productCategoryTrail } from "../../lib/catalog-navigation";
+import { categoryHref, productCategoryTrail, productForCategory } from "../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
 export const dynamic = "force-dynamic";
@@ -26,8 +26,9 @@ export async function generateMetadata({ params }: { params: { handle: string } 
   };
 }
 export default async function ProductPage({ params, searchParams }: { params: { handle: string }; searchParams?: { categoria?: string } }) {
-  const product = (await getCatalogProducts()).find((item) => item.handle === params.handle);
-  if (!product) notFound();
+  const sourceProduct = (await getCatalogProducts()).find((item) => item.handle === params.handle);
+  if (!sourceProduct) notFound();
+  const product = productForCategory(sourceProduct, searchParams?.categoria);
   const url = `${siteUrl}/catalogo/${product.handle}`;
   const categoryTrail = productCategoryTrail(product, searchParams?.categoria);
   const breadcrumbItems = [

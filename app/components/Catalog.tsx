@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useCatalogProducts } from "./CatalogMediaProvider";
-import { selectionCategories, selectionSections, catalogSubcategories, categoryHref, departmentCategories, matchesCatalogCategory, productCategories, productHref } from "../lib/catalog-navigation";
+import { selectionCategories, selectionSections, catalogSubcategories, categoryHref, departmentCategories, matchesCatalogCategory, productForCategory, productCategories, productHref } from "../lib/catalog-navigation";
 import { catalogImageClass } from "../lib/catalog-image";
 import { springSummerSourceHandles } from "../lib/seasonal";
 import SpringSummerSecondFold from "./SpringSummerSecondFold";
@@ -60,10 +60,10 @@ export default function Catalog({ initialCategory = "todos", heading = "A coleç
 
   const sizes = useMemo(() => Array.from(new Set(products
     .filter((product) => (collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle)) && matchesCatalogCategory(product, category))
-    .flatMap((product) => product.sizes))), [category, collection, products]);
+    .flatMap((product) => productForCategory(product, category).sizes))), [category, collection, products]);
   const visible = useMemo(() => {
     const term = search.trim().toLocaleLowerCase("pt-BR");
-    const filtered = products.filter((product) => {
+    const filtered = products.map((product) => productForCategory(product, category)).filter((product) => {
       const collectionMatch = collection !== "primavera-verao" || product.collection === "primavera-verao" || springSummerSet.has(product.sourceHandle ?? product.handle);
       const categoryMatch = matchesCatalogCategory(product, category);
       const sizeMatch = !size || product.sizes.includes(size);

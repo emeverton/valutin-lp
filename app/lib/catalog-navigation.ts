@@ -52,6 +52,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "macacao-suedine-gola-branca-flores-azul-vlt-dbela001bb": { type: "macacao", audiences: ["meninas"] },
   "macacao-suedine-tulipa-rose-vlt-dbela001bb": { type: "macacao", audiences: ["meninas"] },
   "macacao-suedine-ursinhos-rose-vlt-dbela001bb": { type: "macacao", audiences: ["meninas"] },
   "macacao-suedine-flores-azul-vlt-dbela001bb": { type: "macacao", audiences: ["meninas"] },

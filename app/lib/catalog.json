@@ -2386,5 +2386,29 @@
       "/catalog/vestido-tricoline-estampa-exclusiva-rosas-azuis-frente.webp",
       "/catalog/vestido-tricoline-estampa-exclusiva-rosas-azuis-costas.webp"
     ]
+  },
+  {
+    "title": "Macacão de Suedine com Bordado — Elefantinhos Verde",
+    "handle": "macacao-suedine-elefantinhos-verde-vlt-dbela002bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de suedine verde com bordado de elefantinhos, mangas longas, pés fechados e fechamento por zíper. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT DBELA002BB",
+    "price": 238,
+    "sizes": [
+      "RN",
+      "3M",
+      "6M",
+      "9M"
+    ],
+    "images": [
+      "/catalog/macacao-suedine-elefantinhos-verde-vlt-dbela002bb.webp"
+    ],
+    "imageLabels": [
+      "Macacão de suedine verde com bordado de elefantinhos e detalhe ampliado"
+    ],
+    "displayImages": [
+      "/catalog/macacao-suedine-elefantinhos-verde-vlt-dbela002bb.webp"
+    ]
   }
 ]

@@ -17,6 +17,8 @@ const nextConfig = {
     ];
   },
   images: {
+    // Serve the prepared assets directly; optimizer billing limits must not hide catalog photos.
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {

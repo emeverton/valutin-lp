@@ -84,3 +84,19 @@ test('exclusive blue rose dress has one record, baby size 2A, and full child ran
   assert.deepEqual(dress.sizes, ['2A','4A','6A','8A','10A']);
   assert.equal(dress.images.length, 2);
 });
+
+
+test('floral knit dress appears in girls children and keeps only 2A in babies', () => {
+  const dress = JSON.parse(read('app/lib/catalog.json')).find(p => p.handle === 'vestido-malha-estampa-exclusiva-vlt-geni012ct');
+  assert.equal(dress.price, 369);
+  assert.equal(dress.reference, 'VLT GEI012CT');
+  for (const slug of ['bebe-meninas-vestido', 'vestidos-bebe']) {
+    assert.equal(navigation.matchesCatalogCategory(dress, slug), true);
+    assert.deepEqual(Array.from(navigation.productForCategory(dress, slug).sizes), ['2A']);
+  }
+  for (const slug of ['crianca-meninas-vestido', 'vestidos-crianca']) {
+    assert.equal(navigation.matchesCatalogCategory(dress, slug), true);
+    assert.deepEqual(Array.from(navigation.productForCategory(dress, slug).sizes), ['2A','4A','6A','8A','10A','12A']);
+  }
+  for (const slug of ['bebe-meninos', 'crianca-meninos']) assert.equal(navigation.matchesCatalogCategory(dress, slug), false);
+});

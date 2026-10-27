@@ -2437,5 +2437,57 @@
     "displayImages": [
       "/catalog/macacao-suedine-bordado-mao-carrinho-azul-vlt-mar0106bb.webp"
     ]
+  },
+  {
+    "title": "Body de Algodão com Gola de Babado — Branco",
+    "handle": "body-algodao-gola-babado-branco-vlt-mar030bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body de algodão branco com mangas curtas, gola de babado com acabamento delicado e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR030BB",
+    "price": 108,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/body-algodao-gola-babado-branco-vlt-mar030bb.webp"
+    ],
+    "imageLabels": [
+      "Body de algodão branco com gola de babado e mangas curtas"
+    ],
+    "displayImages": [
+      "/catalog/body-algodao-gola-babado-branco-vlt-mar030bb.webp"
+    ]
+  },
+  {
+    "title": "Body de Algodão com Gola de Babado — Off-white",
+    "handle": "body-algodao-gola-babado-off-white-vlt-mar030bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body de algodão off-white com mangas curtas, gola de babado com acabamento delicado e fechamento por botões de pressão entre as pernas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR030BB",
+    "price": 108,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/body-algodao-gola-babado-off-white-vlt-mar030bb.webp"
+    ],
+    "imageLabels": [
+      "Body de algodão off-white com gola de babado e mangas curtas"
+    ],
+    "displayImages": [
+      "/catalog/body-algodao-gola-babado-off-white-vlt-mar030bb.webp"
+    ]
   }
 ]

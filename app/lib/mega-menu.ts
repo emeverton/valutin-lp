@@ -45,6 +45,10 @@ export const megaMenuSections: MegaMenuSection[] = [
     ],
   },
   {
+    key: "maternidade", label: "Maternidade", href: categoryHref("maternidade"),
+    eyebrow: "Para os primeiros encontros", title: "Maternidade", columns: [], promos: [],
+  },
+  {
     key: "bebe", label: "Bebês", href: categoryHref("bebe"),
     eyebrow: "Dos primeiros dias às descobertas", title: "O universo bebê",
     columns: [

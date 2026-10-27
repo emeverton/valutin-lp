@@ -1,4 +1,5 @@
 export const departments = [
+  { slug: "maternidade", label: "Maternidade", title: "Para os primeiros encontros", links: ["maternidade"] },
   { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["bebe-meninos", "bebe-meninas"] },
   { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["crianca-meninos", "crianca-meninas"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },

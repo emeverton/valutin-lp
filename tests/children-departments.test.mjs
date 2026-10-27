@@ -56,7 +56,7 @@ test('T-shirts, shirts, shorts and skirts no longer share the same results', () 
   for (const [handle, included, excluded] of [
     ['camiseta-algodao-veleiro-01', 'crianca-meninos-camisetas', 'crianca-meninos-camisa-batas'],
     ['camisa-linho', 'crianca-meninos-camisa-batas', 'crianca-meninos-camisetas'],
-    ['regata-floral-babados', 'crianca-meninas-camisa-batas', 'crianca-meninas-camisetas'],
+    ['regata-floral-babados', 'crianca-meninas-camisetas', 'crianca-meninas-camisa-batas'],
     ['saia-algodao-azul', 'crianca-meninas-saia', 'crianca-meninas-shorts'],
     ['bermuda-linho-verde', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
     ['bermuda-linho-azul-marinho', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],

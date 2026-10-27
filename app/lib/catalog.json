@@ -2523,5 +2523,39 @@
     "displayImages": [
       "/catalog/camiseta-floral-estampa-exclusiva-vlt-mar129ct.webp"
     ]
+  },
+  {
+    "title": "Camiseta Branca com Gola de Babado",
+    "handle": "camiseta-branca-gola-babado-vlt-mar089ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta branca de manga curta com gola de babado e acabamento delicado. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR089CT",
+    "price": 136,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ]
+    },
+    "images": [
+      "/catalog/camiseta-branca-gola-babado-vlt-mar089ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta branca de manga curta com gola de babado"
+    ],
+    "displayImages": [
+      "/catalog/camiseta-branca-gola-babado-vlt-mar089ct.webp"
+    ]
   }
 ]

@@ -2698,5 +2698,57 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Composição Itamambuca e Opala",
+    "handle": "composicao-itamambuca-opala",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão Itamambuca listrado azul, body Pima branco e manta Opala azul-marinho. Cada peça é vendida separadamente, pelos valores indicados abaixo. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": [
+      "RN",
+      "3M",
+      "Único"
+    ],
+    "images": [
+      "/catalog-maternidade/composicao-itamambuca-opala.webp"
+    ],
+    "imageLabels": [
+      "Composição Itamambuca e Opala — peças vendidas separadamente"
+    ],
+    "displayImages": [
+      "/catalog-maternidade/composicao-itamambuca-opala.webp"
+    ],
+    "photoNote": "Peças vendidas separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Itamambuca",
+        "reference": "VLT DOLCE070BB",
+        "price": 399,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Body Pima Branco",
+        "reference": "BASIC026 PF034BB",
+        "price": 167,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Manta Opala",
+        "reference": "VLT DOLCE046AC",
+        "price": 458,
+        "sizes": [
+          "Único"
+        ]
+      }
+    ]
   }
 ]

@@ -23,7 +23,7 @@ test('baby opens two selections with the exact garment categories and cardigans 
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'bebe').links), ['bebe-meninos', 'bebe-meninas']);
   for (const [section, labels] of [
     ['bebe-meninos', ['Body', 'Macacão', 'Jardineira', 'Conjunto', 'Shorts e Bermuda', 'Cardigans']],
-    ['bebe-meninas', ['Body', 'Macacão', 'Jardineira', 'Conjunto', 'Vestido', 'Bloomer', 'Cardigans']],
+    ['bebe-meninas', ['Camisetas', 'Body', 'Macacão', 'Jardineira', 'Conjunto', 'Vestido', 'Bloomer', 'Cardigans']],
   ]) {
     assert.deepEqual(plain(nav.babyCategories.filter(item => item.parent === section).map(item => item.label)), labels);
     assert.equal(nav.isCatalogCategory(section), true);
@@ -193,4 +193,18 @@ test('girls white short sleeve body VLT MAR060BB has only the five confirmed mon
   assert.equal(nav.productCategoryTrail(body).at(-1).slug, 'bebe-meninas-body');
   assert.deepEqual(plain(body.images), ['/catalog/body-menina-branco-manga-curta-vlt-mar060bb.webp']);
   assert.equal(body.stock, undefined);
+});
+
+test('VLT MAR129CT is a girls T-shirt with only 2A offered in the baby selection', () => {
+  const shirt = products.find(product => product.reference === 'VLT MAR129CT');
+  assert.ok(shirt);
+  assert.equal(shirt.price, 168);
+  assert.deepEqual(plain(shirt.sizes), ['2A', '4A', '6A', '8A', '10A', '12A']);
+  for (const slug of ['bebe-meninas-camisetas', 'crianca-meninas-camisetas']) {
+    assert.equal(nav.matchesCatalogCategory(shirt, slug), true);
+    assert.equal(nav.productCategoryTrail(shirt, slug).at(-1).slug, slug);
+  }
+  assert.deepEqual(plain(nav.productForCategory(shirt, 'bebe-meninas-camisetas').sizes), ['2A']);
+  assert.deepEqual(plain(nav.productForCategory(shirt, 'crianca-meninas-camisetas').sizes), plain(shirt.sizes));
+  for (const slug of ['bebe-meninos', 'crianca-meninos', 'bebe-meninas-body']) assert.equal(nav.matchesCatalogCategory(shirt, slug), false);
 });

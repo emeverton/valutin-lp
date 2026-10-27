@@ -2489,5 +2489,39 @@
     "displayImages": [
       "/catalog/body-algodao-gola-babado-off-white-vlt-mar030bb.webp"
     ]
+  },
+  {
+    "title": "Camiseta Manga Curta — Estampa Exclusiva Floral",
+    "handle": "camiseta-floral-estampa-exclusiva-vlt-mar129ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta de manga curta em 100% algodão, com estampa exclusiva floral colorida e babados nas mangas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR129CT",
+    "price": 168,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ]
+    },
+    "images": [
+      "/catalog/camiseta-floral-estampa-exclusiva-vlt-mar129ct.webp"
+    ],
+    "imageLabels": [
+      "Camiseta de algodão com estampa exclusiva floral e babados nas mangas"
+    ],
+    "displayImages": [
+      "/catalog/camiseta-floral-estampa-exclusiva-vlt-mar129ct.webp"
+    ]
   }
 ]

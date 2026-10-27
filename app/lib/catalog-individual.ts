@@ -1,7 +1,8 @@
+import type { CompositionItem } from "./catalog-composition";
 import sourceProducts from "./catalog.json";
 
 type SourceProduct = (typeof sourceProducts)[number];
-type EditablePiece<T> = T extends unknown ? Omit<T, "price"> & { price: number | null; photoNote?: string; sizesByDepartment?: Record<string, string[]>; stock?: Record<string, number> | null; collection?: "primavera-verao" | "geral"; sourceHandle?: string; linxSku?: string; linxSkus?: Record<string, string> } : never;
+type EditablePiece<T> = T extends unknown ? Omit<T, "price"> & { price: number | null; photoNote?: string; componentPrices?: CompositionItem[]; sizesByDepartment?: Record<string, string[]>; stock?: Record<string, number> | null; collection?: "primavera-verao" | "geral"; sourceHandle?: string; linxSku?: string; linxSkus?: Record<string, string> } : never;
 export type CatalogItem = EditablePiece<SourceProduct>;
 type Piece = { suffix: string; title: string; imageIndices: number[] };
 

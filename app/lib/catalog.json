@@ -2596,71 +2596,107 @@
     ]
   },
   {
-    "title": "Macacão Kamel",
-    "handle": "macacao-kamel-vlt-dolce088bb",
+    "title": "Composição Kamel e Maragogi",
+    "handle": "composicao-kamel-maragogi",
     "category": "maternidade",
     "catalogCategory": "macacoes-e-jardineiras",
-    "description": "Macacão Kamel em tricô com textura trabalhada, mangas longas e pés fechados. Disponível nos tamanhos RN e 3 meses. Foto da composição: manta Maragogi e body de algodão vendidos separadamente. Consulte a disponibilidade do tamanho com nossa equipe.",
-    "reference": "VLT DOLCE088BB",
-    "price": 399,
+    "description": "Macacão Kamel em tricô, body de algodão e manta Maragogi. Cada peça é vendida separadamente, pelos valores indicados abaixo. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
     "sizes": [
       "RN",
-      "3M"
+      "3M",
+      "Único"
     ],
     "images": [
       "/catalog-maternidade/composicao-kamel-maragogi.webp"
     ],
     "imageLabels": [
-      "Composição com macacão Kamel e manta Maragogi; peças vendidas separadamente"
+      "Composição Kamel e Maragogi — peças vendidas separadamente"
     ],
     "displayImages": [
       "/catalog-maternidade/composicao-kamel-maragogi.webp"
     ],
-    "photoNote": "Foto da composição · peças vendidas separadamente."
+    "photoNote": "Peças vendidas separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Kamel",
+        "reference": "VLT DOLCE088BB",
+        "price": 399,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Body de Algodão",
+        "reference": "VLT ANALU062BB",
+        "price": 178,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Manta Maragogi",
+        "reference": "VLT DOLCE001AC",
+        "price": 638,
+        "sizes": [
+          "Único"
+        ]
+      }
+    ]
   },
   {
-    "title": "Body de Algodão",
-    "handle": "body-algodao-vlt-analu062bb",
+    "title": "Composição Raziel e Turin",
+    "handle": "composicao-raziel-turin",
     "category": "maternidade",
-    "catalogCategory": "bodys-e-conjuntos",
-    "description": "Body de algodão nos tamanhos RN e 3 meses. Vendido separadamente do macacão Kamel e da manta Maragogi. A foto apresenta a composição; não é uma foto individual do body. Consulte a disponibilidade do tamanho com nossa equipe.",
-    "reference": "VLT ANALU062BB",
-    "price": 178,
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão Raziel listrado, body bordado branco e manta Turin azul jeans. Cada peça é vendida separadamente, pelos valores indicados abaixo. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
     "sizes": [
       "RN",
-      "3M"
+      "3M",
+      "Único"
     ],
     "images": [
-      "/catalog-maternidade/composicao-kamel-maragogi.webp"
+      "/catalog-maternidade/composicao-raziel-turin.webp"
     ],
     "imageLabels": [
-      "Foto da composição com macacão Kamel e manta Maragogi; body vendido separadamente"
+      "Composição Raziel e Turin — peças vendidas separadamente"
     ],
     "displayImages": [
-      "/catalog-maternidade/composicao-kamel-maragogi.webp"
+      "/catalog-maternidade/composicao-raziel-turin.webp"
     ],
-    "photoNote": "Foto da composição · peças vendidas separadamente."
-  },
-  {
-    "title": "Manta Maragogi",
-    "handle": "manta-maragogi-vlt-dolce001ac",
-    "category": "maternidade",
-    "catalogCategory": "presentes-e-lembrancas",
-    "description": "Manta Maragogi em tricô, com textura e tranças em relevo. Foto da composição com o macacão Kamel, vendido separadamente. Consulte as medidas e a disponibilidade com nossa equipe.",
-    "reference": "VLT DOLCE001AC",
-    "price": 638,
-    "sizes": [
-      "Sob consulta"
-    ],
-    "images": [
-      "/catalog-maternidade/composicao-kamel-maragogi.webp"
-    ],
-    "imageLabels": [
-      "Manta Maragogi à esquerda e macacão Kamel à direita; vendidos separadamente"
-    ],
-    "displayImages": [
-      "/catalog-maternidade/composicao-kamel-maragogi.webp"
-    ],
-    "photoNote": "Foto da composição · peças vendidas separadamente."
+    "photoNote": "Peças vendidas separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Raziel",
+        "reference": "VLT DOLCE0111BB",
+        "price": 369,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Body Bordado Branco",
+        "reference": "VLT DOLCE089BB",
+        "price": 198,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Manta Turin",
+        "reference": "VLT DOLCE045AC",
+        "price": 349,
+        "sizes": [
+          "Único"
+        ]
+      }
+    ]
   }
 ]

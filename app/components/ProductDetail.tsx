@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import CompositionPrices from "./CompositionPrices";
+import type { CompositionItem } from "../lib/catalog-composition";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { catalogFeedId } from "../lib/catalog/feed-id";
@@ -16,7 +18,7 @@ const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL
 type Product = {
   title: string; handle: string; sourceHandle?: string; description: string; price: number | null; sizes: string[]; stock?: Record<string, number> | null;
   images: string[]; displayImages: string[]; imageLabels: string[]; colors?: string[];
-  colorTitle?: string; photoNote?: string; reference?: string | null; linxSku?: string; linxSkus?: Record<string, string>; category: string; catalogCategory: string;
+  colorTitle?: string; photoNote?: string; componentPrices?: CompositionItem[]; reference?: string | null; linxSku?: string; linxSkus?: Record<string, string>; category: string; catalogCategory: string;
 };
 type StockState = { configured: boolean; status?: "available" | "out_of_stock" | "not_found"; scope?: "sku" | "reference"; checkedSku?: string } | null;
 
@@ -121,19 +123,19 @@ export default function ProductDetail({ product, categoryTrail = productCategory
         <p className="font-poppins text-[10px] uppercase tracking-[0.19em] text-brand-strong">Valutin · Moda infantil</p>
         <h1 className="mt-3 font-playfair text-4xl leading-tight sm:text-5xl">{product.title}</h1>
         {product.photoNote && <p className="mt-4 font-poppins text-xs leading-relaxed text-ink/65">{product.photoNote}</p>}
-        <p className="mt-5 font-poppins text-lg">{product.price === null ? "Preço sob consulta" : money.format(product.price)}</p>
+        {product.componentPrices?.length ? <CompositionPrices items={product.componentPrices} detailed /> : <p className="mt-5 font-poppins text-lg">{product.price === null ? "Preço sob consulta" : money.format(product.price)}</p>}
         {product.reference && <p className="mt-2 font-poppins text-xs text-ink/55">Referência: {product.reference}</p>}
         <p className="mt-7 font-poppins text-sm leading-relaxed text-ink/75">{product.description}</p>
         {variants.length > 1 && <div className="mt-7"><h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Cores e estampas deste modelo</h2><div className="mt-3 flex flex-wrap gap-2">{variants.map((variant) => <Link key={variant.handle} href={`/catalogo/${variant.handle}`} aria-current={variant.handle === product.handle ? "page" : undefined} title={variant.title} className={`catalog-product-surface relative block h-20 w-16 overflow-hidden border p-1 transition hover:border-brand-strong ${variant.handle === product.handle ? "border-brand-strong" : "border-ink/20"}`}><Image src={variant.displayImages[0]} alt={variant.title} fill sizes="64px" className={catalogImageClass(variant.displayImages[0])}/></Link>)}</div><p className="mt-2 font-poppins text-xs text-ink/60">{product.title} selecionado</p></div>}
         {product.colors && <div className="mt-7"><h2 className="font-poppins text-xs uppercase tracking-[0.13em]">{product.colorTitle ?? "Cores"}</h2><p className="mt-3 font-poppins text-sm">{product.colors.join(" · ")}</p></div>}
-        <div className="mt-8">
+        {!product.componentPrices?.length && <div className="mt-8">
           <h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Tamanho</h2>
           {product.sizes.length === 1 && product.sizes[0] === "Sob consulta" ? <p className="mt-4 font-poppins text-sm text-ink/65">Tamanhos sob consulta</p> : <div className="mt-4 flex flex-wrap gap-2">{product.sizes.map((item) => <button key={item} type="button" onClick={() => setSize(item)} aria-pressed={size === item} className={"min-h-11 min-w-12 border px-3 font-poppins text-sm " + (size === item ? "border-brand-strong bg-brand-strong text-white" : "border-ink/25 hover:border-ink")}>{item}</button>)}</div>}
           <p aria-live="polite" className={"mt-4 font-poppins text-xs " + ((manualStock && manualQuantity === 0) || stockForSelection?.status === "out_of_stock" || stockForSelection?.status === "not_found" ? "text-[#9a3d35]" : "text-brand-strong")}>{stockMessage}{!manualStock && stockForSelection?.scope === "reference" && stockForSelection?.status === "available" ? ". A grade exata é confirmada ao selecionar a variante." : ""}</p>
-        </div>
+        </div>}
         {eligibleToReserve
           ? <Link onClick={() => trackFunnel("vlt_product_select")} href={"/atendimento?" + reserveParams} className="mt-8 flex min-h-14 items-center justify-center bg-brand-strong px-5 font-poppins text-xs uppercase tracking-[0.14em] text-white transition hover:bg-ink">Reservar com a Valutin</Link>
-          : <Link onClick={() => trackFunnel("vlt_product_select")} href={"/atendimento?" + consultParams} className="mt-8 flex min-h-14 items-center justify-center bg-brand-strong px-5 text-center font-poppins text-xs uppercase tracking-[0.14em] text-white transition hover:bg-ink">Consultar esta peça</Link>}
+          : <Link onClick={() => trackFunnel("vlt_product_select")} href={"/atendimento?" + consultParams} className="mt-8 flex min-h-14 items-center justify-center bg-brand-strong px-5 text-center font-poppins text-xs uppercase tracking-[0.14em] text-white transition hover:bg-ink">{product.componentPrices?.length ? "Consultar as peças" : "Consultar esta peça"}</Link>}
         <p className="mt-4 font-poppins text-xs leading-relaxed text-ink/55">{eligibleToReserve ? "A equipe confirma os detalhes da reserva no atendimento." : "A consulta não reserva a peça. A equipe confirma o tamanho, o preço e a disponibilidade antes de qualquer compra."}</p>
         <div className="mt-8 grid grid-cols-3 border-y border-ink/15 py-5 text-center"><div className="border-r border-ink/15 px-2"><p className="font-poppins text-[9px] uppercase tracking-[0.13em] text-ink/55">Curadoria</p><p className="mt-2 font-playfair text-sm">Valutin</p></div><div className="border-r border-ink/15 px-2"><p className="font-poppins text-[9px] uppercase tracking-[0.13em] text-ink/55">Atendimento</p><p className="mt-2 font-playfair text-sm">Pessoal</p></div><div className="px-2"><p className="font-poppins text-[9px] uppercase tracking-[0.13em] text-ink/55">Estoque</p><p className="mt-2 font-playfair text-sm">{eligibleToReserve ? "Confirmado" : manualStock ? "Informado pela loja" : "Sob consulta"}</p></div></div>
         <div className="mt-8 divide-y divide-ink/15 border-y border-ink/15">
@@ -142,6 +144,6 @@ export default function ProductDetail({ product, categoryTrail = productCategory
         </div>
       </div>
     </div>
-    {recommendations.length > 0 && <section className="mt-20 border-t border-ink/15 pt-12"><div className="flex items-end justify-between gap-4"><div><p className="font-poppins text-[10px] uppercase tracking-[0.17em] text-brand-strong">A descobrir</p><h2 className="mt-3 font-playfair text-3xl sm:text-4xl">Você também pode gostar</h2></div><Link href={categoryHref(lastCategory.slug)} className="shrink-0 font-poppins text-xs underline underline-offset-4">Ver {lastCategory.label.toLowerCase()}</Link></div><div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">{recommendations.map((item) => <article key={item.handle} className="group"><Link href={`/catalogo/${item.handle}`} className="catalog-product-surface relative block aspect-[3/4] overflow-hidden border border-ink/10 p-3"><Image src={item.displayImages[0]} alt={item.title} fill sizes="(max-width: 640px) 50vw, 33vw" className={catalogImageClass(item.displayImages[0])} /></Link><Link href={`/catalogo/${item.handle}`} className="mt-4 block font-poppins text-xs font-medium hover:text-brand-strong">{item.title}</Link><p className="mt-1 font-poppins text-sm text-ink/70">{item.price === null ? "Preço sob consulta" : money.format(item.price)}</p></article>)}</div></section>}
+    {recommendations.length > 0 && <section className="mt-20 border-t border-ink/15 pt-12"><div className="flex items-end justify-between gap-4"><div><p className="font-poppins text-[10px] uppercase tracking-[0.17em] text-brand-strong">A descobrir</p><h2 className="mt-3 font-playfair text-3xl sm:text-4xl">Você também pode gostar</h2></div><Link href={categoryHref(lastCategory.slug)} className="shrink-0 font-poppins text-xs underline underline-offset-4">Ver {lastCategory.label.toLowerCase()}</Link></div><div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">{recommendations.map((item) => <article key={item.handle} className="group"><Link href={`/catalogo/${item.handle}`} className="catalog-product-surface relative block aspect-[3/4] overflow-hidden border border-ink/10 p-3"><Image src={item.displayImages[0]} alt={item.title} fill sizes="(max-width: 640px) 50vw, 33vw" className={catalogImageClass(item.displayImages[0])} /></Link><Link href={`/catalogo/${item.handle}`} className="mt-4 block font-poppins text-xs font-medium hover:text-brand-strong">{item.title}</Link>{item.componentPrices?.length ? <CompositionPrices items={item.componentPrices} /> : <p className="mt-1 font-poppins text-sm text-ink/70">{item.price === null ? "Preço sob consulta" : money.format(item.price)}</p>}</article>)}</div></section>}
   </section>;
 }

@@ -16,7 +16,7 @@ const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL
 type Product = {
   title: string; handle: string; sourceHandle?: string; description: string; price: number | null; sizes: string[]; stock?: Record<string, number> | null;
   images: string[]; displayImages: string[]; imageLabels: string[]; colors?: string[];
-  colorTitle?: string; reference?: string | null; linxSku?: string; linxSkus?: Record<string, string>; category: string; catalogCategory: string;
+  colorTitle?: string; photoNote?: string; reference?: string | null; linxSku?: string; linxSkus?: Record<string, string>; category: string; catalogCategory: string;
 };
 type StockState = { configured: boolean; status?: "available" | "out_of_stock" | "not_found"; scope?: "sku" | "reference"; checkedSku?: string } | null;
 
@@ -120,6 +120,7 @@ export default function ProductDetail({ product, categoryTrail = productCategory
       <div className="lg:sticky lg:top-32 lg:self-start">
         <p className="font-poppins text-[10px] uppercase tracking-[0.19em] text-brand-strong">Valutin · Moda infantil</p>
         <h1 className="mt-3 font-playfair text-4xl leading-tight sm:text-5xl">{product.title}</h1>
+        {product.photoNote && <p className="mt-4 font-poppins text-xs leading-relaxed text-ink/65">{product.photoNote}</p>}
         <p className="mt-5 font-poppins text-lg">{product.price === null ? "Preço sob consulta" : money.format(product.price)}</p>
         {product.reference && <p className="mt-2 font-poppins text-xs text-ink/55">Referência: {product.reference}</p>}
         <p className="mt-7 font-poppins text-sm leading-relaxed text-ink/75">{product.description}</p>

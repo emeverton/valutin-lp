@@ -53,6 +53,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "camiseta-branca-babados-vlt-mar128ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-branca-gola-babado-vlt-mar089ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-floral-estampa-exclusiva-vlt-mar129ct": { type: "camisetas", audiences: ["meninas"] },
   "body-algodao-gola-babado-branco-vlt-mar030bb": { type: "body", audiences: ["meninas"] },
@@ -150,6 +151,7 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "camiseta-branca-babados-vlt-mar128ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-branca-gola-babado-vlt-mar089ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-floral-estampa-exclusiva-vlt-mar129ct": { type: "camisetas", audiences: ["meninas"] },
   "conjunto-camiseta-shorts-basico-futebol-hayooqct": { type: "conjuntos", audiences: ["meninos"] },

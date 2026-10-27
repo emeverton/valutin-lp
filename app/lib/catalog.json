@@ -2557,5 +2557,42 @@
     "displayImages": [
       "/catalog/camiseta-branca-gola-babado-vlt-mar089ct.webp"
     ]
+  },
+  {
+    "title": "Camiseta Branca com Babados nas Mangas",
+    "handle": "camiseta-branca-babados-vlt-mar128ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta branca com babados nas mangas, decote redondo e fechamento por botões nas costas. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR128CT",
+    "price": 138,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ]
+    },
+    "images": [
+      "/catalog/camiseta-branca-babados-vlt-mar128ct-frente.webp",
+      "/catalog/camiseta-branca-babados-vlt-mar128ct-costas.webp"
+    ],
+    "imageLabels": [
+      "Frente — camiseta branca com babados nas mangas",
+      "Costas — fechamento por botões"
+    ],
+    "displayImages": [
+      "/catalog/camiseta-branca-babados-vlt-mar128ct-frente.webp",
+      "/catalog/camiseta-branca-babados-vlt-mar128ct-costas.webp"
+    ]
   }
 ]

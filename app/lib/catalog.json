@@ -2934,6 +2934,20 @@
     ]
   },
   {
+    "title": "Conjunto Caramujo Azul — 3 Peças",
+    "handle": "conjunto-caramujo-azul-vlt-aa001bb",
+    "category": "maternidade",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto Caramujo azul de 3 peças em tricô, vendido completo por R$ 789,00, com manta incluída. Tamanhos RN e 3M. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT AA001BB",
+    "price": 789,
+    "sizes": ["RN", "3M"],
+    "images": ["/catalog-maternidade/conjunto-caramujo-azul.png"],
+    "imageLabels": ["Conjunto Caramujo azul de 3 peças, com manta incluída no preço"],
+    "displayImages": ["/catalog-maternidade/conjunto-caramujo-azul.png"],
+    "photoNote": "Conjunto completo de 3 peças. Manta incluída no preço."
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",

@@ -53,7 +53,7 @@ test('VLT MAR025CT is published in boys pajamas with the supplied price and size
   assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
   for (const slug of ['pijamas-meninos', 'pijamas', 'crianca', 'todos']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
   for (const slug of ['pijamas-meninas', 'bebe', 'vestidos-crianca']) assert.equal(navigation.matchesCatalogCategory(piece, slug), false, slug);
-  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg']);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-vlt-mar025ct-etiqueta-original-valutin.jpg']);
   assert.equal(piece.linxSku, undefined);
   assert.equal(piece.stock, undefined);
 });
@@ -81,7 +81,7 @@ test('elephant pajamas have only the requested 10A, 12A and 14A sizes', () => {
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninos'), true);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas'), true);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninas'), false);
-  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg']);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct-etiqueta-original-valutin.jpg']);
 });
 
 test('green elephant pajamas match the other pajamas and only offer 10A, 12A and 14A for boys', () => {
@@ -94,7 +94,7 @@ test('green elephant pajamas match the other pajamas and only offer 10A, 12A and
   assert.deepEqual(piece.sizes, ['10A', '12A', '14A']);
   for (const slug of ['crianca-meninos-pijama', 'pijamas-meninos', 'crianca']) assert.equal(navigation.matchesCatalogCategory(piece, slug), true, slug);
   for (const slug of ['crianca-meninas', 'bebe', 'pijamas-meninas']) assert.equal(navigation.matchesCatalogCategory(piece, slug), false, slug);
-  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp']);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct-etiqueta-original-valutin.jpg']);
   assert.notDeepEqual(piece.images, blue.images);
   assert.equal(piece.stock, undefined);
   assert.equal(piece.linxSku, undefined);
@@ -122,7 +122,7 @@ test('sailor bear pajamas use the same supplied commercial data and their own ph
   assert.equal(piece.reference, 'VLT MAR025CT');
   assert.equal(piece.price, 248);
   assert.deepEqual(piece.sizes, ['18M', '2A', '4A', '6A', '8A']);
-  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct.jpg']);
+  assert.deepEqual(piece.displayImages, ['/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct-etiqueta-original-valutin.jpg']);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninos'), true);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas'), true);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninas'), false);

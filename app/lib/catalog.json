@@ -1329,9 +1329,9 @@
     "reference": "VLT MAR025CT",
     "price": 248,
     "sizes": ["18M", "2A", "4A", "6A", "8A"],
-    "images": ["/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg"],
+    "images": ["/catalog-pijamas/pijama-menino-vlt-mar025ct-etiqueta-original-valutin.jpg"],
     "imageLabels": ["Camiseta com carrinho e calça azul"],
-    "displayImages": ["/catalog-pijamas/pijama-menino-vlt-mar025ct.jpg"]
+    "displayImages": ["/catalog-pijamas/pijama-menino-vlt-mar025ct-etiqueta-original-valutin.jpg"]
   },
   {
     "title": "Pijama Urso Marinheiro — Azul Marinho",
@@ -1342,9 +1342,9 @@
     "reference": "VLT MAR025CT",
     "price": 248,
     "sizes": ["18M", "2A", "4A", "6A", "8A"],
-    "images": ["/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct.jpg"],
+    "images": ["/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct-etiqueta-original-valutin.jpg"],
     "imageLabels": ["Camiseta com urso marinheiro e calça azul-marinho"],
-    "displayImages": ["/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct.jpg"]
+    "displayImages": ["/catalog-pijamas/pijama-menino-urso-marinheiro-vlt-mar025ct-etiqueta-original-valutin.jpg"]
   },
   {
     "title": "Pijama Cachorrinho — Azul Marinho",
@@ -1355,9 +1355,9 @@
     "reference": "VLT MAR025CT",
     "price": 248,
     "sizes": ["18M", "2A", "4A", "6A", "8A"],
-    "images": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct.jpg"],
+    "images": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct-etiqueta-original-valutin.jpg"],
     "imageLabels": ["Camiseta com cachorrinho e calça azul-marinho"],
-    "displayImages": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct.jpg"]
+    "displayImages": ["/catalog-pijamas/pijama-menino-cachorrinho-vlt-mar025ct-etiqueta-original-valutin.jpg"]
   },
   {
     "title": "Pijama Elefantinho — Azul",
@@ -1368,9 +1368,9 @@
     "reference": "VLT MAR025CT",
     "price": 248,
     "sizes": ["10A", "12A", "14A"],
-    "images": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg"],
+    "images": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct-etiqueta-original-valutin.jpg"],
     "imageLabels": ["Camiseta com bordado de elefantinho e calça azul"],
-    "displayImages": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct.jpg"]
+    "displayImages": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct-etiqueta-original-valutin.jpg"]
   },
   {
     "title": "Body Polo — Branco",
@@ -1638,13 +1638,13 @@
       "14A"
     ],
     "images": [
-      "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp"
+      "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct-etiqueta-original-valutin.jpg"
     ],
     "imageLabels": [
       "Camiseta com bordado de elefantinho e calça verde"
     ],
     "displayImages": [
-      "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct.webp"
+      "/catalog-pijamas/pijama-menino-elefantinho-verde-vlt-mar025ct-etiqueta-original-valutin.jpg"
     ]
   },
   {
@@ -1667,13 +1667,13 @@
       "14A"
     ],
     "images": [
-      "/catalog-pijamas/pijama-menina-coracao-rose-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-coracao-rose-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ],
     "imageLabels": [
       "Camiseta com aplicação de coração com flores e calça rosé"
     ],
     "displayImages": [
-      "/catalog-pijamas/pijama-menina-coracao-rose-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-coracao-rose-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ]
   },
   {
@@ -1696,13 +1696,13 @@
       "14A"
     ],
     "images": [
-      "/catalog-pijamas/pijama-menina-cachorrinho-rosa-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-cachorrinho-rosa-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ],
     "imageLabels": [
       "Camiseta com aplicação de cachorrinho e calça rosa"
     ],
     "displayImages": [
-      "/catalog-pijamas/pijama-menina-cachorrinho-rosa-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-cachorrinho-rosa-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ]
   },
   {
@@ -1725,13 +1725,13 @@
       "14A"
     ],
     "images": [
-      "/catalog-pijamas/pijama-menina-flores-rosa-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-flores-rosa-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ],
     "imageLabels": [
       "Camiseta com aplicação de vaso com flores e calça rosa"
     ],
     "displayImages": [
-      "/catalog-pijamas/pijama-menina-flores-rosa-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-flores-rosa-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ]
   },
   {
@@ -1754,13 +1754,13 @@
       "14A"
     ],
     "images": [
-      "/catalog-pijamas/pijama-menina-borboleta-rosa-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-borboleta-rosa-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ],
     "imageLabels": [
       "Camiseta com bordado de borboleta e flor e calça rosa"
     ],
     "displayImages": [
-      "/catalog-pijamas/pijama-menina-borboleta-rosa-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-borboleta-rosa-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ]
   },
   {
@@ -1783,13 +1783,13 @@
       "14A"
     ],
     "images": [
-      "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ],
     "imageLabels": [
       "Camiseta com aplicação de boneca e calça azul-marinho"
     ],
     "displayImages": [
-      "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct.webp"
+      "/catalog-pijamas/pijama-menina-boneca-azul-marinho-vlt-mar026ct-etiqueta-original-valutin.jpg"
     ]
   },
   {

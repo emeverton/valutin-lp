@@ -2804,6 +2804,40 @@
     ]
   },
   {
+    "title": "Composição Universo e Opala",
+    "handle": "composicao-universo-opala",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão Universo azul-marinho em tricô, body branco com gola bordada de poás e manta Opala azul-marinho. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body no tamanho 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": ["3M", "Único"],
+    "images": ["/catalog-maternidade/composicao-universo-opala.png"],
+    "imageLabels": ["Composição Universo e Opala — macacão, body e manta vendidos separadamente"],
+    "displayImages": ["/catalog-maternidade/composicao-universo-opala.png"],
+    "photoNote": "Macacão, body e manta vendidos separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Universo Azul-Marinho",
+        "reference": "VLT DOLCE087BB",
+        "price": 445,
+        "sizes": ["3M"]
+      },
+      {
+        "title": "Body Branco com Gola Bordada de Poás",
+        "reference": "VLT VI002BB",
+        "price": 129,
+        "sizes": ["3M"]
+      },
+      {
+        "title": "Manta Opala Azul-Marinho",
+        "reference": "VLT DOLCE046AC",
+        "price": 458,
+        "sizes": ["Único"]
+      }
+    ]
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",

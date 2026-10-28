@@ -11,7 +11,7 @@ test('calendar switches in Sao Paulo through December and returns evergreen in 2
 });
 test('all catalog photos exist and every product has price data or an explicit consultation state',()=>{
  const products=JSON.parse(readFileSync(new URL('../app/lib/catalog.json',import.meta.url),'utf8'));
- assert.equal(products.length,126);assert.equal(new Set(products.map(p=>p.handle)).size,126);
+ assert.equal(products.length,127);assert.equal(new Set(products.map(p=>p.handle)).size,127);
  for(const p of products){
   assert.ok(p.price === null || p.price>0);assert.ok(p.sizes.length);
   assert.equal(p.images.length,p.imageLabels.length,`${p.handle}: labels`);

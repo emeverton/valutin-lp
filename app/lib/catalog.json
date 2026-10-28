@@ -2979,5 +2979,140 @@
       "/catalog-maternidade/conjunto-bernardo-rosa.webp"
     ],
     "photoNote": "Conjunto completo de 3 peças. Manta incluída no preço."
+  },
+  {
+    "title": "Shorts Tactel — Fundo do Mar",
+    "handle": "shorts-tactel-fundo-mar-hay005ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de tactel azul com estampa de animais marinhos, com cós elástico e cordão de ajuste. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT HAY005CT",
+    "price": 206,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A"
+      ]
+    },
+    "images": [
+      "/catalog/shorts-tactel-fundo-mar-hay005ct.png"
+    ],
+    "imageLabels": [
+      "Shorts de tactel azul com estampa de animais marinhos"
+    ],
+    "displayImages": [
+      "/catalog/shorts-tactel-fundo-mar-hay005ct.png"
+    ]
+  },
+  {
+    "title": "Shorts Tactel — Coqueiros",
+    "handle": "shorts-tactel-coqueiros-hay005ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de tactel amarelo e verde com estampa de coqueiros, com cós elástico e cordão de ajuste. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT HAY005CT",
+    "price": 206,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A"
+      ]
+    },
+    "images": [
+      "/catalog/shorts-tactel-coqueiros-hay005ct.png"
+    ],
+    "imageLabels": [
+      "Shorts de tactel amarelo e verde com estampa de coqueiros"
+    ],
+    "displayImages": [
+      "/catalog/shorts-tactel-coqueiros-hay005ct.png"
+    ]
+  },
+  {
+    "title": "Shorts Tactel — Paisagem Azul",
+    "handle": "shorts-tactel-paisagem-azul-hay005ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de tactel branco com estampa de paisagem litorânea azul, com cós elástico e cordão de ajuste. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT HAY005CT",
+    "price": 206,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A"
+      ]
+    },
+    "images": [
+      "/catalog/shorts-tactel-paisagem-azul-hay005ct.png"
+    ],
+    "imageLabels": [
+      "Shorts de tactel branco com estampa de paisagem litorânea azul"
+    ],
+    "displayImages": [
+      "/catalog/shorts-tactel-paisagem-azul-hay005ct.png"
+    ]
   }
 ]

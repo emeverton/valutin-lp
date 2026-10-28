@@ -17,6 +17,27 @@ const nav = compile('app/lib/catalog-navigation.ts');
 const { catalogProducts: products } = compile('app/lib/catalog-individual.ts', { './catalog.json': JSON.parse(read('app/lib/catalog.json')) });
 const plain = value => JSON.parse(JSON.stringify(value));
 
+test('tactel shorts offer only the requested sizes in baby boys and children boys', () => {
+  for (const variant of ['fundo-mar', 'coqueiros', 'paisagem-azul']) {
+    const handle = `shorts-tactel-${variant}-hay005ct`;
+    const product = products.find(item => item.handle === handle);
+    assert.ok(product, handle);
+    assert.equal(products.filter(item => item.handle === handle).length, 1);
+    assert.equal(product.reference, 'VLT HAY005CT');
+    assert.equal(product.price, 206);
+    for (const category of ['bebe-meninos', 'bebe-meninos-shorts-e-bermuda']) {
+      assert.equal(nav.matchesCatalogCategory(product, category), true);
+      assert.deepEqual(plain(nav.productForCategory(product, category).sizes), ['12M', '18M', '2A']);
+    }
+    for (const category of ['crianca-meninos', 'crianca-meninos-shorts']) {
+      assert.equal(nav.matchesCatalogCategory(product, category), true);
+      assert.deepEqual(plain(nav.productForCategory(product, category).sizes), ['4A', '6A', '8A', '10A', '12A']);
+    }
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninas'), false);
+    assert.equal(nav.matchesCatalogCategory(product, 'crianca-meninas'), false);
+  }
+});
+
 test('children open boys and girls with the requested separate categories', () => {
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'crianca').links), ['crianca-meninos', 'crianca-meninas']);
   for (const [section, labels] of [

@@ -54,6 +54,9 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "shorts-tactel-fundo-mar-hay005ct": { type: "shorts-e-bermuda", audiences: ["meninos"] },
+  "shorts-tactel-coqueiros-hay005ct": { type: "shorts-e-bermuda", audiences: ["meninos"] },
+  "shorts-tactel-paisagem-azul-hay005ct": { type: "shorts-e-bermuda", audiences: ["meninos"] },
   "bloomer-flor-azul-kds007bb": { type: "bloomer", audiences: ["meninas"] },
   "camiseta-branca-babados-vlt-mar128ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-branca-gola-babado-vlt-mar089ct": { type: "camisetas", audiences: ["meninas"] },
@@ -153,6 +156,9 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "shorts-tactel-fundo-mar-hay005ct": { type: "shorts", audiences: ["meninos"] },
+  "shorts-tactel-coqueiros-hay005ct": { type: "shorts", audiences: ["meninos"] },
+  "shorts-tactel-paisagem-azul-hay005ct": { type: "shorts", audiences: ["meninos"] },
   "camiseta-branca-babados-vlt-mar128ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-branca-gola-babado-vlt-mar089ct": { type: "camisetas", audiences: ["meninas"] },
   "camiseta-floral-estampa-exclusiva-vlt-mar129ct": { type: "camisetas", audiences: ["meninas"] },
@@ -249,7 +255,7 @@ export function productCategoryTrail(product: CategoryProduct, requestedCategory
 }
 
 // Keep one product while limiting the sizes offered in a department's listing and detail page.
-export function productForCategory<T extends CategoryProduct & { sizes: string[]; sizesByDepartment?: Record<string, string[]> }>(product: T, slug?: string): T {
+export function productForCategory<T extends CategoryProduct & { sizes: string[]; sizesByDepartment?: Partial<Record<string, string[]>> }>(product: T, slug?: string): T {
   const department = slug === "bebe" || slug?.startsWith("bebe-") || departmentCategories.some((item) => item.slug === slug && item.department === "bebe")
     ? "bebe" : slug === "crianca" || slug?.startsWith("crianca-") || departmentCategories.some((item) => item.slug === slug && item.department === "crianca") ? "crianca" : undefined;
   const scopedSizes = department && slug && matchesCatalogCategory(product, slug) ? product.sizesByDepartment?.[department] : undefined;

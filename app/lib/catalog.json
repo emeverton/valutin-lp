@@ -2808,10 +2808,10 @@
     "handle": "composicao-universo-opala",
     "category": "maternidade",
     "catalogCategory": "macacoes-e-jardineiras",
-    "description": "Macacão Universo azul-marinho em tricô, body branco com gola bordada de poás e manta Opala azul-marinho. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body no tamanho 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "description": "Macacão Universo azul-marinho em tricô, body branco com gola bordada de poás e manta Opala azul-marinho. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body nos tamanhos RN e 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
     "reference": null,
     "price": null,
-    "sizes": ["3M", "Único"],
+    "sizes": ["RN","3M","Único"],
     "images": ["/catalog-maternidade/composicao-universo-opala.png"],
     "imageLabels": ["Composição Universo e Opala — macacão, body e manta vendidos separadamente"],
     "displayImages": ["/catalog-maternidade/composicao-universo-opala.png"],
@@ -2821,13 +2821,13 @@
         "title": "Macacão Universo Azul-Marinho",
         "reference": "VLT DOLCE087BB",
         "price": 445,
-        "sizes": ["3M"]
+        "sizes": ["RN","3M"]
       },
       {
         "title": "Body Branco com Gola Bordada de Poás",
         "reference": "VLT VI002BB",
         "price": 129,
-        "sizes": ["3M"]
+        "sizes": ["RN","3M"]
       },
       {
         "title": "Manta Opala Azul-Marinho",
@@ -2842,10 +2842,10 @@
     "handle": "composicao-macacao-bordado-rose-body",
     "category": "maternidade",
     "catalogCategory": "macacoes-e-jardineiras",
-    "description": "Macacão bordado rosé em tricô e body branco com gola bordada floral. Macacão e body são vendidos separadamente, pelos valores indicados abaixo. Ambos no tamanho RN. A foto apresenta a composição; o body não é exibido individualmente.",
+    "description": "Macacão bordado rosé em tricô e body branco com gola bordada floral. Macacão e body são vendidos separadamente, pelos valores indicados abaixo. Ambos nos tamanhos RN e 3M. A foto apresenta a composição; o body não é exibido individualmente.",
     "reference": null,
     "price": null,
-    "sizes": ["RN"],
+    "sizes": ["RN","3M"],
     "images": ["/catalog-maternidade/composicao-macacao-bordado-rose.png"],
     "imageLabels": ["Composição macacão bordado rosé e body branco — peças vendidas separadamente"],
     "displayImages": ["/catalog-maternidade/composicao-macacao-bordado-rose.png"],
@@ -2855,13 +2855,13 @@
         "title": "Macacão Bordado Rosé",
         "reference": "VAL0400BB",
         "price": 298,
-        "sizes": ["RN"]
+        "sizes": ["RN","3M"]
       },
       {
         "title": "Body Bordado Branco — Gola Floral",
         "reference": "VLT DOLCE089BB",
         "price": 198,
-        "sizes": ["RN"]
+        "sizes": ["RN","3M"]
       }
     ]
   },
@@ -2870,10 +2870,10 @@
     "handle": "composicao-onix-carambola",
     "category": "maternidade",
     "catalogCategory": "macacoes-e-jardineiras",
-    "description": "Macacão Ônix branco em tricô, body branco com gola bordada e manta Carambola branca. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body no tamanho RN; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "description": "Macacão Ônix branco em tricô, body branco com gola bordada e manta Carambola branca. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body nos tamanhos RN e 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
     "reference": null,
     "price": null,
-    "sizes": ["RN", "Único"],
+    "sizes": ["RN","3M","Único"],
     "images": ["/catalog-maternidade/composicao-onix-carambola.png"],
     "imageLabels": ["Composição Ônix e Carambola — macacão, body e manta vendidos separadamente"],
     "displayImages": ["/catalog-maternidade/composicao-onix-carambola.png"],
@@ -2883,13 +2883,13 @@
         "title": "Macacão Ônix Branco",
         "reference": "VLT DOLCE002BB",
         "price": 399,
-        "sizes": ["RN"]
+        "sizes": ["RN","3M"]
       },
       {
         "title": "Body Branco com Gola Bordada",
         "reference": "VLT MARI002BB",
         "price": 129,
-        "sizes": ["RN"]
+        "sizes": ["RN","3M"]
       },
       {
         "title": "Manta Carambola Branca",
@@ -2900,16 +2900,48 @@
     ]
   },
   {
+    "title": "Composição Universo Vinho",
+    "handle": "composicao-universo-vinho",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão Universo vinho em tricô, body branco com gola bordada em vinho e manta vinho em tricô. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body nos tamanhos RN e 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": ["RN","3M","Único"],
+    "images": ["/catalog-maternidade/composicao-universo-vinho.png"],
+    "imageLabels": ["Composição Universo vinho — macacão, body e manta vendidos separadamente"],
+    "displayImages": ["/catalog-maternidade/composicao-universo-vinho.png"],
+    "photoNote": "Macacão, body e manta vendidos separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Universo Vinho",
+        "reference": "VLT DOLCE087BB",
+        "price": 445,
+        "sizes": ["RN","3M"]
+      },
+      {
+        "title": "Body Branco com Gola Bordada em Vinho",
+        "reference": "VLT MARI001BB",
+        "price": 129,
+        "sizes": ["RN","3M"]
+      },
+      {
+        "title": "Manta Tricô Vinho",
+        "reference": "VLT DOLCE072AC",
+        "price": 518,
+        "sizes": ["Único"]
+      }
+    ]
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",
     "catalogCategory": "bodys-e-conjuntos",
-    "description": "Conjunto Bernardo rosa de 3 peças, vendido completo por R$ 758,00, com manta incluída. Tamanho RN. Consulte a disponibilidade com nossa equipe.",
+    "description": "Conjunto Bernardo rosa de 3 peças, vendido completo por R$ 758,00, com manta incluída. Tamanhos RN e 3M. Consulte a disponibilidade com nossa equipe.",
     "reference": "VLT AA008BB",
     "price": 758,
-    "sizes": [
-      "RN"
-    ],
+    "sizes": ["RN","3M"],
     "images": [
       "/catalog-maternidade/conjunto-bernardo-rosa.webp"
     ],

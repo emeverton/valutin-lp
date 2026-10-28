@@ -741,17 +741,17 @@
     "displayImages": ["/catalog-outubro/00000418-PHOTO-2026-09-24-15-52-20.jpg"]
   },
   {
-    "title": "Vestido Floral Azul com Gola",
+    "title": "Vestido Floral Azul com Gola Bordada à Mão",
     "handle": "vestido-floral-azul-com-gola",
     "category": "crianca",
     "catalogCategory": "vestidos",
-    "description": "Vestido floral azul com gola. Consulte os tamanhos e a disponibilidade com nossa equipe.",
+    "description": "Vestido floral azul com gola bordada à mão. Consulte os tamanhos e a disponibilidade com nossa equipe.",
     "reference": "PV26/27RO008CT",
     "price": 469,
     "sizes": ["Sob consulta"],
-    "images": ["/catalog-outubro/00000422-PHOTO-2026-09-24-16-02-26.jpg", "/catalog-outubro/00000423-PHOTO-2026-09-24-16-02-26.jpg"],
-    "imageLabels": ["Frente", "Detalhe da gola"],
-    "displayImages": ["/catalog-outubro/00000422-PHOTO-2026-09-24-16-02-26.jpg", "/catalog-outubro/00000423-PHOTO-2026-09-24-16-02-26.jpg"]
+    "images": ["/catalog/vestido-floral-azul-gola-bordada-mao.jpg"],
+    "imageLabels": ["Vestido floral azul com gola bordada à mão e detalhe do bordado"],
+    "displayImages": ["/catalog/vestido-floral-azul-gola-bordada-mao.jpg"]
   },
   {
     "title": "Cardigan Bordado — Analu",

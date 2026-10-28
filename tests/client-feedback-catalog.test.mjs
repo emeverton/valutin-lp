@@ -4,15 +4,15 @@ import { readFileSync, readdirSync } from 'node:fs';
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('45 fotos recebidas agrupadas em 26 fichas sem publicar arquivos privados', () => {
+test('fotos originais de outubro são preservadas e as referências publicadas são válidas', () => {
   const products = JSON.parse(read('app/lib/catalog.json')).filter(p => p.images.some(src => src.startsWith('/catalog-outubro/')));
-  assert.equal(products.length, 26);
+  assert.equal(products.length, 25);
   const photos = products.flatMap(p => p.images);
-  assert.equal(photos.length, 45);
-  assert.equal(new Set(photos).size, 45);
+  assert.equal(photos.length, 43);
+  assert.equal(new Set(photos).size, 43);
   const files = readdirSync(new URL('../public/catalog-outubro/', import.meta.url));
   assert.equal(files.length, 45);
-  assert.ok(files.every(file => photos.includes(`/catalog-outubro/${file}`)));
+  assert.ok(photos.every(photo => files.includes(photo.replace('/catalog-outubro/', ''))));
   for (const product of products.filter(p => p.reference === null)) {
     assert.equal(product.price, null);
     assert.deepEqual(product.sizes, ['Sob consulta']);

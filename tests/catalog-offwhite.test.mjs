@@ -19,9 +19,13 @@ vm.runInNewContext(ts.transpileModule(read('app/lib/catalog-offwhite.ts'), {
 test('off-white copies keep the original photo files and cover every selected gallery view', () => {
   const products = JSON.parse(read('app/lib/catalog.json'));
   const originals = new Set(products.flatMap(product => product.displayImages));
+  const archivedDressPhotos = new Set([
+    '/catalog-outubro/00000422-PHOTO-2026-09-24-16-02-26.jpg',
+    '/catalog-outubro/00000423-PHOTO-2026-09-24-16-02-26.jpg',
+  ]);
   assert.equal(Object.keys(mapping).length, 58);
   for (const [source, output] of Object.entries(mapping)) {
-    assert.ok(originals.has(source));
+    assert.ok(originals.has(source) || archivedDressPhotos.has(source));
     assert.ok(output.startsWith('/catalog-offwhite/'));
     assert.ok(existsSync(new URL(`../public${source}`, import.meta.url)));
     assert.ok(existsSync(new URL(`../public${output}`, import.meta.url)));

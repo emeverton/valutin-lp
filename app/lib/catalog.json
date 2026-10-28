@@ -2866,6 +2866,40 @@
     ]
   },
   {
+    "title": "Composição Ônix e Carambola",
+    "handle": "composicao-onix-carambola",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão Ônix branco em tricô, body branco com gola bordada e manta Carambola branca. Macacão, body e manta são vendidos separadamente, pelos valores indicados abaixo. Macacão e body no tamanho RN; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": ["RN", "Único"],
+    "images": ["/catalog-maternidade/composicao-onix-carambola.png"],
+    "imageLabels": ["Composição Ônix e Carambola — macacão, body e manta vendidos separadamente"],
+    "displayImages": ["/catalog-maternidade/composicao-onix-carambola.png"],
+    "photoNote": "Macacão, body e manta vendidos separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Ônix Branco",
+        "reference": "VLT DOLCE002BB",
+        "price": 399,
+        "sizes": ["RN"]
+      },
+      {
+        "title": "Body Branco com Gola Bordada",
+        "reference": "VLT MARI002BB",
+        "price": 129,
+        "sizes": ["RN"]
+      },
+      {
+        "title": "Manta Carambola Branca",
+        "reference": "VLT DOLCE003AC",
+        "price": 359,
+        "sizes": ["Único"]
+      }
+    ]
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",

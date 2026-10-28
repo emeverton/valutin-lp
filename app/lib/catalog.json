@@ -2948,6 +2948,19 @@
     "photoNote": "Conjunto completo de 3 peças. Manta incluída no preço."
   },
   {
+    "title": "Bloomer Flor Azul",
+    "handle": "bloomer-flor-azul-kds007bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Bloomer Flor azul com bordado floral no peito, gola arredondada e acabamento rosa. Disponível nos tamanhos 6, 9 e 12 meses. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27KDS007BB",
+    "price": 389,
+    "sizes": ["6M", "9M", "12M"],
+    "images": ["/catalog/bloomer-flor-azul-kds007bb.png"],
+    "imageLabels": ["Bloomer Flor azul com bordado floral e detalhe do bordado"],
+    "displayImages": ["/catalog/bloomer-flor-azul-kds007bb.png"]
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",

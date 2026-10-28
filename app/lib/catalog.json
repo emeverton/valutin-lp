@@ -2752,6 +2752,58 @@
     ]
   },
   {
+    "title": "Composição Valeriana",
+    "handle": "composicao-valeriana",
+    "category": "maternidade",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto Valeriana amarelo em tricô, com casaquinho e jardineira. O conjunto, o body bordado branco e a manta Pipoca amarela são vendidos separadamente. Conjunto e body nos tamanhos RN e 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": [
+      "RN",
+      "3M",
+      "Único"
+    ],
+    "images": [
+      "/catalog-maternidade/composicao-valeriana.webp"
+    ],
+    "imageLabels": [
+      "Composição Valeriana — conjunto, body e manta vendidos separadamente"
+    ],
+    "displayImages": [
+      "/catalog-maternidade/composicao-valeriana.webp"
+    ],
+    "photoNote": "Conjunto, body e manta vendidos separadamente.",
+    "componentPrices": [
+      {
+        "title": "Conjunto Valeriana — Casaquinho e Jardineira",
+        "reference": "VLT DOLCE004BB",
+        "price": 498,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Body Bordado Branco",
+        "reference": "VLT DOLCE089BB",
+        "price": 198,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Manta Pipoca Amarela",
+        "reference": "VLT AA018AC",
+        "price": 429,
+        "sizes": [
+          "Único"
+        ]
+      }
+    ]
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",

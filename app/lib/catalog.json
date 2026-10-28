@@ -2838,6 +2838,34 @@
     ]
   },
   {
+    "title": "Composição Macacão Bordado Rosé e Body",
+    "handle": "composicao-macacao-bordado-rose-body",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão bordado rosé em tricô e body branco com gola bordada floral. Macacão e body são vendidos separadamente, pelos valores indicados abaixo. Ambos no tamanho RN. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": ["RN"],
+    "images": ["/catalog-maternidade/composicao-macacao-bordado-rose.png"],
+    "imageLabels": ["Composição macacão bordado rosé e body branco — peças vendidas separadamente"],
+    "displayImages": ["/catalog-maternidade/composicao-macacao-bordado-rose.png"],
+    "photoNote": "Macacão e body vendidos separadamente.",
+    "componentPrices": [
+      {
+        "title": "Macacão Bordado Rosé",
+        "reference": "VAL0400BB",
+        "price": 298,
+        "sizes": ["RN"]
+      },
+      {
+        "title": "Body Bordado Branco — Gola Floral",
+        "reference": "VLT DOLCE089BB",
+        "price": 198,
+        "sizes": ["RN"]
+      }
+    ]
+  },
+  {
     "title": "Conjunto Bernardo Rosa — 3 Peças",
     "handle": "conjunto-bernardo-rosa-vlt-aa008bb",
     "category": "maternidade",

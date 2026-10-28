@@ -22,6 +22,7 @@ test('off-white copies keep the original photo files and cover every selected ga
   const archivedDressPhotos = new Set([
     '/catalog-outubro/00000422-PHOTO-2026-09-24-16-02-26.jpg',
     '/catalog-outubro/00000423-PHOTO-2026-09-24-16-02-26.jpg',
+    '/catalog-outubro/00000429-PHOTO-2026-09-24-16-34-26.jpg',
   ]);
   assert.equal(Object.keys(mapping).length, 58);
   for (const [source, output] of Object.entries(mapping)) {

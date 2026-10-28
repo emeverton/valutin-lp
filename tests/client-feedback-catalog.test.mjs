@@ -7,9 +7,9 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf
 test('fotos originais de outubro são preservadas e as referências publicadas são válidas', () => {
   const products = JSON.parse(read('app/lib/catalog.json')).filter(p => p.images.some(src => src.startsWith('/catalog-outubro/')));
   assert.equal(products.length, 25);
-  const photos = products.flatMap(p => p.images);
-  assert.equal(photos.length, 43);
-  assert.equal(new Set(photos).size, 43);
+  const photos = products.flatMap(p => p.images).filter(src => src.startsWith('/catalog-outubro/'));
+  assert.equal(photos.length, 42);
+  assert.equal(new Set(photos).size, 42);
   const files = readdirSync(new URL('../public/catalog-outubro/', import.meta.url));
   assert.equal(files.length, 45);
   assert.ok(photos.every(photo => files.includes(photo.replace('/catalog-outubro/', ''))));

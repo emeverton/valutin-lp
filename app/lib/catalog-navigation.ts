@@ -2,7 +2,7 @@ export const departments = [
   { slug: "maternidade", label: "Maternidade", title: "Para os primeiros encontros", links: ["maternidade"] },
   { slug: "enxoval", label: "Enxoval", title: "Cuidado em cada detalhe", links: ["toalhas-e-banho", "fraldas-e-paninhos-de-boca", "mantas-e-cueiros", "lencois-e-roupa-de-berco", "kits-de-enxoval"] },
   { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["bebe-meninos", "bebe-meninas"] },
-  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["crianca-meninos", "crianca-meninas"] },
+  { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["crianca-meninos", "crianca-meninas", "banho-crianca"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },
   { slug: "presentes", label: "Presentes", title: "Para guardar na memória", links: ["presentes-e-lembrancas"] },
 ] as const;
@@ -20,6 +20,7 @@ export const productCategories = [
 ] as const;
 
 export const departmentCategories = [
+  { slug: "banho-crianca", label: "Banho", title: "Banho infantil", department: "crianca", catalogCategory: "banho-crianca" },
   { slug: "toalhas-e-banho", label: "Toalhas e banho", title: "Toalhas e banho", department: "enxoval", catalogCategory: "toalhas-e-banho" },
   { slug: "fraldas-e-paninhos-de-boca", label: "Fraldas e paninhos de boca", title: "Fraldas e paninhos de boca", department: "enxoval", catalogCategory: "fraldas-e-paninhos-de-boca" },
   { slug: "mantas-e-cueiros", label: "Mantas e cueiros", title: "Mantas e cueiros", department: "enxoval", catalogCategory: "mantas-e-cueiros" },
@@ -31,6 +32,8 @@ export const departmentCategories = [
 ] as const;
 
 export const catalogSubcategories = [
+  { slug: "toalhas-infantis", label: "Toalhas", title: "Toalhas infantis", parent: "banho-crianca", department: "crianca" },
+  { slug: "roupoes-infantis", label: "Roupões", title: "Roupões infantis", parent: "banho-crianca", department: "crianca" },
   { slug: "pijamas-meninas", label: "Meninas", title: "Pijamas para meninas", parent: "pijamas", department: "crianca" },
   { slug: "pijamas-meninos", label: "Meninos", title: "Pijamas para meninos", parent: "pijamas", department: "crianca" },
 ] as const;
@@ -227,6 +230,8 @@ export function matchesCatalogCategory(product: CategoryProduct, slug: string) {
     return !!assignment && assignment.audiences.includes(audience) && (!babyCategory || assignment.type === babyCategory.type);
   }
   const inDepartment = (department: string) => product.category === department || product.additionalDepartments?.includes(department) === true;
+  const childBath = inDepartment("crianca") && (product.catalogCategory === "banho-crianca" || catalogSubcategories.some((item) => item.parent === "banho-crianca" && item.slug === product.catalogCategory));
+  if (childBath && (slug === "enxoval" || slug === "toalhas-e-banho")) return true;
   const subcategory = catalogSubcategories.find((category) => category.slug === slug);
   if (subcategory) return inDepartment(subcategory.department) && product.catalogCategory === subcategory.slug;
   const scoped = departmentCategories.find((category) => category.slug === slug);
@@ -244,10 +249,15 @@ export function categoryAncestors(slug: string): string[] {
   if (selectionSections.some((item) => item.slug === slug)) return [department];
   const subcategory = catalogSubcategories.find((item) => item.slug === slug);
   if (departmentCategories.some((item) => item.slug === slug && item.department === "enxoval")) return ["enxoval"];
-  return subcategory ? [subcategory.department, subcategory.parent] : slug === "pijamas" ? ["crianca"] : [];
+  return subcategory ? [subcategory.department, subcategory.parent] : slug === "pijamas" || slug === "banho-crianca" ? ["crianca"] : [];
 }
 
 export function productCategoryTrail(product: CategoryProduct, requestedCategory?: string): { slug: string; label: string }[] {
+  const bath = catalogSubcategories.find((item) => item.parent === "banho-crianca" && item.slug === product.catalogCategory);
+  if (bath && matchesCatalogCategory(product, "banho-crianca")) {
+    if (requestedCategory === "enxoval" || requestedCategory === "toalhas-e-banho") return [{ slug: "enxoval", label: "Enxoval" }, { slug: "toalhas-e-banho", label: "Toalhas e banho" }];
+    return [{ slug: "crianca", label: "Crianças" }, { slug: "banho-crianca", label: "Banho" }, { slug: bath.slug, label: bath.label }];
+  }
   const requested = selectionCategories.find((item) => item.slug === requestedCategory && matchesCatalogCategory(product, item.slug));
   const childrenAssignment = childrenClassification(product);
   const assignment = babyClassification(product);

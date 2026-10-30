@@ -39,7 +39,7 @@ test('tactel shorts offer only the requested sizes in baby boys and children boy
 });
 
 test('children open boys and girls with the requested separate categories', () => {
-  assert.deepEqual(plain(nav.departments.find(item => item.slug === 'crianca').links), ['crianca-meninos', 'crianca-meninas']);
+  assert.deepEqual(plain(nav.departments.find(item => item.slug === 'crianca').links), ['crianca-meninos', 'crianca-meninas', 'banho-crianca']);
   for (const [section, labels] of [
     ['crianca-meninos', ['Camisetas', 'Camisa/Batas', 'Shorts/Bermudas', 'Conjuntos', 'Calças', 'Cardigan', 'Pijama']],
     ['crianca-meninas', ['Camisetas', 'Camisa/Batas', 'Shorts/Shorts-saia', 'Conjuntos', 'Saia', 'Calças', 'Vestido', 'Cardigan', 'Pijama']],

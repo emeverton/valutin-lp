@@ -41,7 +41,7 @@ export function validateNewProducts(input: unknown): NewProduct[] {
     if (typeof description !== "string" || !description.trim() || description.trim().length > 1200) throw new Error(`${handle}: descrição inválida`);
     if (typeof value.category !== "string" || !allowedDepartments.has(value.category)) throw new Error(`${handle}: departamento inválido`);
     if (typeof value.catalogCategory !== "string" || !allowedCategories.has(value.catalogCategory)) throw new Error(`${handle}: categoria inválida`);
-    if ((value.catalogCategory === "pijamas" || catalogSubcategories.some((category) => category.slug === value.catalogCategory)) && value.category !== "crianca") throw new Error(`${handle}: pijamas pertencem ao departamento Crianças`);
+    if ((value.catalogCategory === "pijamas" || catalogSubcategories.some((category) => category.parent === "pijamas" && category.slug === value.catalogCategory)) && value.category !== "crianca") throw new Error(`${handle}: pijamas pertencem ao departamento Crianças`);
     if (value.collection !== "geral" && value.collection !== "primavera-verao") throw new Error(`${handle}: coleção inválida`);
     const price = value.price;
     if (price !== null && (typeof price !== "number" || !Number.isFinite(price) || price <= 0 || price > 100000 || Math.abs(Math.round(price * 100) - price * 100) > 0.000001)) throw new Error(`${handle}: preço inválido`);

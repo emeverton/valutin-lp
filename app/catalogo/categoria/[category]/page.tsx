@@ -7,7 +7,7 @@ import Footer from "../../../components/Footer";
 import GtmSnippet from "../../../components/GtmSnippet";
 import Header from "../../../components/Header";
 import { getCatalogProducts } from "../../../lib/editor/catalog-store";
-import { babyCategories, babySections, childrenCategories, childrenSections, selectionSections, categoryAncestors, categoryHref, categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
+import { babyCategories, babySections, childrenCategories, childrenSections, selectionSections, departmentCategories, categoryAncestors, categoryHref, categoryLabel, isCatalogCategory, matchesCatalogCategory } from "../../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
 export const dynamic = "force-dynamic";
@@ -35,7 +35,7 @@ export default async function CategoryPage({ params }: { params: { category: str
   const selectionDepartment = params.category === "crianca" || params.category.startsWith("crianca-") ? "crianca" : "bebe";
   const sections = selectionDepartment === "bebe" ? babySections : childrenSections;
   const categories = selectionDepartment === "bebe" ? babyCategories : childrenCategories;
-  const categoryLinks = params.category === selectionDepartment ? sections : categories.filter((item) => item.parent === params.category);
+  const categoryLinks = params.category === selectionDepartment ? [...sections, ...departmentCategories.filter((item) => params.category === "crianca" && item.slug === "banho-crianca")] : categories.filter((item) => item.parent === params.category);
   const listing = selectionLanding ? categoryLinks.map((item) => ({ name: item.label, url: `${siteUrl}${categoryHref(item.slug)}` })) : categoryProducts.map((product) => ({ name: product.title, url: `${siteUrl}/catalogo/${product.handle}` }));
   const structuredData = {
     "@context": "https://schema.org",

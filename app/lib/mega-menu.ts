@@ -1,4 +1,4 @@
-import { babyCategories, babySections, childrenCategories, childrenSections, departmentCategories, categoryHref, productHref } from "./catalog-navigation";
+import { babyCategories, babySections, childrenCategories, childrenSections, catalogSubcategories, departmentCategories, categoryHref, productHref } from "./catalog-navigation";
 
 type MenuLink = { label: string; href: string; children?: MenuLink[] };
 type MenuColumn = { title: string; links: MenuLink[] };
@@ -86,6 +86,7 @@ export const megaMenuSections: MegaMenuSection[] = [
       ] })),
       { title: "Descobrir", links: [
         category("crianca", "Todas as peças infantis"),
+        { ...category("banho-crianca", "Banho"), children: catalogSubcategories.filter((item) => item.parent === "banho-crianca").map((item) => category(item.slug, item.label)) },
         { label: "Primavera–Verão", href: "/catalogo/primavera-verao" },
         category("batizado", "Ocasiões especiais"),
       ] },

@@ -35,3 +35,23 @@ test('Enxoval connects the main menu, five categories and their return paths', (
     assert.equal(nav.matchesCatalogCategory({ ...piece, category: 'maternidade' }, category.slug), false);
   }
 });
+
+test('children bath items share Enxoval without duplication or gender assignment', () => {
+  const sections = nav.catalogSubcategories.filter(item => item.parent === 'banho-crianca');
+  assert.deepEqual(Array.from(sections, item => item.label), ['Toalhas', 'Roupões']);
+  assert.equal(nav.isCatalogCategory('banho-crianca'), true);
+  assert.deepEqual(Array.from(nav.categoryAncestors('banho-crianca')), ['crianca']);
+  const bathLink = menu.megaMenuSections.find(item => item.key === 'crianca').columns.flatMap(item => item.links).find(item => item.href === nav.categoryHref('banho-crianca'));
+  assert.deepEqual(Array.from(bathLink.children, item => item.href), Array.from(sections, item => nav.categoryHref(item.slug)));
+  for (const section of sections) {
+    const product = { handle: `teste-${section.slug}`, category: 'crianca', catalogCategory: section.slug };
+    const snapshot = JSON.stringify(product);
+    for (const category of ['crianca', 'banho-crianca', section.slug, 'enxoval', 'toalhas-e-banho']) assert.equal(nav.matchesCatalogCategory(product, category), true, category);
+    for (const category of ['crianca-meninos', 'crianca-meninas', 'maternidade', 'bebe', ...sections.filter(item => item !== section).map(item => item.slug)]) assert.equal(nav.matchesCatalogCategory(product, category), false, category);
+    assert.deepEqual(Array.from(nav.categoryAncestors(section.slug)), ['crianca', 'banho-crianca']);
+    assert.deepEqual(Array.from(nav.productCategoryTrail(product), item => item.slug), ['crianca', 'banho-crianca', section.slug]);
+    assert.deepEqual(Array.from(nav.productCategoryTrail(product, 'toalhas-e-banho'), item => item.slug), ['enxoval', 'toalhas-e-banho']);
+    assert.equal(JSON.stringify(product), snapshot);
+  }
+  assert.equal(nav.matchesCatalogCategory({ category: 'batizado', catalogCategory: 'batizado-e-cerimonia', handle: 'toalha-batizado' }, 'toalhas-e-banho'), false);
+});

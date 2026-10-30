@@ -13,7 +13,7 @@ vm.runInNewContext(ts.transpileModule(source, { compilerOptions: { module: ts.Mo
   exports,
   require: (name) => name === '../catalog-individual' ? { catalogProducts: [{ handle: 'peca-existente' }] } : name === '../catalog-navigation' ? {
     departments: [{ slug: 'crianca' }], productCategories: [{ slug: 'vestidos' }],
-    departmentCategories: [{ slug: 'pijamas', catalogCategory: 'pijamas' }], catalogSubcategories: [{ slug: 'pijamas-meninas' }, { slug: 'pijamas-meninos' }],
+    departmentCategories: [{ slug: 'pijamas', catalogCategory: 'pijamas' }], catalogSubcategories: [{ slug: 'pijamas-meninas', parent: 'pijamas' }, { slug: 'pijamas-meninos', parent: 'pijamas' }],
   } : name === '../catalog.json' ? { __esModule: true, default: [{ handle: 'familia-antiga' }] } : undefined,
   Object, Map, Set, Array, Error, Number, Math,
 });

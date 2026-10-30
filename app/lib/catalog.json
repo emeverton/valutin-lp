@@ -2948,6 +2948,45 @@
     "photoNote": "Conjunto completo de 3 peças. Manta incluída no preço."
   },
   {
+    "title": "Bloomer Brisa — Rosé",
+    "handle": "bloomer-brisa-rose-ange011bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Bloomer Brisa floral rosé com lastex no peito, mangas curtas e fechamento por botões de pressão entre as pernas. Disponível de 3 a 18 meses. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27ANGE011BB",
+    "price": 328,
+    "sizes": ["3M", "6M", "9M", "12M", "18M"],
+    "images": ["/catalog/bloomer-brisa-rose-ange011bb.png"],
+    "imageLabels": ["Bloomer Brisa floral rosé com lastex no peito"],
+    "displayImages": ["/catalog/bloomer-brisa-rose-ange011bb.png"]
+  },
+  {
+    "title": "Bloomer Brisa — Floral",
+    "handle": "bloomer-brisa-floral-ange011bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Bloomer Brisa de fundo claro com estampa floral colorida, lastex no peito, mangas curtas e fechamento por botões de pressão entre as pernas. Disponível de 3 a 18 meses. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27ANGE011BB",
+    "price": 328,
+    "sizes": ["3M", "6M", "9M", "12M", "18M"],
+    "images": ["/catalog/bloomer-brisa-floral-ange011bb.png"],
+    "imageLabels": ["Bloomer Brisa floral com detalhe ampliado do lastex"],
+    "displayImages": ["/catalog/bloomer-brisa-floral-ange011bb.png"]
+  },
+  {
+    "title": "Bloomer Laise — Branco",
+    "handle": "bloomer-laise-branco-ange010bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Bloomer em laise branca com bordado vazado, lastex no peito, mangas curtas e fechamento por botões de pressão entre as pernas. Disponível de 3 a 18 meses. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27ANGE010BB",
+    "price": 349,
+    "sizes": ["3M", "6M", "9M", "12M", "18M"],
+    "images": ["/catalog/bloomer-laise-branco-ange010bb.png"],
+    "imageLabels": ["Bloomer Laise branco com detalhe ampliado do lastex e do bordado vazado"],
+    "displayImages": ["/catalog/bloomer-laise-branco-ange010bb.png"]
+  },
+  {
     "title": "Bloomer Flor Azul",
     "handle": "bloomer-flor-azul-kds007bb",
     "category": "bebe",

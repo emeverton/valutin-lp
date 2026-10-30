@@ -54,6 +54,9 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "bloomer-brisa-rose-ange011bb": { type: "bloomer", audiences: ["meninas"] },
+  "bloomer-brisa-floral-ange011bb": { type: "bloomer", audiences: ["meninas"] },
+  "bloomer-laise-branco-ange010bb": { type: "bloomer", audiences: ["meninas"] },
   "shorts-tactel-fundo-mar-hay005ct": { type: "shorts-e-bermuda", audiences: ["meninos"] },
   "shorts-tactel-coqueiros-hay005ct": { type: "shorts-e-bermuda", audiences: ["meninos"] },
   "shorts-tactel-paisagem-azul-hay005ct": { type: "shorts-e-bermuda", audiences: ["meninos"] },

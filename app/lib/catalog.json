@@ -3186,5 +3186,85 @@
       "/catalog/toalha-ultrasec-bege-vlt-lb003ac.png",
       "/catalog/toalha-ultrasec-azul-vlt-lb003ac.png"
     ]
+  },
+  {
+    "title": "Toalha com Capuz — Raposinha Azul",
+    "handle": "toalha-capuz-bichinho-raposinha-azul",
+    "category": "enxoval",
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha com capuz azul com rosto de raposinha bordado no capuz e orelhinhas. Tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "price": 196,
+    "sizes": [
+      "Único"
+    ],
+    "images": [
+      "/catalog/toalha-capuz-bichinho-raposinha-azul.png"
+    ],
+    "imageLabels": [
+      "Toalha azul com rosto de raposinha bordado no capuz e orelhinhas"
+    ],
+    "displayImages": [
+      "/catalog/toalha-capuz-bichinho-raposinha-azul.png"
+    ]
+  },
+  {
+    "title": "Toalha com Capuz — Raposinha Rosa",
+    "handle": "toalha-capuz-bichinho-raposinha-rosa",
+    "category": "enxoval",
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha com capuz rosa com rosto de raposinha bordado no capuz e orelhinhas. Tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "price": 196,
+    "sizes": [
+      "Único"
+    ],
+    "images": [
+      "/catalog/toalha-capuz-bichinho-raposinha-rosa.png"
+    ],
+    "imageLabels": [
+      "Toalha rosa com rosto de raposinha bordado no capuz e orelhinhas"
+    ],
+    "displayImages": [
+      "/catalog/toalha-capuz-bichinho-raposinha-rosa.png"
+    ]
+  },
+  {
+    "title": "Toalha com Capuz — Branca e Azul",
+    "handle": "toalha-capuz-bichinho-branco-e-azul",
+    "category": "enxoval",
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha com capuz branca com rosto bordado em azul, detalhes em verde e orelhinhas no capuz. Tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "price": 196,
+    "sizes": [
+      "Único"
+    ],
+    "images": [
+      "/catalog/toalha-capuz-bichinho-branco-e-azul.png"
+    ],
+    "imageLabels": [
+      "Toalha branca com rosto bordado em azul, detalhes em verde e orelhinhas no capuz"
+    ],
+    "displayImages": [
+      "/catalog/toalha-capuz-bichinho-branco-e-azul.png"
+    ]
+  },
+  {
+    "title": "Toalha com Capuz — Branca",
+    "handle": "toalha-capuz-bichinho-branca",
+    "category": "enxoval",
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha com capuz branca com rosto bordado em preto e orelhinhas no capuz. Tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "price": 196,
+    "sizes": [
+      "Único"
+    ],
+    "images": [
+      "/catalog/toalha-capuz-bichinho-branca.png"
+    ],
+    "imageLabels": [
+      "Toalha branca com rosto bordado em preto e orelhinhas no capuz"
+    ],
+    "displayImages": [
+      "/catalog/toalha-capuz-bichinho-branca.png"
+    ]
   }
 ]

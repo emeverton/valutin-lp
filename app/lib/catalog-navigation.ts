@@ -230,6 +230,7 @@ export function matchesCatalogCategory(product: CategoryProduct, slug: string) {
     return !!assignment && assignment.audiences.includes(audience) && (!babyCategory || assignment.type === babyCategory.type);
   }
   const inDepartment = (department: string) => product.category === department || product.additionalDepartments?.includes(department) === true;
+  if (slug === "presentes-e-lembrancas" && inDepartment("presentes")) return true;
   const childBath = inDepartment("crianca") && (product.catalogCategory === "banho-crianca" || catalogSubcategories.some((item) => item.parent === "banho-crianca" && item.slug === product.catalogCategory));
   if (childBath && (slug === "enxoval" || slug === "toalhas-e-banho")) return true;
   const subcategory = catalogSubcategories.find((category) => category.slug === slug);

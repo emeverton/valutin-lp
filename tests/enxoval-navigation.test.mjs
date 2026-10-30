@@ -17,6 +17,19 @@ function compile(path, modules = {}) {
 const nav = compile('catalog-navigation');
 const menu = compile('mega-menu', { './catalog-navigation': nav });
 
+test('VLT LB023AC has a single record shared by Enxoval and Presentes with consultation pricing', () => {
+  const products = JSON.parse(readFileSync(new URL('../app/lib/catalog.json', import.meta.url), 'utf8'));
+  const robes = products.filter(item => item.handle === 'roupao-bichinhos-vlt-lb023ac');
+  assert.equal(robes.length, 1);
+  const robe = robes[0];
+  assert.equal(robe.reference, 'VLT LB023AC');
+  assert.equal(robe.price, null);
+  assert.deepEqual(robe.sizes, ['1–2 anos', '3–4 anos', '5–6 anos']);
+  assert.equal(robe.images.length, 2);
+  for (const category of ['enxoval', 'toalhas-e-banho', 'presentes', 'presentes-e-lembrancas']) assert.equal(nav.matchesCatalogCategory(robe, category), true, category);
+  for (const category of ['maternidade', 'bebe', 'crianca-meninos', 'crianca-meninas']) assert.equal(nav.matchesCatalogCategory(robe, category), false, category);
+});
+
 test('Enxoval connects the main menu, five categories and their return paths', () => {
   const department = nav.departments.find(item => item.slug === 'enxoval');
   assert.equal(nav.departments[1].slug, 'enxoval');

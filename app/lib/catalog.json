@@ -3266,5 +3266,34 @@
     "displayImages": [
       "/catalog/toalha-capuz-bichinho-branca.png"
     ]
+  },
+  {
+    "title": "Roupão com Capuz de Bichinhos",
+    "handle": "roupao-bichinhos-vlt-lb023ac",
+    "category": "enxoval",
+    "additionalDepartments": [
+      "presentes"
+    ],
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Roupão com capuz de bichinhos, orelhinhas e faixa para amarração na cintura. Tamanhos 1–2, 3–4 e 5–6 anos. Preço sob consulta. Consulte os modelos e a disponibilidade com nossa equipe.",
+    "reference": "VLT LB023AC",
+    "price": null,
+    "sizes": [
+      "1–2 anos",
+      "3–4 anos",
+      "5–6 anos"
+    ],
+    "images": [
+      "/catalog/roupao-bichinhos-vlt-lb023ac-bege.png",
+      "/catalog/roupao-bichinhos-vlt-lb023ac-modelos.png"
+    ],
+    "imageLabels": [
+      "Roupão bege com capuz de ursinho e faixa para amarração",
+      "Modelos de roupão com capuz de bichinhos em branco, azul, cinza e rosa"
+    ],
+    "displayImages": [
+      "/catalog/roupao-bichinhos-vlt-lb023ac-bege.png",
+      "/catalog/roupao-bichinhos-vlt-lb023ac-modelos.png"
+    ]
   }
 ]

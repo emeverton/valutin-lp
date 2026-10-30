@@ -3153,5 +3153,38 @@
     "displayImages": [
       "/catalog/shorts-tactel-paisagem-azul-hay005ct.png"
     ]
+  },
+  {
+    "title": "Toalha Ultrasec",
+    "handle": "toalha-ultrasec-vlt-lb003ac",
+    "category": "enxoval",
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha Ultrasec Confort Power branca com capuz e acabamento colorido. Disponível com acabamento rosa, bege ou azul, em tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT LB003AC",
+    "price": 178,
+    "sizes": [
+      "Único"
+    ],
+    "colorTitle": "Cor do acabamento",
+    "colors": [
+      "Rosa",
+      "Bege",
+      "Azul"
+    ],
+    "images": [
+      "/catalog/toalha-ultrasec-rosa-vlt-lb003ac.png",
+      "/catalog/toalha-ultrasec-bege-vlt-lb003ac.png",
+      "/catalog/toalha-ultrasec-azul-vlt-lb003ac.png"
+    ],
+    "imageLabels": [
+      "Toalha Ultrasec branca com capuz e acabamento rosa",
+      "Toalha Ultrasec branca dobrada, com capuz e acabamento bege",
+      "Toalha Ultrasec branca dobrada, com capuz e acabamento azul"
+    ],
+    "displayImages": [
+      "/catalog/toalha-ultrasec-rosa-vlt-lb003ac.png",
+      "/catalog/toalha-ultrasec-bege-vlt-lb003ac.png",
+      "/catalog/toalha-ultrasec-azul-vlt-lb003ac.png"
+    ]
   }
 ]

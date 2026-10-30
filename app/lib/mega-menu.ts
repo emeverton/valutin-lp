@@ -1,4 +1,4 @@
-import { babyCategories, babySections, childrenCategories, childrenSections, categoryHref, productHref } from "./catalog-navigation";
+import { babyCategories, babySections, childrenCategories, childrenSections, departmentCategories, categoryHref, productHref } from "./catalog-navigation";
 
 type MenuLink = { label: string; href: string; children?: MenuLink[] };
 type MenuColumn = { title: string; links: MenuLink[] };
@@ -47,6 +47,19 @@ export const megaMenuSections: MegaMenuSection[] = [
   {
     key: "maternidade", label: "Maternidade", href: categoryHref("maternidade"),
     eyebrow: "Para os primeiros encontros", title: "Maternidade", columns: [], promos: [],
+  },
+  {
+    key: "enxoval", label: "Enxoval", href: categoryHref("enxoval"),
+    eyebrow: "Cuidado em cada detalhe", title: "Enxoval do bebê",
+    columns: [
+      { title: "Para a rotina do bebê", links: [
+        category("enxoval", "Todo o enxoval"),
+        ...departmentCategories.filter((item) => item.department === "enxoval").map((item) => category(item.slug, item.label)),
+      ] },
+      { title: "Primeiros encontros", links: [category("maternidade", "Maternidade"), category("bebe", "Roupas para bebês")] },
+      { title: "Escolha com carinho", links: [category("presentes", "Presentes"), { label: "Ajuda para montar o enxoval", href: "/atendimento" }] },
+    ],
+    promos: [],
   },
   {
     key: "bebe", label: "Bebês", href: categoryHref("bebe"),

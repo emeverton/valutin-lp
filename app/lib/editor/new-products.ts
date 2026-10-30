@@ -6,7 +6,7 @@ export type NewProduct = {
   handle: string;
   title: string;
   description: string;
-  category: "bebe" | "crianca" | "batizado" | "presentes";
+  category: typeof departments[number]["slug"];
   catalogCategory: string;
   collection: "primavera-verao" | "geral";
   price: number | null;

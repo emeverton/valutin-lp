@@ -1,5 +1,6 @@
 export const departments = [
   { slug: "maternidade", label: "Maternidade", title: "Para os primeiros encontros", links: ["maternidade"] },
+  { slug: "enxoval", label: "Enxoval", title: "Cuidado em cada detalhe", links: ["toalhas-e-banho", "fraldas-e-paninhos-de-boca", "mantas-e-cueiros", "lencois-e-roupa-de-berco", "kits-de-enxoval"] },
   { slug: "bebe", label: "Bebês", title: "Para os primeiros dias", links: ["bebe-meninos", "bebe-meninas"] },
   { slug: "crianca", label: "Crianças", title: "Para acompanhar cada descoberta", links: ["crianca-meninos", "crianca-meninas"] },
   { slug: "batizado", label: "Batizado", title: "Peças para momentos especiais", links: ["batizado-e-cerimonia"] },
@@ -19,6 +20,11 @@ export const productCategories = [
 ] as const;
 
 export const departmentCategories = [
+  { slug: "toalhas-e-banho", label: "Toalhas e banho", title: "Toalhas e banho", department: "enxoval", catalogCategory: "toalhas-e-banho" },
+  { slug: "fraldas-e-paninhos-de-boca", label: "Fraldas e paninhos de boca", title: "Fraldas e paninhos de boca", department: "enxoval", catalogCategory: "fraldas-e-paninhos-de-boca" },
+  { slug: "mantas-e-cueiros", label: "Mantas e cueiros", title: "Mantas e cueiros", department: "enxoval", catalogCategory: "mantas-e-cueiros" },
+  { slug: "lencois-e-roupa-de-berco", label: "Lençóis e roupa de berço", title: "Lençóis e roupa de berço", department: "enxoval", catalogCategory: "lencois-e-roupa-de-berco" },
+  { slug: "kits-de-enxoval", label: "Kits de enxoval", title: "Kits de enxoval", department: "enxoval", catalogCategory: "kits-de-enxoval" },
   { slug: "vestidos-bebe", label: "Vestidos", title: "Vestidos para bebês", department: "bebe", catalogCategory: "vestidos" },
   { slug: "vestidos-crianca", label: "Vestidos", title: "Vestidos para crianças", department: "crianca", catalogCategory: "vestidos" },
   { slug: "pijamas", label: "Pijamas", title: "Pijamas", department: "crianca", catalogCategory: "pijamas" },
@@ -237,6 +243,7 @@ export function categoryAncestors(slug: string): string[] {
   if (selected) return [department, selected.parent];
   if (selectionSections.some((item) => item.slug === slug)) return [department];
   const subcategory = catalogSubcategories.find((item) => item.slug === slug);
+  if (departmentCategories.some((item) => item.slug === slug && item.department === "enxoval")) return ["enxoval"];
   return subcategory ? [subcategory.department, subcategory.parent] : slug === "pijamas" ? ["crianca"] : [];
 }
 

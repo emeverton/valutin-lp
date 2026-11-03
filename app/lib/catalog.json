@@ -3577,5 +3577,57 @@
     "displayImages": [
       "/catalog-pijamas/pijama-short-babado-raposa-vlt-mar130ct.png"
     ]
+  },
+  {
+    "title": "Vestido de Linho com Pregas — Vermelho",
+    "handle": "vestido-linho-pregas-vermelho-ange012ct",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de linho vermelho com pregas, mangas curtas e decote redondo. Disponível nos tamanhos 2A, 4A, 6A, 8A, 10A e 12A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27ANGE012CT",
+    "price": 519,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/vestido-linho-pregas-vermelho-ange012ct.png"
+    ],
+    "imageLabels": [
+      "Vestido de linho vermelho com pregas, mangas curtas e decote redondo"
+    ],
+    "displayImages": [
+      "/catalog/vestido-linho-pregas-vermelho-ange012ct.png"
+    ]
+  },
+  {
+    "title": "Vestido de Linho com Pregas — Verde",
+    "handle": "vestido-linho-pregas-verde-ange012ct",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de linho verde com pregas, mangas curtas e decote redondo. Disponível nos tamanhos 2A, 4A, 6A, 8A, 10A e 12A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27ANGE012CT",
+    "price": 519,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/vestido-linho-pregas-verde-ange012ct.png"
+    ],
+    "imageLabels": [
+      "Vestido de linho verde com pregas, mangas curtas e decote redondo"
+    ],
+    "displayImages": [
+      "/catalog/vestido-linho-pregas-verde-ange012ct.png"
+    ]
   }
 ]

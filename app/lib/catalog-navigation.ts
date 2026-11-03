@@ -44,6 +44,7 @@ export const babySections = [
 ] as const;
 
 const babyTypes = [
+  { type: "pijama", label: "Pijama", audiences: ["meninas"] },
   { type: "camisetas", label: "Camisetas", audiences: ["meninas"] },
   { type: "body", label: "Body", audiences: ["meninos", "meninas"] },
   { type: "macacao", label: "Macacão", audiences: ["meninos", "meninas"] },
@@ -147,7 +148,10 @@ export const babyCategories = babySections.flatMap((section) => babyTypes
 
 export function babyClassification(product: CategoryProduct): BabyAssignment | undefined {
   if (product.category !== "bebe" && !product.additionalDepartments?.includes("bebe")) return undefined;
-  return babyAssignments[product.handle ?? ""] ?? babyAssignments[product.sourceHandle ?? ""];
+  const assigned = babyAssignments[product.handle ?? ""] ?? babyAssignments[product.sourceHandle ?? ""];
+  if (assigned) return assigned;
+  if (product.catalogCategory === "pijamas-meninas") return { type: "pijama", audiences: ["meninas"] };
+  return undefined;
 }
 
 export const childrenSections = [
@@ -278,7 +282,7 @@ export function productCategoryTrail(product: CategoryProduct, requestedCategory
 // Keep one product while limiting the sizes offered in a department's listing and detail page.
 export function productForCategory<T extends CategoryProduct & { sizes: string[]; sizesByDepartment?: Partial<Record<string, string[]>> }>(product: T, slug?: string): T {
   const department = slug === "bebe" || slug?.startsWith("bebe-") || departmentCategories.some((item) => item.slug === slug && item.department === "bebe")
-    ? "bebe" : slug === "crianca" || slug?.startsWith("crianca-") || departmentCategories.some((item) => item.slug === slug && item.department === "crianca") ? "crianca" : undefined;
+    ? "bebe" : slug === "crianca" || slug?.startsWith("crianca-") || departmentCategories.some((item) => item.slug === slug && item.department === "crianca") || catalogSubcategories.some((item) => item.slug === slug && item.department === "crianca") ? "crianca" : undefined;
   const scopedSizes = department && slug && matchesCatalogCategory(product, slug) ? product.sizesByDepartment?.[department] : undefined;
   return scopedSizes ? { ...product, sizes: product.sizes.filter((size) => scopedSizes.includes(size)) } : product;
 }

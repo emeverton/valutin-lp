@@ -127,3 +127,25 @@ test('sailor bear pajamas use the same supplied commercial data and their own ph
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas'), true);
   assert.equal(navigation.matchesCatalogCategory(piece, 'pijamas-meninas'), false);
 });
+
+test('short pajamas appear in baby and child girls selections with separate size ranges', () => {
+  const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR130CT');
+  assert.equal(products.length, 6);
+  const menus = compile('app/lib/mega-menu.ts', { './catalog-navigation': navigation });
+  assert.ok(menus.megaMenuSections.find(section => section.key === 'bebe').columns.find(column => column.title === 'Meninas').links.some(link => link.href === '/catalogo/categoria/bebe-meninas-pijama'));
+  for (const product of products) {
+    assert.equal(product.price, 243);
+    for (const slug of ['bebe-meninas-pijama', 'bebe-meninas', 'bebe']) {
+      assert.equal(navigation.matchesCatalogCategory(product, slug), true, slug);
+      assert.deepEqual(Array.from(navigation.productForCategory(product, slug).sizes), ['18M', '2A']);
+    }
+    for (const slug of ['crianca-meninas-pijama', 'pijamas-meninas', 'pijamas', 'crianca']) {
+      assert.equal(navigation.matchesCatalogCategory(product, slug), true, slug);
+      assert.deepEqual(Array.from(navigation.productForCategory(product, slug).sizes), ['4A', '6A', '8A', '10A', '12A', '14A', '16A']);
+    }
+    for (const slug of ['bebe-meninos', 'crianca-meninos-pijama']) assert.equal(navigation.matchesCatalogCategory(product, slug), false);
+    const embroidered = /baloes|flor-patchwork|tres-flores|raposa/.test(product.handle);
+    assert.equal(product.description.includes('à mão'), embroidered);
+    assert.ok(readFileSync(new URL(`../public${product.displayImages[0]}`, import.meta.url)).length > 0);
+  }
+});

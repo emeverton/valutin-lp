@@ -3629,5 +3629,56 @@
     "displayImages": [
       "/catalog/vestido-linho-pregas-verde-ange012ct.png"
     ]
+  },
+  {
+    "title": "Toalha Poncho Urso — Rosa",
+    "handle": "toalha-poncho-urso-rosa-vlt-lb035ac",
+    "category": "enxoval",
+    "additionalDepartments": [
+      "presentes"
+    ],
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha poncho rosa com capuz de urso, orelhinhas e botões laterais. Tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT LB035AC",
+    "price": 209,
+    "sizes": [
+      "Único"
+    ],
+    "images": [
+      "/catalog/toalha-poncho-urso-rosa-vlt-lb035ac.png",
+      "/catalog/toalha-poncho-urso-rosa-vlt-lb035ac-modelo.png"
+    ],
+    "imageLabels": [
+      "Toalha poncho rosa com capuz de urso e botões laterais",
+      "Criança usando a toalha poncho rosa com capuz de urso"
+    ],
+    "displayImages": [
+      "/catalog/toalha-poncho-urso-rosa-vlt-lb035ac.png",
+      "/catalog/toalha-poncho-urso-rosa-vlt-lb035ac-modelo.png"
+    ]
+  },
+  {
+    "title": "Toalha Poncho Urso — Azul",
+    "handle": "toalha-poncho-urso-azul-vlt-lb035ac",
+    "category": "enxoval",
+    "additionalDepartments": [
+      "presentes"
+    ],
+    "catalogCategory": "toalhas-e-banho",
+    "description": "Toalha poncho azul com capuz de urso, orelhinhas e botões laterais. Tamanho único. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT LB035AC",
+    "price": 209,
+    "sizes": [
+      "Único"
+    ],
+    "images": [
+      "/catalog/toalha-poncho-urso-azul-vlt-lb035ac.png"
+    ],
+    "imageLabels": [
+      "Toalha poncho azul com capuz de urso e botões laterais"
+    ],
+    "displayImages": [
+      "/catalog/toalha-poncho-urso-azul-vlt-lb035ac.png"
+    ]
   }
 ]

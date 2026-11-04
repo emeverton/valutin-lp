@@ -130,7 +130,7 @@ test('sailor bear pajamas use the same supplied commercial data and their own ph
 
 test('short pajamas appear in baby and child girls selections with separate size ranges', () => {
   const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR130CT');
-  assert.equal(products.length, 6);
+  assert.equal(products.length, 7);
   const menus = compile('app/lib/mega-menu.ts', { './catalog-navigation': navigation });
   assert.ok(menus.megaMenuSections.find(section => section.key === 'bebe').columns.find(column => column.title === 'Meninas').links.some(link => link.href === '/catalogo/categoria/bebe-meninas-pijama'));
   for (const product of products) {

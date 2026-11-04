@@ -3680,5 +3680,52 @@
     "displayImages": [
       "/catalog/toalha-poncho-urso-azul-vlt-lb035ac.png"
     ]
+  },
+  {
+    "title": "Pijama Short com Babado Borboleta — Azul Marinho",
+    "handle": "pijama-short-babado-borboleta-vlt-mar130ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninas",
+    "description": "Pijama com camiseta branca de manga curta com aplicação de borboleta e short azul-marinho com babado na barra. Disponível para bebê menina em 18 meses e 2 anos, e para meninas de 4 a 16 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR130CT",
+    "price": 243,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A",
+      "16A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A",
+        "14A",
+        "16A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-babado-borboleta-vlt-mar130ct.jpg"
+    ],
+    "imageLabels": [
+      "Camiseta branca com aplicação de borboleta e short azul-marinho com babado"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-babado-borboleta-vlt-mar130ct.jpg"
+    ]
   }
 ]

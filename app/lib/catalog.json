@@ -3727,5 +3727,31 @@
     "displayImages": [
       "/catalog-pijamas/pijama-short-babado-borboleta-vlt-mar130ct.jpg"
     ]
+  },
+  {
+    "title": "Conjunto Camiseta e Shorts — Listrado Azul",
+    "handle": "conjunto-camiseta-shorts-listrado-azul-dame021bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto de camiseta de manga curta e shorts listrados em azul e branco, com detalhe de ursinho na camiseta e botões no ombro. Disponível dos 6 meses aos 3 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27DAME021BB",
+    "price": 328,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A",
+      "3A"
+    ],
+    "images": [
+      "/catalog/conjunto-camiseta-shorts-listrado-azul-dame021bb.jpg"
+    ],
+    "imageLabels": [
+      "Camiseta e shorts listrados em azul e branco, com detalhe de ursinho"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-camiseta-shorts-listrado-azul-dame021bb.jpg"
+    ]
   }
 ]

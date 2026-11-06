@@ -200,6 +200,7 @@ const childrenAssignments: Record<string, ChildrenAssignment> = {
   "conjunto-laise": { type: "conjuntos", audiences: ["meninas"] },
   "saia-algodao": { type: "saia", audiences: ["meninas"] },
   "short-saia-jeans-maniaj003ct": { type: "saia", audiences: ["meninas"] },
+  "short-saia-jeans-maniaj013ct": { type: "shorts", audiences: ["meninas"] },
   "cardigan-bordado-analu": { type: "cardigan", audiences: ["meninas"] },
 };
 

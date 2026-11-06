@@ -3779,5 +3779,18 @@
     "images": ["/catalog/short-saia-jeans-maniaj003ct.png"],
     "imageLabels": ["Short-saia jeans azul com pregas e detalhe do shorts interno"],
     "displayImages": ["/catalog/short-saia-jeans-maniaj003ct.png"]
+  },
+  {
+    "title": "Short-Saia Jeans com Barra Desfiada",
+    "handle": "short-saia-jeans-maniaj013ct",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Short-saia jeans azul com pregas, bolsos frontais e barra desfiada. Cós com passantes e fechamento por botão, com shorts por baixo da saia. Disponível para meninas de 4 a 12 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MANIAJ013CT",
+    "price": 188,
+    "sizes": ["4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/short-saia-jeans-maniaj013ct.png"],
+    "imageLabels": ["Short-saia jeans azul com barra desfiada e detalhe do shorts interno"],
+    "displayImages": ["/catalog/short-saia-jeans-maniaj013ct.png"]
   }
 ]

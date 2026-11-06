@@ -2756,7 +2756,7 @@
     "handle": "composicao-valeriana",
     "category": "maternidade",
     "catalogCategory": "bodys-e-conjuntos",
-    "description": "Conjunto Valeriana amarelo em tricô, com casaquinho e jardineira. O conjunto, o body bordado branco e a manta Pipoca amarela são vendidos separadamente. Conjunto e body nos tamanhos RN e 3M; manta em tamanho único. A foto apresenta a composição; o body não é exibido individualmente.",
+    "description": "Conjunto Valeriana amarelo em tricô, com casaquinho e jardineira, e body bordado branco com gola delicada. Conjunto e body vendidos separadamente, ambos nos tamanhos RN e 3M. A foto principal apresenta o conjunto com o body; a foto adicional também mostra a manta Pipoca amarela, vendida separadamente em tamanho único.",
     "reference": null,
     "price": null,
     "sizes": [
@@ -2765,12 +2765,15 @@
       "Único"
     ],
     "images": [
+      "/catalog-maternidade/valeriana-conjunto-body-amarelo.png",
       "/catalog-maternidade/composicao-valeriana.webp"
     ],
     "imageLabels": [
+      "Conjunto Valeriana amarelo com casaquinho e jardineira e body branco — vendidos separadamente, RN e 3M",
       "Composição Valeriana — conjunto, body e manta vendidos separadamente"
     ],
     "displayImages": [
+      "/catalog-maternidade/valeriana-conjunto-body-amarelo.png",
       "/catalog-maternidade/composicao-valeriana.webp"
     ],
     "photoNote": "Conjunto, body e manta vendidos separadamente.",

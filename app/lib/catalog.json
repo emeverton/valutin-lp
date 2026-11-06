@@ -3792,5 +3792,18 @@
     "images": ["/catalog/short-saia-jeans-maniaj013ct.png"],
     "imageLabels": ["Short-saia jeans azul com barra desfiada e detalhe do shorts interno"],
     "displayImages": ["/catalog/short-saia-jeans-maniaj013ct.png"]
+  },
+  {
+    "title": "Shorts Jeans Claro com Laço",
+    "handle": "shorts-jeans-claro-laco-maniaj002ct",
+    "category": "crianca",
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts jeans azul-claro com cós franzido, faixa para laço, bolsos frontais e três botões na frente. Disponível para meninas de 2 a 12 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27MANIAJ002CT",
+    "price": 199,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "images": ["/catalog/shorts-jeans-claro-laco-maniaj002ct.png"],
+    "imageLabels": ["Shorts jeans azul-claro com cós franzido, laço e botões frontais"],
+    "displayImages": ["/catalog/shorts-jeans-claro-laco-maniaj002ct.png"]
   }
 ]

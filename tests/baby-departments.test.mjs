@@ -19,11 +19,28 @@ const nav = compile('app/lib/catalog-navigation.ts');
 const { catalogProducts: products } = compile('app/lib/catalog-individual.ts', { './catalog.json': source });
 const plain = value => JSON.parse(JSON.stringify(value));
 
+test('fleece shorts appear in girls shorts with only 2A in babies and 2A to 12A in children', () => {
+  for (const color of ['vermelho', 'azul', 'marinho']) {
+    const product = products.find(item => item.handle === `shorts-fleece-${color}-ge005ct`);
+    assert.ok(product);
+    for (const slug of ['bebe-meninas', 'bebe-meninas-shorts']) {
+      assert.equal(nav.matchesCatalogCategory(product, slug), true);
+      assert.deepEqual(plain(nav.productForCategory(product, slug).sizes), ['2A']);
+    }
+    for (const slug of ['crianca-meninas', 'crianca-meninas-shorts']) {
+      assert.equal(nav.matchesCatalogCategory(product, slug), true);
+      assert.deepEqual(plain(nav.productForCategory(product, slug).sizes), ['2A', '4A', '6A', '8A', '10A', '12A']);
+    }
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninos'), false);
+    assert.equal(nav.matchesCatalogCategory(product, 'crianca-meninos'), false);
+  }
+});
+
 test('baby opens two selections with the exact garment categories and cardigans in both', () => {
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'bebe').links), ['bebe-meninos', 'bebe-meninas']);
   for (const [section, labels] of [
     ['bebe-meninos', ['Body', 'Macacão', 'Jardineira', 'Conjunto', 'Shorts e Bermuda', 'Cardigans']],
-    ['bebe-meninas', ['Pijama', 'Camisetas', 'Body', 'Macacão', 'Jardineira', 'Conjunto', 'Vestido', 'Bloomer', 'Cardigans']],
+    ['bebe-meninas', ['Pijama', 'Camisetas', 'Body', 'Macacão', 'Jardineira', 'Conjunto', 'Shorts', 'Vestido', 'Bloomer', 'Cardigans']],
   ]) {
     assert.deepEqual(plain(nav.babyCategories.filter(item => item.parent === section).map(item => item.label)), labels);
     assert.equal(nav.isCatalogCategory(section), true);

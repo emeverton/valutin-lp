@@ -51,6 +51,7 @@ const babyTypes = [
   { type: "jardineira", label: "Jardineira", audiences: ["meninos", "meninas"] },
   { type: "conjunto", label: "Conjunto", audiences: ["meninos", "meninas"] },
   { type: "shorts-e-bermuda", label: "Shorts e Bermuda", audiences: ["meninos"] },
+  { type: "shorts", label: "Shorts", audiences: ["meninas"] },
   { type: "vestido", label: "Vestido", audiences: ["meninas"] },
   { type: "bloomer", label: "Bloomer", audiences: ["meninas"] },
   { type: "cardigans", label: "Cardigans", audiences: ["meninos", "meninas"] },
@@ -64,6 +65,9 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "shorts-fleece-vermelho-ge005ct": { type: "shorts", audiences: ["meninas"] },
+  "shorts-fleece-azul-ge005ct": { type: "shorts", audiences: ["meninas"] },
+  "shorts-fleece-marinho-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "conjunto-camiseta-shorts-listrado-azul-dame021bb": { type: "conjunto", audiences: ["meninos"] },
   "bloomer-brisa-rose-ange011bb": { type: "bloomer", audiences: ["meninas"] },
   "bloomer-brisa-floral-ange011bb": { type: "bloomer", audiences: ["meninas"] },
@@ -173,6 +177,9 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "shorts-fleece-vermelho-ge005ct": { type: "shorts", audiences: ["meninas"] },
+  "shorts-fleece-azul-ge005ct": { type: "shorts", audiences: ["meninas"] },
+  "shorts-fleece-marinho-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-tactel-fundo-mar-hay005ct": { type: "shorts", audiences: ["meninos"] },
   "shorts-tactel-coqueiros-hay005ct": { type: "shorts", audiences: ["meninos"] },
   "shorts-tactel-paisagem-azul-hay005ct": { type: "shorts", audiences: ["meninos"] },

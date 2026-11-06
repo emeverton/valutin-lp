@@ -3805,5 +3805,131 @@
     "images": ["/catalog/shorts-jeans-claro-laco-maniaj002ct.png"],
     "imageLabels": ["Shorts jeans azul-claro com cós franzido, laço e botões frontais"],
     "displayImages": ["/catalog/shorts-jeans-claro-laco-maniaj002ct.png"]
+  },
+  {
+    "title": "Shorts Fleece com Barra Dobrada — Vermelho",
+    "handle": "shorts-fleece-vermelho-ge005ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de fleece vermelho com cós elástico, bolsos frontais e barra dobrada. Disponível para meninas de 2 a 12 anos e para bebê menina no tamanho 2 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE005CT",
+    "price": 188,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A"
+      ]
+    },
+    "images": [
+      "/catalog/shorts-fleece-vermelho-ge005ct.png"
+    ],
+    "imageLabels": [
+      "Shorts de fleece vermelho com bolsos e barra dobrada"
+    ],
+    "displayImages": [
+      "/catalog/shorts-fleece-vermelho-ge005ct.png"
+    ]
+  },
+  {
+    "title": "Shorts Fleece com Barra Dobrada — Azul",
+    "handle": "shorts-fleece-azul-ge005ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de fleece azul com cós elástico, bolsos frontais e barra dobrada. Disponível para meninas de 2 a 12 anos e para bebê menina no tamanho 2 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE005CT",
+    "price": 188,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A"
+      ]
+    },
+    "images": [
+      "/catalog/shorts-fleece-azul-ge005ct.png"
+    ],
+    "imageLabels": [
+      "Shorts de fleece azul com bolsos e barra dobrada"
+    ],
+    "displayImages": [
+      "/catalog/shorts-fleece-azul-ge005ct.png"
+    ]
+  },
+  {
+    "title": "Shorts Fleece com Barra Dobrada — Azul-Marinho",
+    "handle": "shorts-fleece-marinho-ge005ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "saias-shorts-e-bermudas",
+    "description": "Shorts de fleece azul-marinho com cós elástico, bolsos frontais e barra dobrada. Disponível para meninas de 2 a 12 anos e para bebê menina no tamanho 2 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE005CT",
+    "price": 188,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A"
+      ]
+    },
+    "images": [
+      "/catalog/shorts-fleece-marinho-ge005ct.png"
+    ],
+    "imageLabels": [
+      "Shorts de fleece azul-marinho com bolsos e barra dobrada"
+    ],
+    "displayImages": [
+      "/catalog/shorts-fleece-marinho-ge005ct.png"
+    ]
   }
 ]

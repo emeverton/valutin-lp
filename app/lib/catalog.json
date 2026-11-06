@@ -3753,5 +3753,18 @@
     "displayImages": [
       "/catalog/conjunto-camiseta-shorts-listrado-azul-dame021bb.jpg"
     ]
+  },
+  {
+    "title": "Vestido de Laise — Off com Laços",
+    "handle": "vestido-laise-off-lacos-ro164ct",
+    "category": "crianca",
+    "catalogCategory": "vestidos",
+    "description": "Vestido de laise off-white com bordado floral, mangas curtas e três laços nas costas. Saia franzida e barra com acabamento delicado. Disponível para meninas de 4 a 14 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT RO164CT",
+    "price": 499,
+    "sizes": ["4A", "6A", "8A", "10A", "12A", "14A"],
+    "images": ["/catalog/vestido-laise-off-ro164ct-frente.png", "/catalog/vestido-laise-off-ro164ct-costas.png"],
+    "imageLabels": ["Frente do vestido de laise off-white com bordado floral", "Costas do vestido de laise off-white com três laços"],
+    "displayImages": ["/catalog/vestido-laise-off-ro164ct-frente.png", "/catalog/vestido-laise-off-ro164ct-costas.png"]
   }
 ]

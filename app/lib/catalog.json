@@ -4026,5 +4026,48 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Composição Manjericão e Orquídea — Branca",
+    "handle": "composicao-manjericao-orquidea-branca",
+    "category": "maternidade",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto Manjericão branco em tricô, com casaquinho e jardineira, acompanhado na foto pela manta Orquídea branca. O conjunto e a manta são vendidos separadamente, pelos valores indicados abaixo. Conjunto nos tamanhos RN e 3M; manta em tamanho único.",
+    "reference": null,
+    "price": null,
+    "sizes": [
+      "RN",
+      "3M",
+      "Único"
+    ],
+    "images": [
+      "/catalog-maternidade/composicao-manjericao-orquidea-branca.png"
+    ],
+    "imageLabels": [
+      "Conjunto Manjericão branco e manta Orquídea branca — vendidos separadamente"
+    ],
+    "displayImages": [
+      "/catalog-maternidade/composicao-manjericao-orquidea-branca.png"
+    ],
+    "photoNote": "Conjunto (casaquinho e jardineira) e manta vendidos separadamente.",
+    "componentPrices": [
+      {
+        "title": "Conjunto Manjericão Branco — Casaquinho e Jardineira",
+        "reference": "VLT DOLCE106BB",
+        "price": 495,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Manta Orquídea Branca",
+        "reference": "VLT DOLCE020AC",
+        "price": 399,
+        "sizes": [
+          "Único"
+        ]
+      }
+    ]
   }
 ]

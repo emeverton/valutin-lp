@@ -3983,5 +3983,48 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Composição Querubim Branco e Body",
+    "handle": "composicao-querubim-branco-body",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão Querubim branco em tricô com desenho ondulado e body branco com gola bordada. Macacão e body são vendidos separadamente, ambos nos tamanhos RN e 3M. O macacão custa R$ 378,00; o valor do body está sob consulta. A foto apresenta a composição; o body não é exibido individualmente.",
+    "reference": null,
+    "price": null,
+    "sizes": [
+      "RN",
+      "3M"
+    ],
+    "images": [
+      "/catalog-maternidade/composicao-querubim-branco-body.png"
+    ],
+    "imageLabels": [
+      "Macacão Querubim branco e body com gola bordada — peças vendidas separadamente"
+    ],
+    "displayImages": [
+      "/catalog-maternidade/composicao-querubim-branco-body.png"
+    ],
+    "photoNote": "Macacão e body vendidos separadamente. Valor do body sob consulta.",
+    "componentPrices": [
+      {
+        "title": "Macacão Querubim Branco",
+        "reference": "VLT DOLCE094BB",
+        "price": 378,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      },
+      {
+        "title": "Body Branco com Gola Bordada",
+        "reference": null,
+        "price": null,
+        "sizes": [
+          "RN",
+          "3M"
+        ]
+      }
+    ]
   }
 ]

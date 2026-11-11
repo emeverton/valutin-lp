@@ -4210,5 +4210,193 @@
       "/catalog/vestido-casinha-abelha-lilas-vlt-nad004bb-frente.png",
       "/catalog/vestido-casinha-abelha-lilas-vlt-nad004bb-costas.png"
     ]
+  },
+  {
+    "title": "Vestido de Linho Bordado à Mão — Branco",
+    "handle": "vestido-linho-bordado-mao-branco-vlt-nad009bb",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido de linho branco com bordado floral à mão na gola arredondada com babado, mangas curtas, pregas na cintura e saia franzida. Laço e fechamento por botões nas costas. Disponível de 12 meses a 10 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD009BB",
+    "price": 548,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-linho-bordado-mao-branco-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-branco-vlt-nad009bb-costas.png"
+    ],
+    "imageLabels": [
+      "Frente do vestido de linho branco e detalhe do bordado à mão na gola",
+      "Costas do vestido de linho branco com laço e botões"
+    ],
+    "displayImages": [
+      "/catalog/vestido-linho-bordado-mao-branco-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-branco-vlt-nad009bb-costas.png"
+    ]
+  },
+  {
+    "title": "Vestido de Linho Bordado à Mão — Verde",
+    "handle": "vestido-linho-bordado-mao-verde-vlt-nad009bb",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido de linho verde com bordado floral à mão na gola arredondada com babado, mangas curtas, pregas na cintura e saia franzida. Laço e fechamento por botões nas costas. Disponível de 12 meses a 10 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD009BB",
+    "price": 548,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-linho-bordado-mao-verde-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-verde-vlt-nad009bb-costas.png"
+    ],
+    "imageLabels": [
+      "Frente do vestido de linho verde e detalhe do bordado à mão na gola",
+      "Costas do vestido de linho verde com laço e botões"
+    ],
+    "displayImages": [
+      "/catalog/vestido-linho-bordado-mao-verde-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-verde-vlt-nad009bb-costas.png"
+    ]
+  },
+  {
+    "title": "Vestido de Linho Bordado à Mão — Rosa",
+    "handle": "vestido-linho-bordado-mao-rosa-vlt-nad009bb",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido de linho rosa com bordado floral à mão na gola arredondada com babado, mangas curtas, pregas na cintura e saia franzida. Laço e fechamento por botões nas costas. Disponível de 12 meses a 10 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD009BB",
+    "price": 548,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-linho-bordado-mao-rosa-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-rosa-vlt-nad009bb-costas.png"
+    ],
+    "imageLabels": [
+      "Frente do vestido de linho rosa e detalhe do bordado à mão na gola",
+      "Costas do vestido de linho rosa com laço e botões"
+    ],
+    "displayImages": [
+      "/catalog/vestido-linho-bordado-mao-rosa-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-rosa-vlt-nad009bb-costas.png"
+    ]
+  },
+  {
+    "title": "Vestido de Linho Bordado à Mão — Azul",
+    "handle": "vestido-linho-bordado-mao-azul-vlt-nad009bb",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido de linho azul com bordado floral à mão na gola arredondada com babado, mangas curtas, pregas na cintura e saia franzida. Laço e fechamento por botões nas costas. Disponível de 12 meses a 10 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD009BB",
+    "price": 548,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-linho-bordado-mao-azul-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-azul-vlt-nad009bb-costas.png"
+    ],
+    "imageLabels": [
+      "Frente do vestido de linho azul e detalhe do bordado à mão na gola",
+      "Costas do vestido de linho azul com laço e botões"
+    ],
+    "displayImages": [
+      "/catalog/vestido-linho-bordado-mao-azul-vlt-nad009bb-frente.png",
+      "/catalog/vestido-linho-bordado-mao-azul-vlt-nad009bb-costas.png"
+    ]
   }
 ]

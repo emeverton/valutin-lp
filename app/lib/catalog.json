@@ -4398,5 +4398,57 @@
       "/catalog/vestido-linho-bordado-mao-azul-vlt-nad009bb-frente.png",
       "/catalog/vestido-linho-bordado-mao-azul-vlt-nad009bb-costas.png"
     ]
+  },
+  {
+    "title": "Vestido Bordado à Mão — Floral Azul",
+    "handle": "vestido-bordado-mao-floral-azul-vlt-nad014bb",
+    "category": "bebe",
+    "catalogCategory": "vestidos",
+    "description": "Vestido floral de fundo azul com casinha de abelha bordada à mão ao redor do decote, delicados detalhes florais, mangas curtas bufantes e saia franzida. Disponível de 3 meses a 2 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD014BB",
+    "price": 468,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/vestido-bordado-mao-floral-azul-vlt-nad014bb.png"
+    ],
+    "imageLabels": [
+      "Vestido floral azul com detalhe ampliado do bordado à mão no decote"
+    ],
+    "displayImages": [
+      "/catalog/vestido-bordado-mao-floral-azul-vlt-nad014bb.png"
+    ]
+  },
+  {
+    "title": "Vestido Bordado à Mão — Xadrez Azul",
+    "handle": "vestido-bordado-mao-xadrez-azul-vlt-nad014bb",
+    "category": "bebe",
+    "catalogCategory": "vestidos",
+    "description": "Vestido xadrez azul e branco com casinha de abelha bordada à mão ao redor do decote, delicados detalhes florais, mangas curtas bufantes e saia franzida. Disponível de 3 meses a 2 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD014BB",
+    "price": 468,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/vestido-bordado-mao-xadrez-azul-vlt-nad014bb.png"
+    ],
+    "imageLabels": [
+      "Vestido xadrez azul com detalhe ampliado do bordado à mão no decote"
+    ],
+    "displayImages": [
+      "/catalog/vestido-bordado-mao-xadrez-azul-vlt-nad014bb.png"
+    ]
   }
 ]

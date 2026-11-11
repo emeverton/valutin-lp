@@ -4127,5 +4127,41 @@
     "displayImages": [
       "/catalog/bloomer-gola-floral-verde-ange014bb.png"
     ]
+  },
+  {
+    "title": "Conjunto Blusa e Shorts — Azul",
+    "handle": "conjunto-blusa-shorts-azul-ange013ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto azul com blusa sem mangas de gola ampla arredondada e shorts com bolsos frontais, pregas e barra dobrada. Disponível de 2 a 10 anos; na seleção Bebê Meninas, somente tamanho 2A. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27ANGE013CT",
+    "price": 479,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ]
+    },
+    "images": [
+      "/catalog/conjunto-blusa-shorts-azul-ange013ct.png",
+      "/catalog/conjunto-blusa-shorts-azul-ange013ct-no-corpo.png"
+    ],
+    "imageLabels": [
+      "Conjunto azul de blusa com gola ampla e shorts com bolsos",
+      "Menina usando o conjunto azul de blusa e shorts"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-blusa-shorts-azul-ange013ct.png",
+      "/catalog/conjunto-blusa-shorts-azul-ange013ct-no-corpo.png"
+    ]
   }
 ]

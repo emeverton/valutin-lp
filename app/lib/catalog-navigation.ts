@@ -69,6 +69,7 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "shorts-fleece-azul-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fleece-marinho-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "conjunto-camiseta-shorts-listrado-azul-dame021bb": { type: "conjunto", audiences: ["meninos"] },
+  "conjunto-blusa-shorts-azul-ange013ct": { type: "conjunto", audiences: ["meninas"] },
   "bloomer-gola-borboletas-azuis-ange014bb": { type: "bloomer", audiences: ["meninas"] },
   "bloomer-gola-floral-verde-ange014bb": { type: "bloomer", audiences: ["meninas"] },
   "bloomer-brisa-rose-ange011bb": { type: "bloomer", audiences: ["meninas"] },
@@ -179,6 +180,7 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "conjunto-blusa-shorts-azul-ange013ct": { type: "conjuntos", audiences: ["meninas"] },
   "shorts-fleece-vermelho-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fleece-azul-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fleece-marinho-ge005ct": { type: "shorts", audiences: ["meninas"] },

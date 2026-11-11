@@ -24,6 +24,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/catalogo/categoria/crianca-meninas-saia",
+        destination: "/catalogo/categoria/crianca-meninas-shorts",
+        permanent: true,
+      },
+      {
         source: "/outlet",
         destination: "/",
         permanent: true,

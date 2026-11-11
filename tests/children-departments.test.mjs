@@ -42,8 +42,9 @@ test('children open boys and girls with the requested separate categories', () =
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'crianca').links), ['crianca-meninos', 'crianca-meninas', 'banho-crianca']);
   for (const [section, labels] of [
     ['crianca-meninos', ['Camisetas', 'Camisa/Batas', 'Shorts/Bermudas', 'Conjuntos', 'Calças', 'Cardigan', 'Pijama']],
-    ['crianca-meninas', ['Camisetas', 'Camisa/Batas', 'Shorts/Shorts-saia', 'Conjuntos', 'Saia', 'Calças', 'Vestido', 'Cardigan', 'Pijama']],
+    ['crianca-meninas', ['Camisetas', 'Camisa/Batas', 'Shorts/Shorts-saia/Saias', 'Conjuntos', 'Calças', 'Vestidos', 'Cardigan', 'Pijama']],
   ]) assert.deepEqual(plain(nav.childrenCategories.filter(item => item.parent === section).map(item => item.label)), labels);
+  assert.equal(nav.isCatalogCategory('crianca-meninas-saia'), false);
   const menu = compile('app/lib/mega-menu.ts', { './catalog-navigation': nav }).megaMenuSections.find(item => item.key === 'crianca');
   assert.deepEqual(plain(menu.columns.slice(0, 2).map(item => item.title)), ['Meninos', 'Meninas']);
   for (const category of nav.childrenCategories) {
@@ -66,7 +67,7 @@ test('all current children pieces are classified without changing commercial dat
   assert.equal(JSON.stringify(products), snapshot);
 });
 
-test('T-shirts, shirts, shorts and skirts no longer share the same results', () => {
+test('shirts stay separate while girls shorts, skorts and skirts share one category', () => {
   const shirts = products.filter(product => nav.childrenClassification(product)?.type === 'camisetas' && nav.childrenClassification(product).audiences.includes('meninos'));
   assert.equal(shirts.length, 10);
   for (const shirt of shirts) {
@@ -78,7 +79,8 @@ test('T-shirts, shirts, shorts and skirts no longer share the same results', () 
     ['camiseta-algodao-veleiro-01', 'crianca-meninos-camisetas', 'crianca-meninos-camisa-batas'],
     ['camisa-linho', 'crianca-meninos-camisa-batas', 'crianca-meninos-camisetas'],
     ['regata-floral-babados', 'crianca-meninas-camisetas', 'crianca-meninas-camisa-batas'],
-    ['saia-algodao-azul', 'crianca-meninas-saia', 'crianca-meninas-shorts'],
+    ['saia-algodao-azul', 'crianca-meninas-shorts', 'crianca-meninos-shorts'],
+    ['short-saia-jeans-maniaj003ct', 'crianca-meninas-shorts', 'crianca-meninos-shorts'],
     ['bermuda-linho-verde', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
     ['bermuda-linho-azul-marinho', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],
     ['bermuda-linho-caqui', 'crianca-meninos-shorts', 'crianca-meninas-shorts'],

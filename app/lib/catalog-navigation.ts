@@ -52,7 +52,7 @@ const babyTypes = [
   { type: "conjunto", label: "Conjunto", audiences: ["meninos", "meninas"] },
   { type: "shorts-e-bermuda", label: "Shorts e Bermuda", audiences: ["meninos"] },
   { type: "shorts", label: "Shorts", audiences: ["meninas"] },
-  { type: "vestido", label: "Vestido", audiences: ["meninas"] },
+  { type: "vestido", label: "Vestidos", audiences: ["meninas"] },
   { type: "bloomer", label: "Bloomer", audiences: ["meninas"] },
   { type: "cardigans", label: "Cardigans", audiences: ["meninos", "meninas"] },
 ] as const;
@@ -179,9 +179,8 @@ const childrenTypes = [
   { type: "camisa-batas", label: "Camisa/Batas", audiences: ["meninos", "meninas"] },
   { type: "shorts", label: "Shorts/Bermudas", audiences: ["meninos", "meninas"] },
   { type: "conjuntos", label: "Conjuntos", audiences: ["meninos", "meninas"] },
-  { type: "saia", label: "Saia", audiences: ["meninas"] },
   { type: "calcas", label: "Calças", audiences: ["meninos", "meninas"] },
-  { type: "vestido", label: "Vestido", audiences: ["meninas"] },
+  { type: "vestido", label: "Vestidos", audiences: ["meninas"] },
   { type: "cardigan", label: "Cardigan", audiences: ["meninos", "meninas"] },
   { type: "pijama", label: "Pijama", audiences: ["meninos", "meninas"] },
 ] as const;
@@ -216,8 +215,8 @@ const childrenAssignments: Record<string, ChildrenAssignment> = {
   "bermuda-linho": { type: "shorts", audiences: ["meninos"] },
   "bermuda-moletom": { type: "shorts", audiences: ["meninos"] },
   "conjunto-laise": { type: "conjuntos", audiences: ["meninas"] },
-  "saia-algodao": { type: "saia", audiences: ["meninas"] },
-  "short-saia-jeans-maniaj003ct": { type: "saia", audiences: ["meninas"] },
+  "saia-algodao": { type: "shorts", audiences: ["meninas"] },
+  "short-saia-jeans-maniaj003ct": { type: "shorts", audiences: ["meninas"] },
   "short-saia-jeans-maniaj013ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-jeans-claro-laco-maniaj002ct": { type: "shorts", audiences: ["meninas"] },
   "cardigan-bordado-analu": { type: "cardigan", audiences: ["meninas"] },
@@ -226,7 +225,7 @@ const childrenAssignments: Record<string, ChildrenAssignment> = {
 export const childrenCategories = childrenSections.flatMap((section) => childrenTypes
   .filter((item) => (item.audiences as readonly string[]).includes(section.audience))
   .map((item) => {
-    const label = item.type === "shorts" && section.audience === "meninas" ? "Shorts/Shorts-saia" : item.label;
+    const label = item.type === "shorts" && section.audience === "meninas" ? "Shorts/Shorts-saia/Saias" : item.label;
     return { slug: `${section.slug}-${item.type}`, label, title: `${label} · ${section.label}`, parent: section.slug, audience: section.audience, type: item.type };
   }));
 

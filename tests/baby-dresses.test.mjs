@@ -51,7 +51,7 @@ test('baby navigation and product breadcrumbs lead to the scoped category', () =
     return navigation;
   } });
   assert.ok(menus.megaMenuSections.find(section => section.key === 'bebe').columns.flatMap(column => column.links)
-    .some(link => link.label === 'Vestido' && link.href === '/catalogo/categoria/bebe-meninas-vestido'));
+    .some(link => link.label === 'Vestidos' && link.href === '/catalogo/categoria/bebe-meninas-vestido'));
 });
 
 test('children dress navigation excludes every baby dress, including the cream dress', () => {

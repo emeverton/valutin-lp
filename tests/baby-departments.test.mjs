@@ -40,7 +40,7 @@ test('baby opens two selections with the exact garment categories and cardigans 
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'bebe').links), ['bebe-meninos', 'bebe-meninas']);
   for (const [section, labels] of [
     ['bebe-meninos', ['Body', 'Macacão', 'Jardineira', 'Conjunto', 'Shorts e Bermuda', 'Cardigans']],
-    ['bebe-meninas', ['Pijama', 'Camisetas', 'Body', 'Macacão', 'Jardineira', 'Conjunto', 'Shorts', 'Vestido', 'Bloomer', 'Cardigans']],
+    ['bebe-meninas', ['Pijama', 'Camisetas', 'Body', 'Macacão', 'Jardineira', 'Conjunto', 'Shorts', 'Vestidos', 'Bloomer', 'Cardigans']],
   ]) {
     assert.deepEqual(plain(nav.babyCategories.filter(item => item.parent === section).map(item => item.label)), labels);
     assert.equal(nav.isCatalogCategory(section), true);

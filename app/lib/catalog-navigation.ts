@@ -65,6 +65,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "vestido-casinha-abelha-lilas-vlt-nad004bb": { type: "vestido", audiences: ["meninas"] },
   "shorts-fleece-vermelho-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fleece-azul-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fleece-marinho-ge005ct": { type: "shorts", audiences: ["meninas"] },

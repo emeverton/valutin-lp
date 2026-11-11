@@ -4163,5 +4163,52 @@
       "/catalog/conjunto-blusa-shorts-azul-ange013ct.png",
       "/catalog/conjunto-blusa-shorts-azul-ange013ct-no-corpo.png"
     ]
+  },
+  {
+    "title": "Vestido Casinha de Abelha Bordado à Mão — Lilás",
+    "handle": "vestido-casinha-abelha-lilas-vlt-nad004bb",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido floral lilás com casinha de abelha bordada à mão, delicadas flores no peito e na gola branca arredondada, mangas curtas bufantes e laço nas costas. Disponível de 6 meses a 6 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "VLT NAD004BB",
+    "price": 558,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "6M",
+        "9M",
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-casinha-abelha-lilas-vlt-nad004bb-frente.png",
+      "/catalog/vestido-casinha-abelha-lilas-vlt-nad004bb-costas.png"
+    ],
+    "imageLabels": [
+      "Frente do vestido floral lilás e detalhe da casinha de abelha bordada à mão",
+      "Costas do vestido floral lilás com laço e fechamento por botões"
+    ],
+    "displayImages": [
+      "/catalog/vestido-casinha-abelha-lilas-vlt-nad004bb-frente.png",
+      "/catalog/vestido-casinha-abelha-lilas-vlt-nad004bb-costas.png"
+    ]
   }
 ]

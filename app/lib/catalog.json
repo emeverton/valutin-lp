@@ -4072,5 +4072,60 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Bloomer com Gola — Borboletas Azuis",
+    "handle": "bloomer-gola-borboletas-azuis-ange014bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Bloomer com estampa de borboletas azuis, gola branca arredondada, mangas curtas, lastex na cintura e fechamento por botões de pressão entre as pernas. Disponível de 3 meses a 2 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27ANGE014BB",
+    "price": 328,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/bloomer-gola-borboletas-azuis-ange014bb.png",
+      "/catalog/bloomer-gola-borboletas-azuis-ange014bb-no-corpo.png"
+    ],
+    "imageLabels": [
+      "Bloomer com gola branca e estampa de borboletas azuis",
+      "Bebê usando o bloomer de borboletas azuis com gola branca"
+    ],
+    "displayImages": [
+      "/catalog/bloomer-gola-borboletas-azuis-ange014bb.png",
+      "/catalog/bloomer-gola-borboletas-azuis-ange014bb-no-corpo.png"
+    ]
+  },
+  {
+    "title": "Bloomer com Gola — Floral Verde",
+    "handle": "bloomer-gola-floral-verde-ange014bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Bloomer com estampa floral verde, gola branca arredondada, mangas curtas, lastex na cintura e fechamento por botões de pressão entre as pernas. Disponível de 3 meses a 2 anos. Consulte a disponibilidade com nossa equipe.",
+    "reference": "PV26/27ANGE014BB",
+    "price": 328,
+    "sizes": [
+      "3M",
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A"
+    ],
+    "images": [
+      "/catalog/bloomer-gola-floral-verde-ange014bb.png"
+    ],
+    "imageLabels": [
+      "Bloomer com gola branca e estampa floral verde"
+    ],
+    "displayImages": [
+      "/catalog/bloomer-gola-floral-verde-ange014bb.png"
+    ]
   }
 ]

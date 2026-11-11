@@ -69,6 +69,8 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "shorts-fleece-azul-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "shorts-fleece-marinho-ge005ct": { type: "shorts", audiences: ["meninas"] },
   "conjunto-camiseta-shorts-listrado-azul-dame021bb": { type: "conjunto", audiences: ["meninos"] },
+  "bloomer-gola-borboletas-azuis-ange014bb": { type: "bloomer", audiences: ["meninas"] },
+  "bloomer-gola-floral-verde-ange014bb": { type: "bloomer", audiences: ["meninas"] },
   "bloomer-brisa-rose-ange011bb": { type: "bloomer", audiences: ["meninas"] },
   "bloomer-brisa-floral-ange011bb": { type: "bloomer", audiences: ["meninas"] },
   "bloomer-laise-branco-ange010bb": { type: "bloomer", audiences: ["meninas"] },

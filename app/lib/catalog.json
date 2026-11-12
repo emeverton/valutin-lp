@@ -4537,5 +4537,55 @@
     "displayImages": [
       "/catalog/camiseta-off-gola-babado-vlt-mar089ct.jpg"
     ]
+  },
+  {
+    "title": "Vestido Branco com Casinha de Abelha e Rosinhas",
+    "handle": "vestido-branco-casinha-abelha-vlt-josi004ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido branco com casinha de abelha no peito, delicadas rosinhas bordadas, gola e mangas com babados, laço nas costas e detalhe vazado próximo à barra. Disponível de 12 meses a 10 anos. Na seleção Bebê Meninas, tamanhos 12M, 18M e 2A; na seleção Meninas, de 2A a 10A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT JOSI004CT",
+    "price": 598,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-frente.png",
+      "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-costas.png",
+      "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-detalhe.png"
+    ],
+    "imageLabels": [
+      "Vestido branco com gola de babado, casinha de abelha e rosinhas bordadas — frente",
+      "Vestido branco com decote em V, botões e laço — costas",
+      "Detalhe da casinha de abelha e das rosinhas bordadas do vestido branco"
+    ],
+    "displayImages": [
+      "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-frente.png",
+      "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-costas.png",
+      "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-detalhe.png"
+    ]
   }
 ]

@@ -4450,5 +4450,58 @@
     "displayImages": [
       "/catalog/vestido-bordado-mao-xadrez-azul-vlt-nad014bb.png"
     ]
+  },
+  {
+    "title": "Conjunto Blusa e Saia Bordado Floral — Branco",
+    "handle": "conjunto-blusa-saia-branco-ge0011ct",
+    "category": "crianca",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto branco de blusa de manga curta e saia em camadas, com bordado floral delicado e cós elástico. Disponível de 4 a 12 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE0011CT",
+    "price": 589,
+    "sizes": [
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/conjunto-blusa-saia-branco-ge0011ct.png",
+      "/catalog/conjunto-blusa-saia-branco-ge0011ct-no-corpo.jpg"
+    ],
+    "imageLabels": [
+      "Conjunto branco de blusa e saia em camadas com detalhe ampliado do bordado floral",
+      "Menina usando o conjunto branco de blusa e saia bordado floral"
+    ],
+    "displayImages": [
+      "/catalog/conjunto-blusa-saia-branco-ge0011ct.png",
+      "/catalog/conjunto-blusa-saia-branco-ge0011ct-no-corpo.jpg"
+    ]
+  },
+  {
+    "title": "Camiseta Manga Curta Bordado Floral — Branca",
+    "handle": "camiseta-branca-bordado-floral-ge013ct",
+    "category": "crianca",
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta branca de manga curta com decote arredondado e bordado floral delicado. Disponível de 4 a 12 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "PV26/27GE013CT",
+    "price": 229,
+    "sizes": [
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/camiseta-branca-bordado-floral-ge013ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta branca de manga curta com detalhe ampliado do bordado floral"
+    ],
+    "displayImages": [
+      "/catalog/camiseta-branca-bordado-floral-ge013ct.png"
+    ]
   }
 ]

@@ -4503,5 +4503,39 @@
     "displayImages": [
       "/catalog/camiseta-branca-bordado-floral-ge013ct.png"
     ]
+  },
+  {
+    "title": "Camiseta Off com Gola de Babado",
+    "handle": "camiseta-off-gola-babado-vlt-mar089ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camiseta off de manga curta com gola de babado e acabamento delicado. Disponível de 2 a 12 anos; na seleção Bebê Meninas, somente tamanho 2A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR089CT",
+    "price": 136,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ]
+    },
+    "images": [
+      "/catalog/camiseta-off-gola-babado-vlt-mar089ct.jpg"
+    ],
+    "imageLabels": [
+      "Camiseta off de manga curta com gola de babado e acabamento delicado"
+    ],
+    "displayImages": [
+      "/catalog/camiseta-off-gola-babado-vlt-mar089ct.jpg"
+    ]
   }
 ]

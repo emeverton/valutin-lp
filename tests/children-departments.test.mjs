@@ -17,6 +17,25 @@ const nav = compile('app/lib/catalog-navigation.ts');
 const { catalogProducts: products } = compile('app/lib/catalog-individual.ts', { './catalog.json': JSON.parse(read('app/lib/catalog.json')) });
 const plain = value => JSON.parse(JSON.stringify(value));
 
+test('navy twill trousers appear only in boys pants with sizes scoped to each department', () => {
+  const product = products.find(item => item.handle === 'calca-sarja-social-azul-marinho');
+  assert.ok(product);
+  assert.equal(products.filter(item => item.handle === product.handle).length, 1);
+  assert.equal(product.price, 239);
+  assert.equal(product.reference, undefined);
+  for (const category of ['bebe-meninos', 'bebe-meninos-calcas']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), true);
+    assert.deepEqual(plain(nav.productForCategory(product, category).sizes), ['6M', '9M', '12M', '18M', '2A']);
+  }
+  for (const category of ['crianca-meninos', 'crianca-meninos-calcas']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), true);
+    assert.deepEqual(plain(nav.productForCategory(product, category).sizes), ['2A', '4A', '6A', '8A', '10A', '12A', '14A']);
+  }
+  for (const category of ['bebe-meninas', 'crianca-meninas', 'bebe-meninos-shorts-e-bermuda', 'crianca-meninos-shorts']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), false);
+  }
+});
+
 test('tactel shorts offer only the requested sizes in baby boys and children boys', () => {
   for (const variant of ['fundo-mar', 'coqueiros', 'paisagem-azul']) {
     const handle = `shorts-tactel-${variant}-hay005ct`;
@@ -110,7 +129,7 @@ test('boys shirt and shared baby/children products preserve the correct breadcru
 });
 
 test('empty categories remain empty rather than borrowing other garment types', () => {
-  for (const slug of ['crianca-meninos-calcas', 'crianca-meninos-cardigan']) {
+  for (const slug of ['crianca-meninos-cardigan']) {
     assert.equal(nav.isCatalogCategory(slug), true);
     assert.equal(products.filter(product => nav.matchesCatalogCategory(product, slug)).length, 0, slug);
   }

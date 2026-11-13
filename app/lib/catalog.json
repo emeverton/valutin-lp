@@ -4587,5 +4587,56 @@
       "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-costas.png",
       "/catalog/vestido-branco-casinha-abelha-vlt-josi004ct-detalhe.png"
     ]
+  },
+  {
+    "title": "Calça de Sarja Social — Azul-Marinho",
+    "handle": "calca-sarja-social-azul-marinho",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "calcas",
+    "description": "Calça de sarja social azul-marinho, com passantes no cós e bolsos laterais. Disponível de 6 meses a 14 anos. Na seleção Bebê Meninos, de 6M a 2A; na seleção Criança Meninos, de 2A a 14A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "price": 239,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A",
+      "14A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "6M",
+        "9M",
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A",
+        "12A",
+        "14A"
+      ]
+    },
+    "images": [
+      "/catalog/calca-sarja-social-azul-marinho.jpg"
+    ],
+    "imageLabels": [
+      "Calça de sarja social azul-marinho com passantes, bolsos laterais e etiqueta original Valutin — frente"
+    ],
+    "displayImages": [
+      "/catalog/calca-sarja-social-azul-marinho.jpg"
+    ]
   }
 ]

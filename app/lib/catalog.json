@@ -4682,5 +4682,45 @@
     "displayImages": [
       "/catalog/calca-malha-jogger-vinho-dame010ct.jpg"
     ]
+  },
+  {
+    "title": "Calça Skinny — Verde",
+    "handle": "calca-skinny-verde-dame010ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "calcas",
+    "description": "Calça skinny verde, com cós elástico, bolsos laterais e detalhes de recortes nas pernas. Disponível de 2 a 10 anos. Na seleção Bebê Meninos, somente tamanho 2A; na seleção Criança Meninos, de 2A a 10A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "OI26/26DAME010CT",
+    "price": 288,
+    "sizes": [
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/calca-skinny-verde-dame010ct.jpg"
+    ],
+    "imageLabels": [
+      "Calça skinny verde com cós elástico, bolsos laterais e recortes nas pernas — frente"
+    ],
+    "displayImages": [
+      "/catalog/calca-skinny-verde-dame010ct.jpg"
+    ]
   }
 ]

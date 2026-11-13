@@ -17,6 +17,29 @@ const nav = compile('app/lib/catalog-navigation.ts');
 const { catalogProducts: products } = compile('app/lib/catalog-individual.ts', { './catalog.json': JSON.parse(read('app/lib/catalog.json')) });
 const plain = value => JSON.parse(JSON.stringify(value));
 
+test('green skinny pants start at 2A while the separate wine jogger retains its 1-year sizes', () => {
+  const product = products.find(item => item.handle === 'calca-skinny-verde-dame010ct');
+  const wine = products.find(item => item.handle === 'calca-malha-jogger-vinho-dame010ct');
+  assert.ok(product);
+  assert.ok(wine);
+  assert.notEqual(product.handle, wine.handle);
+  assert.equal(product.price, 288);
+  assert.equal(wine.price, 268);
+  assert.deepEqual(plain(product.sizes), ['2A', '4A', '6A', '8A', '10A']);
+  assert.ok(wine.sizes.includes('12M'));
+  for (const category of ['bebe-meninos', 'bebe-meninos-calcas']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), true);
+    assert.deepEqual(plain(nav.productForCategory(product, category).sizes), ['2A']);
+  }
+  for (const category of ['crianca-meninos', 'crianca-meninos-calcas']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), true);
+    assert.deepEqual(plain(nav.productForCategory(product, category).sizes), ['2A', '4A', '6A', '8A', '10A']);
+  }
+  for (const category of ['bebe-meninas', 'crianca-meninas', 'bebe-meninos-shorts-e-bermuda', 'crianca-meninos-shorts']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), false);
+  }
+});
+
 test('wine jogger pants appear in both boys pants sections with only the requested age range', () => {
   const product = products.find(item => item.handle === 'calca-malha-jogger-vinho-dame010ct');
   assert.ok(product);

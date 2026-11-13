@@ -192,6 +192,7 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "camisa-jeans-azul-dame008ct": { type: "camisa-batas", audiences: ["meninos"] },
   "calca-skinny-verde-dame010ct": { type: "calcas", audiences: ["meninos"] },
   "calca-malha-jogger-vinho-dame010ct": { type: "calcas", audiences: ["meninos"] },
   "calca-sarja-social-azul-marinho": { type: "calcas", audiences: ["meninos"] },

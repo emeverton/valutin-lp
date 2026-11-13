@@ -4722,5 +4722,30 @@
     "displayImages": [
       "/catalog/calca-skinny-verde-dame010ct.jpg"
     ]
+  },
+  {
+    "title": "Camisa Jeans — Azul",
+    "handle": "camisa-jeans-azul-dame008ct",
+    "category": "crianca",
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Camisa jeans azul de manga longa, com gola, fechamento por botões, punhos e pequeno bordado de cavalinho no peito. Disponível de 4 a 12 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "OI26/26DAME008CT",
+    "price": 388,
+    "sizes": [
+      "4A",
+      "6A",
+      "8A",
+      "10A",
+      "12A"
+    ],
+    "images": [
+      "/catalog/camisa-jeans-azul-dame008ct.jpg"
+    ],
+    "imageLabels": [
+      "Camisa jeans azul de manga longa com botões e bordado de cavalinho no peito — frente"
+    ],
+    "displayImages": [
+      "/catalog/camisa-jeans-azul-dame008ct.jpg"
+    ]
   }
 ]

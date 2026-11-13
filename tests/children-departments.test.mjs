@@ -17,6 +17,20 @@ const nav = compile('app/lib/catalog-navigation.ts');
 const { catalogProducts: products } = compile('app/lib/catalog-individual.ts', { './catalog.json': JSON.parse(read('app/lib/catalog.json')) });
 const plain = value => JSON.parse(JSON.stringify(value));
 
+test('blue jeans shirt uses only the requested name and 4A to 12A in boys shirts', () => {
+  const product = products.find(item => item.handle === 'camisa-jeans-azul-dame008ct');
+  assert.ok(product);
+  assert.equal(product.price, 388);
+  assert.deepEqual(plain(product.sizes), ['4A', '6A', '8A', '10A', '12A']);
+  assert.doesNotMatch([product.title, product.description, ...product.imageLabels].join(' '), /\blinho\b/i);
+  for (const category of ['crianca-meninos', 'crianca-meninos-camisa-batas']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), true);
+  }
+  for (const category of ['bebe', 'bebe-meninos', 'crianca-meninas', 'crianca-meninos-camisetas', 'crianca-meninos-calcas']) {
+    assert.equal(nav.matchesCatalogCategory(product, category), false);
+  }
+});
+
 test('green skinny pants start at 2A while the separate wine jogger retains its 1-year sizes', () => {
   const product = products.find(item => item.handle === 'calca-skinny-verde-dame010ct');
   const wine = products.find(item => item.handle === 'calca-malha-jogger-vinho-dame010ct');

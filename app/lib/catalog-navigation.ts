@@ -66,6 +66,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "calca-malha-jogger-vinho-dame010ct": { type: "calcas", audiences: ["meninos"] },
   "calca-sarja-social-azul-marinho": { type: "calcas", audiences: ["meninos"] },
   "vestido-branco-casinha-abelha-vlt-josi004ct": { type: "vestido", audiences: ["meninas"] },
   "vestido-bordado-mao-floral-azul-vlt-nad014bb": { type: "vestido", audiences: ["meninas"] },
@@ -190,6 +191,7 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "calca-malha-jogger-vinho-dame010ct": { type: "calcas", audiences: ["meninos"] },
   "calca-sarja-social-azul-marinho": { type: "calcas", audiences: ["meninos"] },
   "conjunto-blusa-saia-branco-ge0011ct": { type: "conjuntos", audiences: ["meninas"] },
   "camiseta-branca-bordado-floral-ge013ct": { type: "camisetas", audiences: ["meninas"] },

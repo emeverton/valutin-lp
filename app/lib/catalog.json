@@ -4638,5 +4638,49 @@
     "displayImages": [
       "/catalog/calca-sarja-social-azul-marinho.jpg"
     ]
+  },
+  {
+    "title": "Calça de Malha Jogger — Vinho",
+    "handle": "calca-malha-jogger-vinho-dame010ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "calcas",
+    "description": "Calça de malha jogger vinho, com cós elástico, cordão claro na cintura, bolsos laterais e punhos nas barras. Disponível de 1 a 10 anos. Na seleção Bebê Meninos, tamanhos 12M (1 ano), 18M e 2A; na seleção Criança Meninos, de 2A a 10A. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "OI25/25DAME010CT",
+    "price": 268,
+    "sizes": [
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A",
+      "10A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A",
+        "10A"
+      ]
+    },
+    "images": [
+      "/catalog/calca-malha-jogger-vinho-dame010ct.jpg"
+    ],
+    "imageLabels": [
+      "Calça de malha jogger vinho com cordão claro, bolsos laterais e punhos nas barras — frente"
+    ],
+    "displayImages": [
+      "/catalog/calca-malha-jogger-vinho-dame010ct.jpg"
+    ]
   }
 ]

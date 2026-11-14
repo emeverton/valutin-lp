@@ -16,6 +16,29 @@ function compile(path, modules = {}) {
 }
 const navigation = compile('app/lib/catalog-navigation.ts');
 
+test('MAR034CT prints are available in boys baby and children pajamas with scoped sizes', () => {
+  const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR034CT');
+  assert.equal(products.length, 8);
+  assert.equal(new Set(products.map(product => product.displayImages[0])).size, 8);
+  for (const product of products) {
+    assert.equal(product.price, 238);
+    assert.match(product.title, /Bordado à Mão/);
+    assert.match(product.description, /bordado é feito à mão/);
+    for (const slug of ['bebe-meninos-pijama', 'crianca-meninos-pijama', 'pijamas-meninos']) {
+      assert.equal(navigation.matchesCatalogCategory(product, slug), true, slug);
+    }
+    for (const slug of ['bebe-meninas-pijama', 'crianca-meninas-pijama']) {
+      assert.equal(navigation.matchesCatalogCategory(product, slug), false, slug);
+    }
+    assert.deepEqual(Array.from(navigation.productForCategory(product, 'bebe-meninos-pijama').sizes), ['18M', '2A']);
+    assert.deepEqual(Array.from(navigation.productForCategory(product, 'crianca-meninos-pijama').sizes), ['4A', '6A', '8A']);
+    assert.deepEqual(product.sizes, ['18M', '2A', '4A', '6A', '8A']);
+  }
+  const menus = compile('app/lib/mega-menu.ts', { './catalog-navigation': navigation });
+  const boys = menus.megaMenuSections.find(section => section.key === 'bebe').columns.find(column => column.title === 'Meninos');
+  assert.equal(boys.links.find(link => link.label === 'Pijama').href, '/catalogo/categoria/bebe-meninos-pijama');
+});
+
 test('pajamas combine girls and boys only within the children department', () => {
   const products = [
     { handle: 'girl', category: 'crianca', catalogCategory: 'pijamas-meninas' },

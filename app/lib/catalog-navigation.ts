@@ -44,7 +44,7 @@ export const babySections = [
 ] as const;
 
 const babyTypes = [
-  { type: "pijama", label: "Pijama", audiences: ["meninas"] },
+  { type: "pijama", label: "Pijama", audiences: ["meninos", "meninas"] },
   { type: "camisetas", label: "Camisetas", audiences: ["meninas"] },
   { type: "body", label: "Body", audiences: ["meninos", "meninas"] },
   { type: "macacao", label: "Macacão", audiences: ["meninos", "meninas"] },
@@ -171,6 +171,7 @@ export function babyClassification(product: CategoryProduct): BabyAssignment | u
   if (product.category !== "bebe" && !product.additionalDepartments?.includes("bebe")) return undefined;
   const assigned = babyAssignments[product.handle ?? ""] ?? babyAssignments[product.sourceHandle ?? ""];
   if (assigned) return assigned;
+  if (product.catalogCategory === "pijamas-meninos") return { type: "pijama", audiences: ["meninos"] };
   if (product.catalogCategory === "pijamas-meninas") return { type: "pijama", audiences: ["meninas"] };
   return undefined;
 }

@@ -4750,5 +4750,317 @@
       "/catalog/camisa-jeans-azul-dame008ct-mangas-dobradas.jpg",
       "/catalog/camisa-jeans-azul-dame008ct.jpg"
     ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Pato — Azul Claro",
+    "handle": "pijama-short-pato-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com pato de boné sobre aplicação listrada azul e short azul claro com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-pato-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com pato de boné sobre aplicação listrada azul e short azul claro"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-pato-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Carrinhos — Azul Claro",
+    "handle": "pijama-short-carrinhos-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com três carrinhos coloridos e short azul claro com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-carrinhos-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com três carrinhos coloridos e short azul claro"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-carrinhos-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Urso — Verde Sálvia",
+    "handle": "pijama-short-urso-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com urso sobre aplicação listrada verde e short verde sálvia com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-urso-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com urso sobre aplicação listrada verde e short verde sálvia"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-urso-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Elefante — Azul",
+    "handle": "pijama-short-elefante-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com elefantinho e nuvens sobre aplicação listrada azul e short azul com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-elefante-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com elefantinho e nuvens sobre aplicação listrada azul e short azul"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-elefante-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Caminhonete com Balões — Azul",
+    "handle": "pijama-short-caminhonete-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com caminhonete azul com balões coloridos e short azul com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-caminhonete-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com caminhonete azul com balões coloridos e short azul"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-caminhonete-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Patinhos — Verde",
+    "handle": "pijama-short-patinhos-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com três patinhos coloridos e short verde com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-patinhos-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com três patinhos coloridos e short verde"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-patinhos-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Caminhão de Bombeiro — Azul Marinho",
+    "handle": "pijama-short-bombeiro-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com caminhão de bombeiro vermelho e short azul marinho com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-bombeiro-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com caminhão de bombeiro vermelho e short azul marinho"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-bombeiro-vlt-mar034ct.png"
+    ]
+  },
+  {
+    "title": "Pijama Short Bordado à Mão Leão — Verde",
+    "handle": "pijama-short-leao-vlt-mar034ct",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com leão sobre aplicação xadrez verde e short verde com cós elástico O bordado é feito à mão. Disponível para bebê menino em 18 meses e 2 anos, e para meninos em 4, 6 e 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT MAR034CT",
+    "price": 238,
+    "sizes": [
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog-pijamas/pijama-short-leao-vlt-mar034ct.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com leão sobre aplicação xadrez verde e short verde"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-leao-vlt-mar034ct.png"
+    ]
   }
 ]

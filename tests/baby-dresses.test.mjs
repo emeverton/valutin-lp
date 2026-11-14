@@ -12,11 +12,31 @@ vm.runInNewContext(ts.transpileModule(read('app/lib/catalog-navigation.ts'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText, { exports: navigation });
 
+test('blue NAD004BB dress appears in both girls departments with the confirmed size range', () => {
+  const products = JSON.parse(read('app/lib/catalog.json'));
+  const dress = products.find(product => product.handle === 'vestido-casinha-abelha-azul-vlt-nad004bb');
+  assert.ok(dress);
+  assert.equal(products.filter(product => product.handle === dress.handle).length, 1);
+  assert.equal(dress.reference, 'VLT NAD004BB');
+  assert.equal(dress.price, 558);
+  assert.deepEqual(dress.sizes, ['6M', '9M', '12M', '18M', '2A', '4A', '6A', '8A']);
+  for (const slug of ['bebe-meninas-vestido', 'crianca-meninas-vestido', 'vestidos-bebe', 'vestidos-crianca']) {
+    assert.equal(navigation.matchesCatalogCategory(dress, slug), true, slug);
+  }
+  assert.deepEqual(Array.from(navigation.productForCategory(dress, 'bebe-meninas-vestido').sizes), ['6M', '9M', '12M', '18M', '2A']);
+  assert.deepEqual(Array.from(navigation.productForCategory(dress, 'crianca-meninas-vestido').sizes), ['2A', '4A', '6A', '8A']);
+  assert.equal(navigation.matchesCatalogCategory(dress, 'bebe-meninos'), false);
+  assert.equal(navigation.matchesCatalogCategory(dress, 'crianca-meninos'), false);
+  assert.equal(dress.images.length, 2);
+  assert.match(dress.images[0], /frente/);
+  assert.match(dress.images[1], /costas/);
+});
+
 test('baby dress category includes every baby dress and excludes other departments and garments', () => {
   const products = JSON.parse(read('app/lib/catalog.json'));
   const dresses = products.filter(product => navigation.matchesCatalogCategory(product, 'vestidos-bebe'));
   assert.deepEqual(dresses.map(product => product.handle).sort(), [
-    'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-mao-floral-azul-vlt-nad014bb', 'vestido-bordado-mao-xadrez-azul-vlt-nad014bb', 'vestido-bordado-rosa', 'vestido-bordado-verde', 'vestido-branco-casinha-abelha-vlt-josi004ct', 'vestido-casinha-abelha-lilas-vlt-nad004bb', 'vestido-linho-bordado-mao-azul-vlt-nad009bb', 'vestido-linho-bordado-mao-branco-vlt-nad009bb', 'vestido-linho-bordado-mao-rosa-vlt-nad009bb', 'vestido-linho-bordado-mao-verde-vlt-nad009bb', 'vestido-listrado-laranja-pv26-27ange008ct', 'vestido-malha-estampa-exclusiva-vlt-geni012ct', 'vestido-tricoline-estampa-exclusiva-rosas-azuis',
+    'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-mao-floral-azul-vlt-nad014bb', 'vestido-bordado-mao-xadrez-azul-vlt-nad014bb', 'vestido-bordado-rosa', 'vestido-bordado-verde', 'vestido-branco-casinha-abelha-vlt-josi004ct', 'vestido-casinha-abelha-azul-vlt-nad004bb', 'vestido-casinha-abelha-lilas-vlt-nad004bb', 'vestido-linho-bordado-mao-azul-vlt-nad009bb', 'vestido-linho-bordado-mao-branco-vlt-nad009bb', 'vestido-linho-bordado-mao-rosa-vlt-nad009bb', 'vestido-linho-bordado-mao-verde-vlt-nad009bb', 'vestido-listrado-laranja-pv26-27ange008ct', 'vestido-malha-estampa-exclusiva-vlt-geni012ct', 'vestido-tricoline-estampa-exclusiva-rosas-azuis',
   ]);
   for (const product of products) {
     assert.equal(navigation.matchesCatalogCategory(product, 'vestidos-bebe'), (product.category === 'bebe' || product.additionalDepartments?.includes('bebe') === true) && product.catalogCategory === 'vestidos');

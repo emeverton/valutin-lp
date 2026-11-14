@@ -5062,5 +5062,54 @@
     "displayImages": [
       "/catalog-pijamas/pijama-short-leao-vlt-mar034ct.png"
     ]
+  },
+  {
+    "title": "Vestido Casinha de Abelha Bordado à Mão — Azul",
+    "handle": "vestido-casinha-abelha-azul-vlt-nad004bb",
+    "category": "crianca",
+    "additionalDepartments": [
+      "bebe"
+    ],
+    "catalogCategory": "vestidos",
+    "description": "Vestido azul com casinha de abelha bordada à mão e flores delicadas no peito e na gola branca arredondada. Mangas curtas bufantes, saia franzida e laço nas costas na altura da cintura. Disponível de 6 meses a 8 anos. Consulte a disponibilidade do tamanho com nossa equipe.",
+    "reference": "VLT NAD004BB",
+    "price": 558,
+    "sizes": [
+      "6M",
+      "9M",
+      "12M",
+      "18M",
+      "2A",
+      "4A",
+      "6A",
+      "8A"
+    ],
+    "sizesByDepartment": {
+      "bebe": [
+        "6M",
+        "9M",
+        "12M",
+        "18M",
+        "2A"
+      ],
+      "crianca": [
+        "2A",
+        "4A",
+        "6A",
+        "8A"
+      ]
+    },
+    "images": [
+      "/catalog/vestido-casinha-abelha-azul-vlt-nad004bb-frente.png",
+      "/catalog/vestido-casinha-abelha-azul-vlt-nad004bb-costas.png"
+    ],
+    "imageLabels": [
+      "Frente do vestido azul com casinha de abelha bordada à mão e flores na gola branca",
+      "Costas do vestido azul com botões e laço centralizado na cintura"
+    ],
+    "displayImages": [
+      "/catalog/vestido-casinha-abelha-azul-vlt-nad004bb-frente.png",
+      "/catalog/vestido-casinha-abelha-azul-vlt-nad004bb-costas.png"
+    ]
   }
 ]

@@ -2841,6 +2841,45 @@
     ]
   },
   {
+    "title": "Macacão Básico Dolce — Azul-Marinho",
+    "handle": "macacao-basico-vlt-dolce015bb-azul-marinho",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de tricô azul-marinho com bordado floral em tons de azul, pezinhos fechados e abertura entre as pernas com botões. Na foto, a peça aparece com gola branca bordada.",
+    "reference": "VLT DOLCE015BB",
+    "price": 559,
+    "sizes": ["RN", "P"],
+    "images": ["/catalog-maternidade/macacao-basico-vlt-dolce015bb-azul-marinho.png"],
+    "imageLabels": ["Macacão Básico Dolce azul-marinho com gola bordada sobre fundo off-white"],
+    "displayImages": ["/catalog-maternidade/macacao-basico-vlt-dolce015bb-azul-marinho.png"]
+  },
+  {
+    "title": "Macacão Básico Dolce — Branco",
+    "handle": "macacao-basico-vlt-dolce015bb-branco",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de tricô branco com bordado floral em tons de rosé, pezinhos fechados e abertura entre as pernas com botões. Na foto, a peça aparece com gola branca bordada.",
+    "reference": "VLT DOLCE015BB",
+    "price": 559,
+    "sizes": ["RN", "P"],
+    "images": ["/catalog-maternidade/macacao-basico-vlt-dolce015bb-branco.png"],
+    "imageLabels": ["Macacão Básico Dolce branco com gola bordada sobre fundo off-white"],
+    "displayImages": ["/catalog-maternidade/macacao-basico-vlt-dolce015bb-branco.png"]
+  },
+  {
+    "title": "Macacão Básico Dolce — Rosé",
+    "handle": "macacao-basico-vlt-dolce015bb-rose",
+    "category": "maternidade",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de tricô rosé com bordado floral em tons de creme e rosa, pezinhos fechados e abertura entre as pernas com botões. Na foto, a peça aparece com gola branca bordada.",
+    "reference": "VLT DOLCE015BB",
+    "price": 559,
+    "sizes": ["RN", "P"],
+    "images": ["/catalog-maternidade/macacao-basico-vlt-dolce015bb-rose.png"],
+    "imageLabels": ["Macacão Básico Dolce rosé com gola bordada sobre fundo off-white"],
+    "displayImages": ["/catalog-maternidade/macacao-basico-vlt-dolce015bb-rose.png"]
+  },
+  {
     "title": "Macacão Dolce em Tricô com Flores — Amarelo Claro",
     "handle": "macacao-trico-flores-vlt-dolce116bb",
     "category": "maternidade",

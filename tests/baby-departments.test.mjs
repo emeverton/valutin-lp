@@ -19,6 +19,23 @@ const nav = compile('app/lib/catalog-navigation.ts');
 const { catalogProducts: products } = compile('app/lib/catalog-individual.ts', { './catalog.json': source });
 const plain = value => JSON.parse(JSON.stringify(value));
 
+test('MAR131BB is one boys body with four finishes and MAR127BB is its own boys body', () => {
+  const [plainPolo, fishingBear] = ['VLT MAR131BB', 'VLT MAR127BB'].map(reference => {
+    const pieces = products.filter(product => product.reference === reference);
+    assert.equal(pieces.length, 1, reference);
+    const [product] = pieces;
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninos-body'), true);
+    assert.equal(nav.matchesCatalogCategory(product, 'bebe-meninas-body'), false);
+    assert.deepEqual(plain(product.sizes), ['6M', '9M', '12M', '18M', '2A']);
+    return product;
+  });
+  assert.equal(plainPolo.price, 108);
+  assert.deepEqual(plain(plainPolo.images.map(photo => plainPolo.buttonFinishes[photo])),
+    ['Costura azul', 'Costura clara', 'Costura vermelha', 'Costura preta']);
+  assert.equal(fishingBear.price, 128);
+  assert.deepEqual(plain(fishingBear.displayImages), ['/catalog/body-polo-ursinho-pescador-vlt-mar127bb.jpg']);
+});
+
 test('fleece shorts appear in girls shorts with only 2A in babies and 2A to 12A in children', () => {
   for (const color of ['vermelho', 'azul', 'marinho']) {
     const product = products.find(item => item.handle === `shorts-fleece-${color}-ge005ct`);

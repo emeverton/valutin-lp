@@ -1383,7 +1383,26 @@
     "sizes": ["6M", "9M", "12M", "18M", "2A"],
     "images": ["/catalog/body-polo-branco-vlt-mar131bb-azul.png", "/catalog/body-polo-branco-vlt-mar131bb-claro.png", "/catalog/body-polo-branco-vlt-mar131bb-vermelho.png", "/catalog/body-polo-branco-vlt-mar131bb-preto.png"],
     "imageLabels": ["Body polo branco com costura azul nos botões e detalhe xadrez azul na parte interna da gola", "Body polo branco com costura clara nos botões e detalhe xadrez azul na parte interna da gola", "Body polo branco com costura vermelha nos botões", "Body polo branco com costura preta nos botões"],
+    "buttonFinishes": {
+      "/catalog/body-polo-branco-vlt-mar131bb-azul.png": "Costura azul",
+      "/catalog/body-polo-branco-vlt-mar131bb-claro.png": "Costura clara",
+      "/catalog/body-polo-branco-vlt-mar131bb-vermelho.png": "Costura vermelha",
+      "/catalog/body-polo-branco-vlt-mar131bb-preto.png": "Costura preta"
+    },
     "displayImages": ["/catalog/body-polo-branco-vlt-mar131bb-azul.png", "/catalog/body-polo-branco-vlt-mar131bb-claro.png", "/catalog/body-polo-branco-vlt-mar131bb-vermelho.png", "/catalog/body-polo-branco-vlt-mar131bb-preto.png"]
+  },
+  {
+    "title": "Body Polo Ursinho Pescador",
+    "handle": "body-polo-ursinho-pescador-vlt-mar127bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body branco com estampa de ursinhos pescadores, gola polo, mangas curtas, três botões na frente e fechamento por botões de pressão entre as pernas.",
+    "reference": "VLT MAR127BB",
+    "price": 128,
+    "sizes": ["6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog/body-polo-ursinho-pescador-vlt-mar127bb.jpg"],
+    "imageLabels": ["Body polo branco de manga curta com estampa de ursinhos pescadores"],
+    "displayImages": ["/catalog/body-polo-ursinho-pescador-vlt-mar127bb.jpg"]
   },
   {
     "title": "Body Polo — Branco",

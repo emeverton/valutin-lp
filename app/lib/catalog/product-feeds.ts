@@ -14,6 +14,7 @@ type CatalogProduct = {
   reference?: string | null;
   sizes: string[];
   displayImages: string[];
+  buttonFinishes?: Partial<Record<string, string>>;
   linxSku?: string;
   linxSkus?: Record<string, string>;
   stock?: Record<string, number> | null;
@@ -74,6 +75,7 @@ function configuredVariants(product: CatalogProduct): Array<{ sku: string; size?
 async function variants(product: CatalogProduct): Promise<Array<{ sku: string; size?: string }>> {
   const configured = configuredVariants(product);
   if (configured.length) return configured;
+  if (product.buttonFinishes) return [];
   const reference = String(product.reference || "").trim();
   if (!reference) return [];
   return (await getLinxSkusForReference(reference)).map((sku) => ({ sku }));

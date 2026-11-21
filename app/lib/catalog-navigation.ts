@@ -137,6 +137,7 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "body-gola-borboletas-azuis-vlt-mar120bb": { type: "body", audiences: ["meninas"] },
   "body-polo-branco-vlt-mar060bb": { type: "body", audiences: ["meninos"] },
   "body-polo-branco-vlt-mar131bb": { type: "body", audiences: ["meninos"] },
+  "body-polo-ursinho-pescador-vlt-mar127bb": { type: "body", audiences: ["meninos"] },
   "body-gola-offwhite-vlt-mar060bb": { type: "body", audiences: ["meninos"] },
   "shorts-algodao": { type: "shorts-e-bermuda", audiences: ["meninos"] },
   "vestido-algodao-bordado": { type: "vestido", audiences: ["meninas"] },

@@ -24,6 +24,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/catalogo/body-polo-branco-vlt-mar131bb-:finish(azul|claro|vermelho|preto)",
+        destination: "/catalogo/body-polo-branco-vlt-mar131bb",
+        permanent: true,
+      },
+      {
         source: "/catalogo/categoria/crianca-meninas-saia",
         destination: "/catalogo/categoria/crianca-meninas-shorts",
         permanent: true,

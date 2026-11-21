@@ -18,6 +18,7 @@ const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL
 type Product = {
   title: string; handle: string; sourceHandle?: string; description: string; price: number | null; sizes: string[]; stock?: Record<string, number> | null;
   images: string[]; displayImages: string[]; imageLabels: string[]; colors?: string[];
+  buttonFinishes?: Partial<Record<string, string>>;
   colorTitle?: string; photoNote?: string; componentPrices?: CompositionItem[]; reference?: string | null; linxSku?: string; linxSkus?: Record<string, string>; category: string; catalogCategory: string;
 };
 type StockState = { configured: boolean; status?: "available" | "out_of_stock" | "not_found"; scope?: "sku" | "reference"; checkedSku?: string } | null;
@@ -37,10 +38,10 @@ export default function ProductDetail({ product, categoryTrail = productCategory
     const requestedSize = Object.entries(product.linxSkus || {}).find(([, mappedSku]) => mappedSku === requestedSku)?.[0];
     // A family reference can contain several colors. Only a product-specific
     // mapping proves that a SKU belongs to an individual color/print PDP.
-    if (!requestedSize && requestedSku !== product.linxSku && (product.sourceHandle || !product.reference)) return;
+    if (!requestedSize && requestedSku !== product.linxSku && (product.sourceHandle || product.buttonFinishes || !product.reference)) return;
     setRequestedSku(requestedSku);
     if (requestedSize) setSize(requestedSize);
-  }, [product.linxSku, product.linxSkus, product.reference, product.sourceHandle]);
+  }, [product.linxSku, product.linxSkus, product.reference, product.sourceHandle, product.buttonFinishes]);
 
   useEffect(() => {
     const reference = product.reference || "";
@@ -73,7 +74,9 @@ export default function ProductDetail({ product, categoryTrail = productCategory
     return () => window.removeEventListener(COOKIE_CONSENT_EVENT, emit);
   }, [product.price, product.title, sku, stock]);
 
-  const text = "Olá! Gostaria de consultar " + product.title + ", tamanho " + (size || "a confirmar") + ", e disponibilidade.";
+  const buttonFinish = product.buttonFinishes?.[product.images[image]];
+  const pieceTitle = buttonFinish ? `${product.title} com ${buttonFinish.toLowerCase()} nos botões` : product.title;
+  const text = "Olá! Gostaria de consultar " + pieceTitle + ", tamanho " + (size || "a confirmar") + ", e disponibilidade.";
   const reserveParams = new URLSearchParams({ src: "produto", produto: product.sourceHandle || product.handle, peca: product.title, text });
   const consultParams = new URLSearchParams({ src: "produto_consulta", peca: product.title, text });
   if (sku) reserveParams.set("sku", sku);
@@ -128,6 +131,21 @@ export default function ProductDetail({ product, categoryTrail = productCategory
         <p className="mt-7 font-poppins text-sm leading-relaxed text-ink/75">{product.description}</p>
         {variants.length > 1 && <div className="mt-7"><h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Cores e estampas deste modelo</h2><div className="mt-3 flex flex-wrap gap-2">{variants.map((variant) => <Link key={variant.handle} href={`/catalogo/${variant.handle}`} aria-current={variant.handle === product.handle ? "page" : undefined} title={variant.title} className={`catalog-product-surface relative block h-20 w-16 overflow-hidden border p-1 transition hover:border-brand-strong ${variant.handle === product.handle ? "border-brand-strong" : "border-ink/20"}`}><Image src={variant.displayImages[0]} alt={variant.title} fill sizes="64px" className={catalogImageClass(variant.displayImages[0])}/></Link>)}</div><p className="mt-2 font-poppins text-xs text-ink/60">{product.title} selecionado</p></div>}
         {product.colors && <div className="mt-7"><h2 className="font-poppins text-xs uppercase tracking-[0.13em]">{product.colorTitle ?? "Cores"}</h2><p className="mt-3 font-poppins text-sm">{product.colors.join(" · ")}</p></div>}
+        {product.buttonFinishes && <fieldset className="mt-7">
+          <legend className="font-poppins text-xs uppercase tracking-[0.13em]">Acabamento dos botões</legend>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {product.images.map((src, index) => {
+              const finish = product.buttonFinishes?.[src];
+              return finish && <button
+                key={src}
+                type="button"
+                onClick={() => setImage(index)}
+                aria-pressed={image === index}
+                className={"min-h-11 border px-3 font-poppins text-sm " + (image === index ? "border-brand-strong bg-brand-strong text-white" : "border-ink/25 hover:border-ink")}
+              >{finish}</button>;
+            })}
+          </div>
+        </fieldset>}
         {!product.componentPrices?.length && <div className="mt-8">
           <h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Tamanho</h2>
           {product.sizes.length === 1 && product.sizes[0] === "Sob consulta" ? <p className="mt-4 font-poppins text-sm text-ink/65">Tamanhos sob consulta</p> : <div className="mt-4 flex flex-wrap gap-2">{product.sizes.map((item) => <button key={item} type="button" onClick={() => setSize(item)} aria-pressed={size === item} className={"min-h-11 min-w-12 border px-3 font-poppins text-sm " + (size === item ? "border-brand-strong bg-brand-strong text-white" : "border-ink/25 hover:border-ink")}>{item}</button>)}</div>}

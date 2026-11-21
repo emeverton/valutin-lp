@@ -4882,6 +4882,37 @@
     ]
   },
   {
+    "title": "Pijama Short Elefantinho",
+    "handle": "pijama-short-elefantinho-vlt-maro34ct",
+    "category": "crianca",
+    "catalogCategory": "pijamas-meninos",
+    "description": "Pijama com camiseta off-white de manga curta com elefantinho no peito e short com cós elástico. Disponível em verde, azul claro e azul-marinho.",
+    "reference": "VLT MARO34CT",
+    "price": 238,
+    "sizes": [
+      "8A",
+      "10A",
+      "12A",
+      "14A",
+      "16A"
+    ],
+    "images": [
+      "/catalog-pijamas/pijama-short-elefantinho-vlt-maro34ct-verde.png",
+      "/catalog-pijamas/pijama-short-elefantinho-vlt-maro34ct-azul-claro.png",
+      "/catalog-pijamas/pijama-short-elefantinho-vlt-maro34ct-azul-marinho.png"
+    ],
+    "imageLabels": [
+      "Camiseta off-white com elefantinho e short verde",
+      "Camiseta off-white com elefantinho e short azul claro",
+      "Camiseta off-white com elefantinho e short azul-marinho"
+    ],
+    "displayImages": [
+      "/catalog-pijamas/pijama-short-elefantinho-vlt-maro34ct-verde.png",
+      "/catalog-pijamas/pijama-short-elefantinho-vlt-maro34ct-azul-claro.png",
+      "/catalog-pijamas/pijama-short-elefantinho-vlt-maro34ct-azul-marinho.png"
+    ]
+  },
+  {
     "title": "Pijama Short Bordado à Mão Urso — Verde Sálvia",
     "handle": "pijama-short-urso-vlt-mar034ct",
     "category": "crianca",

@@ -9,6 +9,11 @@ type Piece = { suffix: string; title: string; imageIndices: number[] };
 // Each distinct color/print gets its own catalog card. Photos listed together
 // below are alternate views of that same piece, not selectable variants.
 const piecesByProduct: Record<string, Piece[]> = {
+  "pijama-short-elefantinho-vlt-maro34ct": [
+    { suffix: "verde", title: "Pijama Short Elefantinho — Verde", imageIndices: [0] },
+    { suffix: "azul-claro", title: "Pijama Short Elefantinho — Azul Claro", imageIndices: [1] },
+    { suffix: "azul-marinho", title: "Pijama Short Elefantinho — Azul-marinho", imageIndices: [2] },
+  ],
   "toalha-ultrasec-vlt-lb003ac": [
     { suffix: "rosa", title: "Toalha Ultrasec — Rosa", imageIndices: [0] },
     { suffix: "bege", title: "Toalha Ultrasec — Bege", imageIndices: [1] },

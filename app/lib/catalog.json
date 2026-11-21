@@ -1373,6 +1373,19 @@
     "displayImages": ["/catalog-pijamas/pijama-menino-elefantinho-vlt-mar025ct-etiqueta-original-valutin.jpg"]
   },
   {
+    "title": "Body Polo Branco",
+    "handle": "body-polo-branco-vlt-mar131bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Body branco com gola polo, mangas curtas, três botões na frente e fechamento por botões de pressão entre as pernas.",
+    "reference": "VLT MAR131BB",
+    "price": 108,
+    "sizes": ["6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog/body-polo-branco-vlt-mar131bb-azul.png", "/catalog/body-polo-branco-vlt-mar131bb-claro.png", "/catalog/body-polo-branco-vlt-mar131bb-vermelho.png", "/catalog/body-polo-branco-vlt-mar131bb-preto.png"],
+    "imageLabels": ["Body polo branco com costura azul nos botões e detalhe xadrez azul na parte interna da gola", "Body polo branco com costura clara nos botões e detalhe xadrez azul na parte interna da gola", "Body polo branco com costura vermelha nos botões", "Body polo branco com costura preta nos botões"],
+    "displayImages": ["/catalog/body-polo-branco-vlt-mar131bb-azul.png", "/catalog/body-polo-branco-vlt-mar131bb-claro.png", "/catalog/body-polo-branco-vlt-mar131bb-vermelho.png", "/catalog/body-polo-branco-vlt-mar131bb-preto.png"]
+  },
+  {
     "title": "Body Polo — Branco",
     "handle": "body-polo-branco-vlt-mar060bb",
     "category": "bebe",

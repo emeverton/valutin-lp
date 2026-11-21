@@ -1,5 +1,35 @@
 [
   {
+    "title": "Vestido de Boneca",
+    "handle": "vestido-de-boneca-vlt-valoo2ac",
+    "category": "crianca",
+    "catalogCategory": "vestidos-de-boneca",
+    "description": "Vestido para boneca sem mangas, com decote redondo e saia rodada. Consulte as medidas para saber se serve na sua boneca.",
+    "reference": "VLT VALOO2AC",
+    "price": 75,
+    "sizes": [
+      "Sob consulta"
+    ],
+    "images": [
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-laise-laranja.png",
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-floral-colorido.png",
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-floral-vermelho.png",
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-floral-amarelo.png"
+    ],
+    "imageLabels": [
+      "Vestido de boneca laranja em laise floral, com saia de pregas e barra ondulada",
+      "Vestido de boneca branco com flores pequenas coloridas e saia franzida",
+      "Vestido de boneca branco com flores vermelhas e folhas verdes",
+      "Vestido de boneca branco com flores amarelas e folhas verdes"
+    ],
+    "displayImages": [
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-laise-laranja.png",
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-floral-colorido.png",
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-floral-vermelho.png",
+      "/catalog/vestido-de-boneca-vlt-valoo2ac-floral-amarelo.png"
+    ]
+  },
+  {
     "title": "Camiseta Algodão",
     "handle": "camiseta-algodao",
     "category": "crianca",

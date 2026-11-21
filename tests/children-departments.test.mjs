@@ -117,7 +117,7 @@ test('children open boys and girls with the requested separate categories', () =
   assert.deepEqual(plain(nav.departments.find(item => item.slug === 'crianca').links), ['crianca-meninos', 'crianca-meninas', 'banho-crianca']);
   for (const [section, labels] of [
     ['crianca-meninos', ['Camisetas', 'Camisa/Batas', 'Shorts/Bermudas', 'Conjuntos', 'Calças', 'Cardigan', 'Pijama']],
-    ['crianca-meninas', ['Camisetas', 'Camisa/Batas', 'Shorts/Shorts-saia/Saias', 'Conjuntos', 'Calças', 'Vestidos', 'Cardigan', 'Pijama']],
+    ['crianca-meninas', ['Camisetas', 'Camisa/Batas', 'Shorts/Shorts-saia/Saias', 'Conjuntos', 'Calças', 'Vestidos', 'Vestidos de Boneca', 'Cardigan', 'Pijama']],
   ]) assert.deepEqual(plain(nav.childrenCategories.filter(item => item.parent === section).map(item => item.label)), labels);
   assert.equal(nav.isCatalogCategory('crianca-meninas-saia'), false);
   const menu = compile('app/lib/mega-menu.ts', { './catalog-navigation': nav }).megaMenuSections.find(item => item.key === 'crianca');

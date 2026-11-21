@@ -191,6 +191,7 @@ const childrenTypes = [
   { type: "conjuntos", label: "Conjuntos", audiences: ["meninos", "meninas"] },
   { type: "calcas", label: "Calças", audiences: ["meninos", "meninas"] },
   { type: "vestido", label: "Vestidos", audiences: ["meninas"] },
+  { type: "vestidos-de-boneca", label: "Vestidos de Boneca", audiences: ["meninas"] },
   { type: "cardigan", label: "Cardigan", audiences: ["meninos", "meninas"] },
   { type: "pijama", label: "Pijama", audiences: ["meninos", "meninas"] },
 ] as const;
@@ -251,6 +252,7 @@ export function childrenClassification(product: CategoryProduct): ChildrenAssign
   const assigned = childrenAssignments[product.handle ?? ""] ?? childrenAssignments[product.sourceHandle ?? ""];
   if (assigned) return assigned;
   if (product.catalogCategory === "vestidos") return { type: "vestido", audiences: ["meninas"] };
+  if (product.catalogCategory === "vestidos-de-boneca") return { type: "vestidos-de-boneca", audiences: ["meninas"] };
   if (product.catalogCategory === "pijamas-meninos") return { type: "pijama", audiences: ["meninos"] };
   if (product.catalogCategory === "pijamas-meninas") return { type: "pijama", audiences: ["meninas"] };
   if (product.catalogCategory === "pijamas") return { type: "pijama", audiences: ["meninos", "meninas"] };

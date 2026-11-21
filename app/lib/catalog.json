@@ -893,6 +893,19 @@
     ]
   },
   {
+    "title": "Conjunto Body Polo e Shorts",
+    "handle": "conjunto-body-polo-shorts-pv26-27ge012bb",
+    "category": "bebe",
+    "catalogCategory": "bodys-e-conjuntos",
+    "description": "Conjunto com body polo branco de manga curta e shorts com bolsos frontais e barra dobrada.",
+    "reference": "PV26/27GE012BB",
+    "price": 269,
+    "sizes": ["6M", "9M", "12M", "18M", "2A"],
+    "images": ["/catalog/conjunto-body-polo-shorts-pv26-27ge012bb-rosa.png", "/catalog/conjunto-body-polo-shorts-pv26-27ge012bb-azul-acinzentado.png"],
+    "imageLabels": ["Body polo branco com costura vermelha nos botões e shorts rosa", "Body polo branco com costura escura nos botões e shorts azul acinzentado"],
+    "displayImages": ["/catalog/conjunto-body-polo-shorts-pv26-27ge012bb-rosa.png", "/catalog/conjunto-body-polo-shorts-pv26-27ge012bb-azul-acinzentado.png"]
+  },
+  {
     "title": "Conjunto Camisa e Shorts — Verde",
     "handle": "conjunto-camisa-shorts-verde",
     "category": "bebe",

@@ -9,6 +9,9 @@ import { getCatalogProducts } from "../../lib/editor/catalog-store";
 import { categoryHref, productCategoryTrail, productForCategory } from "../../lib/catalog-navigation";
 
 const siteUrl = "https://www.valutin.com.br";
+const matchingPairs = [
+  ["vestido-de-boneca-vlt-valoo2ac-laise-laranja", "conjunto-laise-laranja"],
+];
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { handle: string } }): Promise<Metadata> {
@@ -26,9 +29,12 @@ export async function generateMetadata({ params }: { params: { handle: string } 
   };
 }
 export default async function ProductPage({ params, searchParams }: { params: { handle: string }; searchParams?: { categoria?: string } }) {
-  const sourceProduct = (await getCatalogProducts()).find((item) => item.handle === params.handle);
+  const products = await getCatalogProducts();
+  const sourceProduct = products.find((item) => item.handle === params.handle);
   if (!sourceProduct) notFound();
   const product = productForCategory(sourceProduct, searchParams?.categoria);
+  const matchingHandle = matchingPairs.find((pair) => pair.includes(product.handle))?.find((handle) => handle !== product.handle);
+  const matchingPiece = products.find((item) => item.handle === matchingHandle);
   const url = `${siteUrl}/catalogo/${product.handle}`;
   const categoryTrail = productCategoryTrail(product, searchParams?.categoria);
   const breadcrumbItems = [
@@ -58,6 +64,6 @@ export default async function ProductPage({ params, searchParams }: { params: { 
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-    <a href="#main-content" className="skip-link">Pular para o conteúdo</a><GtmSnippet/><AnnouncementBar/><Header/><main id="main-content" tabIndex={-1} className="pt-[142px]"><ProductDetail product={product} categoryTrail={categoryTrail}/></main><Footer/>
+    <a href="#main-content" className="skip-link">Pular para o conteúdo</a><GtmSnippet/><AnnouncementBar/><Header/><main id="main-content" tabIndex={-1} className="pt-[142px]"><ProductDetail product={product} categoryTrail={categoryTrail} matchingPiece={matchingPiece && { handle: matchingPiece.handle, title: matchingPiece.title }}/></main><Footer/>
   </>;
 }

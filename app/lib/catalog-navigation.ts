@@ -142,6 +142,7 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "shorts-algodao": { type: "shorts-e-bermuda", audiences: ["meninos"] },
   "vestido-algodao-bordado": { type: "vestido", audiences: ["meninas"] },
   "conjunto-camisa-shorts-verde": { type: "conjunto", audiences: ["meninos"] },
+  "conjunto-body-polo-shorts-pv26-27ge012bb": { type: "conjunto", audiences: ["meninos"] },
   "conjunto-camisa-shorts-azul": { type: "conjunto", audiences: ["meninos"] },
   "macacao-curto-azul-bordado": { type: "bloomer", audiences: ["meninas"] },
   "jardineira-carrinhos": { type: "jardineira", audiences: ["meninos"] },

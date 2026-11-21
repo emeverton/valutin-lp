@@ -118,6 +118,7 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "conjunto-camiseta-shorts-basico-safari-hayooqct": { type: "conjunto", audiences: ["meninos"] },
   "conjunto-camiseta-shorts-basico-coqueiros-hayooqct": { type: "conjunto", audiences: ["meninos"] },
   "vestido-malha-estampa-exclusiva-vlt-geni012ct": { type: "vestido", audiences: ["meninas"] },
+  "vestido-malha-floral-vlt-geni015ct": { type: "vestido", audiences: ["meninas"] },
   "vestido-listrado-laranja-pv26-27ange008ct": { type: "vestido", audiences: ["meninas"] },
   "macacao-algodao-egipcio-coral-flores": { type: "macacao", audiences: ["meninas"] },
   "macacao-tricoline": { type: "macacao", audiences: ["meninos"] },
@@ -286,7 +287,7 @@ export function matchesCatalogCategory(product: CategoryProduct, slug: string) {
 }
 
 export const categoryHref = (slug: string, department?: string) => `/catalogo/categoria/${departmentCategories.find((category) => category.catalogCategory === slug && category.department === department)?.slug ?? slug}`;
-export const productHref = (handle: string) => `/catalogo/${handle}`;
+export const productHref = (handle: string, category?: string) => `/catalogo/${handle}${category ? `?categoria=${encodeURIComponent(category)}` : ""}`;
 
 export function categoryAncestors(slug: string): string[] {
   const selected = selectionCategories.find((item) => item.slug === slug);

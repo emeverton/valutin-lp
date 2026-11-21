@@ -37,7 +37,8 @@ test('baby dress category includes every baby dress and excludes other departmen
   const dresses = products.filter(product => navigation.matchesCatalogCategory(product, 'vestidos-bebe'));
   assert.deepEqual(dresses.map(product => product.handle).sort(), [
     'vestido-algodao-bordado', 'vestido-bebe-bordado-azul-kds005ct', 'vestido-bebe-listrado-laranja-ange007bb', 'vestido-bordado-azul-claro', 'vestido-bordado-creme', 'vestido-bordado-listrado-azul', 'vestido-bordado-mao-floral-azul-vlt-nad014bb', 'vestido-bordado-mao-xadrez-azul-vlt-nad014bb', 'vestido-bordado-rosa', 'vestido-bordado-verde', 'vestido-branco-casinha-abelha-vlt-josi004ct', 'vestido-casinha-abelha-azul-vlt-nad004bb', 'vestido-casinha-abelha-lilas-vlt-nad004bb', 'vestido-linho-bordado-mao-azul-vlt-nad009bb', 'vestido-linho-bordado-mao-branco-vlt-nad009bb', 'vestido-linho-bordado-mao-rosa-vlt-nad009bb', 'vestido-linho-bordado-mao-verde-vlt-nad009bb', 'vestido-listrado-laranja-pv26-27ange008ct', 'vestido-malha-estampa-exclusiva-vlt-geni012ct', 'vestido-tricoline-estampa-exclusiva-rosas-azuis',
-  ]);
+    'vestido-malha-floral-vlt-geni015ct',
+  ].sort());
   for (const product of products) {
     assert.equal(navigation.matchesCatalogCategory(product, 'vestidos-bebe'), (product.category === 'bebe' || product.additionalDepartments?.includes('bebe') === true) && product.catalogCategory === 'vestidos');
     assert.equal(navigation.matchesCatalogCategory(product, 'vestidos'), product.catalogCategory === 'vestidos');
@@ -119,4 +120,22 @@ test('floral knit dress appears in girls children and keeps only 2A in babies', 
     assert.deepEqual(Array.from(navigation.productForCategory(dress, slug).sizes), ['2A','4A','6A','8A','10A','12A']);
   }
   for (const slug of ['bebe-meninos', 'crianca-meninos']) assert.equal(navigation.matchesCatalogCategory(dress, slug), false);
+});
+
+test('GENI 015CT offers both prints with separately scoped baby and children sizes', () => {
+  const source = JSON.parse(read('app/lib/catalog.json'));
+  const compiled = {};
+  vm.runInNewContext(ts.transpileModule(read('app/lib/catalog-individual.ts'), {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
+  }).outputText, { exports: compiled, require: () => source });
+  const prints = compiled.catalogProducts.filter(product => product.reference === 'VLT GENI 015CT');
+  assert.equal(prints.length, 2);
+  assert.equal(new Set(prints.map(product => product.displayImages[0])).size, 2);
+  for (const dress of prints) {
+    assert.equal(dress.price, 289);
+    for (const [slug, sizes] of [['bebe-meninas-vestido', ['2A']], ['crianca-meninas-vestido', ['4A', '6A', '8A', '10A']]]) {
+      assert.equal(navigation.matchesCatalogCategory(dress, slug), true, slug);
+      assert.deepEqual(Array.from(navigation.productForCategory(dress, slug).sizes), sizes, slug);
+    }
+  }
 });

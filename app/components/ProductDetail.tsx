@@ -23,9 +23,10 @@ type Product = {
 };
 type StockState = { configured: boolean; status?: "available" | "out_of_stock" | "not_found"; scope?: "sku" | "reference"; checkedSku?: string } | null;
 
-export default function ProductDetail({ product, categoryTrail = productCategoryTrail(product), matchingPiece }: {
+export default function ProductDetail({ product, categoryTrail = productCategoryTrail(product), categoryContext, matchingPiece }: {
   product: Product;
   categoryTrail?: { slug: string; label: string }[];
+  categoryContext?: string;
   matchingPiece?: Pick<Product, "handle" | "title">;
 }) {
   const products = useCatalogProducts();
@@ -137,7 +138,23 @@ export default function ProductDetail({ product, categoryTrail = productCategory
           <h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Combine com</h2>
           <Link href={productHref(matchingPiece.handle)} className="mt-2 inline-block font-poppins text-sm underline underline-offset-4 hover:text-brand-strong">{matchingPiece.title}</Link>
         </div>}
-        {variants.length > 1 && <div className="mt-7"><h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Cores e estampas deste modelo</h2><div className="mt-3 flex flex-wrap gap-2">{variants.map((variant) => <Link key={variant.handle} href={`/catalogo/${variant.handle}`} aria-current={variant.handle === product.handle ? "page" : undefined} title={variant.title} className={`catalog-product-surface relative block h-20 w-16 overflow-hidden border p-1 transition hover:border-brand-strong ${variant.handle === product.handle ? "border-brand-strong" : "border-ink/20"}`}><Image src={variant.displayImages[0]} alt={variant.title} fill sizes="64px" className={catalogImageClass(variant.displayImages[0])}/></Link>)}</div><p className="mt-2 font-poppins text-xs text-ink/60">{product.title} selecionado</p></div>}
+        {variants.length > 1 && <div className="mt-7">
+          <h2 className="font-poppins text-xs uppercase tracking-[0.13em]">Cores e estampas deste modelo</h2>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {variants.map((variant) => {
+              const selected = variant.handle === product.handle;
+              const category = categoryContext && matchesCatalogCategory(variant, categoryContext) ? categoryContext : undefined;
+              return <Link
+                key={variant.handle}
+                href={productHref(variant.handle, category)}
+                aria-current={selected ? "page" : undefined}
+                title={variant.title}
+                className={`catalog-product-surface relative block h-20 w-16 overflow-hidden border p-1 transition hover:border-brand-strong ${selected ? "border-brand-strong" : "border-ink/20"}`}
+              ><Image src={variant.displayImages[0]} alt={variant.title} fill sizes="64px" className={catalogImageClass(variant.displayImages[0])}/></Link>;
+            })}
+          </div>
+          <p className="mt-2 font-poppins text-xs text-ink/60">{product.title} selecionado</p>
+        </div>}
         {product.colors && <div className="mt-7"><h2 className="font-poppins text-xs uppercase tracking-[0.13em]">{product.colorTitle ?? "Cores"}</h2><p className="mt-3 font-poppins text-sm">{product.colors.join(" · ")}</p></div>}
         {product.buttonFinishes && <fieldset className="mt-7">
           <legend className="font-poppins text-xs uppercase tracking-[0.13em]">Acabamento dos botões</legend>

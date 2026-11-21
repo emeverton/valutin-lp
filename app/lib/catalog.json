@@ -1987,6 +1987,21 @@
     "displayImages": ["/catalog/vestido-malha-estampa-exclusiva-vlt-gei012ct-frente.webp", "/catalog/vestido-malha-estampa-exclusiva-vlt-geni012ct.webp"]
   },
   {
+    "title": "Vestido de Malha Floral",
+    "handle": "vestido-malha-floral-vlt-geni015ct",
+    "category": "crianca",
+    "additionalDepartments": ["bebe"],
+    "catalogCategory": "vestidos",
+    "description": "Vestido de malha com estampa floral, decote redondo, mangas curtas bufantes e saia em camadas.",
+    "reference": "VLT GENI 015CT",
+    "price": 289,
+    "sizes": ["2A", "4A", "6A", "8A", "10A"],
+    "sizesByDepartment": { "bebe": ["2A"], "crianca": ["4A", "6A", "8A", "10A"] },
+    "images": ["/catalog/vestido-malha-floral-vlt-geni015ct-azul-marinho.png", "/catalog/vestido-malha-floral-vlt-geni015ct-off-white.png"],
+    "imageLabels": ["Vestido de malha azul-marinho com flores brancas de miolo amarelo", "Vestido de malha off-white com estampa de flores pequenas em tons de verde"],
+    "displayImages": ["/catalog/vestido-malha-floral-vlt-geni015ct-azul-marinho.png", "/catalog/vestido-malha-floral-vlt-geni015ct-off-white.png"]
+  },
+  {
     "title": "Shorts de Fustão — Rosa",
     "handle": "shorts-fustao-rosa-pv26-27ange004ct",
     "category": "crianca",

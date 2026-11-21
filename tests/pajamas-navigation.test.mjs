@@ -17,7 +17,8 @@ function compile(path, modules = {}) {
 const navigation = compile('app/lib/catalog-navigation.ts');
 
 test('MAR034CT prints are available in boys baby and children pajamas with scoped sizes', () => {
-  const products = JSON.parse(read('app/lib/catalog.json')).filter(product => product.reference === 'VLT MAR034CT');
+  const products = JSON.parse(read('app/lib/catalog.json')).filter(product =>
+    product.reference === 'VLT MAR034CT' && product.handle !== 'pijama-short-elefantinho-vlt-maro34ct');
   assert.equal(products.length, 8);
   assert.equal(new Set(products.map(product => product.displayImages[0])).size, 8);
   for (const product of products) {
@@ -37,6 +38,14 @@ test('MAR034CT prints are available in boys baby and children pajamas with scope
   const menus = compile('app/lib/mega-menu.ts', { './catalog-navigation': navigation });
   const boys = menus.megaMenuSections.find(section => section.key === 'bebe').columns.find(column => column.title === 'Meninos');
   assert.equal(boys.links.find(link => link.label === 'Pijama').href, '/catalogo/categoria/bebe-meninos-pijama');
+});
+
+test('all three Elefantinho color pages use the corrected MAR034CT reference', () => {
+  const source = JSON.parse(read('app/lib/catalog.json'));
+  const { catalogProducts } = compile('app/lib/catalog-individual.ts', { './catalog.json': { default: source } });
+  const variants = catalogProducts.filter(product => product.sourceHandle === 'pijama-short-elefantinho-vlt-maro34ct');
+  assert.equal(variants.length, 3);
+  for (const product of variants) assert.equal(product.reference, 'VLT MAR034CT');
 });
 
 test('pajamas combine girls and boys only within the children department', () => {

@@ -19,8 +19,8 @@ const piecesByProduct: Record<string, Piece[]> = {
   ],
   "vestido-de-boneca-vlt-valoo2ac": [
     { suffix: "laise-laranja", title: "Vestido de Boneca — Laise Laranja", imageIndices: [0] },
-    { suffix: "floral-colorido", title: "Vestido de Boneca — Floral Colorido", imageIndices: [1] },
-    { suffix: "floral-vermelho", title: "Vestido de Boneca — Floral Vermelho", imageIndices: [2] },
+    { suffix: "floral-colorido", title: "Vestido de Boneca — Floral Colorido", imageIndices: [1, 4] },
+    { suffix: "floral-vermelho", title: "Vestido de Boneca — Floral Vermelho", imageIndices: [2, 5] },
     { suffix: "floral-amarelo", title: "Vestido de Boneca — Floral Amarelo", imageIndices: [3] },
   ],
   "pijama-short-elefantinho-vlt-maro34ct": [

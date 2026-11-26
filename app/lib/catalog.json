@@ -1719,6 +1719,19 @@
     "displayImages": ["/catalog/macacao-basico-pf038bb.png"]
   },
   {
+    "title": "Macacão Floral de Algodão Pima",
+    "handle": "macacao-floral-pf037bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de algodão pima com estampa floral colorida, gola branca com detalhes florais, mangas longas, pés fechados e botões de pressão na frente.",
+    "reference": "BASICO26 PF037BB",
+    "price": 298,
+    "sizes": ["RN", "3M", "6M"],
+    "images": ["/catalog/macacao-floral-pf037bb.png"],
+    "imageLabels": ["Macacão com estampa floral colorida, gola branca e pés fechados"],
+    "displayImages": ["/catalog/macacao-floral-pf037bb.png"]
+  },
+  {
     "title": "Pijama Elefantinho — Verde",
     "handle": "pijama-menino-elefantinho-verde",
     "category": "crianca",

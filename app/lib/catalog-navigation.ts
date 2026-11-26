@@ -158,6 +158,7 @@ const babyAssignments: Record<string, BabyAssignment> = {
   "macacao-bordado-coelho": { type: "macacao", audiences: ["meninas"] },
   "macacao-pima-passarinhos-vlt-pf004bb": { type: "macacao", audiences: ["meninos", "meninas"] },
   "macacao-basico-pf038bb": { type: "macacao", audiences: ["meninos", "meninas"] },
+  "macacao-floral-pf037bb": { type: "macacao", audiences: ["meninas"] },
   "cardigan-bebe-carrinho": { type: "cardigans", audiences: ["meninos"] },
   "vestido-bordado-creme": { type: "vestido", audiences: ["meninas"] },
   "vestido-bordado-listrado-azul": { type: "vestido", audiences: ["meninas"] },

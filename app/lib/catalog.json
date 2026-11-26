@@ -1706,6 +1706,19 @@
     ]
   },
   {
+    "title": "Macacão Básico de Algodão Pima",
+    "handle": "macacao-basico-pf038bb",
+    "category": "bebe",
+    "catalogCategory": "macacoes-e-jardineiras",
+    "description": "Macacão de algodão pima branco com estampa azul, mangas longas, pés fechados e fechamento frontal por zíper.",
+    "reference": "BÁSICO PF038BB",
+    "price": 298,
+    "sizes": ["RN", "3M", "6M"],
+    "images": ["/catalog/macacao-basico-pf038bb.png"],
+    "imageLabels": ["Macacão branco com estampa azul, zíper frontal e pés fechados"],
+    "displayImages": ["/catalog/macacao-basico-pf038bb.png"]
+  },
+  {
     "title": "Pijama Elefantinho — Verde",
     "handle": "pijama-menino-elefantinho-verde",
     "category": "crianca",

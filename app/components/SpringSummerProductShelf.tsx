@@ -13,7 +13,7 @@ const shelves = {
     eyebrow: "Escolhas para os dias de sol",
     handles: [
       "macacao-fustao-azul",
-      "conjunto-body-shorts-floral",
+      "conjunto-body-shorts-xadrez-rosa",
       "vestido-xadrez-rosa",
       "macacao-tricoline-listra-vermelha",
     ],

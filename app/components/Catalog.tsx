@@ -20,7 +20,7 @@ const featuredHandles = [
   "conjunto-laise-laranja",
   "camisa-linho",
   "vestido-percal-tricolor",
-  "conjunto-body-shorts-floral",
+  "conjunto-body-shorts-xadrez-rosa",
   "vestido-algodao-rosa",
   "macacao-fustao-azul",
 ];

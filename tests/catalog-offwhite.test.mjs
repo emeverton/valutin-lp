@@ -24,7 +24,7 @@ test('off-white copies keep the original photo files and cover every selected ga
     '/catalog-outubro/00000423-PHOTO-2026-09-24-16-02-26.jpg',
     '/catalog-outubro/00000429-PHOTO-2026-09-24-16-34-26.jpg',
   ]);
-  assert.equal(Object.keys(mapping).length, 58);
+  assert.equal(Object.keys(mapping).length, 57);
   for (const [source, output] of Object.entries(mapping)) {
     assert.ok(originals.has(source) || archivedDressPhotos.has(source));
     assert.ok(output.startsWith('/catalog-offwhite/'));

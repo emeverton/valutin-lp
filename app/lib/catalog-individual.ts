@@ -77,7 +77,6 @@ const piecesByProduct: Record<string, Piece[]> = {
   "conjunto-body-shorts": [
     { suffix: "xadrez-azul", title: "Conjunto Body e Shorts — Xadrez Azul", imageIndices: [0] },
     { suffix: "xadrez-rosa", title: "Conjunto Body e Shorts — Xadrez Rosa", imageIndices: [1] },
-    { suffix: "floral", title: "Conjunto Body e Shorts — Floral", imageIndices: [2] },
   ],
   "vestido-xadrez": [
     { suffix: "azul", title: "Vestido Xadrez — Azul", imageIndices: [0, 1] },

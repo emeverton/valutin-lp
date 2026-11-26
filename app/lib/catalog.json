@@ -366,23 +366,19 @@
     ],
     "colors": [
       "Xadrez azul",
-      "Xadrez rosa",
-      "Floral"
+      "Xadrez rosa"
     ],
     "images": [
       "/catalog/conjunto-body-xadrez-azul.jpeg",
-      "/catalog/conjunto-body-xadrez-rosa.jpeg",
-      "/catalog/conjunto-body-floral.jpeg"
+      "/catalog/conjunto-body-xadrez-rosa.jpeg"
     ],
     "imageLabels": [
       "Xadrez azul",
-      "Xadrez rosa",
-      "Floral"
+      "Xadrez rosa"
     ],
     "displayImages": [
       "/catalog/conjunto-body-xadrez-azul.jpeg",
-      "/catalog/conjunto-body-xadrez-rosa.jpeg",
-      "/catalog/conjunto-body-floral.jpeg"
+      "/catalog/conjunto-body-xadrez-rosa.jpeg"
     ]
   },
   {

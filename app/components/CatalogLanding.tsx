@@ -15,7 +15,7 @@ const departmentImages: Record<string, string> = {
 const categoryImages: Record<string, string> = {
   vestidos: "vestido-de-laise-rosa",
   "macacoes-e-jardineiras": "macacao-tricoline-listra-sage",
-  "bodys-e-conjuntos": "conjunto-body-shorts-floral",
+  "bodys-e-conjuntos": "conjunto-body-shorts-xadrez-rosa",
   "camisetas-e-camisas": "camiseta-algodao-veleiro-01",
   "saias-shorts-e-bermudas": "saia-algodao-floral",
   "tricos-e-casacos": "cardigan-bordado-mao-bordado-azul",

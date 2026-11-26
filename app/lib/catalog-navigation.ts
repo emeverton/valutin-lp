@@ -45,7 +45,7 @@ export const babySections = [
 
 const babyTypes = [
   { type: "pijama", label: "Pijama", audiences: ["meninos", "meninas"] },
-  { type: "camisetas", label: "Camisetas", audiences: ["meninas"] },
+  { type: "camisetas", label: "Camisetas", audiences: ["meninos", "meninas"] },
   { type: "body", label: "Body", audiences: ["meninos", "meninas"] },
   { type: "macacao", label: "Macacão", audiences: ["meninos", "meninas"] },
   { type: "jardineira", label: "Jardineira", audiences: ["meninos", "meninas"] },
@@ -66,6 +66,7 @@ type CategoryProduct = { category: string; catalogCategory: string; additionalDe
 // Classify each garment independently of its commercial fields and color.
 // A piece-level entry takes precedence over its original multi-piece record.
 const babyAssignments: Record<string, BabyAssignment> = {
+  "polo-algodao-pima-pf045ct": { type: "camisetas", audiences: ["meninos"] },
   "vestido-casinha-abelha-azul-vlt-nad004bb": { type: "vestido", audiences: ["meninas"] },
   "calca-skinny-verde-dame010ct": { type: "calcas", audiences: ["meninos"] },
   "calca-malha-jogger-vinho-dame010ct": { type: "calcas", audiences: ["meninos"] },
@@ -201,6 +202,7 @@ const childrenTypes = [
 ] as const;
 type ChildrenAssignment = { type: typeof childrenTypes[number]["type"]; audiences: readonly BabyAudience[] };
 const childrenAssignments: Record<string, ChildrenAssignment> = {
+  "polo-algodao-pima-pf045ct": { type: "camisetas", audiences: ["meninos"] },
   "camisa-jeans-azul-dame008ct": { type: "camisa-batas", audiences: ["meninos"] },
   "calca-skinny-verde-dame010ct": { type: "calcas", audiences: ["meninos"] },
   "calca-malha-jogger-vinho-dame010ct": { type: "calcas", audiences: ["meninos"] },

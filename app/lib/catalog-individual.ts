@@ -9,6 +9,10 @@ type Piece = { suffix: string; title: string; imageIndices: number[] };
 // Each distinct color/print gets its own catalog card. Photos listed together
 // below are alternate views of that same piece, not selectable variants.
 const piecesByProduct: Record<string, Piece[]> = {
+  "polo-algodao-pima-pf045ct": [
+    { suffix: "branca", title: "Polo de Algodão Pima — Branca", imageIndices: [0] },
+    { suffix: "azul-marinho", title: "Polo de Algodão Pima — Azul-marinho", imageIndices: [1] },
+  ],
   "vestido-malha-floral-vlt-geni015ct": [
     { suffix: "azul-marinho", title: "Vestido de Malha Floral — Azul-marinho", imageIndices: [0] },
     { suffix: "off-white", title: "Vestido de Malha Floral — Off-white", imageIndices: [1] },

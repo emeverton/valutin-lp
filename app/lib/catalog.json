@@ -1732,6 +1732,21 @@
     "displayImages": ["/catalog/macacao-floral-pf037bb.png"]
   },
   {
+    "title": "Polo de Algodão Pima",
+    "handle": "polo-algodao-pima-pf045ct",
+    "category": "crianca",
+    "additionalDepartments": ["bebe"],
+    "catalogCategory": "camisetas-e-camisas",
+    "description": "Polo de algodão pima com mangas curtas e gola clássica com dois botões.",
+    "reference": "BÁSICO PF045CT Q",
+    "price": 228,
+    "sizes": ["2A", "4A", "6A", "8A", "10A", "12A"],
+    "sizesByDepartment": { "bebe": ["2A"] },
+    "images": ["/catalog/polo-algodao-pima-pf045ct-branca.png", "/catalog/polo-algodao-pima-pf045ct-azul-marinho.png"],
+    "imageLabels": ["Polo branca de algodão pima", "Polo azul-marinho de algodão pima"],
+    "displayImages": ["/catalog/polo-algodao-pima-pf045ct-branca.png", "/catalog/polo-algodao-pima-pf045ct-azul-marinho.png"]
+  },
+  {
     "title": "Pijama Elefantinho — Verde",
     "handle": "pijama-menino-elefantinho-verde",
     "category": "crianca",

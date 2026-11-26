@@ -144,7 +144,7 @@ test('all current children pieces are classified without changing commercial dat
 
 test('shirts stay separate while girls shorts, skorts and skirts share one category', () => {
   const shirts = products.filter(product => nav.childrenClassification(product)?.type === 'camisetas' && nav.childrenClassification(product).audiences.includes('meninos'));
-  assert.equal(shirts.length, 10);
+  assert.equal(shirts.length, 12);
   for (const shirt of shirts) {
     assert.equal(nav.matchesCatalogCategory(shirt, 'crianca-meninos-camisetas'), true, shirt.handle);
     assert.equal(nav.matchesCatalogCategory(shirt, 'crianca-meninas'), false, shirt.handle);
